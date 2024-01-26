@@ -1,0 +1,13 @@
+flutter_native_splash:
+  color: "#FEE7DF"
+  color_dark: "#710816"
+  image: assets/logos/period_sqr.png
+  image_dark: assets/logos/period_sqr.png
+
+  android_12:
+    color: "#FEE7DF"
+    color_dark: "#710816"
+    image: assets/logos/period_sqr.png
+    image_dark: assets/logos/period_sqr.png
+
+  web: false
