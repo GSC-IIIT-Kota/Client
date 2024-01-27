@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:solution_challenge/common/styles/spacing_styles.dart';
-import 'package:solution_challenge/common/widgets/form_divider.dart';
-import 'package:solution_challenge/common/widgets/social_buttons.dart';
+import 'package:solution_challenge/common/widgets/login_signup/form_divider.dart';
+import 'package:solution_challenge/common/widgets/login_signup/social_buttons.dart';
 import 'package:solution_challenge/features/authentication/screens/login/widgets/login_form.dart';
 import 'package:solution_challenge/features/authentication/screens/login/widgets/login_header.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
