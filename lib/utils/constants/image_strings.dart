@@ -5,6 +5,8 @@ class TImages {
   static const String darkAppLogo = "assets/logos/period.png";
 
   // social logos
+  static const String google = "assets/logos/google.png";
+  static const String facebook = "assets/logos/facebook.png";
 
   // Onboarding images
   static const String onBoardingImage1 = "assets/images/onboarding_images/screen1.jpg";
