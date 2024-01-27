@@ -15,7 +15,12 @@ dependencies:
     sdk: flutter
 
   # Utility Packages
-  flutter_native_splash: ^2.3.2
+  http: ^1.1.0
+  logger: ^2.0.1
+  url_launcher: ^6.1.12
+  flutter_native_splash: ^2.3.9
+  smooth_page_indicator: ^1.1.0
+  intl: ^0.19.0
 
   # Icons
   iconsax: ^0.0.8
@@ -23,6 +28,7 @@ dependencies:
 
   # State Management
   get: ^4.6.5
+  get_storage: ^2.1.1
 
 dev_dependencies:
   flutter_test:
@@ -33,6 +39,12 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+  # Local assets
+  assets:
+    - assets/logos/
+    - assets/images/onboarding_images/
+
+  #Local fonts
   fonts:
     - family: Poppins
       fonts:
