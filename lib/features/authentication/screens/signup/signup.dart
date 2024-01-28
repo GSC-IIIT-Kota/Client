@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/common/widgets/login_signup/form_divider.dart';
 import 'package:solution_challenge/common/widgets/login_signup/social_buttons.dart';
+import 'package:solution_challenge/features/authentication/screens/signup/verify_email.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -87,7 +88,7 @@ class TSignupForm extends StatelessWidget {
           const SizedBox(
             height: TSizes.spaceBtwInputFields,
           ),
-    
+
           ///Username
           TextFormField(
             expands: false,
@@ -99,7 +100,7 @@ class TSignupForm extends StatelessWidget {
           const SizedBox(
             height: TSizes.spaceBtwInputFields,
           ),
-    
+
           ///Email
           TextFormField(
             expands: false,
@@ -111,7 +112,7 @@ class TSignupForm extends StatelessWidget {
           const SizedBox(
             height: TSizes.spaceBtwInputFields,
           ),
-    
+
           ///Phone number
           TextFormField(
             expands: false,
@@ -123,7 +124,7 @@ class TSignupForm extends StatelessWidget {
           const SizedBox(
             height: TSizes.spaceBtwInputFields,
           ),
-    
+
           ///Password
           TextFormField(
             obscureText: true,
@@ -136,12 +137,14 @@ class TSignupForm extends StatelessWidget {
           const SizedBox(
             height: TSizes.spaceBtwSections,
           ),
-    
+
           ///Signup button
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () => Get.to(
+                () => const VerifyEmailScreen(),
+              ),
               child: const Text("Create Account"),
             ),
           ),

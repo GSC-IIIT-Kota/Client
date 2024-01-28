@@ -43,6 +43,7 @@ flutter:
   assets:
     - assets/logos/
     - assets/images/onboarding_images/
+    - assets/images/login_signup/
 
   #Local fonts
   fonts:
