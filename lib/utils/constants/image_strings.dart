@@ -16,5 +16,6 @@ class TImages {
   // Login_signup images
   static const String verifyEmailImage = "assets/images/login_signup/verifyemail.png";
   static const String confirmedEmailImage = "assets/images/login_signup/confirmed.png";
+  static const String resetPasswordImage = "assets/images/login_signup/resetPassword.png";
 
 }
