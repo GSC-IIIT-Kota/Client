@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:solution_challenge/features/donate/screens/ngo/ngo.dart';
+import 'package:solution_challenge/features/education/screens/resources/resources.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
@@ -39,5 +41,5 @@ class NavigationMenu extends StatelessWidget {
 class NavigationController extends GetxController{
   final Rx<int> selectedIndex = 0.obs;
 
-  final screens = [Container(color: Colors.green,), Container(color: Colors.purple,), Container(color: Colors.orange,), Container(color: Colors.blue,)];
+  final screens = [const ResourceScreen(), Container(color: Colors.purple,), const NgoScreen(), Container(color: Colors.blue,)];
 }
