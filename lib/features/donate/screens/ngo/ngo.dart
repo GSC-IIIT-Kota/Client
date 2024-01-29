@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/primary_ngo_container.dart';
+import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_appbar.dart';
 
 
 class NgoScreen extends StatelessWidget {
@@ -8,12 +8,16 @@ class NgoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
             PPrimaryNgoContainer(
-              child: Container(),
+              child: Column(
+                children: [
+                  PNgoAppBar()
+                ],
+              ),
             )
           ],
         ),
@@ -21,3 +25,5 @@ class NgoScreen extends StatelessWidget {
     );
   }
 }
+
+

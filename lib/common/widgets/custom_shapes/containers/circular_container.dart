@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:solution_challenge/utils/constants/colors.dart';
 
 
 class PCircularContainer extends StatelessWidget {
@@ -10,7 +9,7 @@ class PCircularContainer extends StatelessWidget {
     this.radius = 400,
     this.padding = 0,
     this.child,
-    this.backgroundColor = TColors.primaryBackground,
+    this.backgroundColor = Colors.white,
   });
 
   final double? width;
