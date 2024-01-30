@@ -18,4 +18,10 @@ class TImages {
   static const String confirmedEmailImage = "assets/images/login_signup/confirmed.png";
   static const String resetPasswordImage = "assets/images/login_signup/resetPassword.png";
 
+  //category icons
+  static const String allCategoriesIcon = "assets/icons/categories/4-rounded-squares.png";
+  static const String charityIcon = "assets/icons/categories/charity.png";
+  static const String eventsIcon = "assets/icons/categories/event.png";
+  static const String campaignsIcon = "assets/icons/categories/marketing.png";
+
 }
