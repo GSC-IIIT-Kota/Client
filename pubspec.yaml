@@ -48,6 +48,11 @@ flutter:
 
   #Local fonts
   fonts:
+    - family: Raleway
+      fonts:
+        - asset: fonts/Raleway-Regular.ttf
+        - asset: fonts/Raleway-Italic.ttf
+          style: italic
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Light.ttf
