@@ -11,6 +11,7 @@ environment:
 
 #---------------------------PACKAGES--------------------------
 dependencies:
+  youtube_player_flutter: ^8.1.2
   flutter:
     sdk: flutter
 
@@ -45,14 +46,14 @@ flutter:
     - assets/images/onboarding_images/
     - assets/images/login_signup/
     - assets/icons/categories/
+    - packages/youtube_player_flutter/assets/
 
   #Local fonts
   fonts:
     - family: Raleway
       fonts:
-        - asset: fonts/Raleway-Regular.ttf
-        - asset: fonts/Raleway-Italic.ttf
-          style: italic
+        - asset: assets/fonts/Raleway-Regular.ttf
+
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Light.ttf
