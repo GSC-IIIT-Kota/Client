@@ -18,7 +18,6 @@ class PNgoCategories extends StatelessWidget {
         children: [
           /// Heading
           const PSectionHeading(
-
             title: "Categories",
             showActionButton: false,
           ),

@@ -24,4 +24,10 @@ class TImages {
   static const String eventsIcon = "assets/icons/categories/event.png";
   static const String campaignsIcon = "assets/icons/categories/marketing.png";
 
+  //banner images
+  static const String banner1Image = "assets/images/banners/banner1.jpg";
+  static const String banner2Image = "assets/images/banners/banner2.jpg";
+  static const String banner3Image = "assets/images/banners/banner3.jpg";
+  static const String banner4Image = "assets/images/banners/banner4.jpg";
+
 }
