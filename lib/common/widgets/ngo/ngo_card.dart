@@ -25,7 +25,7 @@ class PNgoCard extends StatelessWidget {
     return Container(
       width: 300,
       padding: const EdgeInsets.all(1),
-      margin: EdgeInsets.only(right: 20),
+      margin: const EdgeInsets.only(right: 20),
       decoration: BoxDecoration(
         boxShadow: [PShadowStyle.cardShadow],
         borderRadius: BorderRadius.circular(TSizes.productImageRadius),

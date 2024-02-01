@@ -15,7 +15,7 @@ class TSocialButtons extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-              border: Border.all(color: TColors.secondary),
+              border: Border.all(color: TColors.brightpink),
               borderRadius: BorderRadius.circular(100)),
           child: IconButton(
             onPressed: () {},
@@ -31,7 +31,7 @@ class TSocialButtons extends StatelessWidget {
         ),
         Container(
           decoration: BoxDecoration(
-              border: Border.all(color: TColors.secondary),
+              border: Border.all(color: TColors.brightpink),
               borderRadius: BorderRadius.circular(100)),
           child: IconButton(
             onPressed: () {},

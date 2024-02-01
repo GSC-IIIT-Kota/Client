@@ -4,7 +4,6 @@ import 'package:solution_challenge/features/authentication/controllers.onboardin
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/device/device_utility.dart';
-import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
 class OnBoardingNextButton extends StatelessWidget {
   const OnBoardingNextButton({
@@ -13,14 +12,13 @@ class OnBoardingNextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
 
     return Positioned(
       right: TSizes.defaultSpace,
       bottom: TDeviceUtils.getBottomNavigationBarHeight(),
       child: ElevatedButton(
         onPressed: () => OnBoardingController.instance.nextPage(),
-        style: ElevatedButton.styleFrom(shape: const CircleBorder(), backgroundColor: dark ? TColors.light : TColors.dark),
+        style: ElevatedButton.styleFrom(shape: const CircleBorder(), backgroundColor: TColors.rani, side: const BorderSide(color: TColors.rani)),
         child: const Icon(Iconsax.arrow_right_3),
       ),
     );

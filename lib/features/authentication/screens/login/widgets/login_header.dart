@@ -17,7 +17,7 @@ class TLoginHeader extends StatelessWidget {
         Image(
           height: 150,
           image: AssetImage(
-              dark ? TImages.lightAppLogo : TImages.darkAppLogo),
+              dark ? TImages.darkAppLogo : TImages.lightAppLogo),
         ),
         Text("Connect with Period",
             style: Theme.of(context).textTheme.headlineMedium),
