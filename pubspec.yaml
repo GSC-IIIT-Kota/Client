@@ -11,6 +11,7 @@ environment:
 
 #---------------------------PACKAGES--------------------------
 dependencies:
+  youtube_player_flutter: ^8.1.2
   flutter:
     sdk: flutter
 
@@ -21,7 +22,6 @@ dependencies:
   flutter_native_splash: ^2.3.9
   smooth_page_indicator: ^1.1.0
   intl: ^0.19.0
-  carousel_slider: ^4.2.1
 
   # Icons
   iconsax: ^0.0.8
@@ -46,10 +46,14 @@ flutter:
     - assets/images/onboarding_images/
     - assets/images/login_signup/
     - assets/icons/categories/
-    - assets/images/banners/
+    - packages/youtube_player_flutter/assets/
 
   #Local fonts
   fonts:
+    - family: Raleway
+      fonts:
+        - asset: assets/fonts/Raleway-Regular.ttf
+
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Light.ttf
