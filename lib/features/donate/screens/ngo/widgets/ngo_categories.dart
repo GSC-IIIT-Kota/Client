@@ -4,7 +4,6 @@ import 'package:solution_challenge/common/widgets/texts/section_heading.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 
-
 class PNgoCategories extends StatelessWidget {
   const PNgoCategories({
     super.key,
@@ -33,7 +32,11 @@ class PNgoCategories extends StatelessWidget {
               itemCount: 4,
               scrollDirection: Axis.horizontal,
               itemBuilder: (_, index) {
-                return PVerticalImageText(image: TImages.allCategoriesIcon,title: "Categories",onTap: () {},);
+                return PVerticalImageText(
+                  image: TImages.eventsIcon,
+                  title: "Categories",
+                  onTap: () {},
+                );
               },
             ),
           ),
