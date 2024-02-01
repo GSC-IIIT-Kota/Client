@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:solution_challenge/common/widgets/success_screen/success_screen.dart';
 import 'package:solution_challenge/features/authentication/screens/login/login.dart';
+import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
@@ -83,6 +84,9 @@ class VerifyEmailScreen extends StatelessWidget {
                 width: double.infinity,
                 child: TextButton(
                   onPressed: () {},
+                  style: TextButton.styleFrom(
+                    foregroundColor: TColors.rani,
+                  ),
                   child: const Text("Resend Email"),
                 ),
               ),

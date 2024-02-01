@@ -4,6 +4,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/features/authentication/screens/password_configurations/forgot_password.dart';
 import 'package:solution_challenge/features/authentication/screens/signup/signup.dart';
 import 'package:solution_challenge/navigation_menu.dart';
+import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 
 class TLoginForm extends StatelessWidget {
@@ -57,6 +58,9 @@ class TLoginForm extends StatelessWidget {
                 // forgot password
                 TextButton(
                   onPressed: () => Get.to(() => const ForgotPassword()),
+                  style: TextButton.styleFrom(
+                    foregroundColor: TColors.rani,
+                  ),
                   child: const Text("Forgot Password?"),
                 ),
               ],

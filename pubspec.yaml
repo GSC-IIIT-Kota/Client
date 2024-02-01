@@ -44,9 +44,9 @@ flutter:
   assets:
     - assets/logos/
     - assets/images/onboarding_images/
+    - assets/images/banners/
     - assets/images/login_signup/
     - assets/icons/categories/
-    - packages/youtube_player_flutter/assets/
 
   #Local fonts
   fonts:

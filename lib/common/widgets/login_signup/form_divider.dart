@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
-import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
 class TFormDivider extends StatelessWidget {
   const TFormDivider({
@@ -11,13 +10,12 @@ class TFormDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Flexible(
+        const Flexible(
           child: Divider(
-            color: dark ? TColors.primary : TColors.accent,
+            color: TColors.brightpink,
             thickness: 0.5,
             indent: 60,
             endIndent: 5,
@@ -27,9 +25,9 @@ class TFormDivider extends StatelessWidget {
           dividerText,
           style: Theme.of(context).textTheme.labelMedium,
         ),
-        Flexible(
+        const Flexible(
           child: Divider(
-            color: dark ? TColors.primary : TColors.accent,
+            color: TColors.brightpink,
             thickness: 0.5,
             indent: 5,
             endIndent: 60,

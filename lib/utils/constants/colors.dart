@@ -17,4 +17,11 @@ class TColors {
   static const Color light = Color(0xFFFEE7DF);
   static const Color dark = Color(0xFF710816);
   static const Color primaryBackground = Color(0xFFFEE7DF);
+
+  // Shades
+  static const Color myblack = Color(0xFF0C0B10);
+  static const Color burgandy = Color(0xFF710816);
+  static const Color rani = Color(0xFF980E27);
+  static const Color brightpink = Color(0xFFE8354D);
+  static const Color greige = Color(0xFF7B7554);
 }

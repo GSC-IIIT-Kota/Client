@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:solution_challenge/utils/constants/colors.dart';
 
-class TCheckboxTheme {
-  TCheckboxTheme._();
+class PCheckboxTheme {
+  PCheckboxTheme._();
 
   static CheckboxThemeData lightCheckboxTheme = CheckboxThemeData(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
@@ -15,7 +16,7 @@ class TCheckboxTheme {
     }),
     fillColor: MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.selected)) {
-        return Colors.blue;
+        return TColors.rani;
       }
       else {
         return Colors.transparent;
@@ -35,7 +36,7 @@ class TCheckboxTheme {
       }),
       fillColor: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.selected)) {
-          return Colors.blue;
+          return TColors.rani;
         }
         else {
           return Colors.transparent;
