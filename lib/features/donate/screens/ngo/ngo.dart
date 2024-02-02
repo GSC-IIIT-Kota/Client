@@ -33,7 +33,10 @@ class NgoScreen extends StatelessWidget {
                   ),
 
                   /// Categories
-                  PNgoCategories()
+                  PNgoCategories(),
+                  SizedBox(
+                    height: TSizes.spaceBtwSections,
+                  ),
                 ],
               ),
             ),
