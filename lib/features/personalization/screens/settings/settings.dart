@@ -6,12 +6,14 @@ import 'package:solution_challenge/common/widgets/list_tiles/settings_menu_tile.
 import 'package:solution_challenge/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:solution_challenge/common/widgets/texts/section_heading.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
+import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final dark = THelperFunctions.isDarkMode(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -52,7 +54,7 @@ class SettingsScreen extends StatelessWidget {
               child: Column(
                 children: [
                   ///Account Settings
-                  PSectionHeading(title: 'Account Settings', textColor: Colors.white, showActionButton: false,),
+                  PSectionHeading(title: 'Account Settings', textColor: dark ? Colors.white : Colors.black, showActionButton: false,),
                   SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
