@@ -21,11 +21,11 @@ class PNotificationIcon extends StatelessWidget {
             width: 20,
             height: 20,
             decoration: BoxDecoration(
-                color: TColors.secondary,
+                color: TColors.accent,
                 borderRadius: BorderRadius.circular(100)
             ),
             child: Center(
-              child: Text("2", style: Theme.of(context).textTheme.labelLarge!.apply(color: TColors.textPrimary),),
+              child: Text("2", style: Theme.of(context).textTheme.labelLarge!.apply(color: TColors.myblack),),
             ),
           ),
         )

@@ -5,19 +5,30 @@ import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
 class PCircularHeart extends StatelessWidget {
   const PCircularHeart({
-    super.key,
+    super.key, this.onPressed,
   });
 
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
+
     final dark = THelperFunctions.isDarkMode(context);
-    return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100),
-          color: dark ? Colors.black.withOpacity(0.2) : Colors.white.withOpacity(0.2)
+
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        width: 35, // Adjust the size as needed
+        height: 35,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: dark ? TColors.myblack.withOpacity(0.8) : Colors.white.withOpacity(0.8), // You can change the color
+        ),
+        child: const Icon(
+          Iconsax.heart5,
+          color: TColors.brightpink,
+        ),
       ),
-      child: IconButton(onPressed: (){}, icon: Icon(Iconsax.heart5, color: TColors.primary,)),
     );
   }
 }

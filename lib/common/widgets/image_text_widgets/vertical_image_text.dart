@@ -8,7 +8,7 @@ class PVerticalImageText extends StatelessWidget {
     super.key,
     required this.image,
     required this.title,
-    this.textColor = TColors.textWhite,
+    this.textColor = Colors.white,
     this.backgroundColor = TColors.textWhite,
     this.onTap,
   });
