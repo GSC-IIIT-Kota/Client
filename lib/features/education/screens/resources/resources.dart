@@ -3,7 +3,7 @@ import 'package:solution_challenge/features/education/screens/resources/widgets/
 import 'package:solution_challenge/features/education/screens/resources/widgets/youtubeVideos.dart';
 
 class EducationScreen extends StatelessWidget {
-  const EducationScreen({Key? key});
+  const EducationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +20,9 @@ class EducationScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 100), // Spacer for top margin
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32.0),
+            const SizedBox(height: 100), // Spacer for top margin
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 32.0),
               child: Text(
                 'How is your health today?',
                 textAlign: TextAlign.center,
@@ -34,12 +34,12 @@ class EducationScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 25), // Spacer between text and cards
+            const SizedBox(height: 25), // Spacer between text and cards
             SizedBox(
               height: 200, // Adjust the height based on your requirement
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 itemCount: 5, // Number of cards
                 itemBuilder: (context, index) {
                   return EducationCard(
@@ -50,7 +50,7 @@ class EducationScreen extends StatelessWidget {
                 },
               ),
             ),
-            Expanded(
+            const Expanded(
               child: YoutubeVideoPlayer(videoUrl: 'https://www.youtube.com/watch?v=your_video_id_here'),
             ),
           ],

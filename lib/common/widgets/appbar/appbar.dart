@@ -33,7 +33,7 @@ class PAppBar extends StatelessWidget implements PreferredSizeWidget {
         leading: showBackArrow
             ? IconButton(
                 onPressed: () => Get.back(),
-                icon: Icon(Iconsax.arrow_left, color: dark ? TColors.accent : TColors.dimgrey,))
+                icon: Icon(Iconsax.arrow_left, color: dark ? Colors.white : TColors.dimgrey,))
             : leadingIcon != null
                 ? IconButton(
                     onPressed: leadingOnPressed, icon: Icon(leadingIcon))
