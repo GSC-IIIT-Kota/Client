@@ -17,9 +17,7 @@ class PPrimaryNgoContainer extends StatelessWidget {
       child: Container(
         color: TColors.primary,
         padding: const EdgeInsets.only(bottom: 0),
-        child: SizedBox(
-          height: 380,
-          child: Stack(
+        child: Stack(
             children: [
               Positioned(
                 top: -150,
@@ -38,7 +36,6 @@ class PPrimaryNgoContainer extends StatelessWidget {
               child,
             ],
           ),
-        ),
       )
     );
   }

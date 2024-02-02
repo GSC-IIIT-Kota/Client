@@ -34,7 +34,6 @@ class PNgoProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final dark = THelperFunctions.isDarkMode(context);
 
     return Scaffold(
@@ -86,8 +85,10 @@ class PNgoProfile extends StatelessWidget {
 
                     // Divider
                     Divider(
-                      color: dark ? TColors.battleship : TColors.battleship.withOpacity(0.5),
-                      thickness: 0.5,
+                      color: dark
+                          ? TColors.battleship
+                          : TColors.battleship.withOpacity(0.5),
+                      thickness: 0.9,
                       indent: 5,
                       endIndent: 5,
                     ),
@@ -96,62 +97,37 @@ class PNgoProfile extends StatelessWidget {
                     // Organiser details
                     Text(
                       "Organiser",
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleSmall!
-                          .apply(color: dark ? Colors.white : Colors.black, fontWeightDelta: 2),
+                      style: Theme.of(context).textTheme.titleSmall!.apply(
+                          color: dark ? Colors.white : Colors.black,
+                          fontWeightDelta: 2),
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
 
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CircleAvatar(
-                          radius: 25,
-                          backgroundImage: NetworkImage(orgPhoto),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: SizedBox(
-                            height: 50,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "NGO for women",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .labelLarge!
-                                      .apply(
-                                          color: dark ? TColors.accent : TColors.dimgrey,
-                                          fontWeightDelta: 2),
-                                ),
-                                const SizedBox(
-                                  height: TSizes.xs,
-                                ),
-                                Text(
-                                  "Rajasthan, India",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .labelLarge!
-                                      .apply(color: dark ? TColors.accent : TColors.battleship),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
+                    ListTile(
+                      leading: CircleAvatar(
+                        radius: 25,
+                        backgroundImage: NetworkImage(orgPhoto),
+                      ),
+                      title: Text(
+                        "NGO for women",
+                        style: Theme.of(context).textTheme.titleSmall!.apply(
+                            color: dark ? TColors.accent : TColors.dimgrey,
+                            fontWeightDelta: 2),
+                      ),
+                      subtitle: Text(
+                        "Rajasthan, India",
+                        style: Theme.of(context).textTheme.bodyMedium!.apply(
+                            color: dark ? TColors.accent : TColors.battleship),
+                      ),
                     ),
-                    const SizedBox(height: TSizes.spaceBtwSections),
+                    const SizedBox(height: TSizes.spaceBtwItems/2),
 
                     // Description
                     Text(
                       "Description",
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleSmall!
-                          .apply(color: dark ? TColors.brightpink : TColors.burgandy, fontWeightDelta: 2),
+                      style: Theme.of(context).textTheme.titleSmall!.apply(
+                          color: dark ? TColors.brightpink : TColors.burgandy,
+                          fontWeightDelta: 2),
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems / 2),
 
@@ -159,7 +135,10 @@ class PNgoProfile extends StatelessWidget {
                       description,
                       maxLines: 6,
                       overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.bodyMedium!.apply(color: dark ? Colors.white.withOpacity(0.8) : TColors.dimgrey),
+                      style: Theme.of(context).textTheme.bodyMedium!.apply(
+                          color: dark
+                              ? Colors.white.withOpacity(0.8)
+                              : TColors.dimgrey),
                     ),
                   ],
                 ),
@@ -169,7 +148,8 @@ class PNgoProfile extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: TSizes.lg, vertical: TSizes.md),
+        padding: const EdgeInsets.symmetric(
+            horizontal: TSizes.lg, vertical: TSizes.md),
         child: ElevatedButton(
           onPressed: () {},
           child: const Text('Donate now'),
