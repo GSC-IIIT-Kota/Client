@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:solution_challenge/features/personalization/screens/profile/profile.dart';
+import 'package:get/get.dart';
 
 class PUserProfileTile extends StatelessWidget {
   const PUserProfileTile({
@@ -36,7 +38,7 @@ class PUserProfileTile extends StatelessWidget {
         ),
         trailing: showEditIcon
             ? IconButton(
-                onPressed: () {},
+                onPressed: () => Get.to(() => const ProfileScreen()),
                 icon: const Icon(
                   Iconsax.edit,
                   color: Colors.white,

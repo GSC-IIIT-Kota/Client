@@ -49,31 +49,58 @@ class SettingsScreen extends StatelessWidget {
             ),
 
             ///Body
-            const Padding(
-              padding: EdgeInsets.all(TSizes.defaultSpace),
+            Padding(
+              padding: const EdgeInsets.all(TSizes.defaultSpace),
               child: Column(
                 children: [
                   ///Account Settings
-                  PSectionHeading(title: 'Account Settings', textColor: dark ? Colors.white : Colors.black, showActionButton: false,),
-                  SizedBox(
+                  PSectionHeading(
+                    title: 'Account Settings',
+                    textColor: dark ? Colors.white : Colors.black,
+                    showActionButton: false,
+                  ),
+                  const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
 
-                  PSettingsMenuTile(icon: Iconsax.book_saved, title: "Bookmarked Resources", subTitle: "Explore your saved educational treasures",),
-                  PSettingsMenuTile(icon: Iconsax.receipt, title: "My Donations", subTitle: "Track your contributions"),
-                  PSettingsMenuTile(icon: Iconsax.path, title: "My Blogs", subTitle: "Your experiences at one place"),
-                  PSettingsMenuTile(icon: Iconsax.heart, title: "Favorite Campaigns", subTitle: "Stay connected to causes close to your heart"),
-                  PSettingsMenuTile(icon: Iconsax.document_favorite, title: "Saved Blogs", subTitle: "Your favorite reads"),
-                  
+                  const PSettingsMenuTile(
+                    icon: Iconsax.book_saved,
+                    title: "Bookmarked Resources",
+                    subTitle: "Explore your saved educational treasures",
+                  ),
+                  const PSettingsMenuTile(
+                      icon: Iconsax.receipt,
+                      title: "My Donations",
+                      subTitle: "Track your contributions"),
+                  const PSettingsMenuTile(
+                      icon: Iconsax.path,
+                      title: "My Blogs",
+                      subTitle: "Your experiences at one place"),
+                  const PSettingsMenuTile(
+                      icon: Iconsax.heart,
+                      title: "Favorite Campaigns",
+                      subTitle: "Stay connected to causes close to your heart"),
+                  const PSettingsMenuTile(
+                      icon: Iconsax.document_favorite,
+                      title: "Saved Blogs",
+                      subTitle: "Your favorite reads"),
+
                   ///App Settings
-                  SizedBox(
+                  const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
-                  PSectionHeading(title: 'App Settings', showActionButton: false,),
-                  SizedBox(
+                  PSectionHeading(
+                    title: 'App Settings',
+                    textColor: dark ? Colors.white : Colors.black,
+                    showActionButton: false,
+                  ),
+                  const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
-                  PSettingsMenuTile(icon: Iconsax.language_circle, title: "Change language", subTitle: "Tailor your experience with a language switch")
+                  const PSettingsMenuTile(
+                      icon: Iconsax.language_circle,
+                      title: "Change language",
+                      subTitle: "Tailor your experience with a language switch")
                 ],
               ),
             )
