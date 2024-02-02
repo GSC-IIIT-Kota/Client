@@ -11,7 +11,7 @@ class PRoundedContainer extends StatelessWidget {
       this.child,
       this.showBorder = false,
       this.borderColor = TColors.primary,
-      this.backgroundColor = TColors.accent,
+      this.backgroundColor = Colors.white,
       this.padding,
       this.margin});
 

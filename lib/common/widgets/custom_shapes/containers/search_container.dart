@@ -22,7 +22,9 @@ class PSearchContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final dark = THelperFunctions.isDarkMode(context);
+
     return GestureDetector(
       onTap: onTap,
       child: Padding(
@@ -33,16 +35,16 @@ class PSearchContainer extends StatelessWidget {
           decoration: BoxDecoration(
               color: showBackground
                   ? dark
-                  ? TColors.textWhite
-                  : TColors.dark
+                  ? TColors.myblack
+                  : Colors.white
                   : Colors.transparent,
               borderRadius: BorderRadius.circular(TSizes.cardRadiusLg),
               border: showBorder ? Border.all(color: Colors.grey) : null),
           child: Row(
             children: [
-              const Icon(
+              Icon(
                 Iconsax.search_normal,
-                color: Colors.grey,
+                color: dark ? Colors.white.withOpacity(0.7) : TColors.battleship,
               ),
               const SizedBox(
                 width: TSizes.spaceBtwItems,
@@ -52,7 +54,7 @@ class PSearchContainer extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .bodySmall!
-                    .apply(color: Colors.grey),
+                    .apply(color: dark ? Colors.white.withOpacity(0.7) : TColors.battleship),
               )
             ],
           ),

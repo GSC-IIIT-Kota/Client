@@ -16,7 +16,7 @@ class PProgressBar extends StatelessWidget {
       backgroundColor: TColors.accent,
       // Background color of the progress bar
       valueColor:
-      const AlwaysStoppedAnimation<Color>(TColors.primary),
+      const AlwaysStoppedAnimation<Color>(TColors.rani),
     );
   }
 }

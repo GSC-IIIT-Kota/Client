@@ -15,11 +15,11 @@ class PNgoAppBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text("Feeling Generous,",style: Theme.of(context).textTheme.labelMedium!.apply(color: TColors.accent)),
-          Text("Yogit",style: Theme.of(context).textTheme.headlineSmall!.apply(color: TColors.textWhite)),
+          Text("Yogit",style: Theme.of(context).textTheme.headlineSmall!.apply(color: Colors.white)),
         ],
       ),
       actions: [
-        PNotificationIcon(onPressed: () {}, iconColor: TColors.textWhite,)
+        PNotificationIcon(onPressed: () {}, iconColor: Colors.white,)
       ],
     );
   }

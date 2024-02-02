@@ -23,5 +23,8 @@ class TColors {
   static const Color burgandy = Color(0xFF710816);
   static const Color rani = Color(0xFF980E27);
   static const Color brightpink = Color(0xFFE8354D);
-  static const Color greige = Color(0xFF7B7554);
+  static const Color dimgrey = Color(0xFF5C5552);
+  static const Color battleship = Color(0xFF5C5552);
+  static const Color offWhite = Color(0xFFFEFFFA);
+  static const Color satin = Color(0xFFF6EDF2);
 }
