@@ -45,6 +45,7 @@ flutter:
     - assets/logos/
     - assets/images/onboarding_images/
     - assets/images/banners/
+    - assets/images/chatbot/
     - assets/images/login_signup/
     - assets/icons/categories/
 

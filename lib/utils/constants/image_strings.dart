@@ -30,4 +30,7 @@ class TImages {
   static const String banner3Image = "assets/images/banners/banner3.jpg";
   static const String banner4Image = "assets/images/banners/banner4.jpg";
 
+  // Chatbot dp
+  static const String paddyAvatar = "assets/images/chatbot/paddy.jpg";
+
 }
