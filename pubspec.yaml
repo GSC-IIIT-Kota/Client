@@ -43,11 +43,12 @@ flutter:
   # Local assets
   assets:
     - assets/logos/
+    - assets/icons/categories/
     - assets/images/onboarding_images/
     - assets/images/banners/
     - assets/images/chatbot/
     - assets/images/login_signup/
-    - assets/icons/categories/
+    - assets/images/articles/
 
   #Local fonts
   fonts:

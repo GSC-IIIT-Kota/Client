@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 
-class PVideoCardIconText extends StatelessWidget {
-  const PVideoCardIconText({
+class PCardIconText extends StatelessWidget {
+  const PCardIconText({
     super.key, required this.iconData, this.iconSize, this.iconColor, required this.title, required this.titleStyle,
   });
 

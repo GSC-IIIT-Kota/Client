@@ -33,4 +33,7 @@ class TImages {
   // Chatbot dp
   static const String paddyAvatar = "assets/images/chatbot/paddy.jpg";
 
+  //Article Thumbnail
+  static const String articleThumbnail = "assets/images/articles/articleThumb.png";
+
 }
