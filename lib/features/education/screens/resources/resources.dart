@@ -3,6 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/search_container.dart';
+import 'package:solution_challenge/common/widgets/education/articles/home_article_column.dart';
 import 'package:solution_challenge/common/widgets/education/videos/video_card.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
@@ -24,13 +25,13 @@ class EducationScreen extends StatelessWidget {
             const SizedBox(
               height: TSizes.spaceBtwItems,
             ),
-        
+
             /// AppBar
             const PEducationAppbar(),
             const SizedBox(
               height: TSizes.spaceBtwSections,
             ),
-        
+
             ///SearchBar
             const PSearchContainer(
               text: "Search Resources",
@@ -38,7 +39,7 @@ class EducationScreen extends StatelessWidget {
             const SizedBox(
               height: TSizes.spaceBtwSections,
             ),
-        
+
             ///Body
             Padding(
               padding:
@@ -46,11 +47,14 @@ class EducationScreen extends StatelessWidget {
               child: Column(
                 children: [
                   ///Quiz Question
-                  const PRoundedContainer(height: 200, backgroundColor: TColors.rani,),
+                  const PRoundedContainer(
+                    height: 200,
+                    backgroundColor: TColors.rani,
+                  ),
                   const SizedBox(
                     height: TSizes.spaceBtwSections,
                   ),
-        
+
                   ///Featured videos
                   PSectionHeading(
                     title: 'Featured Videos',
@@ -66,13 +70,29 @@ class EducationScreen extends StatelessWidget {
                       },
                     ),
                   ),
-                  const SizedBox(height: TSizes.spaceBtwSections,),
+                  const SizedBox(
+                    height: TSizes.spaceBtwSections,
+                  ),
 
                   ///Latest Articles
                   PSectionHeading(
                     title: 'Latest Articles',
                     textColor: dark ? Colors.white : Colors.black,
                   ),
+                  SizedBox(
+                    height: 365,
+                    child: ListView.builder(
+                      itemCount: 3,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (_, index) {
+                        return const PHomeArticleColumn();
+                      },
+                    ),
+                  ),
+                  const SizedBox(
+                    height: TSizes.spaceBtwSections,
+                  ),
+
 
                 ],
               ),

@@ -87,7 +87,7 @@ class PVideoCard extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          PVideoCardIconText(
+                          PCardIconText(
                             iconData: Iconsax.category,
                             iconSize: 14,
                             iconColor: TColors.rani,
@@ -100,7 +100,7 @@ class PVideoCard extends StatelessWidget {
                           const SizedBox(
                             height: TSizes.spaceBtwItems / 2,
                           ),
-                          PVideoCardIconText(
+                          PCardIconText(
                               iconData: Iconsax.clock,
                               iconSize: 14,
                               iconColor: TColors.dimgrey,
@@ -111,7 +111,7 @@ class PVideoCard extends StatelessWidget {
                                   .apply(color: TColors.dimgrey))
                         ],
                       ),
-                      const Icon(Iconsax.archive_add, size: 25, color: TColors.rani,),
+                      const Icon(Iconsax.star, size: 25, color: TColors.rani,),
                     ],
                   ),
                 ],
