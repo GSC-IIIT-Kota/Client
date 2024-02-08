@@ -15,6 +15,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_dotenv: ^5.1.0
+
   # Utility Packages
   http: ^1.1.0
   logger: ^2.0.1
@@ -43,11 +44,12 @@ flutter:
   # Local assets
   assets:
     - assets/logos/
+    - assets/icons/categories/
     - assets/images/onboarding_images/
     - assets/images/banners/
     - assets/images/chatbot/
     - assets/images/login_signup/
-    - assets/icons/categories/
+    - assets/images/articles/
     - .env
 
   #Local fonts
