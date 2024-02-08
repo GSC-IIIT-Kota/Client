@@ -15,7 +15,7 @@ class PNgoAppBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text("Feeling Generous,",style: Theme.of(context).textTheme.labelMedium!.apply(color: TColors.accent)),
-          Text("Yogit",style: Theme.of(context).textTheme.headlineSmall!.apply(color: Colors.white)),
+          Text("Yogit",style: Theme.of(context).textTheme.headlineMedium!.apply(color: Colors.white)),
         ],
       ),
       actions: [
