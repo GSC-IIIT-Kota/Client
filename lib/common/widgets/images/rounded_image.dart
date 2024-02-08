@@ -3,28 +3,27 @@ import 'package:solution_challenge/utils/constants/sizes.dart';
 
 class PRoundedImage extends StatelessWidget {
   const PRoundedImage({
-    super.key,
+    Key? key,
     this.width,
     this.height,
     required this.imageUrl,
     this.applyImageRadius = true,
     this.border,
-    this.fit = BoxFit.contain,
     this.padding,
     this.isNetworkImage = false,
     this.onPressed,
-    this.borderRadius = TSizes.md,
-  });
+    this.borderRadius = TSizes.md, this.aspectRatio = 12 / 5,
+  }) : super(key: key);
 
   final double? width, height;
   final String imageUrl;
   final bool applyImageRadius;
   final BoxBorder? border;
-  final BoxFit? fit;
   final EdgeInsetsGeometry? padding;
   final bool isNetworkImage;
   final VoidCallback? onPressed;
   final double borderRadius;
+  final double aspectRatio;
 
   @override
   Widget build(BuildContext context) {
@@ -35,17 +34,22 @@ class PRoundedImage extends StatelessWidget {
         height: height,
         padding: padding,
         decoration: BoxDecoration(
-            border: border,
-            borderRadius: BorderRadius.circular(borderRadius)),
+          border: border,
+          borderRadius: BorderRadius.circular(borderRadius),
+        ),
         child: ClipRRect(
           borderRadius: applyImageRadius
               ? BorderRadius.circular(borderRadius)
               : BorderRadius.zero,
-          child: Image(
-              fit: fit,
+          child: AspectRatio(
+            aspectRatio: aspectRatio, // Set aspect ratio to 12:9
+            child: Image(
+              fit: BoxFit.cover, // Ensure the image covers the entire space
               image: isNetworkImage
                   ? NetworkImage(imageUrl)
-                  : AssetImage(imageUrl) as ImageProvider),
+                  : AssetImage(imageUrl) as ImageProvider,
+            ),
+          ),
         ),
       ),
     );

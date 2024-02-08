@@ -18,6 +18,10 @@ class NgoScreen extends StatelessWidget {
             PPrimaryNgoContainer(
               child: Column(
                 children: [
+                  SizedBox(
+                    height: TSizes.spaceBtwItems,
+                  ),
+
                   /// Appbar
                   PNgoAppBar(),
                   SizedBox(
@@ -46,9 +50,15 @@ class NgoScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
               child: Column(
                 children: [
-                  PNgoSection(sectionHeading: 'Top Fundraisers',),
-                  PNgoSection(sectionHeading: 'New Campaigns',),
-                  PNgoSection(sectionHeading: 'Events',),
+                  PNgoSection(
+                    sectionHeading: 'Top Fundraisers',
+                  ),
+                  PNgoSection(
+                    sectionHeading: 'New Campaigns',
+                  ),
+                  PNgoSection(
+                    sectionHeading: 'Events',
+                  ),
                 ],
               ),
             )
@@ -58,5 +68,3 @@ class NgoScreen extends StatelessWidget {
     );
   }
 }
-
-
