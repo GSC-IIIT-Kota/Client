@@ -7,7 +7,6 @@ import 'package:solution_challenge/common/widgets/ngo/progress_bar.dart';
 import 'package:solution_challenge/common/widgets/texts/campaign_card_desc.dart';
 import 'package:solution_challenge/common/widgets/texts/campaign_card_title.dart';
 import 'package:solution_challenge/common/widgets/texts/progress_text.dart';
-import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
@@ -51,14 +50,14 @@ class PNgoCard extends StatelessWidget {
         margin: const EdgeInsets.only(right: 20),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(TSizes.productImageRadius),
-          color: dark ? Colors.black : TColors.satin,
+          color: dark ? Colors.black : Colors.white,
         ),
         child: Column(
           children: [
             ///Thumbnail, save button
             PRoundedContainer(
               padding: const EdgeInsets.all(TSizes.sm),
-              backgroundColor: dark ? Colors.black : TColors.satin,
+              backgroundColor: dark ? Colors.black : Colors.white,
               child: const Stack(
                 children: [
                   ///Thumbnail

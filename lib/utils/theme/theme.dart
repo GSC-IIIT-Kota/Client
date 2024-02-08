@@ -17,7 +17,7 @@ class TAppTheme {
     fontFamily: 'Poppins',
     brightness: Brightness.light,
     primaryColor: Colors.red,
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: TColors.satin,
     textTheme: TTextTheme.lightTextTheme,
     chipTheme: TChipTheme.lightChipTheme,
     appBarTheme: PAppBarTheme.lightAppBarTheme,
