@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
@@ -8,6 +7,7 @@ import 'package:solution_challenge/features/chatbot/screens/widgets/chat_bubble.
 import 'package:solution_challenge/features/chatbot/screens/widgets/chat_input.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
@@ -19,6 +19,21 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   List<String> chatMessages = [];
 
+  late String apiUrl = 'http://localhost:8000/api/chatbot/'; // Initialize with default value
+
+  @override
+  void initState() {
+    super.initState();
+    loadEnv(); // Load environment variables when the widget initializes
+  }
+
+  Future<void> loadEnv() async {
+    await dotenv.load(fileName: ".env"); // Load environment variables from .env file
+    setState(() {
+      apiUrl = dotenv.env['API_BASE_URL'] ?? apiUrl; // Update apiUrl with value from .env file, or keep default value
+    });
+  }
+
   void sendMessage(String message) async {
     // Add user message to the chatMessages list
     setState(() {
@@ -27,7 +42,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
     // Make an API call to send the user message and get the response
     var response = await http.post(
-      Uri.parse('http://192.168.31.106:8000/api/chatbot/'),
+      Uri.parse("$apiUrl/chatbot/"), // Use apiUrl variable
       body: json.encode({'inputText': message}),
       headers: {'Content-Type': 'application/json'},
     );
