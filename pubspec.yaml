@@ -14,6 +14,13 @@ dependencies:
   youtube_player_flutter: ^8.1.2
   flutter:
     sdk: flutter
+  firebase_core: ^2.25.4
+  firebase_auth: ^4.17.4
+  cloud_firestore: ^4.15.4
+  firebase_storage: ^11.6.5
+  firebase_analytics: ^10.0.0
+  firebase_messaging: ^14.7.15
+  firebase_crashlytics: ^3.4.14
   flutter_dotenv: ^5.1.0
 
   # Utility Packages
@@ -50,7 +57,6 @@ flutter:
     - assets/images/chatbot/
     - assets/images/login_signup/
     - assets/images/articles/
-    - .env
 
   #Local fonts
   fonts:

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "85335662632",
+    "project_id": "gsc-iiit-kota",
+    "storage_bucket": "gsc-iiit-kota.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85335662632:android:044eccfe4b52944e17151d",
+        "android_client_info": {
+          "package_name": "com.example.solution_challenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "85335662632-qkevmp2a5dd8g8o3c44fr426bsndn965.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtIsrZGomm0_qvjo3-OQ3y5_XUZR7Xqj4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "85335662632-qkevmp2a5dd8g8o3c44fr426bsndn965.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
