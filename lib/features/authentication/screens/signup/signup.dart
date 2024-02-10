@@ -1,13 +1,59 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/common/widgets/login_signup/form_divider.dart';
 import 'package:solution_challenge/common/widgets/login_signup/social_buttons.dart';
 import 'package:solution_challenge/features/authentication/screens/signup/verify_email.dart';
+import 'package:solution_challenge/features/authentication/screens/signup/widgets/signup_form.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
-
+import 'package:http/http.dart' as http;
 class SignupScreen extends StatelessWidget {
-  const SignupScreen({super.key});
+  final TextEditingController _firstNameController = TextEditingController();
+  final TextEditingController _lastNameController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneNumberController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  Future<void> _handleSignupPressed() async {
+    final String firstName = _firstNameController.text;
+    final String lastName = _lastNameController.text;
+    final String username = _usernameController.text;
+    final String email = _emailController.text;
+    final String phoneNumber = _phoneNumberController.text;
+    final String password = _passwordController.text;
+
+    // Make a POST request to your backend API
+    // final Uri url = Uri.parse('http://192.168.137.1:8000/api/users/signup');
+    Map<String, dynamic> requestBody = {
+      "profile": {
+        'firstName': firstName,
+        'lastName': lastName
+      },
+      "email": email,
+      "password": password,
+    };
+
+    String encodedBody = jsonEncode(requestBody);
+
+    final response = await http.post(
+      Uri.parse('http://192.168.137.1:8000/api/users/signup'),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: encodedBody,
+    );
+
+    if (response.statusCode == 201) {
+      // Signup successful, handle the response as needed
+      print('Signup successful');
+    } else {
+      // Signup failed, handle the error
+      print('Signup failed: ${response.body}');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +75,15 @@ class SignupScreen extends StatelessWidget {
               ),
 
               ///Form
-              const TSignupForm(),
+              TSignupForm(
+                firstNameController: _firstNameController,
+                lastNameController: _lastNameController,
+                usernameController: _usernameController,
+                emailController: _emailController,
+                phoneNumberController: _phoneNumberController,
+                passwordController: _passwordController,
+                onSubmit: _handleSignupPressed,
+              ),
               const SizedBox(
                 height: TSizes.spaceBtwSections,
               ),
@@ -50,106 +104,3 @@ class SignupScreen extends StatelessWidget {
   }
 }
 
-class TSignupForm extends StatelessWidget {
-  const TSignupForm({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Form(
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: TextFormField(
-                  expands: false,
-                  decoration: const InputDecoration(
-                    labelText: "First Name",
-                    prefixIcon: Icon(Iconsax.user),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                width: TSizes.spaceBtwInputFields,
-              ),
-              Expanded(
-                child: TextFormField(
-                  expands: false,
-                  decoration: const InputDecoration(
-                    labelText: "Last Name",
-                    prefixIcon: Icon(Iconsax.user),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: TSizes.spaceBtwInputFields,
-          ),
-
-          ///Username
-          TextFormField(
-            expands: false,
-            decoration: const InputDecoration(
-              labelText: "Username",
-              prefixIcon: Icon(Iconsax.user_edit),
-            ),
-          ),
-          const SizedBox(
-            height: TSizes.spaceBtwInputFields,
-          ),
-
-          ///Email
-          TextFormField(
-            expands: false,
-            decoration: const InputDecoration(
-              labelText: "E-Mail",
-              prefixIcon: Icon(Iconsax.direct),
-            ),
-          ),
-          const SizedBox(
-            height: TSizes.spaceBtwInputFields,
-          ),
-
-          ///Phone number
-          TextFormField(
-            expands: false,
-            decoration: const InputDecoration(
-              labelText: "Phone No.",
-              prefixIcon: Icon(Iconsax.call),
-            ),
-          ),
-          const SizedBox(
-            height: TSizes.spaceBtwInputFields,
-          ),
-
-          ///Password
-          TextFormField(
-            obscureText: true,
-            decoration: const InputDecoration(
-              labelText: "Password",
-              prefixIcon: Icon(Iconsax.password_check),
-              suffixIcon: Icon(Iconsax.eye_slash),
-            ),
-          ),
-          const SizedBox(
-            height: TSizes.spaceBtwSections,
-          ),
-
-          ///Signup button
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: () => Get.to(
-                () => const VerifyEmailScreen(),
-              ),
-              child: const Text("Create Account"),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}

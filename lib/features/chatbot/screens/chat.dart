@@ -30,7 +30,7 @@ class _ChatScreenState extends State<ChatScreen> {
   Future<void> loadEnv() async {
     await dotenv.load(fileName: ".env"); // Load environment variables from .env file
     setState(() {
-      apiUrl = dotenv.env['API_BASE_URL'] ?? apiUrl; // Update apiUrl with value from .env file, or keep default value
+      apiUrl = dotenv.env['http://192.168.137.1:8000/api/users/chatbot'] ?? apiUrl; // Update apiUrl with value from .env file, or keep default value
     });
   }
 
@@ -42,7 +42,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
     // Make an API call to send the user message and get the response
     var response = await http.post(
-      Uri.parse("$apiUrl/chatbot/"), // Use apiUrl variable
+      Uri.parse("http://192.168.137.1:8000/api/users/chatbot"), // Use apiUrl variable
       body: json.encode({'inputText': message}),
       headers: {'Content-Type': 'application/json'},
     );

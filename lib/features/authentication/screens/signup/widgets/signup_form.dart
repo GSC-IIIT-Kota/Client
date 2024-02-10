@@ -4,46 +4,51 @@ import 'package:solution_challenge/utils/constants/sizes.dart';
 
 class TSignupForm extends StatelessWidget {
   const TSignupForm({
-    super.key,
-  });
+    Key? key,
+    required this.firstNameController,
+    required this.lastNameController,
+    required this.usernameController,
+    required this.emailController,
+    required this.phoneNumberController,
+    required this.passwordController,
+    required this.onSubmit,
+  }) : super(key: key);
+
+  final TextEditingController firstNameController;
+  final TextEditingController lastNameController;
+  final TextEditingController usernameController;
+  final TextEditingController emailController;
+  final TextEditingController phoneNumberController;
+  final TextEditingController passwordController;
+  final VoidCallback onSubmit;
 
   @override
   Widget build(BuildContext context) {
     return Form(
       child: Column(
         children: [
-          Row(
-            children: [
-              Expanded(
-                child: TextFormField(
-                  expands: false,
-                  decoration: const InputDecoration(
-                    labelText: "First Name",
-                    prefixIcon: Icon(Iconsax.user),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                width: TSizes.spaceBtwInputFields,
-              ),
-              Expanded(
-                child: TextFormField(
-                  expands: false,
-                  decoration: const InputDecoration(
-                    labelText: "Last Name",
-                    prefixIcon: Icon(Iconsax.user),
-                  ),
-                ),
-              ),
-            ],
+          TextFormField(
+            controller: firstNameController,
+            decoration: const InputDecoration(
+              labelText: "First Name",
+              prefixIcon: Icon(Iconsax.user),
+            ),
           ),
           const SizedBox(
             height: TSizes.spaceBtwInputFields,
           ),
-
-          ///Username
           TextFormField(
-            expands: false,
+            controller: lastNameController,
+            decoration: const InputDecoration(
+              labelText: "Last Name",
+              prefixIcon: Icon(Iconsax.user),
+            ),
+          ),
+          const SizedBox(
+            height: TSizes.spaceBtwInputFields,
+          ),
+          TextFormField(
+            controller: usernameController,
             decoration: const InputDecoration(
               labelText: "Username",
               prefixIcon: Icon(Iconsax.user_edit),
@@ -52,10 +57,8 @@ class TSignupForm extends StatelessWidget {
           const SizedBox(
             height: TSizes.spaceBtwInputFields,
           ),
-
-          ///Email
           TextFormField(
-            expands: false,
+            controller: emailController,
             decoration: const InputDecoration(
               labelText: "E-Mail",
               prefixIcon: Icon(Iconsax.direct),
@@ -64,10 +67,8 @@ class TSignupForm extends StatelessWidget {
           const SizedBox(
             height: TSizes.spaceBtwInputFields,
           ),
-
-          ///Phone number
           TextFormField(
-            expands: false,
+            controller: phoneNumberController,
             decoration: const InputDecoration(
               labelText: "Phone No.",
               prefixIcon: Icon(Iconsax.call),
@@ -76,9 +77,8 @@ class TSignupForm extends StatelessWidget {
           const SizedBox(
             height: TSizes.spaceBtwInputFields,
           ),
-
-          ///Password
           TextFormField(
+            controller: passwordController,
             obscureText: true,
             decoration: const InputDecoration(
               labelText: "Password",
@@ -89,12 +89,10 @@ class TSignupForm extends StatelessWidget {
           const SizedBox(
             height: TSizes.spaceBtwSections,
           ),
-
-          ///Signup button
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: onSubmit,
               child: const Text("Create Account"),
             ),
           ),
