@@ -1,49 +1,40 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
-import 'package:solution_challenge/common/widgets/custom_shapes/containers/primary_ngo_container.dart';
 import 'package:solution_challenge/features/chatbot/screens/widgets/chat_bubble.dart';
 import 'package:solution_challenge/features/chatbot/screens/widgets/chat_input.dart';
+import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
+import 'package:solution_challenge/common/widgets/custom_shapes/containers/primary_ngo_container.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+import '../../authentication/screens/signup/widgets/typingIndicator.dart';
 
 class ChatScreen extends StatefulWidget {
-  const ChatScreen({super.key});
+  const ChatScreen({Key? key}) : super(key: key);
 
   @override
   State<ChatScreen> createState() => _ChatScreenState();
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  bool isTyping = false;
+  bool messageSent = false;
+  TextEditingController messageController = TextEditingController();
   List<String> chatMessages = [];
 
-  late String apiUrl = 'http://localhost:8000/api/chatbot/'; // Initialize with default value
-
-  @override
-  void initState() {
-    super.initState();
-    loadEnv(); // Load environment variables when the widget initializes
-  }
-
-  Future<void> loadEnv() async {
-    await dotenv.load(fileName: ".env"); // Load environment variables from .env file
-    setState(() {
-      apiUrl = dotenv.env['http://192.168.137.1:8000/api/users/chatbot'] ?? apiUrl; // Update apiUrl with value from .env file, or keep default value
-    });
-  }
-
-  void sendMessage(String message) async {
+  Future<void> sendMessage(String message) async {
     // Add user message to the chatMessages list
     setState(() {
       chatMessages.add(message);
+      messageSent = true;
+      isTyping = true;
     });
 
-    // Make an API call to send the user message and get the response
+    // Make a POST request to send the user message to the chatbot API
     var response = await http.post(
-      Uri.parse("http://192.168.137.1:8000/api/users/chatbot"), // Use apiUrl variable
-      body: json.encode({'inputText': message}),
+      Uri.parse('http://192.168.137.1:8000/api/chatbot/'),
+      body: json.encode({"InputText": message}),
       headers: {'Content-Type': 'application/json'},
     );
 
@@ -51,6 +42,7 @@ class _ChatScreenState extends State<ChatScreen> {
       // If the request is successful, add the response to the chatMessages list
       setState(() {
         chatMessages.add(json.decode(response.body)['text']);
+        isTyping = false;
       });
     } else {
       // Handle error
@@ -86,16 +78,31 @@ class _ChatScreenState extends State<ChatScreen> {
           const SizedBox(height: TSizes.spaceBtwItems),
           const Text('Today'),
           Expanded(
-            child: ListView.builder(
-              reverse: true, // To start at the bottom
-              padding: const EdgeInsets.all(TSizes.md),
-              itemCount: chatMessages.length,
-              itemBuilder: (context, index) {
-                return PChatBubble(
-                  message: chatMessages[index],
-                  isMe: index % 2 == 0, // Alternating sender and receiver
-                );
-              },
+            child: Stack(
+              children: [
+                ListView.builder(
+                  reverse: true,
+                  padding: const EdgeInsets.all(TSizes.md),
+                  itemCount: chatMessages.length,
+                  itemBuilder: (context, index) {
+                    final messageIndex = chatMessages.length - 1 - index;
+                    return PChatBubble(
+                      message: chatMessages[messageIndex],
+                      isMe: messageIndex % 2 == 0,
+                    );
+                  },
+                ),
+                if (isTyping)
+                  Positioned(
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    child: Container(
+                      color: Colors.transparent, // Adjust the background color as needed
+                      child: TypingIndicator(),
+                    ),
+                  ),
+              ],
             ),
           ),
           PChatInput(
