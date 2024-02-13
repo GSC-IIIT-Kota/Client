@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:solution_challenge/utils/constants/colors.dart';
+import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 class PChatInput extends StatefulWidget {
   final Function(String) onSendMessage; // Callback function to send messages
 
-  const PChatInput({Key? key, required this.onSendMessage}) : super(key: key);
+  const PChatInput({super.key, required this.onSendMessage});
 
   @override
   State<PChatInput> createState() => _PChatInputState();
@@ -19,6 +22,9 @@ class _PChatInputState extends State<PChatInput> {
 
   @override
   Widget build(BuildContext context) {
+
+    final dark = THelperFunctions.isDarkMode(context);
+
     return Container(
       padding: const EdgeInsets.all(8.0),
       child: Row(
@@ -26,14 +32,15 @@ class _PChatInputState extends State<PChatInput> {
           Expanded(
             child: TextField(
               controller: messageController,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: "Type message",
-                contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                hintStyle: Theme.of(context).textTheme.labelLarge!.apply(color: TColors.battleship),
+                contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               ),
             ),
           ),
           IconButton(
-            icon: Icon(Icons.send),
+            icon: Icon(Iconsax.arrow_circle_right,size: 30,color: dark ? TColors.brightpink : TColors.rani,),
             onPressed: () {
               String message = messageController.text.trim();
               if (message.isNotEmpty) {
