@@ -33,7 +33,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
     // Make a POST request to send the user message to the chatbot API
     var response = await http.post(
-      Uri.parse('http://192.168.1.9:8000/api/chatbot/'),
+      Uri.parse('http://192.168.21.122:8000/api/chatbot/'),
       body: json.encode({"InputText": message}),
       headers: {'Content-Type': 'application/json'},
     );
