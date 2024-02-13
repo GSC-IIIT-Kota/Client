@@ -33,7 +33,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
     // Make a POST request to send the user message to the chatbot API
     var response = await http.post(
-      Uri.parse('http://192.168.137.1:8000/api/chatbot/'),
+      Uri.parse('http://192.168.1.9:8000/api/chatbot/'),
       body: json.encode({"InputText": message}),
       headers: {'Content-Type': 'application/json'},
     );
@@ -75,8 +75,9 @@ class _ChatScreenState extends State<ChatScreen> {
               ),
             ),
           ),
-          const SizedBox(height: TSizes.spaceBtwItems),
+          const SizedBox(height: TSizes.spaceBtwItems / 2),
           const Text('Today'),
+          const SizedBox(height: TSizes.spaceBtwItems),
           Expanded(
             child: Stack(
               children: [
@@ -96,7 +97,6 @@ class _ChatScreenState extends State<ChatScreen> {
                   Positioned(
                     bottom: 0,
                     left: 0,
-                    right: 0,
                     child: Container(
                       color: Colors.transparent, // Adjust the background color as needed
                       child: TypingIndicator(),
