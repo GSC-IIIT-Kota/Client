@@ -36,4 +36,7 @@ class TImages {
   //Article Thumbnail
   static const String articleThumbnail = "assets/images/articles/articleThumb.png";
 
+  //Course Thumbnail
+  static const String courseThumbnail = "assets/images/education/coursess.png";
+
 }

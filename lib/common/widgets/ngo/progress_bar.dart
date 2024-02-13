@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:solution_challenge/utils/constants/colors.dart';
 
 class PProgressBar extends StatelessWidget {
   const PProgressBar({
     super.key,
-    required this.progressValue,
+    required this.progressValue, required this.backgroundColor, required this.progressColor,
   });
 
   final double progressValue;
+  final Color backgroundColor;
+  final Color progressColor;
 
   @override
   Widget build(BuildContext context) {
     return LinearProgressIndicator(
       value: progressValue,
-      backgroundColor: TColors.accent,
+      backgroundColor: backgroundColor,
       // Background color of the progress bar
       valueColor:
-      const AlwaysStoppedAnimation<Color>(TColors.rani),
+      AlwaysStoppedAnimation<Color>(progressColor),
     );
   }
 }

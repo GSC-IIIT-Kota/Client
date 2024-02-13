@@ -7,6 +7,7 @@ import 'package:solution_challenge/common/widgets/ngo/progress_bar.dart';
 import 'package:solution_challenge/common/widgets/texts/campaign_card_desc.dart';
 import 'package:solution_challenge/common/widgets/texts/campaign_card_title.dart';
 import 'package:solution_challenge/common/widgets/texts/progress_text.dart';
+import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
@@ -100,7 +101,7 @@ class PNgoCard extends StatelessWidget {
                   ),
 
                   /// Progress bar
-                  PProgressBar(progressValue: progressValue),
+                  PProgressBar(progressValue: progressValue, backgroundColor: TColors.accent, progressColor: TColors.rani,),
                   const SizedBox(
                     height: TSizes.spaceBtwItems / 2,
                   ),

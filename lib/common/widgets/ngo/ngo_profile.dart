@@ -12,7 +12,7 @@ import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
 class PNgoProfile extends StatelessWidget {
   const PNgoProfile({
-    Key? key,
+    super.key,
     required this.title,
     required this.description,
     required this.progressValue,
@@ -21,7 +21,7 @@ class PNgoProfile extends StatelessWidget {
     required this.imageUrl,
     this.onDonatePressed,
     required this.orgPhoto,
-  }) : super(key: key);
+  });
 
   final String title;
   final String description;
@@ -75,7 +75,7 @@ class PNgoProfile extends StatelessWidget {
                     const SizedBox(height: TSizes.spaceBtwItems),
 
                     // Progress bar
-                    PProgressBar(progressValue: progressValue),
+                    PProgressBar(progressValue: progressValue, backgroundColor: TColors.accent, progressColor: TColors.rani,),
                     const SizedBox(height: TSizes.spaceBtwItems),
 
                     // Raised Money, Total Goal, and Percentage

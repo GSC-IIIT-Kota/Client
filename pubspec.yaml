@@ -57,6 +57,7 @@ flutter:
     - assets/images/chatbot/
     - assets/images/login_signup/
     - assets/images/articles/
+    - assets/images/education/
 
   #Local fonts
   fonts:
