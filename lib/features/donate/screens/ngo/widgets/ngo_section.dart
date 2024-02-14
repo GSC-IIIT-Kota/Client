@@ -22,7 +22,7 @@ class PNgoSection extends StatelessWidget {
             title: sectionHeading,
             textColor: dark ? Colors.white : Colors.black),
         SizedBox(
-          height: 263,
+          height: 270,
           child: ListView.builder(
             itemCount: 4,
             scrollDirection: Axis.horizontal,
@@ -34,6 +34,7 @@ class PNgoSection extends StatelessWidget {
                   raisedMoney: 2000,
                   totalGoal: 4000,
                   imageUrl: TImages.banner1Image,
+                  orgPhoto: 'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
                   );
             },
           ),
