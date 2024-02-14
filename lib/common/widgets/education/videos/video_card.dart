@@ -101,17 +101,22 @@ class PVideoCard extends StatelessWidget {
                             height: TSizes.spaceBtwItems / 2,
                           ),
                           PCardIconText(
-                              iconData: Iconsax.clock,
-                              iconSize: 14,
-                              iconColor: TColors.dimgrey,
-                              title: '2 days ago',
-                              titleStyle: Theme.of(context)
-                                  .textTheme
-                                  .labelMedium!
-                                  .apply(color: TColors.dimgrey))
+                            iconData: Iconsax.clock,
+                            iconSize: 14,
+                            iconColor: TColors.dimgrey,
+                            title: '2 days ago',
+                            titleStyle: Theme.of(context)
+                                .textTheme
+                                .labelMedium!
+                                .apply(color: TColors.dimgrey),
+                          ),
                         ],
                       ),
-                      const Icon(Iconsax.star, size: 25, color: TColors.rani,),
+                      const Icon(
+                        Iconsax.star,
+                        size: 25,
+                        color: TColors.rani,
+                      ),
                     ],
                   ),
                 ],

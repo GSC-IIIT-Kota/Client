@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class PCampaignCardTitle extends StatelessWidget {
   const PCampaignCardTitle({
-    super.key, required this.title,
+    super.key,
+    required this.title,
   });
 
   final String title;
@@ -11,9 +12,12 @@ class PCampaignCardTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: Theme.of(context).textTheme.headlineSmall,
+      style: Theme.of(context)
+          .textTheme
+          .bodySmall!
+          .apply(color: Colors.black, fontWeightDelta: 1),
       overflow: TextOverflow.ellipsis,
-      maxLines: 1,
+      maxLines: 2,
       textAlign: TextAlign.left,
     );
   }

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:solution_challenge/common/widgets/icons/circular_heart.dart';
 import 'package:solution_challenge/common/widgets/images/rounded_image.dart';
 import 'package:solution_challenge/common/widgets/ngo/ngo_profile.dart';
 import 'package:solution_challenge/common/widgets/ngo/progress_bar.dart';
-import 'package:solution_challenge/common/widgets/texts/campaign_card_desc.dart';
 import 'package:solution_challenge/common/widgets/texts/campaign_card_title.dart';
 import 'package:solution_challenge/common/widgets/texts/progress_text.dart';
+import 'package:solution_challenge/common/widgets/texts/video_card_icontext.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
@@ -21,6 +22,7 @@ class PNgoCard extends StatelessWidget {
     required this.raisedMoney,
     required this.totalGoal,
     this.imageUrl,
+    required this.orgPhoto,
   });
 
   final String title;
@@ -28,6 +30,7 @@ class PNgoCard extends StatelessWidget {
   final int raisedMoney;
   final int totalGoal;
   final String? imageUrl;
+  final String orgPhoto;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +49,7 @@ class PNgoCard extends StatelessWidget {
                 'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
           )),
       child: Container(
-        width: 300,
+        width: 250,
         padding: const EdgeInsets.all(1),
         margin: const EdgeInsets.only(right: 20),
         decoration: BoxDecoration(
@@ -57,7 +60,6 @@ class PNgoCard extends StatelessWidget {
           children: [
             ///Thumbnail, save button
             PRoundedContainer(
-              padding: const EdgeInsets.all(TSizes.sm),
               backgroundColor: dark ? Colors.black : Colors.white,
               child: const Stack(
                 children: [
@@ -78,7 +80,7 @@ class PNgoCard extends StatelessWidget {
 
             /// Details
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: TSizes.sm),
+              padding: const EdgeInsets.symmetric(horizontal: TSizes.md),
 
               /// Title, Description, Progress bar and raised amt details
               child: Column(
@@ -92,16 +94,41 @@ class PNgoCard extends StatelessWidget {
                     height: TSizes.spaceBtwItems / 2,
                   ),
 
-                  /// Description
-                  PCampaignCardDesc(
-                    desc: description,
+                  ///Organization
+                  PCardIconText(
+                    iconData: Iconsax.verify5,
+                    iconSize: 18,
+                    iconColor: TColors.rani,
+                    title: 'NGO for women',
+                    titleStyle: Theme.of(context)
+                        .textTheme
+                        .labelLarge!
+                        .apply(color: TColors.battleship, fontWeightDelta: 2),
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems / 2,
                   ),
+                  PCardIconText(
+                    iconData: Iconsax.clock,
+                    iconSize: 18,
+                    iconColor: TColors.rani,
+                    title: '10 days left',
+                    titleStyle: Theme.of(context)
+                        .textTheme
+                        .labelLarge!
+                        .apply(color: TColors.battleship, fontWeightDelta: 2),
+                  ),
+
+                  const SizedBox(
+                    height: TSizes.spaceBtwItems,
+                  ),
 
                   /// Progress bar
-                  PProgressBar(progressValue: progressValue, backgroundColor: TColors.accent, progressColor: TColors.rani,),
+                  PProgressBar(
+                    progressValue: progressValue,
+                    backgroundColor: TColors.accent,
+                    progressColor: TColors.rani,
+                  ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems / 2,
                   ),
