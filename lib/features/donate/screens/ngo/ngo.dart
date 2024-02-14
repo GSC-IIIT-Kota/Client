@@ -52,12 +52,24 @@ class NgoScreen extends StatelessWidget {
                 children: [
                   PNgoSection(
                     sectionHeading: 'Top Fundraisers',
+                    initiativeType: 'Campaigns', cardHeight: 270,
+                  ),
+                  SizedBox(
+                    height: TSizes.spaceBtwSections,
                   ),
                   PNgoSection(
                     sectionHeading: 'New Campaigns',
+                    initiativeType: 'Orgs', cardHeight: 200,
+                  ),
+                  SizedBox(
+                    height: TSizes.spaceBtwSections,
                   ),
                   PNgoSection(
-                    sectionHeading: 'Events',
+                    sectionHeading: 'Upcoming Events',
+                    initiativeType: 'Events', cardHeight: 230,
+                  ),
+                  SizedBox(
+                    height: TSizes.spaceBtwSections,
                   ),
                 ],
               ),
