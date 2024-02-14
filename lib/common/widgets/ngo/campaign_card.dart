@@ -3,7 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:solution_challenge/common/widgets/icons/circular_heart.dart';
 import 'package:solution_challenge/common/widgets/images/rounded_image.dart';
-import 'package:solution_challenge/common/widgets/ngo/ngo_profile.dart';
+import 'package:solution_challenge/common/widgets/ngo/campaign_profile.dart';
 import 'package:solution_challenge/common/widgets/ngo/progress_bar.dart';
 import 'package:solution_challenge/common/widgets/texts/campaign_card_title.dart';
 import 'package:solution_challenge/common/widgets/texts/progress_text.dart';
@@ -14,8 +14,8 @@ import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
 
-class PNgoCard extends StatelessWidget {
-  const PNgoCard({
+class PCampaignCard extends StatelessWidget {
+  const PCampaignCard({
     super.key,
     required this.title,
     required this.description,
@@ -38,7 +38,7 @@ class PNgoCard extends StatelessWidget {
     final double progressValue = raisedMoney / totalGoal;
 
     return GestureDetector(
-      onTap: () => Get.to(() => PNgoProfile(
+      onTap: () => Get.to(() => PCampaignProfile(
             title: title,
             description: description,
             progressValue: progressValue,

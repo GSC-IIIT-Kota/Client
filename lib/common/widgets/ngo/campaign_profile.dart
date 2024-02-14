@@ -10,8 +10,8 @@ import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
-class PNgoProfile extends StatelessWidget {
-  const PNgoProfile({
+class PCampaignProfile extends StatelessWidget {
+  const PCampaignProfile({
     super.key,
     required this.title,
     required this.description,
