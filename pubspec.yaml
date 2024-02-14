@@ -12,6 +12,7 @@ environment:
 #---------------------------PACKAGES--------------------------
 dependencies:
   youtube_player_flutter: ^8.1.2
+  flutter_tts: ^3.6.1
   flutter:
     sdk: flutter
   firebase_core: ^2.25.4
