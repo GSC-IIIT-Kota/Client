@@ -2,13 +2,13 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:solution_challenge/utils/helpers/tts_manager.dart';
 import 'package:solution_challenge/features/chatbot/screens/widgets/chat_bubble.dart';
 import 'package:solution_challenge/features/chatbot/screens/widgets/chat_input.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/primary_ngo_container.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
-
 import '../../authentication/screens/signup/widgets/typingIndicator.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -18,6 +18,7 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  TTSManager ttsManager = TTSManager();
   bool isTyping = false;
   bool messageSent = false;
   TextEditingController messageController = TextEditingController();
@@ -50,7 +51,7 @@ class _ChatScreenState extends State<ChatScreen> {
       isTyping = true;
     });
 
-
+    await ttsManager.speak(message);
     // Make a POST request to send the user message to the chatbot API
     var response = await http.post(
       Uri.parse('http://192.168.137.1:8000/api/chatbot/'),
@@ -73,16 +74,13 @@ class _ChatScreenState extends State<ChatScreen> {
           });
           isTyping = false;
         });
+        await ttsManager.speak(responseBody['text']);
       }
     } else {
       // Handle error
       print('Failed to fetch response from server.');
     }
     print(contents);
-    // String jsonContents = json.encode({"contents": contents});
-    // print(jsonContents);
-    print(Directory.current.path);
-
   }
 
 
