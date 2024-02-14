@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:solution_challenge/common/widgets/ngo/ngo_card.dart';
+import 'package:solution_challenge/common/widgets/ngo/campaign_card.dart';
 import 'package:solution_challenge/common/widgets/texts/section_heading.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
-import '../../../../../common/widgets/ngo/ngo_event_card.dart';
+import '../../../../../common/widgets/ngo/event_card.dart';
 
 class PNgoSection extends StatelessWidget {
   const PNgoSection({
@@ -34,7 +34,7 @@ class PNgoSection extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemBuilder: (_, index) {
               if (initiativeType == 'Campaigns') {
-                return const PNgoCard(
+                return const PCampaignCard(
                   title: "Help these kids get money to study",
                   description:
                       "This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids.",

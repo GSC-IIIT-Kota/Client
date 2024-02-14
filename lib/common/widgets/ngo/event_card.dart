@@ -46,7 +46,7 @@ class PEventCard extends StatelessWidget {
 
               Expanded(
                   child: Padding(
-                    padding: EdgeInsets.only(left: TSizes.sm),
+                    padding: const EdgeInsets.only(left: TSizes.sm),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
