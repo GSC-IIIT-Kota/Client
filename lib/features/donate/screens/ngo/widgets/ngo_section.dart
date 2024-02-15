@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:solution_challenge/common/widgets/ngo/campaign_card.dart';
 import 'package:solution_challenge/common/widgets/texts/section_heading.dart';
+import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_viewall.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:get/get.dart';
 
 import '../../../../../common/widgets/ngo/event_card.dart';
 
@@ -25,8 +27,12 @@ class PNgoSection extends StatelessWidget {
     return Column(
       children: [
         PSectionHeading(
-            title: sectionHeading,
-            textColor: dark ? Colors.white : Colors.black),
+          title: sectionHeading,
+          textColor: dark ? Colors.white : Colors.black,
+          onPressed: () => Get.to(() => PNgoViewAllScreen(
+                initiativeType: initiativeType,
+              )),
+        ),
         SizedBox(
           height: cardHeight,
           child: ListView.builder(
@@ -35,6 +41,7 @@ class PNgoSection extends StatelessWidget {
             itemBuilder: (_, index) {
               if (initiativeType == 'Campaigns') {
                 return const PCampaignCard(
+                  cardWidth: 250,
                   title: "Help these kids get money to study",
                   description:
                       "This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids.",
@@ -56,6 +63,7 @@ class PNgoSection extends StatelessWidget {
                   eventDesc:
                       'Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum',
                   eventPhoto: TImages.banner2Image,
+                  cardWidth: 300,
                 );
               } else {
                 // Return a default widget or null if initiativeType is none of the above

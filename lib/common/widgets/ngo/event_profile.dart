@@ -31,9 +31,10 @@ class PEventProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return Scaffold(
-      appBar: const PAppBar(
+      appBar: PAppBar(
         showBackArrow: true,
-        actions: [
+        backArrowColor: dark ? Colors.white : TColors.dimgrey,
+        actions: const [
           PCircularHeart(),
         ],
       ),
