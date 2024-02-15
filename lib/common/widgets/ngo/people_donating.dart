@@ -5,13 +5,15 @@ import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
 class PPeopleDonated extends StatelessWidget {
   const PPeopleDonated({
-    Key? key,
+    super.key,
     required this.userPhotos,
     required this.numberOfPeople,
-  }) : super(key: key);
+    required this.text,
+  });
 
   final List<String> userPhotos; // List of image URLs
   final int numberOfPeople;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -39,10 +41,13 @@ class PPeopleDonated extends StatelessWidget {
                 ),
               ),
             Transform.translate(
-              offset: const Offset(-10,0),
+              offset: const Offset(-10, 0),
               child: Text(
-                '$numberOfPeople+ donated',
-                style: Theme.of(context).textTheme.labelMedium!.apply(color: dark ? TColors.accent : TColors.rani),
+                '$numberOfPeople+ $text',
+                style: Theme.of(context)
+                    .textTheme
+                    .labelMedium!
+                    .apply(color: dark ? TColors.accent : TColors.rani),
               ),
             ),
           ],

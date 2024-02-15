@@ -51,10 +51,11 @@ class PNgoSection extends StatelessWidget {
                 return const PEventCard(
                   eventDate: '26th February, 2024',
                   eventDayTime: 'Wednesday 9AM',
-                  eventTitle: 'Buy me pad, donation event annual ',
+                  eventTitle: 'Buy me pad, donation event annual for women',
                   eventLocation: 'St. Petersberg College',
                   eventDesc:
                       'Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum',
+                  eventPhoto: TImages.banner2Image,
                 );
               } else {
                 // Return a default widget or null if initiativeType is none of the above

@@ -1,41 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
-import 'package:solution_challenge/common/widgets/icons/circular_heart.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/common/widgets/images/rounded_image.dart';
 import 'package:solution_challenge/common/widgets/ngo/people_donating.dart';
-import 'package:solution_challenge/common/widgets/ngo/progress_bar.dart';
-import 'package:solution_challenge/common/widgets/texts/progress_text.dart';
-import 'package:solution_challenge/utils/constants/image_strings.dart';
-import 'package:solution_challenge/utils/constants/sizes.dart';
+import 'package:solution_challenge/common/widgets/texts/video_card_icontext.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
+import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
-class PCampaignProfile extends StatelessWidget {
-  const PCampaignProfile({
-    super.key,
-    required this.title,
-    required this.description,
-    required this.progressValue,
-    required this.raisedMoney,
-    required this.totalGoal,
-    required this.imageUrl,
-    this.onDonatePressed,
-    required this.orgPhoto,
-  });
+import '../appbar/appbar.dart';
+import '../icons/circular_heart.dart';
 
-  final String title;
-  final String description;
-  final double progressValue;
-  final int raisedMoney;
-  final int totalGoal;
-  final String imageUrl;
-  final VoidCallback? onDonatePressed;
-  final String orgPhoto;
+class PEventProfile extends StatelessWidget {
+  const PEventProfile(
+      {super.key,
+      required this.eventTitle,
+      required this.eventDate,
+      required this.eventDayTime,
+      required this.eventLocation,
+      required this.eventDesc,
+      required this.eventPhoto});
+
+  final String eventDate;
+  final String eventDayTime;
+  final String eventTitle;
+  final String eventLocation;
+  final String eventDesc;
+  final String eventPhoto;
 
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
-
     return Scaffold(
       appBar: const PAppBar(
         showBackArrow: true,
@@ -48,42 +42,67 @@ class PCampaignProfile extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: TSizes.lg),
           child: Column(
             children: [
-              // Image of the campaign
-              const PRoundedImage(imageUrl: TImages.banner1Image),
+              /// Image of the Event
+              PRoundedImage(imageUrl: eventPhoto),
 
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: TSizes.md),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Title
+                    /// Event Title
                     Text(
-                      title,
+                      eventTitle,
                       style: Theme.of(context).textTheme.headlineSmall,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(height: TSizes.spaceBtwItems / 2),
+
+                    ///Event location
+                    PCardIconText(
+                      iconData: Iconsax.location,
+                      iconColor: TColors.battleship,
+                      title: eventLocation,
+                      titleStyle: Theme.of(context).textTheme.titleSmall!.apply(
+                          color: dark ? Colors.white : TColors.battleship,),
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
 
-                    // People who donated
+                    /// People who are attending
                     const PPeopleDonated(
                       userPhotos: [
                         'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
                         'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
                         'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
                       ],
-                      numberOfPeople: 120, text: 'donated',
+                      numberOfPeople: 120,
+                      text: 'attending',
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
 
-                    // Progress bar
-                    PProgressBar(progressValue: progressValue, backgroundColor: TColors.accent, progressColor: TColors.rani,),
-                    const SizedBox(height: TSizes.spaceBtwItems),
+                    ///Event date
+                    PCardIconText(
+                      iconData: Iconsax.calendar,
+                      title: eventDate,
+                      titleStyle: Theme.of(context).textTheme.titleSmall!.apply(
+                          color: dark ? Colors.white : Colors.black,
+                          fontWeightDelta: 2),
+                    ),
+                    const SizedBox(height: TSizes.spaceBtwItems / 2,),
 
-                    // Raised Money, Total Goal, and Percentage
-                    PProfileProgressText(
-                        totalGoal: totalGoal, raisedMoney: raisedMoney),
-                    const SizedBox(height: TSizes.spaceBtwItems / 2),
+                    ///Event DayTime
+                    PCardIconText(
+                      iconData: Iconsax.clock,
+                      iconColor: TColors.rani,
+                      title: eventDayTime,
+                      titleStyle: Theme.of(context).textTheme.titleSmall!.apply(
+                          color: dark ? Colors.white : TColors.rani,
+                          fontWeightDelta: 2),
+                    ),
+                    const SizedBox(height: TSizes.spaceBtwItems,),
 
-                    // Divider
+                    /// Divider
                     Divider(
                       color: dark
                           ? TColors.battleship
@@ -104,9 +123,10 @@ class PCampaignProfile extends StatelessWidget {
                     const SizedBox(height: TSizes.spaceBtwItems),
 
                     ListTile(
-                      leading: CircleAvatar(
+                      leading: const CircleAvatar(
                         radius: 25,
-                        backgroundImage: NetworkImage(orgPhoto),
+                        backgroundImage: NetworkImage(
+                            'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg'),
                       ),
                       title: Text(
                         "NGO for women",
@@ -120,7 +140,7 @@ class PCampaignProfile extends StatelessWidget {
                             color: dark ? TColors.accent : TColors.battleship),
                       ),
                     ),
-                    const SizedBox(height: TSizes.spaceBtwItems/2),
+                    const SizedBox(height: TSizes.spaceBtwItems / 2),
 
                     // Description
                     Text(
@@ -132,7 +152,7 @@ class PCampaignProfile extends StatelessWidget {
                     const SizedBox(height: TSizes.spaceBtwItems / 2),
 
                     Text(
-                      description,
+                      eventTitle,
                       maxLines: 6,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.bodyMedium!.apply(
@@ -152,7 +172,7 @@ class PCampaignProfile extends StatelessWidget {
             horizontal: TSizes.lg, vertical: TSizes.md),
         child: ElevatedButton(
           onPressed: () {},
-          child: const Text('Donate now'),
+          child: const Text('Register'),
         ),
       ),
     );
