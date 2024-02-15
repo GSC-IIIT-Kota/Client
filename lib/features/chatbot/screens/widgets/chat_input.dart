@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+
 class PChatInput extends StatefulWidget {
   final Function(String) onSendMessage; // Callback function to send messages
+  final Function()? onSpeak; // Callback function to trigger TTS
 
-  const PChatInput({super.key, required this.onSendMessage});
+  const PChatInput({Key? key, required this.onSendMessage, this.onSpeak})
+      : super(key: key);
 
   @override
   State<PChatInput> createState() => _PChatInputState();
@@ -22,7 +25,6 @@ class _PChatInputState extends State<PChatInput> {
 
   @override
   Widget build(BuildContext context) {
-
     final dark = THelperFunctions.isDarkMode(context);
 
     return Container(
@@ -34,13 +36,21 @@ class _PChatInputState extends State<PChatInput> {
               controller: messageController,
               decoration: InputDecoration(
                 hintText: "Type message",
-                hintStyle: Theme.of(context).textTheme.labelLarge!.apply(color: TColors.battleship),
-                contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                hintStyle: Theme.of(context)
+                    .textTheme
+                    .labelLarge!
+                    .apply(color: TColors.battleship),
+                contentPadding:
+                const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               ),
             ),
           ),
           IconButton(
-            icon: Icon(Iconsax.arrow_circle_right,size: 30,color: dark ? TColors.brightpink : TColors.rani,),
+            icon: Icon(
+              Iconsax.arrow_circle_right,
+              size: 30,
+              color: dark ? TColors.brightpink : TColors.rani,
+            ),
             onPressed: () {
               String message = messageController.text.trim();
               if (message.isNotEmpty) {
@@ -48,6 +58,10 @@ class _PChatInputState extends State<PChatInput> {
                 messageController.clear();
               }
             },
+          ),
+          IconButton(
+            icon: Icon(Icons.volume_up),
+            onPressed: widget.onSpeak,
           ),
         ],
       ),
