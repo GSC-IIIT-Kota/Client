@@ -51,7 +51,7 @@ class _ChatScreenState extends State<ChatScreen> {
       isTyping = true;
     });
 
-    await ttsManager.speak(message);
+    // await ttsManager.speak(message);
     // Make a POST request to send the user message to the chatbot API
     var response = await http.post(
       Uri.parse('http://192.168.137.1:8000/api/chatbot/'),
@@ -74,7 +74,7 @@ class _ChatScreenState extends State<ChatScreen> {
           });
           isTyping = false;
         });
-        await ttsManager.speak(responseBody['text']);
+        // await ttsManager.speak(responseBody['text']);
       }
     } else {
       // Handle error
@@ -83,6 +83,12 @@ class _ChatScreenState extends State<ChatScreen> {
     print(contents);
   }
 
+  void speak() {
+    if (!isTyping) {
+      String lastMessage = chatMessages.isNotEmpty ? chatMessages.last : '';
+      ttsManager.speak(lastMessage);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -142,6 +148,7 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
           PChatInput(
             onSendMessage: sendMessage,
+            onSpeak: speak,
           ),
         ],
       ),
