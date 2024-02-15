@@ -58,7 +58,7 @@ class NgoScreen extends StatelessWidget {
                     height: TSizes.spaceBtwSections,
                   ),
                   PNgoSection(
-                    sectionHeading: 'Choose by organization',
+                    sectionHeading: 'Organizations',
                     initiativeType: 'Orgs', cardHeight: 150,
                   ),
                   SizedBox(
@@ -66,7 +66,7 @@ class NgoScreen extends StatelessWidget {
                   ),
                   PNgoSection(
                     sectionHeading: 'Upcoming Events',
-                    initiativeType: 'Events', cardHeight: 230,
+                    initiativeType: 'Events', cardHeight: 210,
                   ),
                   SizedBox(
                     height: TSizes.spaceBtwSections,

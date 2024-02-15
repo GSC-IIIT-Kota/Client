@@ -8,15 +8,20 @@ import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
 
 class PEventCard extends StatelessWidget {
-  const PEventCard(
-      {super.key,
-      required this.eventDate,
-      required this.eventDayTime,
-      required this.eventTitle,
-      required this.eventLocation,
-      required this.eventDesc,
-      required this.eventPhoto});
+  const PEventCard({
+    super.key,
+    required this.eventDate,
+    required this.eventDayTime,
+    required this.eventTitle,
+    required this.eventLocation,
+    required this.eventDesc,
+    required this.eventPhoto,
+    required this.cardWidth,
+    this.rightMargin = const EdgeInsets.only(right: 20),
+  });
 
+  final double cardWidth;
+  final EdgeInsets? rightMargin;
   final String eventDate;
   final String eventDayTime;
   final String eventTitle;
@@ -38,9 +43,9 @@ class PEventCard extends StatelessWidget {
             eventDesc: eventDesc,
           )),
       child: Container(
-        width: 300,
+        width: cardWidth,
         padding: const EdgeInsets.all(1),
-        margin: const EdgeInsets.only(right: 20),
+        margin: rightMargin,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(TSizes.productImageRadius),
           color: dark ? Colors.black : Colors.white,
@@ -114,7 +119,7 @@ class PEventCard extends StatelessWidget {
                             .bodyMedium!
                             .apply(color: TColors.battleship),
                         overflow: TextOverflow.ellipsis,
-                        maxLines: 3,
+                        maxLines: 2,
                         textAlign: TextAlign.left,
                       ),
                     ],

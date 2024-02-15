@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/device/device_utility.dart';
 import 'package:get/get.dart';
-import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
 class PAppBar extends StatelessWidget implements PreferredSizeWidget {
   const PAppBar({
@@ -14,18 +12,18 @@ class PAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actions,
     this.leadingOnPressed,
     this.showBackArrow = false,
+    this.backArrowColor = Colors.white,
   });
 
   final Widget? title;
   final bool showBackArrow;
+  final Color backArrowColor;
   final IconData? leadingIcon;
   final List<Widget>? actions;
   final VoidCallback? leadingOnPressed;
 
   @override
   Widget build(BuildContext context) {
-
-    final dark = THelperFunctions.isDarkMode(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: TSizes.md),
       child: AppBar(
@@ -33,7 +31,10 @@ class PAppBar extends StatelessWidget implements PreferredSizeWidget {
         leading: showBackArrow
             ? IconButton(
                 onPressed: () => Get.back(),
-                icon: Icon(Iconsax.arrow_left, color: dark ? Colors.white : TColors.dimgrey,))
+                icon: Icon(
+                  Iconsax.arrow_left,
+                  color: backArrowColor,
+                ))
             : leadingIcon != null
                 ? IconButton(
                     onPressed: leadingOnPressed, icon: Icon(leadingIcon))
@@ -46,5 +47,4 @@ class PAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize => Size.fromHeight(TDeviceUtils.getAppBarHeight());
-
 }

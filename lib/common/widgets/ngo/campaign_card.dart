@@ -23,8 +23,12 @@ class PCampaignCard extends StatelessWidget {
     required this.totalGoal,
     this.imageUrl,
     required this.orgPhoto,
+    required this.cardWidth,
+    this.rightMargin = const EdgeInsets.only(right: 20),
   });
 
+  final double cardWidth;
+  final EdgeInsets? rightMargin;
   final String title;
   final String description;
   final int raisedMoney;
@@ -49,9 +53,9 @@ class PCampaignCard extends StatelessWidget {
                 'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
           )),
       child: Container(
-        width: 250,
+        width: cardWidth,
         padding: const EdgeInsets.all(1),
-        margin: const EdgeInsets.only(right: 20),
+        margin: rightMargin,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(TSizes.productImageRadius),
           color: dark ? Colors.black : Colors.white,
