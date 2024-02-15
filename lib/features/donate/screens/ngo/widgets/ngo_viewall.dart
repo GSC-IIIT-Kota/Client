@@ -4,6 +4,7 @@ import 'package:solution_challenge/common/widgets/custom_shapes/containers/prima
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:solution_challenge/common/widgets/ngo/campaign_card.dart';
 import 'package:solution_challenge/common/widgets/ngo/event_card.dart';
+import 'package:solution_challenge/common/widgets/ngo/organization_card.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
@@ -123,6 +124,34 @@ class PNgoViewAllScreen extends StatelessWidget {
                       cardWidth: THelperFunctions.screenWidth(),
                       rightMargin: EdgeInsets.zero,
                     ),
+                    const SizedBox(
+                      height: TSizes.spaceBtwSections,
+                    ),
+                  ],
+                ),
+              ),
+
+            if (initiativeType == 'Organizations')
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+                child: Column(
+                  children: [
+                    POrganizationCard(
+                        cardWidth: THelperFunctions.screenWidth(),
+                        orgPhoto:
+                            'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
+                        ngoName: 'NGO for Women',
+                        ngoLocation: 'Rajasthan, India'),
+                    const SizedBox(
+                      height: TSizes.spaceBtwSections,
+                    ),
+                    POrganizationCard(
+                        cardWidth: THelperFunctions.screenWidth(),
+                        orgPhoto:
+                            'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
+                        ngoName: 'NGO for Women',
+                        ngoLocation: 'Rajasthan, India'),
                     const SizedBox(
                       height: TSizes.spaceBtwSections,
                     ),
