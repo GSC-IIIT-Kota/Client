@@ -10,27 +10,33 @@ import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
-class PCampaignProfile extends StatelessWidget {
-  const PCampaignProfile({
-    super.key,
-    required this.title,
-    required this.description,
-    required this.progressValue,
-    required this.raisedMoney,
-    required this.totalGoal,
-    required this.imageUrl,
-    this.onDonatePressed,
-    required this.orgPhoto,
-  });
+import 'description.dart';
 
+class PCampaignProfile extends StatefulWidget {
   final String title;
   final String description;
   final double progressValue;
   final int raisedMoney;
   final int totalGoal;
   final String imageUrl;
-  final VoidCallback? onDonatePressed;
   final String orgPhoto;
+
+  const PCampaignProfile({
+    Key? key,
+    required this.title,
+    required this.description,
+    required this.progressValue,
+    required this.raisedMoney,
+    required this.totalGoal,
+    required this.imageUrl,
+    required this.orgPhoto,
+  }) : super(key: key);
+
+  @override
+  _PCampaignProfileState createState() => _PCampaignProfileState();
+}
+class _PCampaignProfileState extends State<PCampaignProfile> {
+  bool showFullDescription = false;
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +65,7 @@ class PCampaignProfile extends StatelessWidget {
                   children: [
                     // Title
                     Text(
-                      title,
+                      widget.title,
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
@@ -71,17 +77,23 @@ class PCampaignProfile extends StatelessWidget {
                         'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
                         'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
                       ],
-                      numberOfPeople: 120, text: 'donated',
+                      numberOfPeople: 120,
+                      text: 'donated',
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
 
                     // Progress bar
-                    PProgressBar(progressValue: progressValue, backgroundColor: TColors.accent, progressColor: TColors.rani,),
+                    PProgressBar(
+                      progressValue: widget.progressValue,
+                      backgroundColor: TColors.accent,
+                      progressColor: TColors.rani,
+                    ),
                     const SizedBox(height: TSizes.spaceBtwItems),
 
                     // Raised Money, Total Goal, and Percentage
                     PProfileProgressText(
-                        totalGoal: totalGoal, raisedMoney: raisedMoney),
+                        totalGoal: widget.totalGoal,
+                        raisedMoney: widget.raisedMoney),
                     const SizedBox(height: TSizes.spaceBtwItems / 2),
 
                     // Divider
@@ -107,7 +119,7 @@ class PCampaignProfile extends StatelessWidget {
                     ListTile(
                       leading: CircleAvatar(
                         radius: 25,
-                        backgroundImage: NetworkImage(orgPhoto),
+                        backgroundImage: NetworkImage(widget.orgPhoto),
                       ),
                       title: Text(
                         "NGO for women",
@@ -121,25 +133,16 @@ class PCampaignProfile extends StatelessWidget {
                             color: dark ? TColors.accent : TColors.battleship),
                       ),
                     ),
-                    const SizedBox(height: TSizes.spaceBtwItems/2),
-
-                    // Description
-                    Text(
-                      "Description",
-                      style: Theme.of(context).textTheme.titleSmall!.apply(
-                          color: dark ? TColors.brightpink : TColors.burgandy,
-                          fontWeightDelta: 2),
-                    ),
                     const SizedBox(height: TSizes.spaceBtwItems / 2),
-
-                    Text(
-                      description,
-                      maxLines: 6,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.bodyMedium!.apply(
-                          color: dark
-                              ? Colors.white.withOpacity(0.8)
-                              : TColors.dimgrey),
+                    // Description
+                    DescriptionWidget(
+                      description: widget.description,
+                      showFullDescription: showFullDescription,
+                      onReadMorePressed: () {
+                        setState(() {
+                          showFullDescription = true;
+                        });
+                      },
                     ),
                   ],
                 ),
