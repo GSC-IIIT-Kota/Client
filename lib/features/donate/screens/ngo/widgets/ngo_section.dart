@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:solution_challenge/common/widgets/ngo/campaign_card.dart';
+import 'package:solution_challenge/common/widgets/ngo/organization_card.dart';
 import 'package:solution_challenge/common/widgets/texts/section_heading.dart';
 import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_viewall.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
@@ -51,9 +52,13 @@ class PNgoSection extends StatelessWidget {
                   orgPhoto:
                       'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
                 );
-              } else if (initiativeType == 'Orgs') {
-                return const SizedBox.shrink();
-                // return const POrgCard();
+              } else if (initiativeType == 'Organizations') {
+                return const POrganizationCard(
+                    cardWidth: 250,
+                    orgPhoto:
+                        'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
+                    ngoName: 'NGO for Women',
+                    ngoLocation: 'Rajasthan, India');
               } else if (initiativeType == 'Events') {
                 return const PEventCard(
                   eventDate: '26th February, 2024',
