@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_organization.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:get/get.dart';
 
 class POrganizationCard extends StatelessWidget {
   const POrganizationCard(
@@ -23,7 +25,9 @@ class POrganizationCard extends StatelessWidget {
     final dark = THelperFunctions.isDarkMode(context);
 
     return GestureDetector(
-      onTap: () {},
+      onTap: () => Get.to(
+        () => POrganizationScreen(orgPhoto: orgPhoto, ngoName: ngoName, ngoLocation: ngoLocation,),
+      ),
       child: Container(
         width: cardWidth,
         padding: const EdgeInsets.all(1),
@@ -33,7 +37,8 @@ class POrganizationCard extends StatelessWidget {
           color: dark ? Colors.black : Colors.white,
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: TSizes.md, vertical: TSizes.md),
+          padding: const EdgeInsets.symmetric(
+              horizontal: TSizes.md, vertical: TSizes.md),
 
           /// Avatar, Org Name and location
           child: Row(
@@ -61,15 +66,12 @@ class POrganizationCard extends StatelessWidget {
                     ),
                     Text(
                       ngoLocation,
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium!
-                          .apply(color: dark ? TColors.accent : TColors.battleship),
+                      style: Theme.of(context).textTheme.bodyMedium!.apply(
+                          color: dark ? TColors.accent : TColors.battleship),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.left,
                     ),
-
                   ],
                 ),
               )

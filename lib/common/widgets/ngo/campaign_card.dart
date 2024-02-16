@@ -50,7 +50,7 @@ class PCampaignCard extends StatelessWidget {
             totalGoal: totalGoal,
             imageUrl: TImages.banner1Image,
             orgPhoto:
-                'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
+                'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg', ngoName: 'NGO for Women', ngoLocation: 'Rajasthan, India',
           )),
       child: Container(
         width: cardWidth,
