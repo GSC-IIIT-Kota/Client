@@ -9,13 +9,14 @@ class PUserProfileTile extends StatelessWidget {
     required this.imageUrl,
     required this.title,
     required this.subTitle,
-    this.showEditIcon = false,
+    this.showEditIcon = false, this.textColor = Colors.white,
   });
 
   final String imageUrl;
   final String title;
   final String subTitle;
   final bool showEditIcon;
+  final Color textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +29,13 @@ class PUserProfileTile extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .headlineSmall!
-                .apply(color: Colors.white)),
+                .apply(color: textColor)),
         subtitle: Text(
           subTitle,
           style: Theme.of(context)
               .textTheme
               .bodyMedium!
-              .apply(color: Colors.white),
+              .apply(color: textColor),
         ),
         trailing: showEditIcon
             ? IconButton(

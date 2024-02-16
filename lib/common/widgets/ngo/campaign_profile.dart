@@ -5,10 +5,12 @@ import 'package:solution_challenge/common/widgets/images/rounded_image.dart';
 import 'package:solution_challenge/common/widgets/ngo/people_donating.dart';
 import 'package:solution_challenge/common/widgets/ngo/progress_bar.dart';
 import 'package:solution_challenge/common/widgets/texts/progress_text.dart';
+import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_organization.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:get/get.dart';
 
 import 'description.dart';
 
@@ -20,17 +22,20 @@ class PCampaignProfile extends StatefulWidget {
   final int totalGoal;
   final String imageUrl;
   final String orgPhoto;
+  final String ngoName;
+  final String ngoLocation;
 
   const PCampaignProfile({
-    Key? key,
+    super.key,
     required this.title,
     required this.description,
     required this.progressValue,
     required this.raisedMoney,
     required this.totalGoal,
     required this.imageUrl,
-    required this.orgPhoto,
-  }) : super(key: key);
+    required this.orgPhoto, required this.ngoName, required this.ngoLocation,
+
+  });
 
   @override
   _PCampaignProfileState createState() => _PCampaignProfileState();
@@ -116,21 +121,24 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
 
-                    ListTile(
-                      leading: CircleAvatar(
-                        radius: 25,
-                        backgroundImage: NetworkImage(widget.orgPhoto),
-                      ),
-                      title: Text(
-                        "NGO for women",
-                        style: Theme.of(context).textTheme.titleSmall!.apply(
-                            color: dark ? TColors.accent : TColors.dimgrey,
-                            fontWeightDelta: 2),
-                      ),
-                      subtitle: Text(
-                        "Rajasthan, India",
-                        style: Theme.of(context).textTheme.bodyMedium!.apply(
-                            color: dark ? TColors.accent : TColors.battleship),
+                    GestureDetector(
+                      onTap: () => Get.to(() => POrganizationScreen(orgPhoto: widget.orgPhoto, ngoName: widget.ngoName, ngoLocation: widget.ngoLocation)),
+                      child: ListTile(
+                        leading: CircleAvatar(
+                          radius: 25,
+                          backgroundImage: NetworkImage(widget.orgPhoto),
+                        ),
+                        title: Text(
+                          widget.ngoName,
+                          style: Theme.of(context).textTheme.titleSmall!.apply(
+                              color: dark ? TColors.accent : TColors.dimgrey,
+                              fontWeightDelta: 2),
+                        ),
+                        subtitle: Text(
+                          widget.ngoLocation,
+                          style: Theme.of(context).textTheme.bodyMedium!.apply(
+                              color: dark ? TColors.accent : TColors.battleship),
+                        ),
                       ),
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems / 2),
