@@ -61,7 +61,7 @@ class PNgoSection extends StatelessWidget {
                     ngoLocation: 'Rajasthan, India');
               } else if (initiativeType == 'Events') {
                 return const PEventCard(
-                  eventDate: '26th February, 2024',
+                  eventDate: '25th February, 2024',
                   eventDayTime: 'Wednesday 9AM',
                   eventTitle: 'Buy me pad, donation event annual for women',
                   eventLocation: 'St. Petersberg College',
