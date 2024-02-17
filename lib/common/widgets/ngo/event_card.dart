@@ -101,7 +101,7 @@ class PEventCard extends StatelessWidget {
                       ),
                       PCardIconText(
                         iconData: Iconsax.location,
-                        iconSize: 20,
+                        iconSize: 30,
                         iconColor: TColors.dimgrey,
                         title: eventLocation,
                         titleStyle: Theme.of(context)
