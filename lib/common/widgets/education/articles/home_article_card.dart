@@ -6,13 +6,43 @@ import 'package:solution_challenge/common/widgets/texts/video_card_icontext.dart
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
+import 'package:get/get.dart';
+
+import '../../articles/article_display.dart';
 
 class PHomeArticleCard extends StatelessWidget {
-  const PHomeArticleCard({Key? key}) : super(key: key);
+  const PHomeArticleCard(
+      {super.key,
+      required this.articleImg,
+      required this.articleCategory,
+      required this.readingTime,
+      required this.uploadTime,
+      required this.articleTitle,
+      required this.hasAuthor,
+      required this.articleAuthor,
+      required this.articleContent});
+
+  final String articleImg;
+  final String articleCategory;
+  final String readingTime;
+  final String uploadTime;
+  final String articleTitle;
+  final bool hasAuthor;
+  final String articleAuthor;
+  final String articleContent;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () => Get.to(() => PArticleScreen(
+          articleImg: articleImg,
+          articleCategory: articleCategory,
+          readingTime: readingTime,
+          uploadTime: uploadTime,
+          articleTitle: articleTitle,
+          hasAuthor: hasAuthor,
+          articleAuthor: articleAuthor,
+          articleContent: articleContent)),
       child: Container(
         width: 300,
         height: 100,
@@ -41,7 +71,7 @@ class PHomeArticleCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      'Downside of using reusable pads during menstrual cycles',
+                      articleTitle,
                       style: Theme.of(context).textTheme.bodySmall!.apply(
                             color: TColors.dimgrey,
                             fontWeightDelta: 1,
