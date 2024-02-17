@@ -5,20 +5,31 @@ import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
 
+import '../../../models/organisation.dart';
+
 class POrganizationCard extends StatelessWidget {
-  const POrganizationCard(
-      {super.key,
-      required this.cardWidth,
-      this.rightMargin = const EdgeInsets.only(right: 20),
-      required this.orgPhoto,
-      required this.ngoName,
-      required this.ngoLocation});
+  const POrganizationCard({
+    super.key,
+    required this.cardWidth,
+    required this.orgPhoto,
+    required this.ngoName,
+    required this.ngoLocation,
+    required this.id,
+    required this.email,
+    required this.passwordHash,
+    required this.campaigns,
+    required this.events,
+  });
 
   final double cardWidth;
-  final EdgeInsets rightMargin;
   final String orgPhoto;
   final String ngoName;
   final String ngoLocation;
+  final String id;
+  final String email;
+  final String passwordHash;
+  final List<String> campaigns;
+  final List<String> events;
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +37,17 @@ class POrganizationCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: () => Get.to(
-        () => POrganizationScreen(orgPhoto: orgPhoto, ngoName: ngoName, ngoLocation: ngoLocation,),
+        () => POrganizationScreen(
+          orgPhoto: orgPhoto,
+          ngoName: ngoName,
+          ngoLocation: ngoLocation,
+          events: [],
+        ),
       ),
       child: Container(
         width: cardWidth,
         padding: const EdgeInsets.all(1),
-        margin: rightMargin,
+        margin: const EdgeInsets.only(right: 20),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(TSizes.productImageRadius),
           color: dark ? Colors.black : Colors.white,

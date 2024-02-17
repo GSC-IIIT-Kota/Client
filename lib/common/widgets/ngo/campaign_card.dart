@@ -14,9 +14,10 @@ import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+
 class PCampaignCard extends StatelessWidget {
   const PCampaignCard({
-    super.key,
+    Key? key,
     required this.title,
     required this.description,
     required this.raisedMoney,
@@ -25,7 +26,7 @@ class PCampaignCard extends StatelessWidget {
     required this.orgPhoto,
     required this.cardWidth,
     this.rightMargin = const EdgeInsets.only(right: 20),
-  });
+  }) : super(key: key);
 
   final double cardWidth;
   final EdgeInsets? rightMargin;
@@ -38,19 +39,20 @@ class PCampaignCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
-    final double progressValue = raisedMoney / totalGoal;
+    final double progressValue = totalGoal != 0 ? raisedMoney / totalGoal : 0;
 
     return GestureDetector(
       onTap: () => Get.to(() => PCampaignProfile(
-            title: title,
-            description: description,
-            progressValue: progressValue,
-            raisedMoney: raisedMoney,
-            totalGoal: totalGoal,
-            imageUrl: TImages.banner1Image,
-            orgPhoto:
-                'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg', ngoName: 'NGO for Women', ngoLocation: 'Rajasthan, India',
-          )),
+        title: title,
+        description: description,
+        progressValue: progressValue,
+        raisedMoney: raisedMoney,
+        totalGoal: totalGoal,
+        imageUrl: TImages.banner1Image,
+        orgPhoto: orgPhoto,
+        ngoName: 'NGO for Women',
+        ngoLocation: 'Rajasthan, India',
+      )),
       child: Container(
         width: cardWidth,
         padding: const EdgeInsets.all(1),
@@ -64,11 +66,11 @@ class PCampaignCard extends StatelessWidget {
             ///Thumbnail, save button
             PRoundedContainer(
               backgroundColor: dark ? Colors.black : Colors.white,
-              child: const Stack(
+              child:  Stack(
                 children: [
                   ///Thumbnail
                   PRoundedImage(
-                    imageUrl: TImages.banner1Image,
+                    imageUrl: orgPhoto,
                     applyImageRadius: true,
                   ),
 
@@ -138,7 +140,9 @@ class PCampaignCard extends StatelessWidget {
 
                   /// Raised Money, Percentage
                   PCardProgressText(
-                      raisedMoney: raisedMoney, totalGoal: totalGoal),
+                    raisedMoney: raisedMoney,
+                    totalGoal: totalGoal,
+                  ),
                 ],
               ),
             ),
@@ -148,3 +152,4 @@ class PCampaignCard extends StatelessWidget {
     );
   }
 }
+

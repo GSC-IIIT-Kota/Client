@@ -1,38 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-class NGO {
-  final String id;
-  final String name;
-  final String email;
-  final String passwordHash;
-
-  NGO({
-    required this.id,
-    required this.name,
-    required this.email,
-    required this.passwordHash,
-  });
-
-  factory NGO.fromJson(Map<String, dynamic> json) {
-    return NGO(
-      id: json['id'] ?? '',
-      name: json['name'] ?? '',
-      email: json['email'] ?? '',
-      passwordHash: json['passwordHash'] ?? '',
-    );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'name': name,
-      'email': email,
-      'passwordHash': passwordHash,
-    };
-  }
-}
-
+import '../models/organisation.dart';
 class NGOService {
   static const baseUrl = 'http://192.168.137.1:8000/api/ngos'; // Update the URL with your server's NGO endpoint
 

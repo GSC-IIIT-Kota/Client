@@ -6,7 +6,6 @@ import 'package:solution_challenge/common/widgets/ngo/people_donating.dart';
 import 'package:solution_challenge/common/widgets/ngo/progress_bar.dart';
 import 'package:solution_challenge/common/widgets/texts/progress_text.dart';
 import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_organization.dart';
-import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
@@ -25,21 +24,23 @@ class PCampaignProfile extends StatefulWidget {
   final String ngoName;
   final String ngoLocation;
 
-  const PCampaignProfile({
-    super.key,
+  PCampaignProfile({
+    Key? key,
     required this.title,
     required this.description,
     required this.progressValue,
     required this.raisedMoney,
     required this.totalGoal,
     required this.imageUrl,
-    required this.orgPhoto, required this.ngoName, required this.ngoLocation,
-
-  });
+    required this.orgPhoto,
+    required this.ngoName,
+    required this.ngoLocation,
+  }) : super(key: key);
 
   @override
   _PCampaignProfileState createState() => _PCampaignProfileState();
 }
+
 class _PCampaignProfileState extends State<PCampaignProfile> {
   bool showFullDescription = false;
 
@@ -61,7 +62,7 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
           child: Column(
             children: [
               // Image of the campaign
-              const PRoundedImage(imageUrl: TImages.banner1Image),
+              PRoundedImage(imageUrl: widget.orgPhoto),
 
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: TSizes.md),
@@ -76,7 +77,7 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
                     const SizedBox(height: TSizes.spaceBtwItems),
 
                     // People who donated
-                    const PPeopleDonated(
+                    PPeopleDonated(
                       userPhotos: [
                         'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
                         'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
@@ -96,9 +97,9 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
                     const SizedBox(height: TSizes.spaceBtwItems),
 
                     // Raised Money, Total Goal, and Percentage
-                    PProfileProgressText(
-                        totalGoal: widget.totalGoal,
-                        raisedMoney: widget.raisedMoney),
+                    PCardProgressText(
+                        raisedMoney: widget.raisedMoney,
+                        totalGoal: widget.totalGoal),
                     const SizedBox(height: TSizes.spaceBtwItems / 2),
 
                     // Divider
@@ -122,7 +123,12 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
                     const SizedBox(height: TSizes.spaceBtwItems),
 
                     GestureDetector(
-                      onTap: () => Get.to(() => POrganizationScreen(orgPhoto: widget.orgPhoto, ngoName: widget.ngoName, ngoLocation: widget.ngoLocation)),
+                      onTap: () => Get.to(() => POrganizationScreen(
+                        orgPhoto: widget.orgPhoto,
+                        ngoName: widget.ngoName,
+                        ngoLocation: widget.ngoLocation,
+                        events: [],
+                      )),
                       child: ListTile(
                         leading: CircleAvatar(
                           radius: 25,
@@ -137,7 +143,8 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
                         subtitle: Text(
                           widget.ngoLocation,
                           style: Theme.of(context).textTheme.bodyMedium!.apply(
-                              color: dark ? TColors.accent : TColors.battleship),
+                              color:
+                              dark ? TColors.accent : TColors.battleship),
                         ),
                       ),
                     ),
