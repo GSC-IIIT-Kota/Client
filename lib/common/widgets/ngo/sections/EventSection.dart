@@ -4,15 +4,17 @@ import 'package:solution_challenge/common/widgets/ngo/event_card.dart';
 import 'package:solution_challenge/models/event.dart';
 import 'package:solution_challenge/services/event_service.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
-import '../event_card.dart';
+
+import '../../../../features/donate/screens/ngo/widgets/ngo_viewall.dart';
+import '../../texts/section_heading.dart';
 
 class PEventSection extends StatelessWidget {
   const PEventSection({
-    Key? key,
+    super.key,
     required this.sectionHeading,
     required this.initiativeType,
     required this.cardHeight,
-  }) : super(key: key);
+  });
 
   final String sectionHeading;
   final String initiativeType;
@@ -24,18 +26,27 @@ class PEventSection extends StatelessWidget {
 
     return Column(
       children: [
-        Text(sectionHeading, style: TextStyle(color: dark ? Colors.white : Colors.black)),
+        PSectionHeading(
+        title: sectionHeading,
+        textColor: dark ? Colors.white : Colors.black,
+        onPressed: () => Get.to(() => PNgoViewAllScreen(
+          initiativeType: initiativeType,
+        )),
+      ),
         SizedBox(
           height: cardHeight,
-          child: FutureBuilder<List<Event>>(
+          child: FutureBuilder<List<Event>?>(
             future: EventService().getEvents(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               } else if (snapshot.hasError) {
                 return Center(child: Text('Error: ${snapshot.error}'));
               } else {
-                final events = snapshot.data!;
+                final events = snapshot.data ?? [];
+                if (events.isEmpty) {
+                  return const Center(child: Text('No events found'));
+                }
                 return ListView.builder(
                   itemCount: events.length,
                   scrollDirection: Axis.horizontal,
@@ -49,6 +60,7 @@ class PEventSection extends StatelessWidget {
                       eventPhoto: events[index].banner,
                       cardWidth: 300,
                     );
+
                   },
                 );
               }

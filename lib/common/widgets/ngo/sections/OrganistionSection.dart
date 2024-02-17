@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:solution_challenge/common/widgets/ngo/campaign_card.dart';
+import 'package:get/get.dart';
 import 'package:solution_challenge/common/widgets/ngo/organization_card.dart';
 import 'package:solution_challenge/common/widgets/texts/section_heading.dart';
 import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_viewall.dart';
-import 'package:solution_challenge/utils/constants/image_strings.dart';
+import 'package:solution_challenge/models/organisation.dart';
+import 'package:solution_challenge/services/ngo_service.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
-import 'package:get/get.dart';
 
-import '../../../../../common/widgets/ngo/event_card.dart';
+import '../../../../models/organisation.dart';
 
 class POrganisationSection extends StatelessWidget {
   const POrganisationSection({
-    super.key,
+    Key? key,
     required this.sectionHeading,
     required this.initiativeType,
     required this.cardHeight,
-  });
+  }) : super(key: key);
 
   final String sectionHeading;
   final String initiativeType;
@@ -34,26 +34,39 @@ class POrganisationSection extends StatelessWidget {
             initiativeType: initiativeType,
           )),
         ),
-        SizedBox(
-          height: cardHeight,
-          child: ListView.builder(
-            itemCount: 4,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (_, index) {
-              if (initiativeType == 'Organizations') {
-                return const POrganizationCard(
-                    cardWidth: 250,
-                    orgPhoto:
-                    'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
-                    ngoName: 'NGO for Women',
-                    ngoLocation: 'Rajasthan, India');
-              }
-              else {
-                // Return a default widget or null if initiativeType is none of the above
-                return const SizedBox.shrink();
-              }
-            },
-          ),
+        FutureBuilder<List<NGO>?>(
+          future: NGOService.getAllNGOs(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              return Center(child: Text('Error: ${snapshot.error}'));
+            } else {
+              final List<NGO> ngos = snapshot.data ?? [];
+              return SizedBox(
+                height: cardHeight,
+                child: ListView.builder(
+                  itemCount: ngos.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (_, index) {
+                    final organization = ngos[index];
+                    return POrganizationCard(
+                      cardWidth: 250,
+                      orgPhoto: organization.profile?.logo ?? '',
+                      ngoName: organization.profile?.ngoName ?? '',
+                      ngoLocation:
+                      '${organization.profile?.city ?? ''}, ${organization.profile?.country ?? ''}',
+                      id: organization.id,
+                      email: organization.email,
+                      passwordHash: organization.passwordHash,
+                      campaigns: organization.campaigns ?? [],
+                      events: organization.events ?? [],
+                    );
+                  },
+                ),
+              );
+            }
+          },
         ),
       ],
     );
