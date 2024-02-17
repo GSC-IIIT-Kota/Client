@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:solution_challenge/common/widgets/education/articles/home_article_card.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
+import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 
 class PHomeArticleColumn extends StatelessWidget {
@@ -17,9 +18,43 @@ class PHomeArticleColumn extends StatelessWidget {
       ),
       child: const Column(
         children: [
-          PHomeArticleCard(),
-          PHomeArticleCard(),
-          PHomeArticleCard(),
+          PHomeArticleCard(
+            articleImg: TImages.banner4Image,
+            articleCategory: 'Menstrual Hygiene',
+            readingTime: '7 min',
+            uploadTime: '2d ago',
+            articleTitle:
+                'Downside of using reusable pads during menstrual cycles',
+            hasAuthor: false,
+            articleAuthor: 'Admin',
+            articleContent:
+                'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ',
+          ),
+          PHomeArticleCard(
+            articleImg: TImages.banner4Image,
+            articleCategory: 'Menstrual Hygiene',
+            readingTime: '7 min',
+            uploadTime: '2d ago',
+            articleTitle:
+            'Downside of using reusable pads during menstrual cycles',
+            hasAuthor: false,
+            articleAuthor: 'Admin',
+            articleContent:
+            'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ',
+          ),
+          PHomeArticleCard(
+            articleImg: TImages.banner4Image,
+            articleCategory: 'Menstrual Hygiene',
+            readingTime: '7 min',
+            uploadTime: '2d ago',
+            articleTitle:
+            'Downside of using reusable pads during menstrual cycles',
+            hasAuthor: false,
+            articleAuthor: 'Admin',
+            articleContent:
+            'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ',
+          ),
+
         ],
       ),
     );
