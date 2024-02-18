@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/search_container.dart';
@@ -188,14 +187,8 @@ class PEducationAppbar extends StatelessWidget {
                   .apply(color: TColors.rani)),
         ],
       ),
-      actions: [
-        IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Iconsax.category,
-              color: TColors.rani,
-            ))
-      ],
+      // actions: [
+      // ],
     );
   }
 }
