@@ -7,15 +7,13 @@ import 'package:solution_challenge/models/organisation.dart';
 import 'package:solution_challenge/services/ngo_service.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
-import '../../../../models/organisation.dart';
-
 class POrganisationSection extends StatelessWidget {
   const POrganisationSection({
-    Key? key,
+    super.key,
     required this.sectionHeading,
     required this.initiativeType,
     required this.cardHeight,
-  }) : super(key: key);
+  });
 
   final String sectionHeading;
   final String initiativeType;
@@ -35,10 +33,10 @@ class POrganisationSection extends StatelessWidget {
           )),
         ),
         FutureBuilder<List<NGO>?>(
-          future: NGOService.getAllNGOs(),
+          future: NGOService().getAllNGOs(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             } else if (snapshot.hasError) {
               return Center(child: Text('Error: ${snapshot.error}'));
             } else {

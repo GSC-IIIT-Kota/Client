@@ -1,16 +1,68 @@
-
+// Import necessary packages
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:http/http.dart' as http;
 import 'package:iconsax/iconsax.dart';
+import '../../../../../navigation_menu.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../password_configurations/forgot_password.dart';
 import '../../signup/signup.dart';
-import 'package:solution_challenge/services/user_service.dart';
 
+
+
+// Your existing login form widget
 class TLoginForm extends StatelessWidget {
-    TLoginForm({super.key});
+  const TLoginForm({super.key});
 
-  final UserService userService = UserService();
+  // Define method to handle sign in button pressed
+  Future<void> _signIn(BuildContext context, String email, String password) async {
+    try {
+      final apiBaseUrl = dotenv.env['API_BASE_URL'];
+
+      // Construct the URL for your backend's login endpoint
+      final url = Uri.parse('$apiBaseUrl/users/login'); // Update the URL with your server's login endpoint
+
+      // Send a POST request with the user's credentials
+      final response = await http.post(
+        url,
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        // Encode the user's email and password as JSON
+        body: jsonEncode(<String, String>{
+          'email': email,
+          'password': password,
+        }),
+      );
+
+      // Check the response status code
+      if (response.statusCode == 200) {
+        // If the login was successful, navigate to the next screen
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const NavigationMenu()),
+        );
+      } else {
+        // If the login failed, show an error message
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Login failed. Please check your credentials.'),
+          ),
+        );
+      }
+    } catch (error) {
+      // Handle any errors that occur during the HTTP request
+      print('Error occurred: $error');
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('An error occurred. Please try again later.'),
+        ),
+      );
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +117,7 @@ class TLoginForm extends StatelessWidget {
                     // Navigate to ForgotPasswordScreen
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ForgotPassword()),
+                      MaterialPageRoute(builder: (context) => const ForgotPassword()),
                     );
                   },
                   style: TextButton.styleFrom(foregroundColor: TColors.rani),
@@ -84,7 +136,7 @@ class TLoginForm extends StatelessWidget {
                   String email = emailController.text.trim();
                   String password = passwordController.text.trim();
                   // Call the _signIn method to handle sign in
-                  userService.signIn(context, email, password);
+                  _signIn(context, email, password);
                 },
                 child: const Text("Sign In"),
               ),
