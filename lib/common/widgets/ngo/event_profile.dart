@@ -8,11 +8,10 @@ import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import '../appbar/appbar.dart';
 import '../icons/circular_heart.dart';
-import '../../../../../../models/event.dart';
 
 class PEventProfile extends StatefulWidget {
   const PEventProfile({
-    Key? key,
+    super.key,
     required this.eventDate,
     required this.eventDayTime,
     required this.eventTitle,
@@ -20,7 +19,7 @@ class PEventProfile extends StatefulWidget {
     required this.eventDesc,
     required this.eventPhoto,
     required this.cardWidth,
-  }) : super(key: key);
+  });
 
   final String eventDate;
   final String eventDayTime;
@@ -38,7 +37,7 @@ class _PEventProfileState extends State<PEventProfile> {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
+    final dark = PHelperFunctions.isDarkMode(context);
 
     return Scaffold(
       appBar: PAppBar(

@@ -101,10 +101,10 @@ class PLessonCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
+    final dark = PHelperFunctions.isDarkMode(context);
     return PRoundedContainer(
       height: 80,
-      width: THelperFunctions.screenWidth(),
+      width: PHelperFunctions.screenWidth(),
       backgroundColor: Colors.white,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: TSizes.lg),

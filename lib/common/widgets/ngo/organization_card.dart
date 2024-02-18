@@ -5,7 +5,6 @@ import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
 
-import '../../../models/organisation.dart';
 
 class POrganizationCard extends StatelessWidget {
   const POrganizationCard({
@@ -33,7 +32,7 @@ class POrganizationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
+    final dark = PHelperFunctions.isDarkMode(context);
 
     return GestureDetector(
       onTap: () => Get.to(

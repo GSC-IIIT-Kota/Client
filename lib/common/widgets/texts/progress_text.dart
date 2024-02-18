@@ -50,7 +50,7 @@ class PProfileProgressText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double progressValue = raisedMoney / totalGoal;
-    final dark = THelperFunctions.isDarkMode(context);
+    final dark = PHelperFunctions.isDarkMode(context);
     return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

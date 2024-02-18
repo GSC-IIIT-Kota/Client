@@ -29,7 +29,7 @@ class ResetPassword extends StatelessWidget {
               ///Image
               Image(
                 image: const AssetImage(TImages.resetPasswordImage),
-                width: THelperFunctions.screenWidth() * 0.9,
+                width: PHelperFunctions.screenWidth() * 0.9,
               ),
               const SizedBox(
                 height: TSizes.spaceBtwSections,

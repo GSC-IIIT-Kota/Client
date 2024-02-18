@@ -19,7 +19,7 @@ class EducationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
+    final dark = PHelperFunctions.isDarkMode(context);
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -54,7 +54,7 @@ class EducationScreen extends StatelessWidget {
                     onTap: () => Get.to(() => const CourseScreen()),
                     child: PRoundedContainer(
                       radius: 40,
-                      width: THelperFunctions.screenWidth(),
+                      width: PHelperFunctions.screenWidth(),
                       height: 330,
                       backgroundColor: TColors.brightpink,
                       child: Padding(
@@ -171,6 +171,8 @@ class PEducationAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final dark = PHelperFunctions.isDarkMode(context);
     return PAppBar(
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -179,12 +181,12 @@ class PEducationAppbar extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .labelMedium!
-                  .apply(color: TColors.rani)),
+                  .apply(color: dark ? Colors.white : TColors.rani)),
           Text("Username",
               style: Theme.of(context)
                   .textTheme
                   .headlineMedium!
-                  .apply(color: TColors.rani)),
+                  .apply(color: dark ? Colors.white : TColors.rani)),
         ],
       ),
       // actions: [
