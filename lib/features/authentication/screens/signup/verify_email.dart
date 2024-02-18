@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:solution_challenge/common/widgets/success_screen/success_screen.dart';
 import 'package:solution_challenge/features/authentication/screens/login/login.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
@@ -39,7 +40,7 @@ class VerifyEmailScreen extends StatelessWidget {
 
               /// Title & Subtitle
               Text(
-                "Verify your email address",
+                translatedStrings?[29] ?? "Verify your email address",
                 style: Theme.of(context).textTheme.headlineMedium,
                 textAlign: TextAlign.center,
               ),
@@ -55,7 +56,7 @@ class VerifyEmailScreen extends StatelessWidget {
                 height: TSizes.spaceBtwItems,
               ),
               Text(
-                "Confirm your email address to unlock full access to Period's menstrual health resources.",
+                translatedStrings?[30] ?? "Confirm your email address to unlock full access to Period's menstrual health resources.",
                 style: Theme.of(context).textTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),
@@ -71,10 +72,10 @@ class VerifyEmailScreen extends StatelessWidget {
                         image: TImages.confirmedEmailImage,
                         title: "Welcome to Period!",
                         subTitle:
-                            "Your email has been successfully verified. Enjoy full access to menstrual health resources and community support.",
+                            translatedStrings?[31] ?? "Your email has been successfully verified. Enjoy full access to menstrual health resources and community support.",
                         onPressed: () => Get.to(() => const LoginScreen()),
                       )),
-                  child: const Text("Continue"),
+                  child: Text(translatedStrings?[32] ?? "Continue"),
                 ),
               ),
               const SizedBox(
@@ -87,7 +88,7 @@ class VerifyEmailScreen extends StatelessWidget {
                   style: TextButton.styleFrom(
                     foregroundColor: TColors.rani,
                   ),
-                  child: const Text("Resend Email"),
+                  child: Text(translatedStrings?[33] ?? "Resend Email"),
                 ),
               ),
             ],

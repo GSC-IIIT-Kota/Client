@@ -5,6 +5,7 @@ import 'package:solution_challenge/common/widgets/ngo/campaign_card.dart';
 import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_appbar.dart';
 import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_categories.dart';
 import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_section.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 
 import '../../../../common/widgets/ngo/sections/CampaignSection.dart';
@@ -16,7 +17,7 @@ class NgoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -35,7 +36,7 @@ class NgoScreen extends StatelessWidget {
 
                   /// SearchBar
                   PSearchContainer(
-                    text: "Search Organizations",
+                    text: translatedStrings?[39] ?? "Search Organizations",
                   ),
                   SizedBox(
                     height: TSizes.spaceBtwSections,
