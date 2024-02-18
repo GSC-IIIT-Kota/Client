@@ -9,8 +9,6 @@ import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
-import '../../../../../models/organisation.dart';
-
 class PNgoViewAllScreen extends StatelessWidget {
   const PNgoViewAllScreen({super.key, required this.initiativeType});
 
@@ -70,7 +68,7 @@ class PNgoViewAllScreen extends StatelessWidget {
                       imageUrl: TImages.banner1Image,
                       orgPhoto:
                           'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
-                      cardWidth: THelperFunctions.screenWidth(),
+                      cardWidth: PHelperFunctions.screenWidth(),
                       rightMargin: EdgeInsets.zero,
                     ),
                     const SizedBox(
@@ -85,7 +83,7 @@ class PNgoViewAllScreen extends StatelessWidget {
                       imageUrl: TImages.banner1Image,
                       orgPhoto:
                           'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
-                      cardWidth: THelperFunctions.screenWidth(),
+                      cardWidth: PHelperFunctions.screenWidth(),
                       rightMargin: EdgeInsets.zero,
                     ),
                     const SizedBox(
@@ -109,7 +107,7 @@ class PNgoViewAllScreen extends StatelessWidget {
                       eventDesc:
                           'Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum',
                       eventPhoto: TImages.banner2Image,
-                      cardWidth: THelperFunctions.screenWidth(),
+                      cardWidth: PHelperFunctions.screenWidth(),
                     ),
                     const SizedBox(
                       height: TSizes.spaceBtwSections,
@@ -122,7 +120,7 @@ class PNgoViewAllScreen extends StatelessWidget {
                       eventDesc:
                           'Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum',
                       eventPhoto: TImages.banner2Image,
-                      cardWidth: THelperFunctions.screenWidth(),
+                      cardWidth: PHelperFunctions.screenWidth(),
                     ),
                     const SizedBox(
                       height: TSizes.spaceBtwSections,
@@ -138,7 +136,7 @@ class PNgoViewAllScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     POrganizationCard(
-                      cardWidth: THelperFunctions.screenWidth(),
+                      cardWidth: PHelperFunctions.screenWidth(),
                       orgPhoto:
                           'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
                       ngoName: 'NGO for Women',
@@ -152,7 +150,7 @@ class PNgoViewAllScreen extends StatelessWidget {
                       height: TSizes.spaceBtwSections,
                     ),
                     POrganizationCard(
-                      cardWidth: THelperFunctions.screenWidth(),
+                      cardWidth: PHelperFunctions.screenWidth(),
                       orgPhoto:
                           'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
                       ngoName: 'NGO for Women',

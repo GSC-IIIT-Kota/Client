@@ -12,7 +12,7 @@ class PCampaignCardDesc extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final dark = THelperFunctions.isDarkMode(context);
+    final dark = PHelperFunctions.isDarkMode(context);
     return Text(desc,
       maxLines: 2,
       overflow: TextOverflow.ellipsis,
