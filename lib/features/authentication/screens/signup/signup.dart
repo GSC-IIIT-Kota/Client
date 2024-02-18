@@ -7,6 +7,7 @@ import 'package:solution_challenge/common/widgets/login_signup/form_divider.dart
 import 'package:solution_challenge/common/widgets/login_signup/social_buttons.dart';
 import 'package:solution_challenge/features/authentication/screens/signup/verify_email.dart';
 import 'package:solution_challenge/features/authentication/screens/signup/widgets/signup_form.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:http/http.dart' as http;
 class SignupScreen extends StatelessWidget {
@@ -67,7 +68,7 @@ class SignupScreen extends StatelessWidget {
             children: [
               ///Title
               Text(
-                "Let's create your account",
+                translatedStrings?[27] ?? "Let's create your account",
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               const SizedBox(
@@ -89,7 +90,7 @@ class SignupScreen extends StatelessWidget {
               ),
 
               ///Divider
-              TFormDivider(dividerText: "or sign up with".capitalize!),
+              TFormDivider(dividerText: translatedStrings?[28] ?? "or sign up with".capitalize!),
               const SizedBox(
                 height: TSizes.spaceBtwSections,
               ),

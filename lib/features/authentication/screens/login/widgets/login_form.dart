@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../password_configurations/forgot_password.dart';
@@ -26,9 +27,9 @@ class TLoginForm extends StatelessWidget {
             // Email TextFormField
             TextFormField(
               controller: emailController,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 prefixIcon: Icon(Iconsax.direct_right),
-                labelText: "E-Mail",
+                labelText: translatedStrings?[7] ?? "E-Mail",
               ),
             ),
             const SizedBox(height: TSizes.spaceBtwInputFields),
@@ -37,9 +38,9 @@ class TLoginForm extends StatelessWidget {
             TextFormField(
               controller: passwordController,
               obscureText: true, // Hide the password
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 prefixIcon: Icon(Iconsax.password_check),
-                labelText: "Password",
+                labelText: translatedStrings?[8] ?? "Password",
                 suffixIcon: Icon(Iconsax.eye_slash),
               ),
             ),
@@ -56,7 +57,7 @@ class TLoginForm extends StatelessWidget {
                       value: true, // Placeholder value, replace with actual functionality
                       onChanged: (value) {}, // Placeholder function, replace with actual functionality
                     ),
-                    const Text("Remember me"),
+                    Text(translatedStrings?[9] ?? "Remember me"),
                   ],
                 ),
                 // Forgot password TextButton
@@ -69,7 +70,7 @@ class TLoginForm extends StatelessWidget {
                     );
                   },
                   style: TextButton.styleFrom(foregroundColor: TColors.rani),
-                  child: const Text("Forgot Password?"),
+                  child: Text(translatedStrings?[10] ?? "Forgot Password?"),
                 ),
               ],
             ),
@@ -86,7 +87,7 @@ class TLoginForm extends StatelessWidget {
                   // Call the _signIn method to handle sign in
                   userService.signIn(context, email, password);
                 },
-                child: const Text("Sign In"),
+                child: Text(translatedStrings?[11] ?? "Sign In"),
               ),
             ),
             const SizedBox(height: TSizes.spaceBtwItems),
@@ -102,7 +103,7 @@ class TLoginForm extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => SignupScreen()),
                   );
                 },
-                child: const Text("Create Account"),
+                child: Text(translatedStrings?[12] ?? "Create Account"),
               ),
             ),
           ],

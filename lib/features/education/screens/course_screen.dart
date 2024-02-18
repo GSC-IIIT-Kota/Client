@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
@@ -20,7 +21,7 @@ class CourseScreen extends StatelessWidget {
             PAppBar(
               showBackArrow: true,
               title: Text(
-                'Course Details',
+                translatedStrings?[43] ?? 'Course Details',
                 style: Theme.of(context)
                     .textTheme
                     .headlineSmall!
@@ -41,7 +42,7 @@ class CourseScreen extends StatelessWidget {
                     height: TSizes.spaceBtwItems,
                   ),
                   Text(
-                    'Beginners guide to menstrual health',
+                    translatedStrings?[40] ?? 'Beginners guide to menstrual health',
                     style: Theme.of(context)
                         .textTheme
                         .headlineSmall!
@@ -51,30 +52,30 @@ class CourseScreen extends StatelessWidget {
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
-                  const PLessonCard(
+                  PLessonCard(
                     itemNumber: 1,
-                    title: 'Introduction',
+                    title: translatedStrings?[44] ?? 'Introduction',
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
-                  const PLessonCard(
+                  PLessonCard(
                     itemNumber: 2,
-                    title: 'What are periods?',
+                    title: translatedStrings?[45] ?? 'What are periods?',
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
-                  const PLessonCard(
+                  PLessonCard(
                     itemNumber: 3,
-                    title: 'What is menopause',
+                    title: translatedStrings?[46] ?? 'What is menopause',
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
-                  const PLessonCard(
+                  PLessonCard(
                     itemNumber: 4,
-                    title: 'What do women have discomfort?',
+                    title: translatedStrings?[47] ?? 'What do women have discomfort?',
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,

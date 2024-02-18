@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
@@ -37,7 +38,7 @@ class ResetPassword extends StatelessWidget {
 
               /// Title & Subtitle
               Text(
-                "Password Reset Email Sent",
+                translatedStrings?[19] ?? "Password Reset Email Sent",
                 style: Theme.of(context).textTheme.headlineMedium,
                 textAlign: TextAlign.center,
               ),
@@ -45,7 +46,7 @@ class ResetPassword extends StatelessWidget {
                 height: TSizes.spaceBtwItems,
               ),
               Text(
-                "Your account security is our priority! We've sent you a secure link to safely change your password and keep your account protected.",
+                translatedStrings?[20] ?? "Your account security is our priority! We've sent you a secure link to safely change your password and keep your account protected.",
                 style: Theme.of(context).textTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),
@@ -57,7 +58,7 @@ class ResetPassword extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: (){}, child: const Text("Done")),
+                    onPressed: (){}, child: Text(translatedStrings?[21] ?? "Done")),
               ),
               const SizedBox(
                 height: TSizes.spaceBtwItems,
@@ -69,7 +70,7 @@ class ResetPassword extends StatelessWidget {
                     style: TextButton.styleFrom(
                       foregroundColor: TColors.rani,
                     ),
-                    child: const Text("Resend Email")),
+                    child: Text(translatedStrings?[22] ?? "Resend Email")),
               ),
             ],
           ),

@@ -1,7 +1,7 @@
 name: solution_challenge
 description: A new Flutter project.
 
-publish_to: 'none' 
+publish_to: 'none'
 
 version: 1.0.0+1
 
@@ -23,6 +23,7 @@ dependencies:
   firebase_messaging: ^14.7.15
   firebase_crashlytics: ^3.4.14
   flutter_dotenv: ^5.1.0
+  translator: ^1.0.0
 
   # Utility Packages
   http: ^1.1.0
@@ -59,6 +60,7 @@ flutter:
     - assets/images/login_signup/
     - assets/images/articles/
     - assets/images/education/
+    - .env
 
   #Local fonts
   fonts:

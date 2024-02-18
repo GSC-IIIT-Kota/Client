@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 
 class TSignupForm extends StatelessWidget {
@@ -29,8 +30,8 @@ class TSignupForm extends StatelessWidget {
         children: [
           TextFormField(
             controller: firstNameController,
-            decoration: const InputDecoration(
-              labelText: "First Name",
+            decoration: InputDecoration(
+              labelText: translatedStrings?[23] ?? "First Name",
               prefixIcon: Icon(Iconsax.user),
             ),
           ),
@@ -39,8 +40,8 @@ class TSignupForm extends StatelessWidget {
           ),
           TextFormField(
             controller: lastNameController,
-            decoration: const InputDecoration(
-              labelText: "Last Name",
+            decoration: InputDecoration(
+              labelText: translatedStrings?[24] ?? "Last Name",
               prefixIcon: Icon(Iconsax.user),
             ),
           ),
@@ -49,8 +50,8 @@ class TSignupForm extends StatelessWidget {
           ),
           TextFormField(
             controller: usernameController,
-            decoration: const InputDecoration(
-              labelText: "Username",
+            decoration: InputDecoration(
+              labelText: translatedStrings?[25] ?? "Username",
               prefixIcon: Icon(Iconsax.user_edit),
             ),
           ),
@@ -59,8 +60,8 @@ class TSignupForm extends StatelessWidget {
           ),
           TextFormField(
             controller: emailController,
-            decoration: const InputDecoration(
-              labelText: "E-Mail",
+            decoration: InputDecoration(
+              labelText: translatedStrings?[7] ?? "E-Mail",
               prefixIcon: Icon(Iconsax.direct),
             ),
           ),
@@ -69,8 +70,8 @@ class TSignupForm extends StatelessWidget {
           ),
           TextFormField(
             controller: phoneNumberController,
-            decoration: const InputDecoration(
-              labelText: "Phone No.",
+            decoration: InputDecoration(
+              labelText: translatedStrings?[26] ?? "Phone No.",
               prefixIcon: Icon(Iconsax.call),
             ),
           ),
@@ -80,8 +81,8 @@ class TSignupForm extends StatelessWidget {
           TextFormField(
             controller: passwordController,
             obscureText: true,
-            decoration: const InputDecoration(
-              labelText: "Password",
+            decoration: InputDecoration(
+              labelText: translatedStrings?[8] ?? "Password",
               prefixIcon: Icon(Iconsax.password_check),
               suffixIcon: Icon(Iconsax.eye_slash),
             ),
@@ -93,7 +94,7 @@ class TSignupForm extends StatelessWidget {
             width: double.infinity,
             child: ElevatedButton(
               onPressed: onSubmit,
-              child: const Text("Create Account"),
+              child: Text(translatedStrings?[12] ?? "Create Account"),
             ),
           ),
         ],

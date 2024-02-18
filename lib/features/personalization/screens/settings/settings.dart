@@ -5,6 +5,7 @@ import 'package:solution_challenge/common/widgets/custom_shapes/containers/prima
 import 'package:solution_challenge/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:solution_challenge/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:solution_challenge/common/widgets/texts/section_heading.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
@@ -25,7 +26,7 @@ class SettingsScreen extends StatelessWidget {
                   ///AppBar
                   PAppBar(
                     title: Text(
-                      "Account",
+                      translatedStrings?[52] ?? "Account",
                       style: Theme.of(context)
                           .textTheme
                           .headlineMedium!
@@ -55,7 +56,7 @@ class SettingsScreen extends StatelessWidget {
                 children: [
                   ///Account Settings
                   PSectionHeading(
-                    title: 'Account Settings',
+                    title: translatedStrings?[53] ?? 'Account Settings',
                     textColor: dark ? Colors.white : Colors.black,
                     showActionButton: false,
                   ),
@@ -63,44 +64,44 @@ class SettingsScreen extends StatelessWidget {
                     height: TSizes.spaceBtwItems,
                   ),
 
-                  const PSettingsMenuTile(
+                  PSettingsMenuTile(
                     icon: Iconsax.book_saved,
-                    title: "Bookmarked Resources",
-                    subTitle: "Explore your saved educational treasures",
+                    title: translatedStrings?[54] ?? "Bookmarked Resources",
+                    subTitle: translatedStrings?[63] ?? "Explore your saved educational treasures",
                   ),
-                  const PSettingsMenuTile(
+                  PSettingsMenuTile(
                       icon: Iconsax.receipt,
-                      title: "My Donations",
-                      subTitle: "Track your contributions"),
-                  const PSettingsMenuTile(
+                      title: translatedStrings?[55] ?? "My Donations",
+                      subTitle: translatedStrings?[59] ?? "Track your contributions"),
+                  PSettingsMenuTile(
                       icon: Iconsax.path,
-                      title: "My Blogs",
-                      subTitle: "Your experiences at one place"),
-                  const PSettingsMenuTile(
+                      title: translatedStrings?[56] ?? "My Blogs",
+                      subTitle: translatedStrings?[60] ?? "Your experiences at one place"),
+                  PSettingsMenuTile(
                       icon: Iconsax.heart,
-                      title: "Favorite Campaigns",
-                      subTitle: "Stay connected to causes close to your heart"),
-                  const PSettingsMenuTile(
+                      title: translatedStrings?[57] ?? "Favorite Campaigns",
+                      subTitle: translatedStrings?[61] ?? "Stay connected to causes close to your heart"),
+                  PSettingsMenuTile(
                       icon: Iconsax.document_favorite,
-                      title: "Saved Blogs",
-                      subTitle: "Your favorite reads"),
+                      title: translatedStrings?[58] ?? "Saved Blogs",
+                      subTitle: translatedStrings?[62] ?? "Your favorite reads"),
 
                   ///App Settings
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
                   PSectionHeading(
-                    title: 'App Settings',
+                    title: translatedStrings?[64] ?? 'App Settings',
                     textColor: dark ? Colors.white : Colors.black,
                     showActionButton: false,
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
-                  const PSettingsMenuTile(
+                  PSettingsMenuTile(
                       icon: Iconsax.language_circle,
-                      title: "Change language",
-                      subTitle: "Tailor your experience with a language switch")
+                      title: translatedStrings?[65] ?? "Change language",
+                      subTitle: translatedStrings?[66] ?? "Tailor your experience with a language switch")
                 ],
               ),
             )

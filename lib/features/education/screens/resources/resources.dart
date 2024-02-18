@@ -7,6 +7,7 @@ import 'package:solution_challenge/common/widgets/education/articles/home_articl
 import 'package:solution_challenge/common/widgets/education/videos/video_card.dart';
 import 'package:solution_challenge/common/widgets/ngo/progress_bar.dart';
 import 'package:solution_challenge/features/education/screens/course_screen.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
@@ -72,7 +73,7 @@ class EducationScreen extends StatelessWidget {
                               height: TSizes.spaceBtwItems,
                             ),
                             Text(
-                              'Beginners guide to menstrual health',
+                              translatedStrings?[40] ?? 'Beginners guide to menstrual health',
                               style: Theme.of(context)
                                   .textTheme
                                   .headlineSmall!
@@ -101,7 +102,7 @@ class EducationScreen extends StatelessWidget {
                                 TextButton(
                                     onPressed: () {},
                                     child: Text(
-                                      'Continue',
+                                      translatedStrings?[32] ?? 'Continue',
                                       style: Theme.of(context)
                                           .textTheme
                                           .labelLarge!
@@ -120,7 +121,7 @@ class EducationScreen extends StatelessWidget {
 
                   ///Featured videos
                   PSectionHeading(
-                    title: 'Featured Videos',
+                    title: translatedStrings?[41] ?? 'Featured Videos',
                     textColor: dark ? Colors.white : Colors.black,
                   ),
                   SizedBox(
@@ -139,7 +140,7 @@ class EducationScreen extends StatelessWidget {
 
                   ///Latest Articles
                   PSectionHeading(
-                    title: 'Latest Articles',
+                    title: translatedStrings?[42] ?? 'Latest Articles',
                     textColor: dark ? Colors.white : Colors.black,
                   ),
                   SizedBox(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
@@ -35,7 +36,7 @@ class _PChatInputState extends State<PChatInput> {
             child: TextField(
               controller: messageController,
               decoration: InputDecoration(
-                hintText: "Type message",
+                hintText: translatedStrings?[34] ?? "Type message",
                 hintStyle: Theme.of(context)
                     .textTheme
                     .labelLarge!

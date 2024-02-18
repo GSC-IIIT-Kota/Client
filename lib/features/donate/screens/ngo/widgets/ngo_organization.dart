@@ -5,6 +5,7 @@ import 'package:solution_challenge/common/widgets/icons/circular_heart.dart';
 import 'package:solution_challenge/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:solution_challenge/common/widgets/ngo/campaign_card.dart';
 import 'package:solution_challenge/common/widgets/ngo/event_card.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
@@ -33,7 +34,7 @@ class POrganizationScreen extends StatelessWidget {
       child: Scaffold(
         appBar: PAppBar(
           title: Text(
-            'Organiser',
+            translatedStrings?[36] ?? 'Organiser',
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           actions: const [
@@ -64,13 +65,13 @@ class POrganizationScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                bottom: const PTabBar(
+                bottom: PTabBar(
                   tabs: [
                     Tab(
-                      child: Text('Campaigns'),
+                      child: Text(translatedStrings?[37] ?? 'Campaigns'),
                     ),
                     Tab(
-                      child: Text('Events'),
+                      child: Text(translatedStrings?[38] ?? 'Events'),
                     )
                   ],
                 ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/features/authentication/screens/password_configurations/reset_password.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:get/get.dart';
 
@@ -18,22 +19,22 @@ class ForgotPassword extends StatelessWidget {
           children: [
             /// Headings
             Text(
-              "Forgot Password?",
+              translatedStrings?[10] ?? "Forgot Password?",
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             const SizedBox(
               height: TSizes.spaceBtwItems,
             ),
             Text(
-              "Enter your email to receive instructions on resetting your password and regain access to Period.",
+              translatedStrings?[17] ?? "Enter your email to receive instructions on resetting your password and regain access to Period.",
               style: Theme.of(context).textTheme.labelMedium,
             ),
             const SizedBox(height: TSizes.spaceBtwSections * 2),
 
             /// Text field
             TextFormField(
-              decoration: const InputDecoration(
-                  labelText: "E-Mail", prefixIcon: Icon(Iconsax.direct_right)),
+              decoration: InputDecoration(
+                  labelText: translatedStrings?[7] ?? "E-Mail", prefixIcon: Icon(Iconsax.direct_right)),
             ),
             const SizedBox(
               height: TSizes.spaceBtwSections,
@@ -44,7 +45,7 @@ class ForgotPassword extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () => Get.off(() => const ResetPassword()),
-                child: const Text("Submit"),
+                child: Text(translatedStrings?[18] ?? "Submit"),
               ),
             ),
           ],

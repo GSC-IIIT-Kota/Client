@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:solution_challenge/common/widgets/image_text_widgets/vertical_image_text.dart';
 import 'package:solution_challenge/common/widgets/texts/section_heading.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 
@@ -16,8 +17,8 @@ class PNgoCategories extends StatelessWidget {
       child: Column(
         children: [
           /// Heading
-          const PSectionHeading(
-            title: "Categories",
+          PSectionHeading(
+            title: translatedStrings?[35] ?? "Categories",
             showActionButton: false,
           ),
           const SizedBox(
@@ -34,7 +35,7 @@ class PNgoCategories extends StatelessWidget {
               itemBuilder: (_, index) {
                 return PVerticalImageText(
                   image: TImages.eventsIcon,
-                  title: "Categories",
+                  title: translatedStrings?[35] ?? "Categories",
                   onTap: () {},
                 );
               },
