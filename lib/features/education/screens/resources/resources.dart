@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:solution_challenge/common/widgets/education/articles/home_article_column.dart';
 import 'package:solution_challenge/common/widgets/education/videos/video_card.dart';
 import 'package:solution_challenge/common/widgets/ngo/progress_bar.dart';
 import 'package:solution_challenge/features/education/screens/course_screen.dart';
+import 'package:solution_challenge/features/education/screens/resources/widgets/education_appbar.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
@@ -151,46 +151,12 @@ class EducationScreen extends StatelessWidget {
                       },
                     ),
                   ),
-                  const SizedBox(
-                    height: TSizes.spaceBtwSections,
-                  ),
                 ],
               ),
             )
           ],
         ),
       ),
-    );
-  }
-}
-
-class PEducationAppbar extends StatelessWidget {
-  const PEducationAppbar({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-
-    final dark = PHelperFunctions.isDarkMode(context);
-    return PAppBar(
-      title: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text("Hey Beautiful,",
-              style: Theme.of(context)
-                  .textTheme
-                  .labelMedium!
-                  .apply(color: dark ? Colors.white : TColors.rani)),
-          Text("Username",
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineMedium!
-                  .apply(color: dark ? Colors.white : TColors.rani)),
-        ],
-      ),
-      // actions: [
-      // ],
     );
   }
 }

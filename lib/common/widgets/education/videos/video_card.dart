@@ -5,12 +5,14 @@ import 'package:solution_challenge/common/widgets/images/rounded_image.dart';
 import 'package:solution_challenge/common/widgets/texts/video_card_icontext.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
+import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
 class PVideoCard extends StatelessWidget {
   const PVideoCard({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final dark = PHelperFunctions.isDarkMode(context);
     return GestureDetector(
       child: Container(
         width: 250,
@@ -18,7 +20,7 @@ class PVideoCard extends StatelessWidget {
         margin: const EdgeInsets.only(right: 20),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(TSizes.productImageRadius),
-          color: Colors.white,
+          color: dark ? Colors.black : Colors.white,
         ),
         child: Column(
           children: [
@@ -70,7 +72,7 @@ class PVideoCard extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .bodySmall!
-                        .apply(color: TColors.dimgrey, fontWeightDelta: 1),
+                        .apply(color: dark ? Colors.white : TColors.dimgrey, fontWeightDelta: 1),
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
                     textAlign: TextAlign.left,
@@ -90,12 +92,12 @@ class PVideoCard extends StatelessWidget {
                           PCardIconText(
                             iconData: Iconsax.category,
                             iconSize: 14,
-                            iconColor: TColors.rani,
+                            iconColor: dark ? TColors.brightpink : TColors.rani,
                             title: 'Impact on Daily Life',
                             titleStyle: Theme.of(context)
                                 .textTheme
                                 .labelLarge!
-                                .apply(color: TColors.rani),
+                                .apply(color: dark ? TColors.brightpink : TColors.rani),
                           ),
                           const SizedBox(
                             height: TSizes.spaceBtwItems / 2,
@@ -103,19 +105,19 @@ class PVideoCard extends StatelessWidget {
                           PCardIconText(
                             iconData: Iconsax.clock,
                             iconSize: 14,
-                            iconColor: TColors.dimgrey,
+                            iconColor: dark ? Colors.white.withOpacity(0.9) : TColors.dimgrey,
                             title: '2 days ago',
                             titleStyle: Theme.of(context)
                                 .textTheme
                                 .labelMedium!
-                                .apply(color: TColors.dimgrey),
+                                .apply(color: dark ? Colors.white.withOpacity(0.9) : TColors.dimgrey),
                           ),
                         ],
                       ),
-                      const Icon(
+                      Icon(
                         Iconsax.star,
                         size: 25,
-                        color: TColors.rani,
+                        color: dark ? TColors.brightpink : TColors.rani,
                       ),
                     ],
                   ),
