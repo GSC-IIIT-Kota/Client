@@ -8,6 +8,7 @@ import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:get/get.dart';
+import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
 import '../../articles/article_display.dart';
 
@@ -34,6 +35,7 @@ class PHomeArticleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = PHelperFunctions.isDarkMode(context);
     return GestureDetector(
       onTap: () => Get.to(() => PArticleScreen(
           articleImg: articleImg,
@@ -51,7 +53,7 @@ class PHomeArticleCard extends StatelessWidget {
         margin: const EdgeInsets.only(bottom: 20),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(TSizes.productImageRadius),
-          color: Colors.white,
+          color: dark ? Colors.black : Colors.white,
         ),
         child: Row(
           children: [
@@ -74,24 +76,27 @@ class PHomeArticleCard extends StatelessWidget {
                     Text(
                       articleTitle,
                       style: Theme.of(context).textTheme.bodySmall!.apply(
-                            color: TColors.dimgrey,
+                            color: dark ? Colors.white : TColors.dimgrey,
                             fontWeightDelta: 1,
                           ),
                       textAlign: TextAlign.left,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 3,
                     ),
+                    const SizedBox(
+                      height: TSizes.spaceBtwItems / 2,
+                    ),
 
                     /// Icon with category
                     PCardIconText(
                         iconData: Iconsax.category,
-                        iconColor: TColors.rani,
+                        iconColor: dark ? TColors.brightpink : TColors.rani,
                         iconSize: 14,
                         title: translatedStrings?[6] ?? 'Menstrual Hygiene',
                         titleStyle: Theme.of(context)
                             .textTheme
                             .labelLarge!
-                            .apply(color: TColors.rani)),
+                            .apply(color: dark ? TColors.brightpink : TColors.rani)),
                   ],
                 ),
               ),

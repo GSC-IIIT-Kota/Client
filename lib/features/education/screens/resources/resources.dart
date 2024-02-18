@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:solution_challenge/common/widgets/education/articles/home_article_column.dart';
@@ -8,6 +6,7 @@ import 'package:solution_challenge/common/widgets/education/videos/video_card.da
 import 'package:solution_challenge/common/widgets/ngo/progress_bar.dart';
 import 'package:solution_challenge/features/education/screens/course_screen.dart';
 import 'package:solution_challenge/utils/translator/translated_strings.dart';
+import 'package:solution_challenge/features/education/screens/resources/widgets/education_appbar.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
@@ -21,7 +20,7 @@ class EducationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
+    final dark = PHelperFunctions.isDarkMode(context);
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -56,7 +55,7 @@ class EducationScreen extends StatelessWidget {
                     onTap: () => Get.to(() => const CourseScreen()),
                     child: PRoundedContainer(
                       radius: 40,
-                      width: THelperFunctions.screenWidth(),
+                      width: PHelperFunctions.screenWidth(),
                       height: 330,
                       backgroundColor: TColors.brightpink,
                       child: Padding(
@@ -153,50 +152,12 @@ class EducationScreen extends StatelessWidget {
                       },
                     ),
                   ),
-                  const SizedBox(
-                    height: TSizes.spaceBtwSections,
-                  ),
                 ],
               ),
             )
           ],
         ),
       ),
-    );
-  }
-}
-
-class PEducationAppbar extends StatelessWidget {
-  const PEducationAppbar({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return PAppBar(
-      title: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text("Hey Beautiful,",
-              style: Theme.of(context)
-                  .textTheme
-                  .labelMedium!
-                  .apply(color: TColors.rani)),
-          Text("Username",
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineMedium!
-                  .apply(color: TColors.rani)),
-        ],
-      ),
-      actions: [
-        IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Iconsax.category,
-              color: TColors.rani,
-            ))
-      ],
     );
   }
 }

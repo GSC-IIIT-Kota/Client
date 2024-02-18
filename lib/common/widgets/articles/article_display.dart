@@ -32,7 +32,7 @@ class PArticleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
+    final dark = PHelperFunctions.isDarkMode(context);
     return Scaffold(
       appBar: PAppBar(
         showBackArrow: true,

@@ -28,7 +28,7 @@ class POrganizationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
+    final dark = PHelperFunctions.isDarkMode(context);
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -86,9 +86,9 @@ class POrganizationScreen extends StatelessWidget {
                 children: [
                   for (var event in events)
                     Padding(
-                      padding: EdgeInsets.all(TSizes.defaultSpace),
+                      padding: const EdgeInsets.all(TSizes.defaultSpace),
                       child: PCampaignCard(
-                        cardWidth: THelperFunctions.screenWidth(),
+                        cardWidth: PHelperFunctions.screenWidth(),
                         rightMargin: EdgeInsets.zero,
                         title: "Help these kids get money to study",
                         description:
@@ -108,7 +108,7 @@ class POrganizationScreen extends StatelessWidget {
                 children: [
                   for (var event in events)
                     Padding(
-                      padding: EdgeInsets.all(TSizes.defaultSpace),
+                      padding: const EdgeInsets.all(TSizes.defaultSpace),
                       child: PEventCard(
                         eventDate: event.date,
                         eventDayTime: event.time,
@@ -116,7 +116,7 @@ class POrganizationScreen extends StatelessWidget {
                         eventLocation: event.location,
                         eventDesc: event.description,
                         eventPhoto: event.banner,
-                        cardWidth: THelperFunctions.screenWidth(),
+                        cardWidth: PHelperFunctions.screenWidth(),
                       ),
                     ),
                 ],

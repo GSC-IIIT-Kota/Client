@@ -25,7 +25,7 @@ class SuccessScreen extends StatelessWidget {
               ///Image
               Image(
                 image: AssetImage(image),
-                width: THelperFunctions.screenWidth() * 0.9,
+                width: PHelperFunctions.screenWidth() * 0.9,
               ),
               const SizedBox(
                 height: TSizes.spaceBtwSections,

@@ -1,14 +1,17 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 import '../navigation_menu.dart';
 
 class UserService {
-  static const String baseUrl = 'http://192.168.137.1:8000/api/users';
+
+  final apiBaseUrl = dotenv.env['API_BASE_URL'];
 
   Future<void> signIn(BuildContext context, String email, String password) async {
     try {
+      String baseUrl = '$apiBaseUrl/users';
       final url = Uri.parse('$baseUrl/login');
 
       final response = await http.post(
@@ -41,6 +44,7 @@ class UserService {
 
   Future<void> signUp(BuildContext context, Map<String, dynamic> userData) async {
     try {
+      String baseUrl = '$apiBaseUrl/users';
       final url = Uri.parse('$baseUrl/signup');
 
       final response = await http.post(
@@ -70,6 +74,7 @@ class UserService {
   }
 
   Future<dynamic> getUser(String userId) async {
+    String baseUrl = '$apiBaseUrl/users';
     final response = await http.get(Uri.parse('$baseUrl/$userId'));
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
@@ -79,6 +84,7 @@ class UserService {
   }
 
   Future<List<dynamic>> getUsers() async {
+    String baseUrl = '$apiBaseUrl/users';
     final response = await http.get(Uri.parse(baseUrl));
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
@@ -88,6 +94,7 @@ class UserService {
   }
 
   Future<dynamic> updateUser(String userId, Map<String, dynamic> updatedFields) async {
+    String baseUrl = '$apiBaseUrl/users';
     final response = await http.put(
       Uri.parse('$baseUrl/$userId'),
       headers: {'Content-Type': 'application/json'},
@@ -101,6 +108,7 @@ class UserService {
   }
 
   Future<dynamic> deleteUser(String userId) async {
+    String baseUrl = '$apiBaseUrl/users';
     final response = await http.delete(Uri.parse('$baseUrl/$userId'));
     if (response.statusCode == 200) {
       return jsonDecode(response.body);

@@ -13,7 +13,6 @@ import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
 
 class PCampaignCard extends StatelessWidget {
   const PCampaignCard({
@@ -38,7 +37,7 @@ class PCampaignCard extends StatelessWidget {
   final String orgPhoto;
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
+    final dark = PHelperFunctions.isDarkMode(context);
     final double progressValue = totalGoal != 0 ? raisedMoney / totalGoal : 0;
 
     return GestureDetector(

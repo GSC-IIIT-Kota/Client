@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // import 'package:intl/intl.dart';
 
-class THelperFunctions {
+class PHelperFunctions {
   static Size screenSize() {
     return MediaQuery.of(Get.context!).size;
   }

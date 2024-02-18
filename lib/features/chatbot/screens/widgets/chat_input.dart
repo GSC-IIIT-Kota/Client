@@ -26,7 +26,7 @@ class _PChatInputState extends State<PChatInput> {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
+    final dark = PHelperFunctions.isDarkMode(context);
 
     return Container(
       padding: const EdgeInsets.all(8.0),

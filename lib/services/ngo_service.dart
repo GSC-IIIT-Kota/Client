@@ -1,12 +1,15 @@
 import 'dart:convert';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 import '../models/organisation.dart';
 class NGOService {
-  static const baseUrl = 'http://192.168.137.1:8000/api/ngos'; // Update the URL with your server's NGO endpoint
 
-  static Future<void> signupNGO(String email, String password, String ngoName) async {
+  final apiBaseUrl = dotenv.env['API_BASE_URL'];
+
+  Future<void> signupNGO(String email, String password, String ngoName) async {
     try {
+      final baseUrl = '$apiBaseUrl/ngos';
       final url = Uri.parse('$baseUrl/signup');
       final response = await http.post(
         url,
@@ -34,8 +37,9 @@ class NGOService {
     }
   }
 
-  static Future<void> loginNGO(String email, String password) async {
+  Future<void> loginNGO(String email, String password) async {
     try {
+      final baseUrl = '$apiBaseUrl/ngos';
       final url = Uri.parse('$baseUrl/login');
       final response = await http.post(
         url,
@@ -60,8 +64,9 @@ class NGOService {
     }
   }
 
-  static Future<NGO> getNGOById(String id) async {
+  Future<NGO> getNGOById(String id) async {
     try {
+      final baseUrl = '$apiBaseUrl/ngos';
       final url = Uri.parse('$baseUrl/$id');
       final response = await http.get(url);
 
@@ -76,9 +81,10 @@ class NGOService {
     }
   }
 
-  static Future<List<NGO>> getAllNGOs() async {
+  Future<List<NGO>> getAllNGOs() async {
     try {
-      final url = Uri.parse('$baseUrl');
+      final baseUrl = '$apiBaseUrl/ngos';
+      final url = Uri.parse(baseUrl);
       final response = await http.get(url);
 
       if (response.statusCode == 200) {
@@ -93,8 +99,9 @@ class NGOService {
     }
   }
 
-  static Future<void> updateNGO(String id, Map<String, dynamic> updatedFields) async {
+  Future<void> updateNGO(String id, Map<String, dynamic> updatedFields) async {
     try {
+      final baseUrl = '$apiBaseUrl/ngos';
       final url = Uri.parse('$baseUrl/$id');
       final response = await http.put(
         url,
@@ -115,8 +122,9 @@ class NGOService {
     }
   }
 
-  static Future<void> deleteNGO(String id) async {
+  Future<void> deleteNGO(String id) async {
     try {
+      final baseUrl = '$apiBaseUrl/ngos';
       final url = Uri.parse('$baseUrl/$id');
       final response = await http.delete(url);
 
