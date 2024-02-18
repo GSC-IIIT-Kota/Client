@@ -1,11 +1,14 @@
 import 'dart:convert';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:solution_challenge/models/campaign.dart';
 
 class CampaignService {
   static Future<List<Campaign>> getAllCampaigns() async {
+
+    final apiBaseUrl = dotenv.env['API_BASE_URL'];
     // Replace this URL with your actual API endpoint
-    const String apiUrl = 'http://192.168.137.1:8000/api/campaigns';
+    String apiUrl = '$apiBaseUrl/campaigns';
 
     try {
       final response = await http.get(Uri.parse(apiUrl));

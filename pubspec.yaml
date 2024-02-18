@@ -59,6 +59,7 @@ flutter:
     - assets/images/login_signup/
     - assets/images/articles/
     - assets/images/education/
+    - .env
 
   #Local fonts
   fonts:

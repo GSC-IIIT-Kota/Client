@@ -1,10 +1,12 @@
 import 'dart:convert';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import '../models/event.dart';
 class EventService {
-  static const String baseUrl = 'http://192.168.137.1:8000/api/events';
 
+  final apiBaseUrl = dotenv.env['API_BASE_URL'];
   Future<List<Event>> getEvents() async {
+    final String baseUrl = '$apiBaseUrl/events';
     final response = await http.get(Uri.parse(baseUrl));
     if (response.statusCode == 200) {
       List<dynamic> eventData = jsonDecode(response.body);
@@ -16,6 +18,7 @@ class EventService {
   }
 
   Future<dynamic> createEvent(Map<String, dynamic> eventData) async {
+    final String baseUrl = '$apiBaseUrl/events';
     final response = await http.post(
       Uri.parse(baseUrl),
       headers: {'Content-Type': 'application/json'},
@@ -29,6 +32,7 @@ class EventService {
   }
 
   Future<dynamic> registerUserForEvent(String eventId, String userId) async {
+    final String baseUrl = '$apiBaseUrl/events';
     final response = await http.post(
       Uri.parse('$baseUrl/$eventId/register?user=$userId'),
     );
@@ -40,6 +44,7 @@ class EventService {
   }
 
   Future<dynamic> getEventById(String eventId) async {
+    final String baseUrl = '$apiBaseUrl/events';
     final response = await http.get(Uri.parse('$baseUrl/$eventId'));
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
@@ -49,6 +54,7 @@ class EventService {
   }
 
   Future<dynamic> updateEvent(String eventId, Map<String, dynamic> updatedEventData) async {
+    final String baseUrl = '$apiBaseUrl/events';
     final response = await http.put(
       Uri.parse('$baseUrl/$eventId'),
       headers: {'Content-Type': 'application/json'},
@@ -62,6 +68,7 @@ class EventService {
   }
 
   Future<dynamic> deleteEvent(String eventId) async {
+    final String baseUrl = '$apiBaseUrl/events';
     final response = await http.delete(Uri.parse('$baseUrl/$eventId'));
     if (response.statusCode == 200) {
       return jsonDecode(response.body);

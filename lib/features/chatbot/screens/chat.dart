@@ -1,4 +1,7 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:http/http.dart' as http;
 import 'package:solution_challenge/utils/helpers/tts_manager.dart';
 import 'package:solution_challenge/features/chatbot/screens/widgets/chat_bubble.dart';
 import 'package:solution_challenge/features/chatbot/screens/widgets/chat_input.dart';
@@ -6,11 +9,10 @@ import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/primary_ngo_container.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
-import '../../../services/chat_service.dart';
 import '../../authentication/screens/signup/widgets/typingIndicator.dart';
 
 class ChatScreen extends StatefulWidget {
-  const ChatScreen({Key? key}) : super(key: key);
+  const ChatScreen({super.key});
   @override
   State<ChatScreen> createState() => _ChatScreenState();
 }
@@ -38,33 +40,49 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   Future<void> sendMessage(String message) async {
+// Add the prompt content to the user's content
     setState(() {
       chatMessages.add(message);
       contents.add({
         "role": "user",
         "parts": [{"text": message}]
       });
+      messageSent = true;
       isTyping = true;
     });
 
-    try {
-      ChatService chatService = ChatService();
-      chatService.sendMessage(contents).then((response) {
+    final apiBaseUrl = dotenv.env['API_BASE_URL'];
+
+    // await ttsManager.speak(message);
+    // Make a POST request to send the user message to the chatbot API
+    var response = await http.post(
+      Uri.parse('$apiBaseUrl/chatbot/'),
+      body: json.encode({"contents": contents}),
+      headers: {'Content-Type': 'application/json'},
+    );
+
+    if (response.statusCode == 200) {
+      // Decode response body once
+      var responseBody = json.decode(response.body);
+
+      // Ensure response is not null
+      if (responseBody != null && responseBody['text'] != null) {
         setState(() {
-          chatMessages.add(response);
+          // Add model response to the chatMessages list
+          chatMessages.add(responseBody['text']);
           contents.add({
             "role": "model",
-            "parts": [{"text": response}]
+            "parts": [{"text": responseBody['text']}]
           });
           isTyping = false;
         });
-      });
-    } catch (e) {
-      print('Error occurred: $e');
-      setState(() {
-        isTyping = false;
-      });
+        // await ttsManager.speak(responseBody['text']);
+      }
+    } else {
+      // Handle error
+      print('Failed to fetch response from server.');
     }
+    print(contents);
   }
 
   void speak() {
