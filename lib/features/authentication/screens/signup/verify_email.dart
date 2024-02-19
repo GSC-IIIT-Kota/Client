@@ -70,7 +70,7 @@ class VerifyEmailScreen extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () => Get.to(() => SuccessScreen(
                         image: TImages.confirmedEmailImage,
-                        title: "Welcome to Period!",
+                        title: translatedStrings?[67] ?? "Welcome to Period!",
                         subTitle:
                             translatedStrings?[31] ?? "Your email has been successfully verified. Enjoy full access to menstrual health resources and community support.",
                         onPressed: () => Get.to(() => const LoginScreen()),

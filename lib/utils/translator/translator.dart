@@ -1,5 +1,5 @@
 import 'package:translator/translator.dart';
-import 'package:solution_challenge/utils/translator/original_strings.dart';
+import 'package:solution_challenge/utils/translator/strings_en.dart';
 
 class StringTranslator {
   late final GoogleTranslator translator; // Initialize the translator

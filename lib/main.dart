@@ -9,5 +9,5 @@ void main() async {
   TTSManager().flutterTts.setCompletionHandler(() {
     // Handle completion if needed
   });
-  runApp(const App());
+  runApp(App());
 }
