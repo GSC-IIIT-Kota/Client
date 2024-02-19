@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
-import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
 class TLoginHeader extends StatelessWidget {
   const TLoginHeader({
@@ -11,14 +10,13 @@ class TLoginHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = PHelperFunctions.isDarkMode(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Image(
+        const Image(
           height: 150,
           image: AssetImage(
-              dark ? TImages.darkAppLogo : TImages.lightAppLogo),
+              TImages.loginSignupLogo),
         ),
         Text(translatedStrings?[13] ?? "Connect with Period",
             style: Theme.of(context).textTheme.headlineMedium),

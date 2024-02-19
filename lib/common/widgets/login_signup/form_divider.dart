@@ -15,7 +15,7 @@ class TFormDivider extends StatelessWidget {
       children: [
         const Flexible(
           child: Divider(
-            color: TColors.brightpink,
+            color: TColors.battleship,
             thickness: 0.5,
             indent: 60,
             endIndent: 5,
@@ -23,11 +23,11 @@ class TFormDivider extends StatelessWidget {
         ),
         Text(
           dividerText,
-          style: Theme.of(context).textTheme.labelMedium,
+          style: Theme.of(context).textTheme.labelMedium!.apply(color: TColors.battleship),
         ),
         const Flexible(
           child: Divider(
-            color: TColors.brightpink,
+            color: TColors.battleship,
             thickness: 0.5,
             indent: 5,
             endIndent: 60,
