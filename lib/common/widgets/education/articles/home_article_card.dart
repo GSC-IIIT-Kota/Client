@@ -10,7 +10,7 @@ import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:get/get.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
-import '../../articles/article_display.dart';
+import 'article_display.dart';
 
 class PHomeArticleCard extends StatelessWidget {
   const PHomeArticleCard(

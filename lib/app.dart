@@ -10,7 +10,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String toLanguage = "ar";
+    String toLanguage = "en";
     StringTranslator stringTranslator = StringTranslator();
 
     return FutureBuilder<List<String>>(
