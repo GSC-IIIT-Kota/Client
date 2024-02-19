@@ -8,7 +8,6 @@ import 'package:solution_challenge/utils/translator/strings_es.dart' as es;
 import 'package:solution_challenge/utils/translator/strings_de.dart' as de;
 import 'package:solution_challenge/utils/translator/strings_fr.dart' as fr;
 import 'package:solution_challenge/utils/translator/strings_ru.dart' as ru;
-import 'package:solution_challenge/utils/translator/strings_zh.dart' as zh;
 import 'package:solution_challenge/utils/translator/strings_ko.dart' as ko;
 import 'package:solution_challenge/utils/translator/strings_ja.dart' as ja;
 import 'package:solution_challenge/utils/translator/strings_pt.dart' as pt;
@@ -16,7 +15,7 @@ import 'package:solution_challenge/utils/translator/strings_ar.dart' as ar;
 import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 class App extends StatelessWidget {
-  final String language = "zh";
+  final String language = "ar";
 
   const App({super.key}); // Default language
 
@@ -34,8 +33,6 @@ class App extends StatelessWidget {
         return fr.originalStrings;
       case 'ru':
         return ru.originalStrings;
-      case 'zh':
-        return zh.originalStrings;
       case 'ko':
         return ko.originalStrings;
       case 'ja':

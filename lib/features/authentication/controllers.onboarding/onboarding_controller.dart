@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-// import 'package:get_storage/get_storage.dart';
 import 'package:solution_challenge/features/authentication/screens/login/login.dart';
 
 class OnBoardingController extends GetxController {
@@ -14,9 +13,9 @@ class OnBoardingController extends GetxController {
   void updatePageIndicator(index) => currentPageIndex.value = index;
 
   /// jump to specific dot selected page
-  void dotNavigationClick(index) {
-    currentPageIndex.value = index;
-    pageController.jumpTo(index);
+  void dotNavigationClick(double index) {
+    currentPageIndex.value = index.toInt();
+    pageController.jumpToPage(index.toInt());
   }
 
   /// Update current index and jump to next page
@@ -33,6 +32,6 @@ class OnBoardingController extends GetxController {
   /// Update current index and jump to last page
   void skipPage() {
     currentPageIndex.value = 2;
-    pageController.jumpTo(2);
+    pageController.jumpToPage(2);
   }
 }
