@@ -11,7 +11,7 @@ class PElevatedButtonTheme {
       backgroundColor: TColors.rani,
       disabledForegroundColor: TColors.battleship,
       disabledBackgroundColor: TColors.battleship,
-      side: const BorderSide(color: TColors.brightpink),
+      side: const BorderSide(color: TColors.rani),
       padding: const EdgeInsets.symmetric(vertical: 18),
       textStyle: const TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w600),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
