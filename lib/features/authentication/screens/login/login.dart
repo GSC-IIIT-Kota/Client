@@ -24,7 +24,7 @@ class LoginScreen extends StatelessWidget {
               const TLoginHeader(),
 
               /// Form
-              TLoginForm(),
+              const TLoginForm(),
 
               /// Divider
               TFormDivider(dividerText: translatedStrings?[15] ?? "Or Sign In with".capitalize!),

@@ -9,11 +9,11 @@ import '../../../../services/campaign_service.dart';
 
 class PCampaignSection extends StatelessWidget {
   const PCampaignSection({
-    Key? key,
+    super.key,
     required this.sectionHeading,
     required this.initiativeType,
     required this.cardHeight,
-  }) : super(key: key);
+  });
 
   final String sectionHeading;
   final String initiativeType;
@@ -38,7 +38,7 @@ class PCampaignSection extends StatelessWidget {
           future: CampaignService.getAllCampaigns(),
           builder: (context, AsyncSnapshot<List<Campaign>> snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             } else if (snapshot.hasError) {
               return Center(child: Text('Error: ${snapshot.error}'));
             } else {
