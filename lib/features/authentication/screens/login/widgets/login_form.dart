@@ -89,9 +89,9 @@ class TLoginForm extends StatelessWidget {
               controller: passwordController,
               obscureText: true, // Hide the password
               decoration: InputDecoration(
-                prefixIcon: Icon(Iconsax.password_check),
+                prefixIcon: const Icon(Iconsax.password_check),
                 labelText: translatedStrings?[8] ?? "Password",
-                suffixIcon: Icon(Iconsax.eye_slash),
+                suffixIcon: const Icon(Iconsax.eye_slash),
               ),
             ),
             const SizedBox(height: TSizes.spaceBtwInputFields / 2),
@@ -153,7 +153,7 @@ class TLoginForm extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => SignupScreen()),
                   );
                 },
-                child: Text(translatedStrings?[12] ?? "Create Account"),
+                child: Text(translatedStrings?[12] ?? "Create Account",),
               ),
             ),
           ],
