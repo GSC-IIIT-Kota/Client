@@ -65,4 +65,6 @@ List<String> originalStrings = ["Explore Your Cycle",
   'App Settings',
   "Change language",
   "Tailor your experience with a language switch",
+  "Welcome to Period!",
+  "What are periods?"
 ];
