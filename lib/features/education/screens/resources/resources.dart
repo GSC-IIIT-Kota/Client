@@ -11,15 +11,16 @@ import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
-import '../../../../common/widgets/education/articles/article_column_display.dart';
+import '../../../../common/widgets/education/articles/home_article_column.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
+import '../../../../common/widgets/viewall/viewall_cards.dart';
 
 class EducationScreen extends StatelessWidget {
   const EducationScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final dark = PHelperFunctions.isDarkMode(context);
-
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -70,7 +71,8 @@ class EducationScreen extends StatelessWidget {
                               height: TSizes.spaceBtwItems,
                             ),
                             Text(
-                              translatedStrings?[40] ?? 'Beginners guide to menstrual health',
+                              translatedStrings?[40] ??
+                                  'Beginners guide to menstrual health',
                               style: Theme.of(context)
                                   .textTheme
                                   .headlineSmall!
@@ -120,6 +122,9 @@ class EducationScreen extends StatelessWidget {
                   PSectionHeading(
                     title: translatedStrings?[41] ?? 'Featured Videos',
                     textColor: dark ? Colors.white : Colors.black,
+                    onPressed: () => Get.to(() => const PViewAllScreen(
+                          initiativeType: 'Videos',
+                        )),
                   ),
                   SizedBox(
                     height: 250,
@@ -139,10 +144,19 @@ class EducationScreen extends StatelessWidget {
                   PSectionHeading(
                     title: translatedStrings?[42] ?? 'Latest Articles',
                     textColor: dark ? Colors.white : Colors.black,
+                    onPressed: () => Get.to(() => const PViewAllScreen(
+                          initiativeType: 'Articles',
+                        )),
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 365,
-                    child: ArticleColumnBuilder(),
+                    child: ListView.builder(
+                      itemCount: 3,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (_, index) {
+                        return const PHomeArticleColumn(articles: [],);
+                      },
+                    ),
                   ),
                 ],
               ),
@@ -153,4 +167,3 @@ class EducationScreen extends StatelessWidget {
     );
   }
 }
-
