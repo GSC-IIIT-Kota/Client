@@ -18,19 +18,23 @@ class NavigationMenu extends StatelessWidget {
 
     return Scaffold(
       bottomNavigationBar: Obx(
-        () => NavigationBar(
+            () => NavigationBar(
           height: 80,
           elevation: 0,
           selectedIndex: controller.selectedIndex.value,
-          onDestinationSelected: (index) => controller.selectedIndex.value = index,
-          backgroundColor: dark ?  TColors.myblack : Colors.white,
-          indicatorColor: dark ? Colors.white.withOpacity(0.1) : Colors.black.withOpacity(0.1),
-
+          onDestinationSelected: (index) =>
+          controller.selectedIndex.value = index,
+          backgroundColor: dark ? TColors.myblack : Colors.white,
+          indicatorColor: dark
+              ? Colors.white.withOpacity(0.1)
+              : Colors.black.withOpacity(0.1),
           destinations: const [
-             NavigationDestination(icon: Icon(Iconsax.house), label: 'Home'),
-             NavigationDestination(icon: Icon(Iconsax.messages_2), label: 'Chat'),
-             NavigationDestination(icon: Icon(Iconsax.money_send), label: 'Donate'),
-             NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
+            NavigationDestination(icon: Icon(Iconsax.house), label: 'Home'),
+            NavigationDestination(
+                icon: Icon(Iconsax.messages_2), label: 'Chat'),
+            NavigationDestination(
+                icon: Icon(Iconsax.money_send), label: 'Donate'),
+            NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
           ],
         ),
       ),
@@ -40,8 +44,13 @@ class NavigationMenu extends StatelessWidget {
 }
 
 
-class NavigationController extends GetxController{
+class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
-  final screens = [ const EducationScreen(), const ChatScreen(), const NgoScreen(), const SettingsScreen()];
+  final screens = [
+    const EducationScreen(),
+    const ChatScreen(),
+    const NgoScreen(),
+    const SettingsScreen()
+  ];
 }

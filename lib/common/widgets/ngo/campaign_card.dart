@@ -9,23 +9,22 @@ import 'package:solution_challenge/common/widgets/texts/campaign_card_title.dart
 import 'package:solution_challenge/common/widgets/texts/progress_text.dart';
 import 'package:solution_challenge/common/widgets/texts/video_card_icontext.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
-import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
 
 class PCampaignCard extends StatelessWidget {
   const PCampaignCard({
-    Key? key,
+    super.key,
     required this.title,
     required this.description,
     required this.raisedMoney,
     required this.totalGoal,
-    this.imageUrl,
+    required this.imageUrl,
     required this.orgPhoto,
     required this.cardWidth,
     this.rightMargin = const EdgeInsets.only(right: 20),
-  }) : super(key: key);
+  });
 
   final double cardWidth;
   final EdgeInsets? rightMargin;
@@ -33,7 +32,7 @@ class PCampaignCard extends StatelessWidget {
   final String description;
   final int raisedMoney;
   final int totalGoal;
-  final String? imageUrl;
+  final String imageUrl;
   final String orgPhoto;
   @override
   Widget build(BuildContext context) {
@@ -47,7 +46,7 @@ class PCampaignCard extends StatelessWidget {
         progressValue: progressValue,
         raisedMoney: raisedMoney,
         totalGoal: totalGoal,
-        imageUrl: TImages.banner1Image,
+        imageUrl: imageUrl,
         orgPhoto: orgPhoto,
         ngoName: 'NGO for Women',
         ngoLocation: 'Rajasthan, India',
@@ -69,12 +68,12 @@ class PCampaignCard extends StatelessWidget {
                 children: [
                   ///Thumbnail
                   PRoundedImage(
-                    imageUrl: orgPhoto,
+                    imageUrl: imageUrl,
                     applyImageRadius: true,
                   ),
 
                   /// Favorite icon button
-                  Positioned(top: 5, right: 5, child: PCircularHeart()),
+                  const Positioned(top: 5, right: 5, child: PCircularHeart()),
                 ],
               ),
             ),

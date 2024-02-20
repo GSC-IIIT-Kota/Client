@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/texts/section_heading.dart';
 import 'package:solution_challenge/features/personalization/screens/profile/widgets/profile_menu.dart';
@@ -6,12 +7,14 @@ import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import '../../../../utils/provider/userProvider.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<UserProvider>(context).user;
     final dark = PHelperFunctions.isDarkMode(context);
     return Scaffold(
       ///AppBar
@@ -31,9 +34,8 @@ class ProfileScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    const CircleAvatar(
-                      backgroundImage: NetworkImage(
-                          "https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg"),
+                    CircleAvatar(
+                      backgroundImage: NetworkImage(user!.profile.profileImage),
                       radius: 40,
                     ),
                     TextButton(
@@ -67,9 +69,9 @@ class ProfileScreen extends StatelessWidget {
               ),
 
               PProfileMenu(
-                  onPressed: () {}, title: translatedStrings?[49] ?? 'Name', value: 'Yogit Nainani'),
+                  onPressed: () {}, title: translatedStrings?[49] ?? 'Name', value: "${user.profile.firstName} ${user.profile.lastName}"),
               PProfileMenu(
-                  onPressed: () {}, title: translatedStrings?[25] ?? 'Username', value: 'yogitnainani'),
+                  onPressed: () {}, title: translatedStrings?[25] ?? 'Username', value: user.profile.firstName),
 
               const SizedBox(
                 height: TSizes.spaceBtwItems,
@@ -92,15 +94,15 @@ class ProfileScreen extends StatelessWidget {
               PProfileMenu(
                   onPressed: () {},
                   title: translatedStrings?[7] ?? 'E-Mail',
-                  value: 'yogitnainani@gmail.com'),
+                  value: user.email),
               PProfileMenu(
                   onPressed: () {},
                   title: translatedStrings?[26] ?? 'Phone Number',
-                  value: '+91-4567456433'),
+                  value: user.profile.phoneNumber),
               PProfileMenu(
                   onPressed: () {},
                   title: translatedStrings?[51] ?? 'Date of Birth',
-                  value: '10 Oct, 1994'),
+                  value: user.profile.dob),
             ],
           ),
         ),
