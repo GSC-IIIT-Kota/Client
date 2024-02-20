@@ -18,7 +18,6 @@ class App extends StatelessWidget {
   final String language = "en";
 
   const App({super.key}); // Default language
-
   List<String> getTranslatedStrings() {
     switch (language) {
       case 'en':
@@ -49,7 +48,6 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     translatedStrings = getTranslatedStrings();
-
     return GetMaterialApp(
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,

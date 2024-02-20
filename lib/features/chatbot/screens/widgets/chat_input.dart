@@ -5,7 +5,7 @@ import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
 class PChatInput extends StatefulWidget {
-  final Function(String) onSendMessage; // Callback function to send messages
+  final Future<dynamic>Function(String)? onSendMessage; // Callback function to send messages
   final Function()? onSpeak; // Callback function to trigger TTS
 
   const PChatInput({super.key, required this.onSendMessage, this.onSpeak});
@@ -54,7 +54,7 @@ class _PChatInputState extends State<PChatInput> {
             onPressed: () {
               String message = messageController.text.trim();
               if (message.isNotEmpty) {
-                widget.onSendMessage(
+                widget.onSendMessage!(
                     message); // Call the callback function with the message
                 messageController.clear();
 

@@ -22,6 +22,7 @@ class _ChatScreenState extends State<ChatScreen> {
   TTSManager ttsManager = TTSManager();
   bool isTyping = false;
   bool messageSent = false;
+  bool isWaitingForResponse = false; // Add this variable
   TextEditingController messageController = TextEditingController();
   List<String> chatMessages = [];
   List<Map<String, dynamic>> contents = [];
@@ -45,8 +46,7 @@ class _ChatScreenState extends State<ChatScreen> {
     });
   }
 
-  Future<void> sendMessage(String message) async {
-    // Add the prompt content to the user's content
+  Future<dynamic> sendMessage(String message) async {
     setState(() {
       chatMessages.add(message);
       contents.add({
@@ -57,12 +57,11 @@ class _ChatScreenState extends State<ChatScreen> {
       });
       messageSent = true;
       isTyping = true;
+      isWaitingForResponse = true; // Set the flag to true when sending a message
     });
 
     final apiBaseUrl = dotenv.env['API_BASE_URL'];
 
-    // await ttsManager.speak(message);
-    // Make a POST request to send the user message to the chatbot API
     var response = await http.post(
       Uri.parse('$apiBaseUrl/chatbot/'),
       body: json.encode({"contents": contents}),
@@ -70,13 +69,10 @@ class _ChatScreenState extends State<ChatScreen> {
     );
 
     if (response.statusCode == 200) {
-      // Decode response body once
       var responseBody = json.decode(response.body);
 
-      // Ensure response is not null
       if (responseBody != null && responseBody['text'] != null) {
         setState(() {
-          // Add model response to the chatMessages list
           chatMessages.add(responseBody['text']);
           contents.add({
             "role": "model",
@@ -85,11 +81,10 @@ class _ChatScreenState extends State<ChatScreen> {
             ]
           });
           isTyping = false;
+          isWaitingForResponse = false; // Reset the flag when response is received
         });
-        // await ttsManager.speak(responseBody['text']);
       }
     } else {
-      // Handle error
       print('Failed to fetch response from server.');
     }
     print(contents);
@@ -145,7 +140,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     );
                   },
                 ),
-                if (isTyping)
+                if (isTyping || isWaitingForResponse) // Check the flag to disable input
                   Positioned(
                     bottom: 0,
                     left: 0,
@@ -159,7 +154,7 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
           ),
           PChatInput(
-            onSendMessage: sendMessage,
+            onSendMessage: isWaitingForResponse ? null : sendMessage, // Disable input if waiting for response
             onSpeak: speak,
           ),
         ],
@@ -167,3 +162,4 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 }
+

@@ -2,8 +2,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
-
+import 'package:provider/provider.dart';
+import '../models/user.dart';
 import '../navigation_menu.dart';
+import '../utils/provider/userProvider.dart';
 
 class UserService {
 
@@ -21,9 +23,14 @@ class UserService {
       );
 
       if (response.statusCode == 200) {
+        final userData = jsonDecode(response.body);
+        final user = User.fromJson(userData);
+        print(Provider.of<UserProvider>(context, listen: false).hashCode);
+        Provider.of<UserProvider>(context, listen: false).setUser(user);
+        print(userData);
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const NavigationMenu()),
+          MaterialPageRoute(builder: (context) => NavigationMenu()),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -35,7 +42,7 @@ class UserService {
     } catch (error) {
       print('Error occurred: $error');
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('An error occurred. Please try again later.'),
         ),
       );
@@ -54,9 +61,10 @@ class UserService {
       );
 
       if (response.statusCode == 201) {
+        final newUser = User.fromJson(jsonDecode(response.body));
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const NavigationMenu()),
+          MaterialPageRoute(builder: (context) => NavigationMenu()),
         );
       } else if (response.statusCode == 400) {
         throw Exception('User with this email already exists');
