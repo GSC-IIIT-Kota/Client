@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/primary_ngo_container.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/search_container.dart';
-import 'package:solution_challenge/common/widgets/ngo/campaign_card.dart';
 import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_appbar.dart';
 import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_categories.dart';
-import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_section.dart';
 import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 
@@ -24,13 +22,13 @@ class NgoScreen extends StatelessWidget {
             PPrimaryNgoContainer(
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
 
                   /// Appbar
-                  PNgoAppBar(),
-                  SizedBox(
+                  const PNgoAppBar(),
+                  const SizedBox(
                     height: TSizes.spaceBtwSections,
                   ),
 
@@ -38,13 +36,13 @@ class NgoScreen extends StatelessWidget {
                   PSearchContainer(
                     text: translatedStrings?[39] ?? "Search Organizations",
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: TSizes.spaceBtwSections,
                   ),
 
                   /// Categories
-                  PNgoCategories(),
-                  SizedBox(
+                  const PNgoCategories(),
+                  const SizedBox(
                     height: TSizes.spaceBtwSections,
                   ),
                 ],
@@ -52,7 +50,7 @@ class NgoScreen extends StatelessWidget {
             ),
 
             /// Body
-            Padding(
+            const Padding(
               padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
               child: Column(
                 children: [

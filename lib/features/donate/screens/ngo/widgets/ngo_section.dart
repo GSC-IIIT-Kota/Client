@@ -2,7 +2,7 @@
 // import 'package:solution_challenge/common/widgets/ngo/campaign_card.dart';
 // import 'package:solution_challenge/common/widgets/ngo/organization_card.dart';
 // import 'package:solution_challenge/common/widgets/texts/section_heading.dart';
-// import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_viewall.dart';
+// import 'package:solution_challenge/features/donate/screens/ngo/widgets/viewall_cards.dart';
 // import 'package:solution_challenge/utils/constants/image_strings.dart';
 // import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 // import 'package:get/get.dart';

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
-import 'package:solution_challenge/utils/device/device_utility.dart';
-import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
 class PSearchContainer extends StatelessWidget {
   const PSearchContainer({
@@ -23,41 +20,50 @@ class PSearchContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final dark = PHelperFunctions.isDarkMode(context);
+    //
+    // return GestureDetector(
+    //   onTap: onTap,
+    //   child: Padding(
+    //     padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+    //     child: Container(
+    //       width: TDeviceUtils.getScreenWidth(context),
+    //       padding: const EdgeInsets.all(TSizes.md),
+    //       decoration: BoxDecoration(
+    //           color: showBackground
+    //               ? dark
+    //               ? TColors.myblack
+    //               : Colors.white
+    //               : Colors.transparent,
+    //           borderRadius: BorderRadius.circular(TSizes.cardRadiusLg),
+    //           border: showBorder ? Border.all(color: Colors.grey) : null),
+    //       child: Row(
+    //         children: [
+    //           Icon(
+    //             Iconsax.search_normal,
+    //             color: dark ? Colors.white.withOpacity(0.7) : TColors.battleship,
+    //           ),
+    //           const SizedBox(
+    //             width: TSizes.spaceBtwItems,
+    //           ),
+    //           Text(
+    //             text,
+    //             style: Theme.of(context)
+    //                 .textTheme
+    //                 .bodySmall!
+    //                 .apply(color: dark ? Colors.white.withOpacity(0.7) : TColors.battleship),
+    //           )
+    //         ],
+    //       ),
+    //     ),
+    //   ),
+    // );
 
-    return GestureDetector(
-      onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
-        child: Container(
-          width: TDeviceUtils.getScreenWidth(context),
-          padding: const EdgeInsets.all(TSizes.md),
-          decoration: BoxDecoration(
-              color: showBackground
-                  ? dark
-                  ? TColors.myblack
-                  : Colors.white
-                  : Colors.transparent,
-              borderRadius: BorderRadius.circular(TSizes.cardRadiusLg),
-              border: showBorder ? Border.all(color: Colors.grey) : null),
-          child: Row(
-            children: [
-              Icon(
-                Iconsax.search_normal,
-                color: dark ? Colors.white.withOpacity(0.7) : TColors.battleship,
-              ),
-              const SizedBox(
-                width: TSizes.spaceBtwItems,
-              ),
-              Text(
-                text,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodySmall!
-                    .apply(color: dark ? Colors.white.withOpacity(0.7) : TColors.battleship),
-              )
-            ],
-          ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+      child: TextFormField(
+        decoration: InputDecoration(
+          prefixIcon: const Icon(Iconsax.search_normal),
+          labelText: text,
         ),
       ),
     );

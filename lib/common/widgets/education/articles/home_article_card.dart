@@ -48,7 +48,7 @@ class PHomeArticleCard extends StatelessWidget {
           articleContent: articleContent)),
       child: Container(
         width: 300,
-        height: 100,
+        height: 110,
         padding: const EdgeInsets.all(1),
         margin: const EdgeInsets.only(bottom: 20),
         decoration: BoxDecoration(
@@ -71,7 +71,7 @@ class PHomeArticleCard extends StatelessWidget {
                 // Adjust the padding as needed
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       articleTitle,

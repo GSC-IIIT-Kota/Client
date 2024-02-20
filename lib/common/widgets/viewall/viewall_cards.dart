@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/primary_ngo_container.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/search_container.dart';
+import 'package:solution_challenge/common/widgets/education/videos/video_card.dart';
 import 'package:solution_challenge/common/widgets/ngo/campaign_card.dart';
 import 'package:solution_challenge/common/widgets/ngo/event_card.dart';
 import 'package:solution_challenge/common/widgets/ngo/organization_card.dart';
@@ -9,8 +10,10 @@ import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
-class PNgoViewAllScreen extends StatelessWidget {
-  const PNgoViewAllScreen({super.key, required this.initiativeType});
+import '../education/articles/home_article_card.dart';
+
+class PViewAllScreen extends StatelessWidget {
+  const PViewAllScreen({super.key, required this.initiativeType});
 
   final String initiativeType;
 
@@ -93,6 +96,59 @@ class PNgoViewAllScreen extends StatelessWidget {
                 ),
               ),
 
+            if (initiativeType == 'Videos')
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+                child: Column(
+                  children: [
+                    PVideoCard(),
+                    SizedBox(
+                      height: TSizes.spaceBtwSections,
+                    ),
+                    PVideoCard(),
+                    SizedBox(
+                      height: TSizes.spaceBtwSections,
+                    ),
+                  ],
+                ),
+              ),
+
+            if (initiativeType == 'Articles')
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+                child: Column(
+                  children: [
+                    PHomeArticleCard(
+                      articleImg: TImages.banner4Image,
+                      articleCategory: 'Menstrual Hygiene',
+                      readingTime: '7 min',
+                      uploadTime: '2d ago',
+                      articleTitle:
+                          'Downside of using reusable pads during menstrual cycles',
+                      hasAuthor: false,
+                      articleAuthor: 'Admin',
+                      articleContent:
+                          'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ',
+                    ),
+                    PHomeArticleCard(
+                      articleImg: TImages.banner4Image,
+                      articleCategory: 'Menstrual Hygiene',
+                      readingTime: '7 min',
+                      uploadTime: '2d ago',
+                      articleTitle:
+                          'Downside of using reusable pads during menstrual cycles',
+                      hasAuthor: false,
+                      articleAuthor: 'Admin',
+                      articleContent:
+                          'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ',
+                    ),
+                    SizedBox(
+                      height: TSizes.spaceBtwSections,
+                    ),
+                  ],
+                ),
+              ),
+
             if (initiativeType == 'Events')
               Padding(
                 padding:
@@ -144,7 +200,8 @@ class PNgoViewAllScreen extends StatelessWidget {
                       id: '',
                       email: '',
                       passwordHash: '',
-                      campaigns: [], events: [],
+                      campaigns: const [],
+                      events: const [],
                     ),
                     const SizedBox(
                       height: TSizes.spaceBtwSections,
@@ -158,8 +215,8 @@ class PNgoViewAllScreen extends StatelessWidget {
                       id: '',
                       email: '',
                       passwordHash: '',
-                      campaigns: [],
-                      events: [],
+                      campaigns: const [],
+                      events: const [],
                     ),
                     const SizedBox(
                       height: TSizes.spaceBtwSections,
