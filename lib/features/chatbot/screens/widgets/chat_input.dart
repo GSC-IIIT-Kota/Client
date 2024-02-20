@@ -57,6 +57,7 @@ class _PChatInputState extends State<PChatInput> {
                 widget.onSendMessage(
                     message); // Call the callback function with the message
                 messageController.clear();
+
               }
             },
           ),
