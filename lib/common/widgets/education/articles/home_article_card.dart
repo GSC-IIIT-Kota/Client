@@ -57,10 +57,10 @@ class PHomeArticleCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            const PRoundedContainer(
+             PRoundedContainer(
               backgroundColor: TColors.accent,
               child: PRoundedImage(
-                imageUrl: TImages.articleThumbnail,
+                imageUrl: articleImg,
                 aspectRatio: 1 / 1,
               ),
             ),
@@ -92,7 +92,7 @@ class PHomeArticleCard extends StatelessWidget {
                         iconData: Iconsax.category,
                         iconColor: dark ? TColors.brightpink : TColors.rani,
                         iconSize: 14,
-                        title: translatedStrings?[6] ?? 'Menstrual Hygiene',
+                        title: articleCategory,
                         titleStyle: Theme.of(context)
                             .textTheme
                             .labelLarge!

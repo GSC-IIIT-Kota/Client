@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/search_container.dart';
-import 'package:solution_challenge/common/widgets/education/articles/home_article_column.dart';
 import 'package:solution_challenge/common/widgets/education/videos/video_card.dart';
 import 'package:solution_challenge/common/widgets/ngo/progress_bar.dart';
 import 'package:solution_challenge/features/education/screens/course_screen.dart';
@@ -12,9 +11,8 @@ import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
-
+import '../../../../common/widgets/education/articles/article_column_display.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
-import '../../../../models/user.dart';
 
 class EducationScreen extends StatelessWidget {
   const EducationScreen({super.key});
@@ -142,15 +140,9 @@ class EducationScreen extends StatelessWidget {
                     title: translatedStrings?[42] ?? 'Latest Articles',
                     textColor: dark ? Colors.white : Colors.black,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 365,
-                    child: ListView.builder(
-                      itemCount: 3,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (_, index) {
-                        return const PHomeArticleColumn();
-                      },
-                    ),
+                    child: ArticleColumnBuilder(),
                   ),
                 ],
               ),
@@ -161,3 +153,4 @@ class EducationScreen extends StatelessWidget {
     );
   }
 }
+
