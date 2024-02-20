@@ -8,8 +8,7 @@ class PChatInput extends StatefulWidget {
   final Function(String) onSendMessage; // Callback function to send messages
   final Function()? onSpeak; // Callback function to trigger TTS
 
-  const PChatInput({Key? key, required this.onSendMessage, this.onSpeak})
-      : super(key: key);
+  const PChatInput({super.key, required this.onSendMessage, this.onSpeak});
 
   @override
   State<PChatInput> createState() => _PChatInputState();
@@ -42,7 +41,7 @@ class _PChatInputState extends State<PChatInput> {
                     .labelLarge!
                     .apply(color: TColors.battleship),
                 contentPadding:
-                const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               ),
             ),
           ),
@@ -55,13 +54,18 @@ class _PChatInputState extends State<PChatInput> {
             onPressed: () {
               String message = messageController.text.trim();
               if (message.isNotEmpty) {
-                widget.onSendMessage(message); // Call the callback function with the message
+                widget.onSendMessage(
+                    message); // Call the callback function with the message
                 messageController.clear();
               }
             },
           ),
           IconButton(
-            icon: Icon(Icons.volume_up),
+            icon: Icon(
+              Iconsax.volume_high,
+              color: dark ? TColors.brightpink : TColors.rani,
+              size: 30,
+            ),
             onPressed: widget.onSpeak,
           ),
         ],
