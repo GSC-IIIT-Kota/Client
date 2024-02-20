@@ -9,7 +9,7 @@ class PVerticalImageText extends StatelessWidget {
     required this.image,
     required this.title,
     this.textColor = Colors.white,
-    this.backgroundColor = TColors.textWhite,
+    this.backgroundColor = TColors.satin,
     this.onTap,
   });
 
@@ -34,7 +34,7 @@ class PVerticalImageText extends StatelessWidget {
               height: 56,
               padding: const EdgeInsets.all(TSizes.sm),
               decoration: BoxDecoration(
-                color: backgroundColor ?? (dark ? TColors.textWhite : TColors.textWhite),
+                color: backgroundColor ?? (dark ? TColors.satin : TColors.satin),
                 borderRadius: BorderRadius.circular(100),
               ),
               child: Center(
