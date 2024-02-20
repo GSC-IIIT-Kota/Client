@@ -1,15 +1,18 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/login_signup/form_divider.dart';
 import 'package:solution_challenge/common/widgets/login_signup/social_buttons.dart';
-import 'package:solution_challenge/features/authentication/screens/signup/verify_email.dart';
 import 'package:solution_challenge/features/authentication/screens/signup/widgets/signup_form.dart';
+import 'package:solution_challenge/utils/constants/colors.dart';
+import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:http/http.dart' as http;
+
 class SignupScreen extends StatelessWidget {
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
@@ -17,6 +20,8 @@ class SignupScreen extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  SignupScreen({super.key});
 
   Future<void> _handleSignupPressed() async {
     final String firstName = _firstNameController.text;
@@ -39,8 +44,10 @@ class SignupScreen extends StatelessWidget {
 
     String encodedBody = jsonEncode(requestBody);
 
+    final apiBaseUrl = dotenv.env['API_BASE_URL'];
+
     final response = await http.post(
-      Uri.parse('http://192.168.137.1:8000/api/users/signup'),
+      Uri.parse('$apiBaseUrl/users/signup'),
       headers: {
         "Content-Type": "application/json",
       },
@@ -58,23 +65,18 @@ class SignupScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = PHelperFunctions.isDarkMode(context);
     return Scaffold(
-      appBar: AppBar(),
+      appBar: PAppBar(showBackArrow: true, backArrowColor: dark ? Colors.white : TColors.myblack, title: Text(
+        translatedStrings?[27] ?? "Create account",
+        style: Theme.of(context).textTheme.headlineMedium,
+      ),),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ///Title
-              Text(
-                translatedStrings?[27] ?? "Let's create your account",
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-              const SizedBox(
-                height: TSizes.spaceBtwSections,
-              ),
-
               ///Form
               TSignupForm(
                 firstNameController: _firstNameController,

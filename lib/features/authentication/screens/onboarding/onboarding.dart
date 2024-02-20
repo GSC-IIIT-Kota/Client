@@ -32,13 +32,13 @@ class OnBoardingScreen extends StatelessWidget {
                 image: TImages.onBoardingImage2,
                 title: translatedStrings?[2] ?? "Your Personal Guide",
                 subTitle:
-                translatedStrings?[3] ?? "Chatbot support—ask questions freely, keep secrets private, and get personalized advice.",
+                translatedStrings?[3] ?? "Meet Paddy, Your Personal Chatbot Companion — ask questions freely, keep secrets private, and get personalized advice.",
               ),
               OnBoardingPage(
                 image: TImages.onBoardingImage3,
-                title: translatedStrings?[4] ?? "Curated for You",
+                title: translatedStrings?[4] ?? "Empower Change Through Donation and Engagement",
                 subTitle:
-                translatedStrings?[5] ?? "Discover a range of menstrual products catering to your comfort and well-being.",
+                translatedStrings?[5] ?? "Support Causes, Share Stories, and Connect with Like-minded Individuals.",
               ),
             ],
           ),

@@ -61,21 +61,21 @@ class CourseScreen extends StatelessWidget {
                   ),
                   PLessonCard(
                     itemNumber: 2,
-                    title: translatedStrings?[45] ?? 'What are periods?',
+                    title: translatedStrings?[68] ?? 'What are periods?',
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
                   PLessonCard(
                     itemNumber: 3,
-                    title: translatedStrings?[46] ?? 'What is menopause',
+                    title: translatedStrings?[45] ?? 'What is menopause',
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
                   PLessonCard(
                     itemNumber: 4,
-                    title: translatedStrings?[47] ?? 'What do women have discomfort?',
+                    title: translatedStrings?[46] ?? 'What do women have discomfort?',
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
