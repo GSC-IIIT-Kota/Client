@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/primary_ngo_container.dart';
-import 'package:solution_challenge/common/widgets/custom_shapes/containers/search_container.dart';
+import 'package:solution_challenge/common/widgets/custom_shapes/containers/white_search_container.dart';
 import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_appbar.dart';
 import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_categories.dart';
 import 'package:solution_challenge/utils/translator/translated_strings.dart';
@@ -33,7 +33,7 @@ class NgoScreen extends StatelessWidget {
                   ),
 
                   /// SearchBar
-                  PSearchContainer(
+                  PWhiteSearchContainer(
                     text: translatedStrings?[39] ?? "Search Organizations",
                   ),
                   const SizedBox(
@@ -41,9 +41,12 @@ class NgoScreen extends StatelessWidget {
                   ),
 
                   /// Categories
-                  const PNgoCategories(),
+                  PNgoCategories(),
                   const SizedBox(
                     height: TSizes.spaceBtwSections,
+                  ),
+                  const SizedBox(
+                    height: TSizes.spaceBtwItems,
                   ),
                 ],
               ),

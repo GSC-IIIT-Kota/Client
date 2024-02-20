@@ -25,7 +25,7 @@ class PVerticalImageText extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.only(right: TSizes.spaceBtwSections),
+        padding: const EdgeInsets.only(right: TSizes.sm),
         child: Column(
           children: [
             /// Circular Icon
@@ -49,15 +49,17 @@ class PVerticalImageText extends StatelessWidget {
             /// text
             const SizedBox(height: TSizes.spaceBtwItems / 2),
             SizedBox(
-                width: 60,
-                child: Text(
-                  title,
-                  style: Theme.of(context)
-                      .textTheme
-                      .labelMedium!
-                      .apply(color: textColor),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+                width: 100,
+                child: Center(
+                  child: Text(
+                    title,
+                    style: Theme.of(context)
+                        .textTheme
+                        .labelMedium!
+                        .apply(color: textColor),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ))
           ],
         ),

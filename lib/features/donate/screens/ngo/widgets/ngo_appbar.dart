@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
-import 'package:solution_challenge/common/widgets/ngo/notification_icon.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 
 class PNgoAppBar extends StatelessWidget {
@@ -18,9 +17,7 @@ class PNgoAppBar extends StatelessWidget {
           Text("Yogit",style: Theme.of(context).textTheme.headlineMedium!.apply(color: Colors.white)),
         ],
       ),
-      actions: [
-        PNotificationIcon(onPressed: () {}, iconColor: Colors.white,)
-      ],
+      // actions: [],
     );
   }
 }
