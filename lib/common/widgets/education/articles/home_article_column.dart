@@ -6,7 +6,7 @@ import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:solution_challenge/models/education/articles.dart'; // Import the Article model
 
 class PHomeArticleColumn extends StatelessWidget {
-  const PHomeArticleColumn({Key? key, required this.articles}) : super(key: key);
+  const PHomeArticleColumn({super.key, required this.articles});
 
   final List<Article> articles;
 

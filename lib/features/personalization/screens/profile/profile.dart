@@ -26,7 +26,7 @@ class ProfileScreen extends StatelessWidget {
       ///Body
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(TSizes.defaultSpace),
+          padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
             children: [
               /// Profile Picture

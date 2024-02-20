@@ -127,7 +127,7 @@ class EducationScreen extends StatelessWidget {
                         )),
                   ),
                   SizedBox(
-                    height: 250,
+                    height: 260,
                     child: ListView.builder(
                       itemCount: 4,
                       scrollDirection: Axis.horizontal,
