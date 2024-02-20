@@ -14,10 +14,10 @@ import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/widgets/texts/section_heading.dart';
+import '../../../../models/user.dart';
 
 class EducationScreen extends StatelessWidget {
   const EducationScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     final dark = PHelperFunctions.isDarkMode(context);
