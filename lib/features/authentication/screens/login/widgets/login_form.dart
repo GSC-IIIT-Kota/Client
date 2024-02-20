@@ -78,7 +78,7 @@ class TLoginForm extends StatelessWidget {
             TextFormField(
               controller: emailController,
               decoration: InputDecoration(
-                prefixIcon: Icon(Iconsax.direct_right),
+                prefixIcon: const Icon(Iconsax.direct_right),
                 labelText: translatedStrings?[7] ?? "E-Mail",
               ),
             ),

@@ -73,7 +73,7 @@ class PVideoCard extends StatelessWidget {
 
             ///VideoBody
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: TSizes.md),
+              padding: const EdgeInsets.symmetric(horizontal: TSizes.md, vertical: TSizes.sm),
               child: Column(
                 children: [
                   ///Video Title
