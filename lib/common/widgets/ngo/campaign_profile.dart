@@ -24,8 +24,8 @@ class PCampaignProfile extends StatefulWidget {
   final String ngoName;
   final String ngoLocation;
 
-  PCampaignProfile({
-    Key? key,
+  const PCampaignProfile({
+    super.key,
     required this.title,
     required this.description,
     required this.progressValue,
@@ -35,7 +35,7 @@ class PCampaignProfile extends StatefulWidget {
     required this.orgPhoto,
     required this.ngoName,
     required this.ngoLocation,
-  }) : super(key: key);
+  });
 
   @override
   _PCampaignProfileState createState() => _PCampaignProfileState();
@@ -62,7 +62,7 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
           child: Column(
             children: [
               // Image of the campaign
-              PRoundedImage(imageUrl: widget.orgPhoto),
+              PRoundedImage(imageUrl: widget.imageUrl),
 
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: TSizes.md),
@@ -77,7 +77,7 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
                     const SizedBox(height: TSizes.spaceBtwItems),
 
                     // People who donated
-                    PPeopleDonated(
+                    const PPeopleDonated(
                       userPhotos: [
                         'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
                         'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
