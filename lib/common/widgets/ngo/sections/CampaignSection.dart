@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:solution_challenge/common/widgets/ngo/campaign_card.dart';
 import 'package:solution_challenge/common/widgets/texts/section_heading.dart';
-import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_viewall.dart';
+import 'package:solution_challenge/common/widgets/viewall/viewall_cards.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
 import '../../../../models/campaign.dart';
@@ -9,11 +9,11 @@ import '../../../../services/campaign_service.dart';
 
 class PCampaignSection extends StatelessWidget {
   const PCampaignSection({
-    Key? key,
+    super.key,
     required this.sectionHeading,
     required this.initiativeType,
     required this.cardHeight,
-  }) : super(key: key);
+  });
 
   final String sectionHeading;
   final String initiativeType;
@@ -30,7 +30,7 @@ class PCampaignSection extends StatelessWidget {
           textColor: dark ? Colors.white : Colors.black,
           onPressed: () =>
               Get.to(() =>
-                  PNgoViewAllScreen(
+                  PViewAllScreen(
                     initiativeType: initiativeType,
                   )),
         ),
@@ -38,7 +38,7 @@ class PCampaignSection extends StatelessWidget {
           future: CampaignService.getAllCampaigns(),
           builder: (context, AsyncSnapshot<List<Campaign>> snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             } else if (snapshot.hasError) {
               return Center(child: Text('Error: ${snapshot.error}'));
             } else {
@@ -51,12 +51,12 @@ class PCampaignSection extends StatelessWidget {
                   itemBuilder: (_, index) {
                     return PCampaignCard(
                       cardWidth: 250,
-                      title: campaigns[index].title ?? '',
-                      description: campaigns[index].description ?? '',
-                      raisedMoney: campaigns[index].raisedMoney ?? 0,
-                      totalGoal: campaigns[index].totalGoal ?? 0,
-                      imageUrl: campaigns[index].imageUrl ?? '',
-                      orgPhoto: campaigns[index].ngoID ?? '', // Assuming this is the organization's photo URL
+                      title: campaigns[index].title,
+                      description: campaigns[index].description,
+                      raisedMoney: campaigns[index].raisedMoney,
+                      totalGoal: campaigns[index].totalGoal,
+                      imageUrl: campaigns[index].imageUrl,
+                      orgPhoto: campaigns[index].ngoID, // Assuming this is the organization's photo URL
                     );
                   },
                 ),

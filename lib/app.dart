@@ -15,7 +15,7 @@ import 'package:solution_challenge/utils/translator/strings_ar.dart' as ar;
 import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 class App extends StatelessWidget {
-  final String language = "ar";
+  final String language = "en";
 
   const App({super.key}); // Default language
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:solution_challenge/common/widgets/ngo/organization_card.dart';
 import 'package:solution_challenge/common/widgets/texts/section_heading.dart';
-import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_viewall.dart';
+import 'package:solution_challenge/common/widgets/viewall/viewall_cards.dart';
 import 'package:solution_challenge/models/organisation.dart';
 import 'package:solution_challenge/services/ngo_service.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
@@ -28,7 +28,7 @@ class POrganisationSection extends StatelessWidget {
         PSectionHeading(
           title: sectionHeading,
           textColor: dark ? Colors.white : Colors.black,
-          onPressed: () => Get.to(() => PNgoViewAllScreen(
+          onPressed: () => Get.to(() => PViewAllScreen(
             initiativeType: initiativeType,
           )),
         ),

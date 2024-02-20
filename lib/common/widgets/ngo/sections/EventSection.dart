@@ -5,8 +5,8 @@ import 'package:solution_challenge/models/event.dart';
 import 'package:solution_challenge/services/event_service.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
-import '../../../../features/donate/screens/ngo/widgets/ngo_viewall.dart';
 import '../../texts/section_heading.dart';
+import '../../viewall/viewall_cards.dart';
 
 class PEventSection extends StatelessWidget {
   const PEventSection({
@@ -29,7 +29,7 @@ class PEventSection extends StatelessWidget {
         PSectionHeading(
         title: sectionHeading,
         textColor: dark ? Colors.white : Colors.black,
-        onPressed: () => Get.to(() => PNgoViewAllScreen(
+        onPressed: () => Get.to(() => PViewAllScreen(
           initiativeType: initiativeType,
         )),
       ),

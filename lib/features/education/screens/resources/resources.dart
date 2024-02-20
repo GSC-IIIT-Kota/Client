@@ -14,6 +14,7 @@ import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/widgets/texts/section_heading.dart';
+import '../../../../common/widgets/viewall/viewall_cards.dart';
 
 class EducationScreen extends StatelessWidget {
   const EducationScreen({super.key});
@@ -122,6 +123,11 @@ class EducationScreen extends StatelessWidget {
                   PSectionHeading(
                     title: translatedStrings?[41] ?? 'Featured Videos',
                     textColor: dark ? Colors.white : Colors.black,
+                    onPressed: () =>
+                        Get.to(() =>
+                            const PViewAllScreen(
+                              initiativeType: 'Videos',
+                            )),
                   ),
                   SizedBox(
                     height: 250,
@@ -141,6 +147,11 @@ class EducationScreen extends StatelessWidget {
                   PSectionHeading(
                     title: translatedStrings?[42] ?? 'Latest Articles',
                     textColor: dark ? Colors.white : Colors.black,
+                    onPressed: () =>
+                        Get.to(() =>
+                        const PViewAllScreen(
+                          initiativeType: 'Articles',
+                        )),
                   ),
                   SizedBox(
                     height: 365,
