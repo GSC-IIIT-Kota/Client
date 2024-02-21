@@ -10,7 +10,7 @@ import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_organ
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
-
+import 'package:solution_challenge/common/widgets/ngo/payment.dart';
 import 'description.dart';
 
 class PCampaignProfile extends StatefulWidget {
@@ -170,7 +170,10 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
         padding: const EdgeInsets.symmetric(
             horizontal: TSizes.lg, vertical: TSizes.md),
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const RazorPayPage()),
+          );},
           child: const Text('Donate now'),
         ),
       ),
