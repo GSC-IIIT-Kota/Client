@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/search_container.dart';
-import 'package:solution_challenge/common/widgets/education/articles/home_article_column.dart';
-import 'package:solution_challenge/common/widgets/education/videos/VideoBuilder.dart';
 import 'package:solution_challenge/common/widgets/education/videos/video_card.dart';
 import 'package:solution_challenge/common/widgets/ngo/progress_bar.dart';
 import 'package:solution_challenge/features/education/screens/course_screen.dart';
@@ -13,18 +11,16 @@ import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
-
-import '../../../../common/widgets/education/articles/article_column_display.dart';
+import '../../../../common/widgets/education/articles/home_article_column.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 import '../../../../common/widgets/viewall/viewall_cards.dart';
-import '../../../../models/user.dart';
 
 class EducationScreen extends StatelessWidget {
   const EducationScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final dark = PHelperFunctions.isDarkMode(context);
-
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -50,7 +46,7 @@ class EducationScreen extends StatelessWidget {
             ///Body
             Padding(
               padding:
-              const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+                  const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
               child: Column(
                 children: [
                   ///Quiz Question
@@ -75,7 +71,8 @@ class EducationScreen extends StatelessWidget {
                               height: TSizes.spaceBtwItems,
                             ),
                             Text(
-                              translatedStrings?[40] ?? 'Beginners guide to menstrual health',
+                              translatedStrings?[40] ??
+                                  'Beginners guide to menstrual health',
                               style: Theme.of(context)
                                   .textTheme
                                   .headlineSmall!
@@ -126,12 +123,18 @@ class EducationScreen extends StatelessWidget {
                     title: translatedStrings?[41] ?? 'Featured Videos',
                     textColor: dark ? Colors.white : Colors.black,
                     onPressed: () => Get.to(() => const PViewAllScreen(
-                      initiativeType: 'Videos',
-                    )),
+                          initiativeType: 'Videos',
+                        )),
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 260,
-                    child: VideoBuilder(),
+                    child: ListView.builder(
+                      itemCount: 4,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (_, index) {
+                        return const PVideoCard();
+                      },
+                    ),
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwSections,
@@ -143,11 +146,17 @@ class EducationScreen extends StatelessWidget {
                     textColor: dark ? Colors.white : Colors.black,
                     onPressed: () => Get.to(() => const PViewAllScreen(
                           initiativeType: 'Articles',
-                    )),
+                        )),
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 365,
-                    child: ArticleColumnBuilder(),
+                    child: ListView.builder(
+                      itemCount: 3,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (_, index) {
+                        return const PHomeArticleColumn(articles: [],);
+                      },
+                    ),
                   ),
                 ],
               ),

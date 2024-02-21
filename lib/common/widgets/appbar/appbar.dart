@@ -25,7 +25,7 @@ class PAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: TSizes.md),
+      padding: const EdgeInsets.symmetric(horizontal: TSizes.sm),
       child: AppBar(
         automaticallyImplyLeading: false,
         leading: showBackArrow

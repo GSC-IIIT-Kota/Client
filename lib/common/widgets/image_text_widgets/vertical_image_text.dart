@@ -9,7 +9,7 @@ class PVerticalImageText extends StatelessWidget {
     required this.image,
     required this.title,
     this.textColor = Colors.white,
-    this.backgroundColor = TColors.textWhite,
+    this.backgroundColor = TColors.satin,
     this.onTap,
   });
 
@@ -25,7 +25,7 @@ class PVerticalImageText extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.only(right: TSizes.spaceBtwSections),
+        padding: const EdgeInsets.only(right: TSizes.sm),
         child: Column(
           children: [
             /// Circular Icon
@@ -34,7 +34,7 @@ class PVerticalImageText extends StatelessWidget {
               height: 56,
               padding: const EdgeInsets.all(TSizes.sm),
               decoration: BoxDecoration(
-                color: backgroundColor ?? (dark ? TColors.textWhite : TColors.textWhite),
+                color: backgroundColor ?? (dark ? TColors.satin : TColors.satin),
                 borderRadius: BorderRadius.circular(100),
               ),
               child: Center(
@@ -49,15 +49,17 @@ class PVerticalImageText extends StatelessWidget {
             /// text
             const SizedBox(height: TSizes.spaceBtwItems / 2),
             SizedBox(
-                width: 60,
-                child: Text(
-                  title,
-                  style: Theme.of(context)
-                      .textTheme
-                      .labelMedium!
-                      .apply(color: textColor),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+                width: 100,
+                child: Center(
+                  child: Text(
+                    title,
+                    style: Theme.of(context)
+                        .textTheme
+                        .labelMedium!
+                        .apply(color: textColor),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ))
           ],
         ),
