@@ -129,9 +129,21 @@ class EducationScreen extends StatelessWidget {
                       initiativeType: 'Videos',
                     )),
                   ),
+<<<<<<< HEAD
                   const SizedBox(
-                    height: 250,
+                    height: 260,
                     child: VideoBuilder(),
+=======
+                  SizedBox(
+                    height: 260,
+                    child: ListView.builder(
+                      itemCount: 4,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (_, index) {
+                        return const PVideoCard();
+                      },
+                    ),
+>>>>>>> origin/master
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwSections,
