@@ -72,7 +72,7 @@ class BlogScreen extends StatelessWidget {
                     blogTitle: 'Women talking about periods',
                     blogCategory: 'Menstrual Health',
                     blogAuthor: 'Yogit Nainani',
-                    blogDate: '18/02/24',
+                    blogDate: '18/02/24', blogContent: 'Menstruation, often referred to as a period, is a natural biological process that occurs in the reproductive system of individuals assigned female at birth. It is characterized by the monthly shedding of the uterine lining, which occurs in response to hormonal changes. Typically starting during puberty and continuing until menopause, menstruation is a fundamental aspect of reproductive health. Each menstrual cycle consists of several phases, including menstruation itself, the follicular phase, ovulation, and the luteal phase. While menstruation is a normal bodily function, it can be accompanied by various symptoms such as abdominal cramps, fatigue, and mood swings. Managing menstruation effectively involves practicing good menstrual hygiene, using appropriate menstrual products, and seeking medical advice if necessary. Overall, understanding menstruation is essential for individuals to maintain their health and well-being throughout their reproductive years.',
                   ),
                   PBlogCard(
                     cardWidth: PHelperFunctions.screenWidth(),
@@ -83,7 +83,7 @@ class BlogScreen extends StatelessWidget {
                     blogTitle: 'Women talking about periods',
                     blogCategory: 'Menstrual Health',
                     blogAuthor: 'Yogit Nainani',
-                    blogDate: '18/02/24',
+                    blogDate: '18/02/24', blogContent: 'Menstruation, often referred to as a period, is a natural biological process that occurs in the reproductive system of individuals assigned female at birth. It is characterized by the monthly shedding of the uterine lining, which occurs in response to hormonal changes. Typically starting during puberty and continuing until menopause, menstruation is a fundamental aspect of reproductive health. Each menstrual cycle consists of several phases, including menstruation itself, the follicular phase, ovulation, and the luteal phase. While menstruation is a normal bodily function, it can be accompanied by various symptoms such as abdominal cramps, fatigue, and mood swings. Managing menstruation effectively involves practicing good menstrual hygiene, using appropriate menstrual products, and seeking medical advice if necessary. Overall, understanding menstruation is essential for individuals to maintain their health and well-being throughout their reproductive years.',
                   ),
                 ],
               ),
