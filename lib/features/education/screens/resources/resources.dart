@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/search_container.dart';
-import 'package:solution_challenge/common/widgets/education/articles/home_article_column.dart';
-import 'package:solution_challenge/common/widgets/education/videos/VideoBuilder.dart';
-import 'package:solution_challenge/common/widgets/education/videos/video_card.dart';
+import 'package:solution_challenge/common/widgets/education/videos/video_builder.dart';
 import 'package:solution_challenge/common/widgets/ngo/progress_bar.dart';
 import 'package:solution_challenge/features/education/screens/course_screen.dart';
 import 'package:solution_challenge/utils/translator/translated_strings.dart';
@@ -17,7 +15,6 @@ import 'package:get/get.dart';
 import '../../../../common/widgets/education/articles/article_column_display.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 import '../../../../common/widgets/viewall/viewall_cards.dart';
-import '../../../../models/user.dart';
 
 class EducationScreen extends StatelessWidget {
   const EducationScreen({super.key});
