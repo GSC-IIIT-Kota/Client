@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class PProgressBar extends StatelessWidget {
   const PProgressBar({
     super.key,
-    required this.progressValue, required this.backgroundColor, required this.progressColor,
+    required this.progressValue,
+    required this.backgroundColor,
+    required this.progressColor,
   });
 
   final double progressValue;
@@ -16,8 +18,7 @@ class PProgressBar extends StatelessWidget {
       value: progressValue,
       backgroundColor: backgroundColor,
       // Background color of the progress bar
-      valueColor:
-      AlwaysStoppedAnimation<Color>(progressColor),
+      valueColor: AlwaysStoppedAnimation<Color>(progressColor),
     );
   }
 }

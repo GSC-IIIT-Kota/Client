@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../models/education/articles.dart';
 import '../../../../services/education/article_service.dart';
 import '../../../../utils/helpers/helper_functions.dart';
@@ -10,6 +11,7 @@ class ArticleColumnBuilder extends StatefulWidget {
   @override
   _ArticleColumnBuilderState createState() => _ArticleColumnBuilderState();
 }
+
 class _ArticleColumnBuilderState extends State<ArticleColumnBuilder> {
   late Future<List<Article>> _futureArticles;
 

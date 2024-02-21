@@ -25,20 +25,21 @@ class OnBoardingScreen extends StatelessWidget {
               OnBoardingPage(
                 image: TImages.onBoardingImage1,
                 title: translatedStrings?[0] ?? "Explore your cycle",
-                subTitle:
-                    translatedStrings?[1] ?? "Access educational resources and valuable content for a healthier menstrual journey.",
+                subTitle: translatedStrings?[1] ??
+                    "Access educational resources and valuable content for a healthier menstrual journey.",
               ),
               OnBoardingPage(
                 image: TImages.onBoardingImage2,
                 title: translatedStrings?[2] ?? "Your Personal Guide",
-                subTitle:
-                translatedStrings?[3] ?? "Meet Paddy, Your Personal Chatbot Companion — ask questions freely, keep secrets private, and get personalized advice.",
+                subTitle: translatedStrings?[3] ??
+                    "Meet Paddy, Your Personal Chatbot Companion — ask questions freely, keep secrets private, and get personalized advice.",
               ),
               OnBoardingPage(
                 image: TImages.onBoardingImage3,
-                title: translatedStrings?[4] ?? "Empower Change Through Donation and Engagement",
-                subTitle:
-                translatedStrings?[5] ?? "Support Causes, Share Stories, and Connect with Like-minded Individuals.",
+                title: translatedStrings?[4] ??
+                    "Empower Change Through Donation and Engagement",
+                subTitle: translatedStrings?[5] ??
+                    "Support Causes, Share Stories, and Connect with Like-minded Individuals.",
               ),
             ],
           ),

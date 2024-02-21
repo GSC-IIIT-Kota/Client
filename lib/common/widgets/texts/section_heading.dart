@@ -33,9 +33,7 @@ class PSectionHeading extends StatelessWidget {
         if (showActionButton)
           TextButton(
               onPressed: onPressed,
-              style: TextButton.styleFrom(
-                foregroundColor: TColors.rani
-              ),
+              style: TextButton.styleFrom(foregroundColor: TColors.rani),
               child: Text(buttonTitle))
       ],
     );

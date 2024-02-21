@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 class ResetPassword extends StatelessWidget {
   const ResetPassword({super.key});
@@ -46,7 +46,8 @@ class ResetPassword extends StatelessWidget {
                 height: TSizes.spaceBtwItems,
               ),
               Text(
-                translatedStrings?[20] ?? "Your account security is our priority! We've sent you a secure link to safely change your password and keep your account protected.",
+                translatedStrings?[20] ??
+                    "Your account security is our priority! We've sent you a secure link to safely change your password and keep your account protected.",
                 style: Theme.of(context).textTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),
@@ -58,7 +59,8 @@ class ResetPassword extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: (){}, child: Text(translatedStrings?[21] ?? "Done")),
+                    onPressed: () {},
+                    child: Text(translatedStrings?[21] ?? "Done")),
               ),
               const SizedBox(
                 height: TSizes.spaceBtwItems,
@@ -66,7 +68,7 @@ class ResetPassword extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                    onPressed: (){},
+                    onPressed: () {},
                     style: TextButton.styleFrom(
                       foregroundColor: TColors.rani,
                     ),

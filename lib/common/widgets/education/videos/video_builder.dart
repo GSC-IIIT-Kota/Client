@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:solution_challenge/common/widgets/education/videos/video_card.dart';
 import 'package:solution_challenge/models/education/video.dart';
 import 'package:solution_challenge/services/education/video_service.dart';
-import 'package:solution_challenge/common/widgets/education/videos/video_card.dart';
 
 class VideoBuilder extends StatefulWidget {
   const VideoBuilder({super.key});
@@ -17,7 +17,7 @@ class _VideoBuilderState extends State<VideoBuilder> {
   void initState() {
     super.initState();
     // Fetch videos from the video service and update the state
-    videos=VideoService.getVideos();
+    videos = VideoService.getVideos();
     // print(videos);
   }
 
@@ -31,7 +31,7 @@ class _VideoBuilderState extends State<VideoBuilder> {
         } else if (snapshot.hasError) {
           return Center(child: Text('Error: ${snapshot.error}'));
         } else {
-          List<Video> videoList  = snapshot.data ?? [];
+          List<Video> videoList = snapshot.data ?? [];
           return ListView.builder(
             itemCount: videoList.length,
             scrollDirection: Axis.horizontal,

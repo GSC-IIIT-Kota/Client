@@ -1,10 +1,12 @@
 import 'dart:convert';
+
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:solution_challenge/models/education/video.dart';
 
 class VideoService {
-  static final baseUrl = dotenv.env['API_BASE_URL']; // Update with your server's base URL
+  static final baseUrl =
+      dotenv.env['API_BASE_URL']; // Update with your server's base URL
 
   static Future<List<Video>> getVideos() async {
     final response = await http.get(Uri.parse('$baseUrl/videos'));
@@ -66,7 +68,8 @@ class VideoService {
   }
 
   static Future<void> removeCommentOnVideo(String id, String commentId) async {
-    final response = await http.delete(Uri.parse('$baseUrl/videos/$id/comments?commentID=$commentId'));
+    final response = await http
+        .delete(Uri.parse('$baseUrl/videos/$id/comments?commentID=$commentId'));
     if (response.statusCode != 200) {
       throw Exception('Failed to remove comment');
     }

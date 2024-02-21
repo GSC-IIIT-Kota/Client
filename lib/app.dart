@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:solution_challenge/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:solution_challenge/utils/theme/theme.dart';
-import 'package:solution_challenge/utils/translator/strings_en.dart' as en;
-import 'package:solution_challenge/utils/translator/strings_hi.dart' as hi;
-import 'package:solution_challenge/utils/translator/strings_es.dart' as es;
-import 'package:solution_challenge/utils/translator/strings_de.dart' as de;
-import 'package:solution_challenge/utils/translator/strings_fr.dart' as fr;
-import 'package:solution_challenge/utils/translator/strings_ru.dart' as ru;
-import 'package:solution_challenge/utils/translator/strings_ko.dart' as ko;
-import 'package:solution_challenge/utils/translator/strings_ja.dart' as ja;
-import 'package:solution_challenge/utils/translator/strings_pt.dart' as pt;
 import 'package:solution_challenge/utils/translator/strings_ar.dart' as ar;
+import 'package:solution_challenge/utils/translator/strings_de.dart' as de;
+import 'package:solution_challenge/utils/translator/strings_en.dart' as en;
+import 'package:solution_challenge/utils/translator/strings_es.dart' as es;
+import 'package:solution_challenge/utils/translator/strings_fr.dart' as fr;
+import 'package:solution_challenge/utils/translator/strings_hi.dart' as hi;
+import 'package:solution_challenge/utils/translator/strings_ja.dart' as ja;
+import 'package:solution_challenge/utils/translator/strings_ko.dart' as ko;
+import 'package:solution_challenge/utils/translator/strings_pt.dart' as pt;
+import 'package:solution_challenge/utils/translator/strings_ru.dart' as ru;
 import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 class App extends StatelessWidget {

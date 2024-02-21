@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
+
 import '../../../utils/helpers/helper_functions.dart';
 import './event_profile.dart';
 
@@ -10,7 +11,6 @@ class PEventCard extends StatelessWidget {
   const PEventCard({
     Key? key,
     required this.eventDate,
-    required this.eventDayTime,
     required this.eventTitle,
     required this.eventLocation,
     required this.eventDesc,
@@ -19,7 +19,6 @@ class PEventCard extends StatelessWidget {
   }) : super(key: key);
 
   final String? eventDate;
-  final String? eventDayTime;
   final String? eventTitle;
   final String? eventLocation;
   final String? eventDesc;
@@ -35,7 +34,6 @@ class PEventCard extends StatelessWidget {
         // Handle onTap event
         Get.to(() => PEventProfile(
           eventDate: eventDate!,
-          eventDayTime: eventDayTime!,
           eventTitle: eventTitle!,
           eventLocation: eventLocation!,
           eventDesc: eventDesc!,
@@ -78,15 +76,6 @@ class PEventCard extends StatelessWidget {
                       ),
                       const SizedBox(
                         height: TSizes.sm,
-                      ),
-                      Text(
-                        eventDayTime ?? '',
-                        style: Theme.of(context).textTheme.bodyText2!.apply(
-                          color: TColors.rani,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: TSizes.spaceBtwItems / 2,
                       ),
                       Text(
                         eventTitle ?? '',

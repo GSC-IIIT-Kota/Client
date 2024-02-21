@@ -6,9 +6,9 @@ import 'package:solution_challenge/common/widgets/custom_shapes/containers/prima
 import 'package:solution_challenge/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:solution_challenge/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:solution_challenge/common/widgets/texts/section_heading.dart';
-import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 import '../../../../utils/provider/userProvider.dart';
 
@@ -72,24 +72,29 @@ class SettingsScreen extends StatelessWidget {
                   PSettingsMenuTile(
                     icon: Iconsax.book_saved,
                     title: translatedStrings?[54] ?? "Bookmarked Resources",
-                    subTitle: translatedStrings?[63] ?? "Explore your saved educational treasures",
+                    subTitle: translatedStrings?[63] ??
+                        "Explore your saved educational treasures",
                   ),
                   PSettingsMenuTile(
                       icon: Iconsax.receipt,
                       title: translatedStrings?[55] ?? "My Donations",
-                      subTitle: translatedStrings?[59] ?? "Track your contributions"),
+                      subTitle:
+                          translatedStrings?[59] ?? "Track your contributions"),
                   PSettingsMenuTile(
                       icon: Iconsax.path,
                       title: translatedStrings?[56] ?? "My Blogs",
-                      subTitle: translatedStrings?[60] ?? "Your experiences at one place"),
+                      subTitle: translatedStrings?[60] ??
+                          "Your experiences at one place"),
                   PSettingsMenuTile(
                       icon: Iconsax.heart,
                       title: translatedStrings?[57] ?? "Favorite Campaigns",
-                      subTitle: translatedStrings?[61] ?? "Stay connected to causes close to your heart"),
+                      subTitle: translatedStrings?[61] ??
+                          "Stay connected to causes close to your heart"),
                   PSettingsMenuTile(
                       icon: Iconsax.document_favorite,
                       title: translatedStrings?[58] ?? "Saved Blogs",
-                      subTitle: translatedStrings?[62] ?? "Your favorite reads"),
+                      subTitle:
+                          translatedStrings?[62] ?? "Your favorite reads"),
 
                   ///App Settings
                   const SizedBox(
@@ -106,7 +111,8 @@ class SettingsScreen extends StatelessWidget {
                   PSettingsMenuTile(
                       icon: Iconsax.language_circle,
                       title: translatedStrings?[65] ?? "Change language",
-                      subTitle: translatedStrings?[66] ?? "Tailor your experience with a language switch")
+                      subTitle: translatedStrings?[66] ??
+                          "Tailor your experience with a language switch")
                 ],
               ),
             )

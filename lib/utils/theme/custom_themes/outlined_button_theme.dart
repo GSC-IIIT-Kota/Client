@@ -10,7 +10,8 @@ class POutlinedButtonTheme {
       foregroundColor: TColors.rani,
       side: const BorderSide(color: TColors.rani),
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
-      textStyle: const TextStyle(fontSize: 16, color: TColors.rani, fontWeight: FontWeight.w600),
+      textStyle: const TextStyle(
+          fontSize: 16, color: TColors.rani, fontWeight: FontWeight.w600),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
     ),
   );
@@ -20,7 +21,8 @@ class POutlinedButtonTheme {
       foregroundColor: TColors.rani,
       side: const BorderSide(color: TColors.rani),
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
-      textStyle: const TextStyle(fontSize: 16, color: TColors.rani, fontWeight: FontWeight.w600),
+      textStyle: const TextStyle(
+          fontSize: 16, color: TColors.rani, fontWeight: FontWeight.w600),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
     ),
   );

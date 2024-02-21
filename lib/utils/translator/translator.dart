@@ -1,5 +1,5 @@
-import 'package:translator/translator.dart';
 import 'package:solution_challenge/utils/translator/strings_en.dart';
+import 'package:translator/translator.dart';
 
 class StringTranslator {
   late final GoogleTranslator translator; // Initialize the translator
@@ -9,7 +9,8 @@ class StringTranslator {
   StringTranslator() {
     // Initialize the translator
     translator = GoogleTranslator();
-    translatedList = List<String>.filled(inputList.length, ''); // Initialize with empty strings
+    translatedList = List<String>.filled(
+        inputList.length, ''); // Initialize with empty strings
   }
 
   // Method to translate a list of strings to a specified language

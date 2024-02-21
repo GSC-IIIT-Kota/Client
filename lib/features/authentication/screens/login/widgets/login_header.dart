@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 class TLoginHeader extends StatelessWidget {
   const TLoginHeader({
@@ -15,8 +15,7 @@ class TLoginHeader extends StatelessWidget {
       children: [
         const Image(
           height: 150,
-          image: AssetImage(
-              TImages.loginSignupLogo),
+          image: AssetImage(TImages.loginSignupLogo),
         ),
         Text(translatedStrings?[13] ?? "Connect with Period",
             style: Theme.of(context).textTheme.headlineMedium),
@@ -24,7 +23,8 @@ class TLoginHeader extends StatelessWidget {
           height: TSizes.sm,
         ),
         Text(
-            translatedStrings?[14] ?? "Join our community for personalized menstrual health support and resources.",
+            translatedStrings?[14] ??
+                "Join our community for personalized menstrual health support and resources.",
             style: Theme.of(context).textTheme.bodyMedium),
       ],
     );

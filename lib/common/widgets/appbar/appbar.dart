@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/device/device_utility.dart';
-import 'package:get/get.dart';
 
 class PAppBar extends StatelessWidget implements PreferredSizeWidget {
   const PAppBar({

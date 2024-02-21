@@ -1,10 +1,13 @@
 import 'dart:convert';
+
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
-import '../models/event.dart';
-class EventService {
 
+import '../models/event.dart';
+
+class EventService {
   final apiBaseUrl = dotenv.env['API_BASE_URL'];
+
   Future<List<Event>> getEvents() async {
     final String baseUrl = '$apiBaseUrl/events';
     final response = await http.get(Uri.parse(baseUrl));
@@ -43,17 +46,18 @@ class EventService {
     }
   }
 
-  Future<dynamic> getEventById(String eventId) async {
+  Future<Event> getEventById(String eventId) async {
     final String baseUrl = '$apiBaseUrl/events';
     final response = await http.get(Uri.parse('$baseUrl/$eventId'));
     if (response.statusCode == 200) {
-      return jsonDecode(response.body);
+      return Event.fromJson(jsonDecode(response.body));
     } else {
       throw Exception('Failed to load event');
     }
   }
 
-  Future<dynamic> updateEvent(String eventId, Map<String, dynamic> updatedEventData) async {
+  Future<dynamic> updateEvent(
+      String eventId, Map<String, dynamic> updatedEventData) async {
     final String baseUrl = '$apiBaseUrl/events';
     final response = await http.put(
       Uri.parse('$baseUrl/$eventId'),

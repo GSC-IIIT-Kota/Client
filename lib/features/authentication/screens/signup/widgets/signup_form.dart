@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 class TSignupForm extends StatelessWidget {
   const TSignupForm({
@@ -28,7 +28,6 @@ class TSignupForm extends StatelessWidget {
     return Form(
       child: Column(
         children: [
-
           /// First Name and Last name
           Row(
             children: [
@@ -60,7 +59,6 @@ class TSignupForm extends StatelessWidget {
           const SizedBox(
             height: TSizes.spaceBtwInputFields,
           ),
-
 
           /// username
           TextFormField(

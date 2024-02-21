@@ -1,14 +1,16 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
-import 'package:solution_challenge/utils/helpers/tts_manager.dart';
-import 'package:solution_challenge/features/chatbot/screens/widgets/chat_bubble.dart';
-import 'package:solution_challenge/features/chatbot/screens/widgets/chat_input.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/primary_ngo_container.dart';
+import 'package:solution_challenge/features/chatbot/screens/widgets/chat_bubble.dart';
+import 'package:solution_challenge/features/chatbot/screens/widgets/chat_input.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
+import 'package:solution_challenge/utils/helpers/tts_manager.dart';
+
 import '../../authentication/screens/signup/widgets/typingIndicator.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -57,7 +59,8 @@ class _ChatScreenState extends State<ChatScreen> {
       });
       messageSent = true;
       isTyping = true;
-      isWaitingForResponse = true; // Set the flag to true when sending a message
+      isWaitingForResponse =
+          true; // Set the flag to true when sending a message
     });
 
     final apiBaseUrl = dotenv.env['API_BASE_URL'];
@@ -81,7 +84,8 @@ class _ChatScreenState extends State<ChatScreen> {
             ]
           });
           isTyping = false;
-          isWaitingForResponse = false; // Reset the flag when response is received
+          isWaitingForResponse =
+              false; // Reset the flag when response is received
         });
       }
     } else {
@@ -140,7 +144,8 @@ class _ChatScreenState extends State<ChatScreen> {
                     );
                   },
                 ),
-                if (isTyping || isWaitingForResponse) // Check the flag to disable input
+                if (isTyping ||
+                    isWaitingForResponse) // Check the flag to disable input
                   Positioned(
                     bottom: 0,
                     left: 0,
@@ -154,7 +159,8 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
           ),
           PChatInput(
-            onSendMessage: isWaitingForResponse ? null : sendMessage, // Disable input if waiting for response
+            onSendMessage: isWaitingForResponse ? null : sendMessage,
+            // Disable input if waiting for response
             onSpeak: speak,
           ),
         ],
@@ -162,4 +168,3 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 }
-

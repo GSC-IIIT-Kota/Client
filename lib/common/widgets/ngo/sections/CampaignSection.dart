@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:solution_challenge/common/widgets/ngo/campaign_card.dart';
 import 'package:solution_challenge/common/widgets/texts/section_heading.dart';
 import 'package:solution_challenge/common/widgets/viewall/viewall_cards.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
-import 'package:get/get.dart';
+
 import '../../../../models/campaign.dart';
 import '../../../../services/campaign_service.dart';
 
@@ -28,11 +29,9 @@ class PCampaignSection extends StatelessWidget {
         PSectionHeading(
           title: sectionHeading,
           textColor: dark ? Colors.white : Colors.black,
-          onPressed: () =>
-              Get.to(() =>
-                  PViewAllScreen(
-                    initiativeType: initiativeType,
-                  )),
+          onPressed: () => Get.to(() => PViewAllScreen(
+                initiativeType: initiativeType,
+              )),
         ),
         FutureBuilder<List<Campaign>>(
           future: CampaignService.getAllCampaigns(),
@@ -56,7 +55,8 @@ class PCampaignSection extends StatelessWidget {
                       raisedMoney: campaigns[index].raisedMoney,
                       totalGoal: campaigns[index].totalGoal,
                       imageUrl: campaigns[index].imageUrl,
-                      orgPhoto: campaigns[index].ngoID, // Assuming this is the organization's photo URL
+                      orgPhoto: campaigns[index]
+                          .ngoID, // Assuming this is the organization's photo URL
                     );
                   },
                 ),

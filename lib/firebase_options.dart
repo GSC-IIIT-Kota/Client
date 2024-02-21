@@ -67,7 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '85335662632',
     projectId: 'gsc-iiit-kota',
     storageBucket: 'gsc-iiit-kota.appspot.com',
-    iosClientId: '85335662632-cua682546lskamu5onafahd9vjmafssj.apps.googleusercontent.com',
+    iosClientId:
+        '85335662632-cua682546lskamu5onafahd9vjmafssj.apps.googleusercontent.com',
     iosBundleId: 'com.example.solutionChallenge',
   );
 
@@ -77,7 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '85335662632',
     projectId: 'gsc-iiit-kota',
     storageBucket: 'gsc-iiit-kota.appspot.com',
-    iosClientId: '85335662632-cua682546lskamu5onafahd9vjmafssj.apps.googleusercontent.com',
+    iosClientId:
+        '85335662632-cua682546lskamu5onafahd9vjmafssj.apps.googleusercontent.com',
     iosBundleId: 'com.example.solutionChallenge',
   );
 }

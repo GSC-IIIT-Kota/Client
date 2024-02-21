@@ -3,7 +3,8 @@ import 'package:solution_challenge/common/widgets/custom_shapes/curved_edges/cur
 
 class PCurvedEdgeWidget extends StatelessWidget {
   const PCurvedEdgeWidget({
-    super.key, this.child,
+    super.key,
+    this.child,
   });
 
   final Widget? child;

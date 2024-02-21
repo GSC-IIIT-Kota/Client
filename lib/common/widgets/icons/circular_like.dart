@@ -5,7 +5,8 @@ import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
 class PCircularLike extends StatelessWidget {
   const PCircularLike({
-    super.key, this.onPressed,
+    super.key,
+    this.onPressed,
   });
 
   final VoidCallback? onPressed;
@@ -21,8 +22,9 @@ class PCircularLike extends StatelessWidget {
         height: 35,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: dark ? TColors.myblack.withOpacity(0.8) : Colors.white
-              .withOpacity(0.8), // You can change the color
+          color: dark
+              ? TColors.myblack.withOpacity(0.8)
+              : Colors.white.withOpacity(0.8), // You can change the color
         ),
         child: const Icon(
           Iconsax.like,

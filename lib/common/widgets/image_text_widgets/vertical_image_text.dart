@@ -20,7 +20,6 @@ class PVerticalImageText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final dark = PHelperFunctions.isDarkMode(context);
     return GestureDetector(
       onTap: onTap,
@@ -34,7 +33,8 @@ class PVerticalImageText extends StatelessWidget {
               height: 56,
               padding: const EdgeInsets.all(TSizes.sm),
               decoration: BoxDecoration(
-                color: backgroundColor ?? (dark ? TColors.satin : TColors.satin),
+                color:
+                    backgroundColor ?? (dark ? TColors.satin : TColors.satin),
                 borderRadius: BorderRadius.circular(100),
               ),
               child: Center(

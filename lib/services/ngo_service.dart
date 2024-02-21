@@ -1,10 +1,11 @@
 import 'dart:convert';
+
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 import '../models/organisation.dart';
-class NGOService {
 
+class NGOService {
   final apiBaseUrl = dotenv.env['API_BASE_URL'];
 
   Future<void> signupNGO(String email, String password, String ngoName) async {

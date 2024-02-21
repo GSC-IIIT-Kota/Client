@@ -1,9 +1,13 @@
-List<String> originalStrings = ["Explore Your Cycle",
+List<String> originalStrings = [
+  "Explore Your Cycle",
   "Access educational resources and valuable content for a healthier menstrual journey.",
   "Your Personal Guide",
-  "Meet Paddy, Your Personal Chatbot Companion - ask questions freely, keep secrets private, and get personalized advice.", //changed
-  "Empower Change Through Donation and Engagement", //changed
-  "Support Causes, Share Stories, and Connect with Like-minded Individuals", //changed
+  "Meet Paddy, Your Personal Chatbot Companion - ask questions freely, keep secrets private, and get personalized advice.",
+  //changed
+  "Empower Change Through Donation and Engagement",
+  //changed
+  "Support Causes, Share Stories, and Connect with Like-minded Individuals",
+  //changed
   'Menstrual Hygiene',
   "E-Mail",
   "Password",
@@ -25,7 +29,8 @@ List<String> originalStrings = ["Explore Your Cycle",
   "Last Name",
   "Username",
   "Phone No.",
-  "Create account", //changed
+  "Create account",
+  //changed
   "or sign up with",
   "Verify your email address",
   "Confirm your email address to unlock full access to Period's menstrual health resources.",

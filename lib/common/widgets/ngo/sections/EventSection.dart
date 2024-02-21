@@ -27,12 +27,12 @@ class PEventSection extends StatelessWidget {
     return Column(
       children: [
         PSectionHeading(
-        title: sectionHeading,
-        textColor: dark ? Colors.white : Colors.black,
-        onPressed: () => Get.to(() => PViewAllScreen(
-          initiativeType: initiativeType,
-        )),
-      ),
+          title: sectionHeading,
+          textColor: dark ? Colors.white : Colors.black,
+          onPressed: () => Get.to(() => PViewAllScreen(
+                initiativeType: initiativeType,
+              )),
+        ),
         SizedBox(
           height: cardHeight,
           child: FutureBuilder<List<Event>?>(
@@ -52,15 +52,13 @@ class PEventSection extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return PEventCard(
-                      eventDate: events[index].date,
-                      eventDayTime: events[index].time,
                       eventTitle: events[index].title,
                       eventLocation: events[index].location,
                       eventDesc: events[index].description,
                       eventPhoto: events[index].banner,
                       cardWidth: 300,
+                      eventDate: "${events[index].uploadDate.day}",
                     );
-
                   },
                 );
               }

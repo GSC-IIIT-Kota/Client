@@ -61,22 +61,21 @@ class User {
   });
 
   factory User.fromJson(Map<String, dynamic> json) {
-    var userJson = json['user'] as Map<String,
-        dynamic>?; // Get the 'user' object from the JSON
+    var userJson = json['user']
+        as Map<String, dynamic>?; // Get the 'user' object from the JSON
     if (userJson == null) {
       throw Exception('User data not found in JSON');
     }
 
-    var donationList = userJson['donations'] as List<
-        dynamic>?; // Add null check
+    var donationList =
+        userJson['donations'] as List<dynamic>?; // Add null check
     List<Donation> donations = donationList != null
         ? donationList.map((e) => Donation.fromJson(e)).toList()
         : [];
 
     var eventList = userJson['myEvents'] as List<dynamic>?; // Add null check
-    List<String> myEvents = eventList != null
-        ? eventList.map((e) => e.toString()).toList()
-        : [];
+    List<String> myEvents =
+        eventList != null ? eventList.map((e) => e.toString()).toList() : [];
 
     return User(
       id: userJson['id'] ?? '',

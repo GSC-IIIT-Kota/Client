@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/features/personalization/screens/profile/profile.dart';
-import 'package:get/get.dart';
 
 class PUserProfileTile extends StatelessWidget {
   PUserProfileTile({
@@ -26,19 +26,23 @@ class PUserProfileTile extends StatelessWidget {
         radius: 25,
         backgroundImage: NetworkImage(imageUrl),
       ),
-      title: Text(title.trim(), style: Theme.of(context).textTheme.headlineSmall!.apply(color: textColor)),
+      title: Text(title.trim(),
+          style: Theme.of(context)
+              .textTheme
+              .headlineSmall!
+              .apply(color: textColor)),
       subtitle: Text(
         subTitle,
         style: Theme.of(context).textTheme.bodyMedium!.apply(color: textColor),
       ),
       trailing: showEditIcon
           ? IconButton(
-        onPressed: () => Get.to(() => const ProfileScreen()),
-        icon: const Icon(
-          Iconsax.edit,
-          color: Colors.white,
-        ),
-      )
+              onPressed: () => Get.to(() => const ProfileScreen()),
+              icon: const Icon(
+                Iconsax.edit,
+                color: Colors.white,
+              ),
+            )
           : null,
     );
   }

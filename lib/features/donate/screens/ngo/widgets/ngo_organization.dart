@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/appbar/tabbar.dart';
 import 'package:solution_challenge/common/widgets/icons/circular_heart.dart';
 import 'package:solution_challenge/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:solution_challenge/common/widgets/ngo/campaign_card.dart';
 import 'package:solution_challenge/common/widgets/ngo/event_card.dart';
-import 'package:solution_challenge/utils/translator/translated_strings.dart';
+import 'package:solution_challenge/services/campaign_service.dart';
+import 'package:solution_challenge/services/event_service.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
+
 import '../../../../../models/event.dart';
+import '../../../../../models/campaign.dart';
 
 class POrganizationScreen extends StatelessWidget {
   const POrganizationScreen({
@@ -18,13 +23,15 @@ class POrganizationScreen extends StatelessWidget {
     required this.orgPhoto,
     required this.ngoName,
     required this.ngoLocation,
-    required this.events, // Add events parameter
+    required this.events,
+    required this.campaigns,
   }) : super(key: key);
 
   final String orgPhoto;
   final String ngoName;
   final String ngoLocation;
-  final List<Event> events; // Define events parameter
+  final List<String> events;
+  final List<String> campaigns;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +42,7 @@ class POrganizationScreen extends StatelessWidget {
         appBar: PAppBar(
           title: Text(
             translatedStrings?[36] ?? 'Organiser',
-            style: Theme.of(context).textTheme.headlineMedium,
+            style: Theme.of(context).textTheme.headlineMedium!,
           ),
           actions: const [
             PCircularHeart(),
@@ -84,21 +91,33 @@ class POrganizationScreen extends StatelessWidget {
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
-                  for (var event in events)
-                    Padding(
-                      padding: const EdgeInsets.all(TSizes.defaultSpace),
-                      child: PCampaignCard(
-                        cardWidth: PHelperFunctions.screenWidth(),
-                        rightMargin: EdgeInsets.zero,
-                        title: "Help these kids get money to study",
-                        description:
-                        "This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids.",
-                        raisedMoney: 2000,
-                        totalGoal: 4000,
-                        imageUrl: TImages.banner1Image,
-                        orgPhoto:
-                        'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
-                      ),
+                  for (var campaignId in campaigns)
+                    FutureBuilder<Campaign?>(
+                      future: CampaignService().getCampaignById(campaignId), // Assuming getCampaignById is a function to fetch campaign details by ID
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.waiting) {
+                          return const CircularProgressIndicator();
+                        } else if (snapshot.hasError) {
+                          return Text('Error: ${snapshot.error}');
+                        } else if (snapshot.data == null) {
+                          return const Text('Campaign not found');
+                        } else {
+                          final campaign = snapshot.data!;
+                          return Padding(
+                            padding: const EdgeInsets.all(TSizes.defaultSpace),
+                            child: PCampaignCard(
+                              cardWidth: PHelperFunctions.screenWidth(),
+                              rightMargin: EdgeInsets.zero,
+                              title: campaign.title,
+                              description: campaign.description,
+                              raisedMoney: campaign.raisedMoney,
+                              totalGoal: campaign.totalGoal,
+                              imageUrl: campaign.imageUrl,
+                              orgPhoto: orgPhoto,
+                            ),
+                          );
+                        }
+                      },
                     ),
                 ],
               ),
@@ -106,18 +125,31 @@ class POrganizationScreen extends StatelessWidget {
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
-                  for (var event in events)
-                    Padding(
-                      padding: const EdgeInsets.all(TSizes.defaultSpace),
-                      child: PEventCard(
-                        eventDate: event.date,
-                        eventDayTime: event.time,
-                        eventTitle: event.title,
-                        eventLocation: event.location,
-                        eventDesc: event.description,
-                        eventPhoto: event.banner,
-                        cardWidth: PHelperFunctions.screenWidth(),
-                      ),
+                  for (var eventId in events)
+                    FutureBuilder<Event>(
+                      future: EventService().getEventById(eventId), // Assuming getEventById is a function to fetch event details by ID
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.waiting) {
+                          return const CircularProgressIndicator();
+                        } else if (snapshot.hasError) {
+                          return Text('Error: ${snapshot.error}');
+                        } else if (snapshot.data == null) {
+                          return const Text('Event not found');
+                        } else {
+                          final event = snapshot.data!;
+                          return Padding(
+                            padding: const EdgeInsets.all(TSizes.defaultSpace),
+                            child: PEventCard(
+                              eventDate: "${event.uploadDate}", // Assuming 'date' is the correct key in your Event model
+                              eventTitle: event.title,
+                              eventLocation: event.location,
+                              eventDesc: event.description,
+                              eventPhoto: event.banner,
+                              cardWidth: PHelperFunctions.screenWidth(),
+                            ),
+                          );
+                        }
+                      },
                     ),
                 ],
               ),
@@ -128,4 +160,3 @@ class POrganizationScreen extends StatelessWidget {
     );
   }
 }
-

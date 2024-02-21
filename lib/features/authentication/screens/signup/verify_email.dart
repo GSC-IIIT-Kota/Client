@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:solution_challenge/common/widgets/success_screen/success_screen.dart';
 import 'package:solution_challenge/features/authentication/screens/login/login.dart';
-import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
   const VerifyEmailScreen({super.key});
@@ -56,7 +56,8 @@ class VerifyEmailScreen extends StatelessWidget {
                 height: TSizes.spaceBtwItems,
               ),
               Text(
-                translatedStrings?[30] ?? "Confirm your email address to unlock full access to Period's menstrual health resources.",
+                translatedStrings?[30] ??
+                    "Confirm your email address to unlock full access to Period's menstrual health resources.",
                 style: Theme.of(context).textTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),
@@ -71,8 +72,8 @@ class VerifyEmailScreen extends StatelessWidget {
                   onPressed: () => Get.to(() => SuccessScreen(
                         image: TImages.confirmedEmailImage,
                         title: translatedStrings?[67] ?? "Welcome to Period!",
-                        subTitle:
-                            translatedStrings?[31] ?? "Your email has been successfully verified. Enjoy full access to menstrual health resources and community support.",
+                        subTitle: translatedStrings?[31] ??
+                            "Your email has been successfully verified. Enjoy full access to menstrual health resources and community support.",
                         onPressed: () => Get.to(() => const LoginScreen()),
                       )),
                   child: Text(translatedStrings?[32] ?? "Continue"),

@@ -13,30 +13,29 @@ class PPrimaryNgoContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  PCurvedEdgeWidget(
-      child: Container(
-        color: TColors.primary,
-        padding: const EdgeInsets.only(bottom: 0),
-        child: Stack(
-            children: [
-              Positioned(
-                top: -150,
-                right: -250,
-                child: PCircularContainer(
-                  backgroundColor: TColors.accent.withOpacity(0.1),
-                ),
-              ),
-              Positioned(
-                top: 100,
-                right: -300,
-                child: PCircularContainer(
-                  backgroundColor: TColors.accent.withOpacity(0.1),
-                ),
-              ),
-              child,
-            ],
+    return PCurvedEdgeWidget(
+        child: Container(
+      color: TColors.primary,
+      padding: const EdgeInsets.only(bottom: 0),
+      child: Stack(
+        children: [
+          Positioned(
+            top: -150,
+            right: -250,
+            child: PCircularContainer(
+              backgroundColor: TColors.accent.withOpacity(0.1),
+            ),
           ),
-      )
-    );
+          Positioned(
+            top: 100,
+            right: -300,
+            child: PCircularContainer(
+              backgroundColor: TColors.accent.withOpacity(0.1),
+            ),
+          ),
+          child,
+        ],
+      ),
+    ));
   }
 }
