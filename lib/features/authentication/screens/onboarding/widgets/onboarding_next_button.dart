@@ -12,13 +12,15 @@ class OnBoardingNextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Positioned(
       right: TSizes.defaultSpace,
       bottom: TDeviceUtils.getBottomNavigationBarHeight(),
       child: ElevatedButton(
         onPressed: () => OnBoardingController.instance.nextPage(),
-        style: ElevatedButton.styleFrom(shape: const CircleBorder(), backgroundColor: TColors.rani, side: const BorderSide(color: TColors.rani)),
+        style: ElevatedButton.styleFrom(
+            shape: const CircleBorder(),
+            backgroundColor: TColors.rani,
+            side: const BorderSide(color: TColors.rani)),
         child: const Icon(Iconsax.arrow_right_3),
       ),
     );

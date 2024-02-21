@@ -6,6 +6,7 @@ import 'package:solution_challenge/common/widgets/texts/video_card_icontext.dart
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+
 import '../appbar/appbar.dart';
 import '../icons/circular_heart.dart';
 
@@ -34,7 +35,6 @@ class PEventProfile extends StatefulWidget {
 }
 
 class _PEventProfileState extends State<PEventProfile> {
-
   @override
   Widget build(BuildContext context) {
     final dark = PHelperFunctions.isDarkMode(context);
@@ -70,8 +70,8 @@ class _PEventProfileState extends State<PEventProfile> {
                       iconColor: TColors.battleship,
                       title: widget.eventLocation,
                       titleStyle: Theme.of(context).textTheme.titleSmall!.apply(
-                        color: dark ? Colors.white : TColors.battleship,
-                      ),
+                            color: dark ? Colors.white : TColors.battleship,
+                          ),
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
                     const PPeopleDonated(
@@ -88,9 +88,9 @@ class _PEventProfileState extends State<PEventProfile> {
                       iconData: Iconsax.calendar,
                       title: widget.eventDate,
                       titleStyle: Theme.of(context).textTheme.titleSmall!.apply(
-                        color: dark ? Colors.white : Colors.black,
-                        fontWeightDelta: 2,
-                      ),
+                            color: dark ? Colors.white : Colors.black,
+                            fontWeightDelta: 2,
+                          ),
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems / 2),
                     PCardIconText(
@@ -98,9 +98,9 @@ class _PEventProfileState extends State<PEventProfile> {
                       iconColor: TColors.rani,
                       title: widget.eventDayTime,
                       titleStyle: Theme.of(context).textTheme.titleSmall!.apply(
-                        color: dark ? Colors.white : TColors.rani,
-                        fontWeightDelta: 2,
-                      ),
+                            color: dark ? Colors.white : TColors.rani,
+                            fontWeightDelta: 2,
+                          ),
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
                     Divider(
@@ -115,9 +115,9 @@ class _PEventProfileState extends State<PEventProfile> {
                     Text(
                       "Description",
                       style: Theme.of(context).textTheme.titleSmall!.apply(
-                        color: dark ? TColors.brightpink : TColors.burgandy,
-                        fontWeightDelta: 2,
-                      ),
+                            color: dark ? TColors.brightpink : TColors.burgandy,
+                            fontWeightDelta: 2,
+                          ),
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems / 2),
                     Text(
@@ -125,10 +125,10 @@ class _PEventProfileState extends State<PEventProfile> {
                       maxLines: 6,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.bodyMedium!.apply(
-                        color: dark
-                            ? Colors.white.withOpacity(0.8)
-                            : TColors.dimgrey,
-                      ),
+                            color: dark
+                                ? Colors.white.withOpacity(0.8)
+                                : TColors.dimgrey,
+                          ),
                     ),
                   ],
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:solution_challenge/common/widgets/education/videos/video_profile.dart';
@@ -8,7 +9,6 @@ import 'package:solution_challenge/models/education/video.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
-import 'package:get/get.dart';
 
 class PVideoCard extends StatelessWidget {
   const PVideoCard({super.key, required this.video});
@@ -19,14 +19,14 @@ class PVideoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = PHelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () => Get.to(() =>  PVideoProfile(
-        videoCategory: video.category,
-        uploadTime: video.uploadDate.timeZoneName,
-        videoTitle: video.title,
-        hasAuthor: true,
-        videoUploader: video.uploader,
-        videoDescription: video.description,
-      )),
+      onTap: () => Get.to(() => PVideoProfile(
+            videoCategory: video.category,
+            uploadTime: video.uploadDate.timeZoneName,
+            videoTitle: video.title,
+            hasAuthor: true,
+            videoUploader: video.uploader,
+            videoDescription: video.description,
+          )),
       child: Container(
         width: 250,
         padding: const EdgeInsets.all(1),
@@ -45,7 +45,7 @@ class PVideoCard extends StatelessWidget {
                   const PRoundedImage(
                     isNetworkImage: true,
                     imageUrl:
-                    'https://m.media-amazon.com/images/I/61Nyx0mNNwL.jpg',
+                        'https://m.media-amazon.com/images/I/61Nyx0mNNwL.jpg',
                     applyImageRadius: true,
                     aspectRatio: 16 / 9,
                   ),
@@ -76,7 +76,8 @@ class PVideoCard extends StatelessWidget {
 
             ///VideoBody
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: TSizes.md, vertical: TSizes.sm),
+              padding: const EdgeInsets.symmetric(
+                  horizontal: TSizes.md, vertical: TSizes.sm),
               child: Column(
                 children: [
                   ///Video Title
@@ -110,9 +111,9 @@ class PVideoCard extends StatelessWidget {
                                 .textTheme
                                 .labelLarge!
                                 .apply(
-                                color: dark
-                                    ? TColors.brightpink
-                                    : TColors.rani),
+                                    color: dark
+                                        ? TColors.brightpink
+                                        : TColors.rani),
                           ),
                           const SizedBox(
                             height: TSizes.spaceBtwItems / 2,
@@ -128,9 +129,9 @@ class PVideoCard extends StatelessWidget {
                                 .textTheme
                                 .labelMedium!
                                 .apply(
-                                color: dark
-                                    ? Colors.white.withOpacity(0.9)
-                                    : TColors.dimgrey),
+                                    color: dark
+                                        ? Colors.white.withOpacity(0.9)
+                                        : TColors.dimgrey),
                           ),
                         ],
                       ),

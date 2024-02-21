@@ -27,12 +27,12 @@ class PEventSection extends StatelessWidget {
     return Column(
       children: [
         PSectionHeading(
-        title: sectionHeading,
-        textColor: dark ? Colors.white : Colors.black,
-        onPressed: () => Get.to(() => PViewAllScreen(
-          initiativeType: initiativeType,
-        )),
-      ),
+          title: sectionHeading,
+          textColor: dark ? Colors.white : Colors.black,
+          onPressed: () => Get.to(() => PViewAllScreen(
+                initiativeType: initiativeType,
+              )),
+        ),
         SizedBox(
           height: cardHeight,
           child: FutureBuilder<List<Event>?>(
@@ -60,7 +60,6 @@ class PEventSection extends StatelessWidget {
                       eventPhoto: events[index].banner,
                       cardWidth: 300,
                     );
-
                   },
                 );
               }

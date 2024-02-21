@@ -12,7 +12,8 @@ class PRoundedImage extends StatelessWidget {
     this.padding,
     this.isNetworkImage = false,
     this.onPressed,
-    this.borderRadius = TSizes.md, this.aspectRatio = 12 / 5,
+    this.borderRadius = TSizes.md,
+    this.aspectRatio = 12 / 5,
   }) : super(key: key);
 
   final double? width, height;

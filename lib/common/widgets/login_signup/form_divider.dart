@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 
 class TFormDivider extends StatelessWidget {
-  const TFormDivider({
-    super.key, required this.dividerText
-  });
+  const TFormDivider({super.key, required this.dividerText});
 
   final String dividerText;
 
@@ -23,7 +21,10 @@ class TFormDivider extends StatelessWidget {
         ),
         Text(
           dividerText,
-          style: Theme.of(context).textTheme.labelMedium!.apply(color: TColors.battleship),
+          style: Theme.of(context)
+              .textTheme
+              .labelMedium!
+              .apply(color: TColors.battleship),
         ),
         const Flexible(
           child: Divider(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class PCircularContainer extends StatelessWidget {
   const PCircularContainer({
     super.key,
@@ -26,8 +25,7 @@ class PCircularContainer extends StatelessWidget {
       height: height,
       padding: EdgeInsets.all(padding),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(radius),
-          color: backgroundColor),
+          borderRadius: BorderRadius.circular(radius), color: backgroundColor),
       child: child,
     );
   }

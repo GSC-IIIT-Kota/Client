@@ -4,7 +4,9 @@ import 'package:solution_challenge/utils/constants/colors.dart';
 
 class PNotificationIcon extends StatelessWidget {
   const PNotificationIcon({
-    super.key, required this.onPressed, required this.iconColor,
+    super.key,
+    required this.onPressed,
+    required this.iconColor,
   });
 
   final VoidCallback onPressed;
@@ -14,7 +16,11 @@ class PNotificationIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        IconButton(onPressed: onPressed, icon: const Icon(Iconsax.notification), color: iconColor,),
+        IconButton(
+          onPressed: onPressed,
+          icon: const Icon(Iconsax.notification),
+          color: iconColor,
+        ),
         Positioned(
           right: 0,
           child: Container(
@@ -22,10 +28,15 @@ class PNotificationIcon extends StatelessWidget {
             height: 20,
             decoration: BoxDecoration(
                 color: TColors.accent,
-                borderRadius: BorderRadius.circular(100)
-            ),
+                borderRadius: BorderRadius.circular(100)),
             child: Center(
-              child: Text("2", style: Theme.of(context).textTheme.labelLarge!.apply(color: TColors.myblack),),
+              child: Text(
+                "2",
+                style: Theme.of(context)
+                    .textTheme
+                    .labelLarge!
+                    .apply(color: TColors.myblack),
+              ),
             ),
           ),
         )

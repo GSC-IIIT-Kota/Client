@@ -1,10 +1,13 @@
 import 'dart:convert';
-import 'package:http/http.dart' as http;
-import '../../models/education/articles.dart';
+
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:http/http.dart' as http;
+
+import '../../models/education/articles.dart';
 
 class ArticleService {
-  static final baseUrl = dotenv.env['API_BASE_URL']; // Update with your server URL
+  static final baseUrl =
+      dotenv.env['API_BASE_URL']; // Update with your server URL
 
   static Future<void> createArticle(Article article) async {
     final response = await http.post(
@@ -72,7 +75,8 @@ class ArticleService {
   }
 
   static Future<void> removeComment(String articleId, String commentId) async {
-    final response = await http.delete(Uri.parse('$baseUrl/articles/$articleId/comments?commentID=$commentId'));
+    final response = await http.delete(Uri.parse(
+        '$baseUrl/articles/$articleId/comments?commentID=$commentId'));
 
     if (response.statusCode != 200) {
       throw Exception('Failed to remove comment: ${response.body}');

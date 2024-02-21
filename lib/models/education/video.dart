@@ -40,8 +40,8 @@ class Video {
       category: json['category'] as String? ?? '',
       thumbnailUrl: json['thumbnailUrl'] as String? ?? '',
       comments: (json['comments'] as List<dynamic>?)
-          ?.map((comment) => Comment.fromJson(comment))
-          .toList() ??
+              ?.map((comment) => Comment.fromJson(comment))
+              .toList() ??
           [],
       likes: json['likes'] as int? ?? 0,
       transcripts: json['transcripts'] as String? ?? '',

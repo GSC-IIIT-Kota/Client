@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_organization.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
-import 'package:get/get.dart';
-
 
 class POrganizationCard extends StatelessWidget {
   const POrganizationCard({

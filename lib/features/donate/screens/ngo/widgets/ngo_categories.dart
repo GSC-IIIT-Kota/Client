@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:solution_challenge/common/widgets/image_text_widgets/vertical_image_text.dart';
 import 'package:solution_challenge/common/widgets/texts/section_heading.dart';
 import 'package:solution_challenge/common/widgets/viewall/viewall_cards.dart';
-import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
-import 'package:get/get.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 class PNgoCategories extends StatelessWidget {
   PNgoCategories({
@@ -57,7 +57,8 @@ class PNgoCategories extends StatelessWidget {
                 return PVerticalImageText(
                   image: icon,
                   title: name,
-                  onTap: () => Get.to(() => PViewAllScreen(initiativeType: name)),
+                  onTap: () =>
+                      Get.to(() => PViewAllScreen(initiativeType: name)),
                 );
               },
             ),

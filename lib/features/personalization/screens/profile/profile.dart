@@ -3,10 +3,11 @@ import 'package:provider/provider.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/texts/section_heading.dart';
 import 'package:solution_challenge/features/personalization/screens/profile/widgets/profile_menu.dart';
-import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
+
 import '../../../../utils/provider/userProvider.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -40,7 +41,8 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     TextButton(
                         onPressed: () {},
-                        child: Text(translatedStrings?[47] ?? 'Change profile picture',
+                        child: Text(
+                            translatedStrings?[47] ?? 'Change profile picture',
                             style: Theme.of(context)
                                 .textTheme
                                 .labelMedium!
@@ -69,9 +71,13 @@ class ProfileScreen extends StatelessWidget {
               ),
 
               PProfileMenu(
-                  onPressed: () {}, title: translatedStrings?[49] ?? 'Name', value: "${user.profile.firstName} ${user.profile.lastName}"),
+                  onPressed: () {},
+                  title: translatedStrings?[49] ?? 'Name',
+                  value: "${user.profile.firstName} ${user.profile.lastName}"),
               PProfileMenu(
-                  onPressed: () {}, title: translatedStrings?[25] ?? 'Username', value: user.profile.firstName),
+                  onPressed: () {},
+                  title: translatedStrings?[25] ?? 'Username',
+                  value: user.profile.firstName),
 
               const SizedBox(
                 height: TSizes.spaceBtwItems,

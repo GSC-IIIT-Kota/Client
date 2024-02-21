@@ -9,7 +9,14 @@ import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class PVideoProfile extends StatefulWidget {
-  const PVideoProfile({super.key, required this.videoCategory, required this.uploadTime, required this.videoTitle, required this.hasAuthor, required this.videoUploader, required this.videoDescription});
+  const PVideoProfile(
+      {super.key,
+      required this.videoCategory,
+      required this.uploadTime,
+      required this.videoTitle,
+      required this.hasAuthor,
+      required this.videoUploader,
+      required this.videoDescription});
 
   final String videoCategory;
   final String uploadTime;
@@ -17,7 +24,6 @@ class PVideoProfile extends StatefulWidget {
   final bool hasAuthor;
   final String videoUploader;
   final String videoDescription;
-
 
   @override
   State<PVideoProfile> createState() => _PVideoProfileState();
@@ -43,7 +49,6 @@ class _PVideoProfileState extends State<PVideoProfile> {
 
   @override
   Widget build(BuildContext context) {
-
     final dark = PHelperFunctions.isDarkMode(context);
     return Scaffold(
       appBar: const PAppBar(
@@ -64,87 +69,85 @@ class _PVideoProfileState extends State<PVideoProfile> {
                     ProgressBar(
                       isExpanded: true,
                       colors: const ProgressBarColors(
-                        playedColor: TColors.brightpink,
-                        handleColor: TColors.accent
-                      ),
+                          playedColor: TColors.brightpink,
+                          handleColor: TColors.accent),
                     ),
                     const PlaybackSpeedButton(),
                     FullScreenButton()
                   ],
                 ),
               ),
-
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: TSizes.md),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    PCardIconText(
-                        iconData: Iconsax.category,
-                        iconColor: TColors.rani,
-                        iconSize: 14,
-                        title: widget.videoCategory,
-                        titleStyle: Theme.of(context)
-                            .textTheme
-                            .labelLarge!
-                            .apply(color: TColors.rani)),
-                    const SizedBox(
-                      height: TSizes.spaceBtwItems,
-                    ),
-
-                    Text('~ $widget.uploadTime',
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelLarge!
-                            .apply(color: TColors.battleship)),
-                    const SizedBox(
-                      height: TSizes.spaceBtwItems,
-                    ),
-
-                    ///Title
-                    Text(
-                      widget.videoTitle,
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                    const SizedBox(
-                      height: TSizes.spaceBtwItems,
-                    ),
-
-                    ///Uploader Name
-                    if (widget.hasAuthor)
-                      PRoundedContainer(
-                        borderColor: TColors.rani,
-                        backgroundColor: TColors.rani,
-                        child: PCardIconText(
-                          iconData: Iconsax.user,
-                          title: widget.videoUploader,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      PCardIconText(
+                          iconData: Iconsax.category,
+                          iconColor: TColors.rani,
+                          iconSize: 14,
+                          title: widget.videoCategory,
                           titleStyle: Theme.of(context)
                               .textTheme
                               .labelLarge!
-                              .apply(color: Colors.white),
+                              .apply(color: TColors.rani)),
+                      const SizedBox(
+                        height: TSizes.spaceBtwItems,
+                      ),
+
+                      Text('~ $widget.uploadTime',
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelLarge!
+                              .apply(color: TColors.battleship)),
+                      const SizedBox(
+                        height: TSizes.spaceBtwItems,
+                      ),
+
+                      ///Title
+                      Text(
+                        widget.videoTitle,
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                      const SizedBox(
+                        height: TSizes.spaceBtwItems,
+                      ),
+
+                      ///Uploader Name
+                      if (widget.hasAuthor)
+                        PRoundedContainer(
+                          borderColor: TColors.rani,
+                          backgroundColor: TColors.rani,
+                          child: PCardIconText(
+                            iconData: Iconsax.user,
+                            title: widget.videoUploader,
+                            titleStyle: Theme.of(context)
+                                .textTheme
+                                .labelLarge!
+                                .apply(color: Colors.white),
+                          ),
                         ),
-                      ),
-                    const SizedBox(height: TSizes.spaceBtwItems / 2),
+                      const SizedBox(height: TSizes.spaceBtwItems / 2),
 
-                    Text(
-                      'Description',
-                      style: Theme.of(context).textTheme.titleSmall!.apply(
-                        color: dark ? TColors.brightpink : TColors.burgandy,
-                        fontWeightDelta: 2,
+                      Text(
+                        'Description',
+                        style: Theme.of(context).textTheme.titleSmall!.apply(
+                              color:
+                                  dark ? TColors.brightpink : TColors.burgandy,
+                              fontWeightDelta: 2,
+                            ),
                       ),
-                    ),
-                    const SizedBox(height: TSizes.spaceBtwItems / 2),
+                      const SizedBox(height: TSizes.spaceBtwItems / 2),
 
-                    Text(
-                    widget.videoDescription,
-                      style: Theme.of(context).textTheme.bodyMedium!.apply(
-                        color: dark
-                            ? Colors.white.withOpacity(0.8)
-                            : TColors.dimgrey,
+                      Text(
+                        widget.videoDescription,
+                        style: Theme.of(context).textTheme.bodyMedium!.apply(
+                              color: dark
+                                  ? Colors.white.withOpacity(0.8)
+                                  : TColors.dimgrey,
+                            ),
                       ),
-                    ),
-                  ]
-                ),
+                    ]),
               )
             ],
           ),

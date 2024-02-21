@@ -1,11 +1,10 @@
 import 'dart:convert';
+
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 class ChatService {
-
   Future<String> sendMessage(List<Map<String, dynamic>> contents) async {
-
     final apiBaseUrl = dotenv.env['API_BASE_URL'];
 
     final String baseUrl = '$apiBaseUrl/chatbot/';

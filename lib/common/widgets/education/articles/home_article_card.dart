@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:solution_challenge/common/widgets/images/rounded_image.dart';
 import 'package:solution_challenge/common/widgets/texts/video_card_icontext.dart';
-import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
-import 'package:get/get.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
 import 'article_display.dart';
@@ -57,7 +56,7 @@ class PHomeArticleCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-             const PRoundedContainer(
+            const PRoundedContainer(
               backgroundColor: TColors.accent,
               child: PRoundedImage(
                 imageUrl: TImages.banner4Image,
@@ -96,7 +95,9 @@ class PHomeArticleCard extends StatelessWidget {
                         titleStyle: Theme.of(context)
                             .textTheme
                             .labelLarge!
-                            .apply(color: dark ? TColors.brightpink : TColors.rani)),
+                            .apply(
+                                color:
+                                    dark ? TColors.brightpink : TColors.rani)),
                   ],
                 ),
               ),

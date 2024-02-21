@@ -8,11 +8,13 @@ class TTextFormFieldTheme {
     errorMaxLines: 3,
     prefixIconColor: TColors.battleship,
     suffixIconColor: TColors.battleship,
-
-    labelStyle: const TextStyle().copyWith(fontSize: 14, color: TColors.battleship),
-    hintStyle: const TextStyle().copyWith(fontSize: 14, color: TColors.battleship),
+    labelStyle:
+        const TextStyle().copyWith(fontSize: 14, color: TColors.battleship),
+    hintStyle:
+        const TextStyle().copyWith(fontSize: 14, color: TColors.battleship),
     errorStyle: const TextStyle().copyWith(fontStyle: FontStyle.normal),
-    floatingLabelStyle: const TextStyle().copyWith(color: TColors.battleship.withOpacity(0.8)),
+    floatingLabelStyle:
+        const TextStyle().copyWith(color: TColors.battleship.withOpacity(0.8)),
     border: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(14),
       borderSide: const BorderSide(width: 1, color: TColors.battleship),
@@ -39,10 +41,10 @@ class TTextFormFieldTheme {
     errorMaxLines: 2,
     prefixIconColor: TColors.battleship,
     suffixIconColor: TColors.battleship,
-
     labelStyle: const TextStyle().copyWith(fontSize: 14, color: Colors.white),
     hintStyle: const TextStyle().copyWith(fontSize: 14, color: Colors.white),
-    floatingLabelStyle: const TextStyle().copyWith(color: Colors.white.withOpacity(0.8)),
+    floatingLabelStyle:
+        const TextStyle().copyWith(color: Colors.white.withOpacity(0.8)),
     border: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(14),
       borderSide: const BorderSide(width: 1, color: TColors.battleship),

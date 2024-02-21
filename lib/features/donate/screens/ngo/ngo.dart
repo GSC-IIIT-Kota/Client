@@ -3,8 +3,8 @@ import 'package:solution_challenge/common/widgets/custom_shapes/containers/prima
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/white_search_container.dart';
 import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_appbar.dart';
 import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_categories.dart';
-import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 import '../../../../common/widgets/ngo/sections/CampaignSection.dart';
 import '../../../../common/widgets/ngo/sections/EventSection.dart';

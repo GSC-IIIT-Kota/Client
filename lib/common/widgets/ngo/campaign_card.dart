@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:solution_challenge/common/widgets/icons/circular_heart.dart';
@@ -11,7 +12,6 @@ import 'package:solution_challenge/common/widgets/texts/video_card_icontext.dart
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
-import 'package:get/get.dart';
 
 class PCampaignCard extends StatelessWidget {
   const PCampaignCard({
@@ -34,6 +34,7 @@ class PCampaignCard extends StatelessWidget {
   final int totalGoal;
   final String imageUrl;
   final String orgPhoto;
+
   @override
   Widget build(BuildContext context) {
     final dark = PHelperFunctions.isDarkMode(context);
@@ -41,16 +42,16 @@ class PCampaignCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: () => Get.to(() => PCampaignProfile(
-        title: title,
-        description: description,
-        progressValue: progressValue,
-        raisedMoney: raisedMoney,
-        totalGoal: totalGoal,
-        imageUrl: imageUrl,
-        orgPhoto: orgPhoto,
-        ngoName: 'NGO for Women',
-        ngoLocation: 'Rajasthan, India',
-      )),
+            title: title,
+            description: description,
+            progressValue: progressValue,
+            raisedMoney: raisedMoney,
+            totalGoal: totalGoal,
+            imageUrl: imageUrl,
+            orgPhoto: orgPhoto,
+            ngoName: 'NGO for Women',
+            ngoLocation: 'Rajasthan, India',
+          )),
       child: Container(
         width: cardWidth,
         padding: const EdgeInsets.all(1),
@@ -64,7 +65,7 @@ class PCampaignCard extends StatelessWidget {
             ///Thumbnail, save button
             PRoundedContainer(
               backgroundColor: dark ? Colors.black : Colors.white,
-              child:  Stack(
+              child: Stack(
                 children: [
                   ///Thumbnail
                   PRoundedImage(
@@ -150,4 +151,3 @@ class PCampaignCard extends StatelessWidget {
     );
   }
 }
-

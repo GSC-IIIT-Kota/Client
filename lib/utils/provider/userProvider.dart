@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:solution_challenge/models/user.dart';
 
 class UserProvider extends ChangeNotifier {
-   User? _user;
+  User? _user;
 
   User? get user => _user;
 

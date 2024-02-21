@@ -5,11 +5,12 @@ import 'package:solution_challenge/common/widgets/icons/circular_heart.dart';
 import 'package:solution_challenge/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:solution_challenge/common/widgets/ngo/campaign_card.dart';
 import 'package:solution_challenge/common/widgets/ngo/event_card.dart';
-import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
+
 import '../../../../../models/event.dart';
 
 class POrganizationScreen extends StatelessWidget {
@@ -92,12 +93,12 @@ class POrganizationScreen extends StatelessWidget {
                         rightMargin: EdgeInsets.zero,
                         title: "Help these kids get money to study",
                         description:
-                        "This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids.",
+                            "This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids.",
                         raisedMoney: 2000,
                         totalGoal: 4000,
                         imageUrl: TImages.banner1Image,
                         orgPhoto:
-                        'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
+                            'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
                       ),
                     ),
                 ],
@@ -128,4 +129,3 @@ class POrganizationScreen extends StatelessWidget {
     );
   }
 }
-

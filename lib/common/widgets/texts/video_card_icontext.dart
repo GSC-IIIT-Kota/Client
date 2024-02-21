@@ -3,7 +3,12 @@ import 'package:solution_challenge/utils/constants/sizes.dart';
 
 class PCardIconText extends StatelessWidget {
   const PCardIconText({
-    super.key, required this.iconData, this.iconSize, this.iconColor, required this.title, required this.titleStyle,
+    super.key,
+    required this.iconData,
+    this.iconSize,
+    this.iconColor,
+    required this.title,
+    required this.titleStyle,
   });
 
   final IconData iconData;
@@ -18,9 +23,16 @@ class PCardIconText extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Icon(iconData, size: iconSize, color: iconColor,),
-        const SizedBox(width: TSizes.spaceBtwItems / 2,),
-        Text(title,
+        Icon(
+          iconData,
+          size: iconSize,
+          color: iconColor,
+        ),
+        const SizedBox(
+          width: TSizes.spaceBtwItems / 2,
+        ),
+        Text(
+          title,
           style: titleStyle,
           textAlign: TextAlign.left,
         ),
@@ -28,4 +40,3 @@ class PCardIconText extends StatelessWidget {
     );
   }
 }
-

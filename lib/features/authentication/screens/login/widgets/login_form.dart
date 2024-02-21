@@ -2,11 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/utils/translator/translated_strings.dart';
+
+import '../../../../../services/user_service.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../password_configurations/forgot_password.dart';
 import '../../signup/signup.dart';
-import '../../../../../services/user_service.dart';
 
 // Your existing login form widget
 class TLoginForm extends StatelessWidget {
@@ -54,8 +55,10 @@ class TLoginForm extends StatelessWidget {
                 Row(
                   children: [
                     Checkbox(
-                      value: true, // Placeholder value, replace with actual functionality
-                      onChanged: (value) {}, // Placeholder function, replace with actual functionality
+                      value: true,
+                      // Placeholder value, replace with actual functionality
+                      onChanged:
+                          (value) {}, // Placeholder function, replace with actual functionality
                     ),
                     Text(translatedStrings?[9] ?? "Remember me"),
                   ],
@@ -66,7 +69,8 @@ class TLoginForm extends StatelessWidget {
                     // Navigate to ForgotPasswordScreen
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const ForgotPassword()),
+                      MaterialPageRoute(
+                          builder: (context) => const ForgotPassword()),
                     );
                   },
                   style: TextButton.styleFrom(foregroundColor: TColors.rani),
@@ -103,7 +107,9 @@ class TLoginForm extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => SignupScreen()),
                   );
                 },
-                child: Text(translatedStrings?[12] ?? "Create Account",),
+                child: Text(
+                  translatedStrings?[12] ?? "Create Account",
+                ),
               ),
             ),
           ],

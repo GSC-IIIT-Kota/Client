@@ -64,9 +64,16 @@ class NGO {
       id: json['id'],
       email: json['email'],
       passwordHash: json['password'],
-      profile: json['profile'] != null ? NGOProfile.fromJson(json['profile']) : null, // Handle null case
-      campaigns: json['campaigns'] != null ? List<String>.from(json['campaigns']) : null, // Handle null case
-      events: json['events'] != null ? List<String>.from(json['events']) : null, // Handle null case
+      profile:
+          json['profile'] != null ? NGOProfile.fromJson(json['profile']) : null,
+      // Handle null case
+      campaigns: json['campaigns'] != null
+          ? List<String>.from(json['campaigns'])
+          : null,
+      // Handle null case
+      events: json['events'] != null
+          ? List<String>.from(json['events'])
+          : null, // Handle null case
     );
   }
 }

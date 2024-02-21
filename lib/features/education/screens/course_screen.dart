@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 class CourseScreen extends StatelessWidget {
   const CourseScreen({super.key});
@@ -42,7 +42,8 @@ class CourseScreen extends StatelessWidget {
                     height: TSizes.spaceBtwItems,
                   ),
                   Text(
-                    translatedStrings?[40] ?? 'Beginners guide to menstrual health',
+                    translatedStrings?[40] ??
+                        'Beginners guide to menstrual health',
                     style: Theme.of(context)
                         .textTheme
                         .headlineSmall!
@@ -75,7 +76,8 @@ class CourseScreen extends StatelessWidget {
                   ),
                   PLessonCard(
                     itemNumber: 4,
-                    title: translatedStrings?[46] ?? 'What do women have discomfort?',
+                    title: translatedStrings?[46] ??
+                        'What do women have discomfort?',
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
@@ -131,26 +133,25 @@ class PLessonCard extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 Container(
                   width: 200,
                   child: Padding(
                     padding: const EdgeInsets.only(left: TSizes.spaceBtwItems),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            title,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .apply(color: Colors.black, fontWeightDelta: 2),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          )
-                        ],
-                      ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          title,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .apply(color: Colors.black, fontWeightDelta: 2),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ],

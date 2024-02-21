@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/helpers/helper_functions.dart';
@@ -25,18 +26,18 @@ class DescriptionWidget extends StatelessWidget {
         Text(
           "Description",
           style: Theme.of(context).textTheme.titleSmall!.apply(
-            color: dark ? TColors.brightpink : TColors.burgandy,
-            fontWeightDelta: 2,
-          ),
+                color: dark ? TColors.brightpink : TColors.burgandy,
+                fontWeightDelta: 2,
+              ),
         ),
         const SizedBox(height: TSizes.spaceBtwItems / 2),
         Text(
-          showFullDescription ? description : '${description.substring(0, 100)}...',
+          showFullDescription
+              ? description
+              : '${description.substring(0, 100)}...',
           style: Theme.of(context).textTheme.bodyMedium!.apply(
-            color: dark
-                ? Colors.white.withOpacity(0.8)
-                : TColors.dimgrey,
-          ),
+                color: dark ? Colors.white.withOpacity(0.8) : TColors.dimgrey,
+              ),
         ),
         if (!showFullDescription)
           TextButton(

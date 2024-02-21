@@ -6,7 +6,8 @@ class TypingIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Row(
-      mainAxisAlignment: MainAxisAlignment.end, // Align to the right for incoming messages
+      mainAxisAlignment: MainAxisAlignment.end,
+      // Align to the right for incoming messages
       children: [
         SizedBox(
           width: 24,

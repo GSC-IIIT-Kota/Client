@@ -1,4 +1,5 @@
-List<String> originalStrings = ["Erforschen Sie Ihren Zyklus",
+List<String> originalStrings = [
+  "Erforschen Sie Ihren Zyklus",
   "Zugang zu Bildungsressourcen und wertvollem Inhalt für eine gesündere Menstruationsreise.",
   "Ihr persönlicher Leitfaden",
   "Chatbot-Unterstützung – Stellen Sie frei Fragen, halten Sie Geheimnisse privat und erhalten Sie persönliche Ratschläge.",

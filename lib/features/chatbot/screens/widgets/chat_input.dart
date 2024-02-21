@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 class PChatInput extends StatefulWidget {
-  final Future<dynamic>Function(String)? onSendMessage; // Callback function to send messages
+  final Future<dynamic> Function(String)?
+      onSendMessage; // Callback function to send messages
   final Function()? onSpeak; // Callback function to trigger TTS
 
   const PChatInput({super.key, required this.onSendMessage, this.onSpeak});
@@ -57,7 +58,6 @@ class _PChatInputState extends State<PChatInput> {
                 widget.onSendMessage!(
                     message); // Call the callback function with the message
                 messageController.clear();
-
               }
             },
           ),

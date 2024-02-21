@@ -17,20 +17,27 @@ class PCardProgressText extends StatelessWidget {
   Widget build(BuildContext context) {
     final double progressValue = raisedMoney / totalGoal;
     return Padding(
-      padding: const EdgeInsets.only(right: TSizes.xs, left: TSizes.xs, bottom: TSizes.md),
+      padding: const EdgeInsets.only(
+          right: TSizes.xs, left: TSizes.xs, bottom: TSizes.md),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           /// Raised money
           Text(
             'Raised: \$ ${raisedMoney.toString()}',
-            style: Theme.of(context).textTheme.labelLarge!.apply(color: TColors.rani, fontWeightDelta: 2),
+            style: Theme.of(context)
+                .textTheme
+                .labelLarge!
+                .apply(color: TColors.rani, fontWeightDelta: 2),
           ),
 
           /// Percentage text
           Text(
             "${(progressValue * 100).toInt()}%",
-            style: Theme.of(context).textTheme.labelLarge!.apply(color: TColors.rani, fontWeightDelta: 2),
+            style: Theme.of(context)
+                .textTheme
+                .labelLarge!
+                .apply(color: TColors.rani, fontWeightDelta: 2),
           ),
         ],
       ),
@@ -41,7 +48,8 @@ class PCardProgressText extends StatelessWidget {
 class PProfileProgressText extends StatelessWidget {
   const PProfileProgressText({
     super.key,
-    required this.raisedMoney, required this.totalGoal,
+    required this.raisedMoney,
+    required this.totalGoal,
   });
 
   final int raisedMoney;
@@ -52,20 +60,23 @@ class PProfileProgressText extends StatelessWidget {
     final double progressValue = raisedMoney / totalGoal;
     final dark = PHelperFunctions.isDarkMode(context);
     return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          /// Raised money
-          Text(
-            'Goal: \$ ${totalGoal.toString()}',
-            style: Theme.of(context).textTheme.labelLarge!.apply(color: dark ? Colors.white : Colors.black, fontWeightDelta: 2),
-          ),
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        /// Raised money
+        Text(
+          'Goal: \$ ${totalGoal.toString()}',
+          style: Theme.of(context).textTheme.labelLarge!.apply(
+              color: dark ? Colors.white : Colors.black, fontWeightDelta: 2),
+        ),
 
-          /// Percentage text
-          Text(
-            "Raised: \$ ${raisedMoney.toString()} (${(progressValue * 100).toInt()}%)",
-            style: Theme.of(context).textTheme.labelLarge!.apply(color: dark ? TColors.brightpink : TColors.rani, fontWeightDelta: 2),
-          ),
-        ],
+        /// Percentage text
+        Text(
+          "Raised: \$ ${raisedMoney.toString()} (${(progressValue * 100).toInt()}%)",
+          style: Theme.of(context).textTheme.labelLarge!.apply(
+              color: dark ? TColors.brightpink : TColors.rani,
+              fontWeightDelta: 2),
+        ),
+      ],
     );
   }
 }

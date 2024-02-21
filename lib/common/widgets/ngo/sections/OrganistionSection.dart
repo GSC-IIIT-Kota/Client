@@ -29,8 +29,8 @@ class POrganisationSection extends StatelessWidget {
           title: sectionHeading,
           textColor: dark ? Colors.white : Colors.black,
           onPressed: () => Get.to(() => PViewAllScreen(
-            initiativeType: initiativeType,
-          )),
+                initiativeType: initiativeType,
+              )),
         ),
         FutureBuilder<List<NGO>?>(
           future: NGOService().getAllNGOs(),
@@ -53,7 +53,7 @@ class POrganisationSection extends StatelessWidget {
                       orgPhoto: organization.profile?.logo ?? '',
                       ngoName: organization.profile?.ngoName ?? '',
                       ngoLocation:
-                      '${organization.profile?.city ?? ''}, ${organization.profile?.country ?? ''}',
+                          '${organization.profile?.city ?? ''}, ${organization.profile?.country ?? ''}',
                       id: organization.id,
                       email: organization.email,
                       passwordHash: organization.passwordHash,

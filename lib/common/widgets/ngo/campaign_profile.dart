@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/icons/circular_heart.dart';
 import 'package:solution_challenge/common/widgets/images/rounded_image.dart';
@@ -6,10 +7,9 @@ import 'package:solution_challenge/common/widgets/ngo/people_donating.dart';
 import 'package:solution_challenge/common/widgets/ngo/progress_bar.dart';
 import 'package:solution_challenge/common/widgets/texts/progress_text.dart';
 import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_organization.dart';
-import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
+import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
-import 'package:get/get.dart';
 
 import 'description.dart';
 
@@ -124,11 +124,11 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
 
                     GestureDetector(
                       onTap: () => Get.to(() => POrganizationScreen(
-                        orgPhoto: widget.orgPhoto,
-                        ngoName: widget.ngoName,
-                        ngoLocation: widget.ngoLocation,
-                        events: [],
-                      )),
+                            orgPhoto: widget.orgPhoto,
+                            ngoName: widget.ngoName,
+                            ngoLocation: widget.ngoLocation,
+                            events: [],
+                          )),
                       child: ListTile(
                         leading: CircleAvatar(
                           radius: 25,
@@ -144,7 +144,7 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
                           widget.ngoLocation,
                           style: Theme.of(context).textTheme.bodyMedium!.apply(
                               color:
-                              dark ? TColors.accent : TColors.battleship),
+                                  dark ? TColors.accent : TColors.battleship),
                         ),
                       ),
                     ),
