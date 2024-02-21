@@ -10,6 +10,7 @@ import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
+import '../../../models/education/video.dart';
 import '../education/articles/home_article_card.dart';
 
 class PViewAllScreen extends StatelessWidget {
@@ -97,16 +98,41 @@ class PViewAllScreen extends StatelessWidget {
               ),
 
             if (initiativeType == 'Videos')
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
                 child: Column(
                   children: [
-                    PVideoCard(),
-                    SizedBox(
+                    PVideoCard(
+                      video: Video(
+                          id: '2',
+                          title: 'Video 2',
+                          uploader: 'Uploader 2',
+                          uploadDate: DateTime.now(),
+                          description: 'Description 2',
+                          tags: ['Tag 3', 'Tag 4'],
+                          category: 'Category 2',
+                          thumbnailUrl: 'Thumbnail 2',
+                          comments: [],
+                          likes: 20,
+                          transcripts: 'Transcripts 2'),
+                    ),
+                    const SizedBox(
                       height: TSizes.spaceBtwSections,
                     ),
-                    PVideoCard(),
-                    SizedBox(
+                    PVideoCard(
+                        video: Video(
+                            id: '2',
+                            title: 'Video 2',
+                            uploader: 'Uploader 2',
+                            uploadDate: DateTime.now(),
+                            description: 'Description 2',
+                            tags: ['Tag 3', 'Tag 4'],
+                            category: 'Category 2',
+                            thumbnailUrl: 'Thumbnail 2',
+                            comments: [],
+                            likes: 20,
+                            transcripts: 'Transcripts 2')),
+                    const SizedBox(
                       height: TSizes.spaceBtwSections,
                     ),
                   ],

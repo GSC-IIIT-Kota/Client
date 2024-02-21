@@ -9,8 +9,7 @@ import 'package:solution_challenge/common/widgets/texts/section_heading.dart';
 import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
-
-import '../../../../utils/provider/userProvider.dart';
+import '../../../../utils/userPrefernces/userProvider.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});

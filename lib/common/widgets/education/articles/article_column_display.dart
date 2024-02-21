@@ -11,7 +11,7 @@ class ArticleColumnBuilder extends StatefulWidget {
   _ArticleColumnBuilderState createState() => _ArticleColumnBuilderState();
 }
 class _ArticleColumnBuilderState extends State<ArticleColumnBuilder> {
-  late Future<List<Article>> _futureArticles;
+   late Future<List<Article>> _futureArticles;
 
   @override
   void initState() {
@@ -27,7 +27,7 @@ class _ArticleColumnBuilderState extends State<ArticleColumnBuilder> {
       future: _futureArticles,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         } else if (snapshot.hasError) {

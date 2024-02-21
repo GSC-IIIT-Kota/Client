@@ -13,11 +13,18 @@ import 'package:solution_challenge/utils/translator/strings_ja.dart' as ja;
 import 'package:solution_challenge/utils/translator/strings_pt.dart' as pt;
 import 'package:solution_challenge/utils/translator/strings_ar.dart' as ar;
 import 'package:solution_challenge/utils/translator/translated_strings.dart';
+import 'package:solution_challenge/utils/userPrefernces/userPrefernce.dart';
 
-class App extends StatelessWidget {
+import 'navigation_menu.dart';
+
+class App extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+  const App({super.key});
+}
+
+class _MyAppState extends State<App> {
   final String language = "en";
-
-  const App({super.key}); // Default language
   List<String> getTranslatedStrings() {
     switch (language) {
       case 'en':
@@ -46,13 +53,32 @@ class App extends StatelessWidget {
   }
 
   @override
+  void initState() {
+    super.initState();
+    isUserLoggedIn();
+  }
+
+  @override
   Widget build(BuildContext context) {
     translatedStrings = getTranslatedStrings();
+    return FutureBuilder<bool>(
+      future: isUserLoggedIn(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}');
+        }
+        final loggedIn = snapshot.data ?? false;
     return GetMaterialApp(
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
       home: const OnBoardingScreen(),
     );
+        },
+      );
+     }
   }
-}
+
