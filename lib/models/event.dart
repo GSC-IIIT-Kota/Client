@@ -8,7 +8,7 @@ class Event {
   final String description;
   final String banner;
   final String organizerId;
-  final List<String>? participants;
+  final List<String>? participants; // Make it nullable
 
   Event({
     required this.id,
@@ -20,23 +20,23 @@ class Event {
     required this.description,
     required this.banner,
     required this.organizerId,
-    this.participants,
+    this.participants, // Update here
   });
 
-  factory Event.fromJson(Map<String, dynamic>? json) {
+  factory Event.fromJson(Map<String, dynamic> json) {
     return Event(
-      id: json?['id'] ?? '',
-      title: json?['title'] ?? '',
-      date: json?['date'] ?? '',
-      day: json?['day'] ?? '',
-      time: json?['time'] ?? '',
-      location: json?['location'] ?? '',
-      description: json?['description'] ?? '',
-      banner: json?['banner'] ?? '',
-      organizerId: json?['organizerId'] ?? '',
-      participants: json?['participants'] != null
-          ? List<String>.from(json?['participants'] as List<dynamic>)
-          : null,
+      id: json['id'],
+      title: json['title'],
+      date: json['date'],
+      day: json['day'],
+      time: json['time'],
+      location: json['location'],
+      description: json['description'],
+      banner: json['banner'],
+      organizerId: json['organizerId'],
+      participants: json['participants'] != null
+          ? List<String>.from(json['participants'])
+          : null, // Handle null case
     );
   }
 }

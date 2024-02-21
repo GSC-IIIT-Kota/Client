@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
-import '../../../../../utils/userPrefernces/userProvider.dart';
+import '../../../../../utils/provider/userProvider.dart';
 
 class PEducationAppbar extends StatelessWidget {
   const PEducationAppbar({
