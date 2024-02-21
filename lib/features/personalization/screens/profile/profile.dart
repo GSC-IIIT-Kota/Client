@@ -7,7 +7,7 @@ import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
-import '../../../../utils/provider/userProvider.dart';
+import '../../../../utils/userPrefernces/userProvider.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
