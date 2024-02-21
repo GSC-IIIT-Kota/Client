@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
 class PCampaignCardTitle extends StatelessWidget {
   const PCampaignCardTitle({
@@ -10,12 +11,13 @@ class PCampaignCardTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = PHelperFunctions.isDarkMode(context);
     return Text(
       title,
       style: Theme.of(context)
           .textTheme
           .bodyLarge!
-          .apply(color: Colors.black, fontWeightDelta: 1),
+          .apply(color: dark ? Colors.white : Colors.black, fontWeightDelta: 1),
       overflow: TextOverflow.ellipsis,
       maxLines: 2,
       textAlign: TextAlign.left,
