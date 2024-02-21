@@ -46,11 +46,11 @@ class EventService {
     }
   }
 
-  Future<dynamic> getEventById(String eventId) async {
+  Future<Event> getEventById(String eventId) async {
     final String baseUrl = '$apiBaseUrl/events';
     final response = await http.get(Uri.parse('$baseUrl/$eventId'));
     if (response.statusCode == 200) {
-      return jsonDecode(response.body);
+      return Event.fromJson(jsonDecode(response.body));
     } else {
       throw Exception('Failed to load event');
     }

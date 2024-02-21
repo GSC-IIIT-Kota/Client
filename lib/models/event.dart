@@ -1,9 +1,7 @@
 class Event {
   final String id;
   final String title;
-  final String date;
-  final String day;
-  final String time;
+  final DateTime uploadDate;
   final String location;
   final String description;
   final String banner;
@@ -13,9 +11,7 @@ class Event {
   Event({
     required this.id,
     required this.title,
-    required this.date,
-    required this.day,
-    required this.time,
+    required this.uploadDate,
     required this.location,
     required this.description,
     required this.banner,
@@ -27,9 +23,7 @@ class Event {
     return Event(
       id: json?['id'] ?? '',
       title: json?['title'] ?? '',
-      date: json?['date'] ?? '',
-      day: json?['day'] ?? '',
-      time: json?['time'] ?? '',
+      uploadDate: DateTime.tryParse(json?['uploadDate'] ?? '') ?? DateTime.now(),
       location: json?['location'] ?? '',
       description: json?['description'] ?? '',
       banner: json?['banner'] ?? '',

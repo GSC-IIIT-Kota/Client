@@ -127,7 +127,7 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
                             orgPhoto: widget.orgPhoto,
                             ngoName: widget.ngoName,
                             ngoLocation: widget.ngoLocation,
-                            events: [],
+                            events: [], campaigns: [],
                           )),
                       child: ListTile(
                         leading: CircleAvatar(

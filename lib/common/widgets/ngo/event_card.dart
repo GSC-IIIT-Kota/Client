@@ -11,7 +11,6 @@ class PEventCard extends StatelessWidget {
   const PEventCard({
     Key? key,
     required this.eventDate,
-    required this.eventDayTime,
     required this.eventTitle,
     required this.eventLocation,
     required this.eventDesc,
@@ -20,7 +19,6 @@ class PEventCard extends StatelessWidget {
   }) : super(key: key);
 
   final String? eventDate;
-  final String? eventDayTime;
   final String? eventTitle;
   final String? eventLocation;
   final String? eventDesc;
@@ -35,14 +33,13 @@ class PEventCard extends StatelessWidget {
       onTap: () {
         // Handle onTap event
         Get.to(() => PEventProfile(
-              eventDate: eventDate!,
-              eventDayTime: eventDayTime!,
-              eventTitle: eventTitle!,
-              eventLocation: eventLocation!,
-              eventDesc: eventDesc!,
-              eventPhoto: eventPhoto!,
-              cardWidth: cardWidth,
-            ));
+          eventDate: eventDate!,
+          eventTitle: eventTitle!,
+          eventLocation: eventLocation!,
+          eventDesc: eventDesc!,
+          eventPhoto: eventPhoto!,
+          cardWidth: cardWidth,
+        ));
       },
       child: Container(
         width: cardWidth,
@@ -73,28 +70,19 @@ class PEventCard extends StatelessWidget {
                       Text(
                         eventDate ?? '',
                         style: Theme.of(context).textTheme.bodyText2!.apply(
-                              color: Colors.black,
-                              fontWeightDelta: 1,
-                            ),
+                          color: Colors.black,
+                          fontWeightDelta: 1,
+                        ),
                       ),
                       const SizedBox(
                         height: TSizes.sm,
                       ),
                       Text(
-                        eventDayTime ?? '',
-                        style: Theme.of(context).textTheme.bodyText2!.apply(
-                              color: TColors.rani,
-                            ),
-                      ),
-                      const SizedBox(
-                        height: TSizes.spaceBtwItems / 2,
-                      ),
-                      Text(
                         eventTitle ?? '',
                         style: Theme.of(context).textTheme.bodyText2!.apply(
-                              color: TColors.battleship,
-                              fontWeightDelta: 2,
-                            ),
+                          color: TColors.battleship,
+                          fontWeightDelta: 2,
+                        ),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                         textAlign: TextAlign.left,
@@ -105,8 +93,8 @@ class PEventCard extends StatelessWidget {
                       Text(
                         eventLocation ?? '',
                         style: Theme.of(context).textTheme.bodyText2!.apply(
-                              color: TColors.battleship,
-                            ),
+                          color: TColors.battleship,
+                        ),
                       ),
                       const SizedBox(
                         height: TSizes.spaceBtwItems / 2,
@@ -114,8 +102,8 @@ class PEventCard extends StatelessWidget {
                       Text(
                         eventDesc ?? '',
                         style: Theme.of(context).textTheme.bodyText2!.apply(
-                              color: TColors.battleship,
-                            ),
+                          color: TColors.battleship,
+                        ),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                         textAlign: TextAlign.left,

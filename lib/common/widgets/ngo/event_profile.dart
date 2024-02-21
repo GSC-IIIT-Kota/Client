@@ -14,7 +14,6 @@ class PEventProfile extends StatefulWidget {
   const PEventProfile({
     super.key,
     required this.eventDate,
-    required this.eventDayTime,
     required this.eventTitle,
     required this.eventLocation,
     required this.eventDesc,
@@ -23,7 +22,6 @@ class PEventProfile extends StatefulWidget {
   });
 
   final String eventDate;
-  final String eventDayTime;
   final String eventTitle;
   final String eventLocation;
   final String eventDesc;
@@ -96,7 +94,7 @@ class _PEventProfileState extends State<PEventProfile> {
                     PCardIconText(
                       iconData: Iconsax.clock,
                       iconColor: TColors.rani,
-                      title: widget.eventDayTime,
+                      title: widget.eventDate,
                       titleStyle: Theme.of(context).textTheme.titleSmall!.apply(
                             color: dark ? Colors.white : TColors.rani,
                             fontWeightDelta: 2,

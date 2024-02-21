@@ -5,8 +5,8 @@ import 'package:http/http.dart' as http;
 import 'package:solution_challenge/models/campaign.dart';
 
 class CampaignService {
+  static final apiBaseUrl = dotenv.env['API_BASE_URL'];
   static Future<List<Campaign>> getAllCampaigns() async {
-    final apiBaseUrl = dotenv.env['API_BASE_URL'];
     // Replace this URL with your actual API endpoint
     String apiUrl = '$apiBaseUrl/campaigns';
 
@@ -23,5 +23,14 @@ class CampaignService {
     }
   }
 
+  Future<Campaign> getCampaignById(String eventId) async {
+    final String baseUrl = '$apiBaseUrl/campaigns';
+    final response = await http.get(Uri.parse('$baseUrl/$eventId'));
+    if (response.statusCode == 200) {
+      return Campaign.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception('Failed to load event');
+    }
+  }
 // Add more functions as needed, e.g., for creating, updating, or deleting campaigns
-}
+  }

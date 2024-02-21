@@ -184,7 +184,6 @@ class PViewAllScreen extends StatelessWidget {
                   children: [
                     PEventCard(
                       eventDate: '26th February, 2024',
-                      eventDayTime: 'Wednesday 9AM',
                       eventTitle: 'Buy me pad, donation event annual for women',
                       eventLocation: 'St. Petersberg College',
                       eventDesc:
@@ -197,7 +196,6 @@ class PViewAllScreen extends StatelessWidget {
                     ),
                     PEventCard(
                       eventDate: '26th February, 2024',
-                      eventDayTime: 'Wednesday 9AM',
                       eventTitle: 'Buy me pad, donation event annual for women',
                       eventLocation: 'St. Petersberg College',
                       eventDesc:

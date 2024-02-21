@@ -7,7 +7,7 @@ import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
 class POrganizationCard extends StatelessWidget {
   const POrganizationCard({
-    super.key,
+    Key? key,
     required this.cardWidth,
     required this.orgPhoto,
     required this.ngoName,
@@ -17,7 +17,7 @@ class POrganizationCard extends StatelessWidget {
     required this.passwordHash,
     required this.campaigns,
     required this.events,
-  });
+  }) : super(key: key);
 
   final double cardWidth;
   final String orgPhoto;
@@ -35,11 +35,12 @@ class POrganizationCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: () => Get.to(
-        () => POrganizationScreen(
+            () => POrganizationScreen(
           orgPhoto: orgPhoto,
           ngoName: ngoName,
           ngoLocation: ngoLocation,
-          events: [],
+          events: events,
+          campaigns: campaigns,
         ),
       ),
       child: Container(
@@ -71,7 +72,7 @@ class POrganizationCard extends StatelessWidget {
                   children: [
                     Text(
                       ngoName,
-                      style: Theme.of(context).textTheme.titleSmall!.apply(
+                      style: Theme.of(context).textTheme.subtitle1!.apply(
                           color: dark ? TColors.accent : TColors.dimgrey,
                           fontWeightDelta: 2),
                       maxLines: 1,
@@ -80,7 +81,7 @@ class POrganizationCard extends StatelessWidget {
                     ),
                     Text(
                       ngoLocation,
-                      style: Theme.of(context).textTheme.bodyMedium!.apply(
+                      style: Theme.of(context).textTheme.bodyText2!.apply(
                           color: dark ? TColors.accent : TColors.battleship),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
