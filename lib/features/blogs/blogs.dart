@@ -5,9 +5,11 @@ import 'package:solution_challenge/common/widgets/blogs/blogs_card.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/primary_ngo_container.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/white_search_container.dart';
 import 'package:solution_challenge/common/widgets/texts/section_heading.dart';
+import 'package:solution_challenge/features/blogs/screens/blogs_create.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:get/get.dart';
 
 class BlogScreen extends StatelessWidget {
   const BlogScreen({super.key});
@@ -124,7 +126,7 @@ class PBlogAppBar extends StatelessWidget {
       ),
       actions: [
         IconButton(
-            onPressed: () {},
+            onPressed: () => Get.to(() => const CreateBlogScreen()),
             icon: const Icon(
               Iconsax.edit,
               color: Colors.white,
