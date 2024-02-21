@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:solution_challenge/common/widgets/education/articles/home_article_column.dart';
+import 'package:solution_challenge/common/widgets/education/videos/VideoBuilder.dart';
 import 'package:solution_challenge/common/widgets/education/videos/video_card.dart';
 import 'package:solution_challenge/common/widgets/ngo/progress_bar.dart';
 import 'package:solution_challenge/features/education/screens/course_screen.dart';
@@ -128,15 +129,9 @@ class EducationScreen extends StatelessWidget {
                       initiativeType: 'Videos',
                     )),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 250,
-                    child: ListView.builder(
-                      itemCount: 4,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (_, index) {
-                        return const PVideoCard();
-                      },
-                    ),
+                    child: VideoBuilder(),
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwSections,
