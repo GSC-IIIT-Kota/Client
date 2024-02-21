@@ -3,7 +3,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:solution_challenge/common/widgets/images/rounded_image.dart';
 import 'package:solution_challenge/common/widgets/texts/video_card_icontext.dart';
-import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
@@ -57,10 +56,10 @@ class PHomeArticleCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-             PRoundedContainer(
+             const PRoundedContainer(
               backgroundColor: TColors.accent,
               child: PRoundedImage(
-                imageUrl: articleImg,
+                imageUrl: TImages.banner4Image,
                 aspectRatio: 1 / 1,
               ),
             ),
