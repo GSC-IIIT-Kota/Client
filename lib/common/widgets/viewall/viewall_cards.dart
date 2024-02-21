@@ -9,7 +9,7 @@ import 'package:solution_challenge/common/widgets/ngo/organization_card.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
-
+import '../../../models/education/video.dart';
 import '../education/articles/home_article_card.dart';
 
 class PViewAllScreen extends StatelessWidget {
@@ -59,18 +59,18 @@ class PViewAllScreen extends StatelessWidget {
             if (initiativeType == 'Campaigns')
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+                const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
                 child: Column(
                   children: [
                     PCampaignCard(
                       title: "Help these kids get money to study",
                       description:
-                          "This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids.",
+                      "This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids.",
                       raisedMoney: 2000,
                       totalGoal: 4000,
                       imageUrl: TImages.banner1Image,
                       orgPhoto:
-                          'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
+                      'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
                       cardWidth: PHelperFunctions.screenWidth(),
                       rightMargin: EdgeInsets.zero,
                     ),
@@ -80,12 +80,12 @@ class PViewAllScreen extends StatelessWidget {
                     PCampaignCard(
                       title: "Help these kids get money to study",
                       description:
-                          "This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids.",
+                      "This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids. This org has description. It works for female children to get paid for their work. And the org is working really hard to get money for these kids.",
                       raisedMoney: 2000,
                       totalGoal: 4000,
                       imageUrl: TImages.banner1Image,
                       orgPhoto:
-                          'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
+                      'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
                       cardWidth: PHelperFunctions.screenWidth(),
                       rightMargin: EdgeInsets.zero,
                     ),
@@ -97,16 +97,41 @@ class PViewAllScreen extends StatelessWidget {
               ),
 
             if (initiativeType == 'Videos')
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
                 child: Column(
                   children: [
-                    PVideoCard(),
-                    SizedBox(
+                    PVideoCard(
+                      video: Video(
+                          id: '2',
+                          title: 'Video 2',
+                          uploader: 'Uploader 2',
+                          uploadDate: DateTime.now(),
+                          description: 'Description 2',
+                          tags: ['Tag 3', 'Tag 4'],
+                          category: 'Category 2',
+                          thumbnailUrl: 'Thumbnail 2',
+                          comments: [],
+                          likes: 20,
+                          transcripts: 'Transcripts 2'),
+                    ),
+                    const SizedBox(
                       height: TSizes.spaceBtwSections,
                     ),
-                    PVideoCard(),
-                    SizedBox(
+                    PVideoCard(
+                        video: Video(
+                            id: '2',
+                            title: 'Video 2',
+                            uploader: 'Uploader 2',
+                            uploadDate: DateTime.now(),
+                            description: 'Description 2',
+                            tags: ['Tag 3', 'Tag 4'],
+                            category: 'Category 2',
+                            thumbnailUrl: 'Thumbnail 2',
+                            comments: [],
+                            likes: 20,
+                            transcripts: 'Transcripts 2')),
+                    const SizedBox(
                       height: TSizes.spaceBtwSections,
                     ),
                   ],
@@ -124,11 +149,11 @@ class PViewAllScreen extends StatelessWidget {
                       readingTime: '7 min',
                       uploadTime: '2d ago',
                       articleTitle:
-                          'Downside of using reusable pads during menstrual cycles',
+                      'Downside of using reusable pads during menstrual cycles',
                       hasAuthor: false,
                       articleAuthor: 'Admin',
                       articleContent:
-                          'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ',
+                      'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ',
                     ),
                     PHomeArticleCard(
                       articleImg: TImages.banner4Image,
@@ -136,11 +161,11 @@ class PViewAllScreen extends StatelessWidget {
                       readingTime: '7 min',
                       uploadTime: '2d ago',
                       articleTitle:
-                          'Downside of using reusable pads during menstrual cycles',
+                      'Downside of using reusable pads during menstrual cycles',
                       hasAuthor: false,
                       articleAuthor: 'Admin',
                       articleContent:
-                          'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ',
+                      'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ',
                     ),
                     SizedBox(
                       height: TSizes.spaceBtwSections,
@@ -152,7 +177,7 @@ class PViewAllScreen extends StatelessWidget {
             if (initiativeType == 'Events')
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+                const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
                 child: Column(
                   children: [
                     PEventCard(
@@ -161,7 +186,7 @@ class PViewAllScreen extends StatelessWidget {
                       eventTitle: 'Buy me pad, donation event annual for women',
                       eventLocation: 'St. Petersberg College',
                       eventDesc:
-                          'Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum',
+                      'Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum',
                       eventPhoto: TImages.banner2Image,
                       cardWidth: PHelperFunctions.screenWidth(),
                     ),
@@ -174,7 +199,7 @@ class PViewAllScreen extends StatelessWidget {
                       eventTitle: 'Buy me pad, donation event annual for women',
                       eventLocation: 'St. Petersberg College',
                       eventDesc:
-                          'Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum',
+                      'Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum',
                       eventPhoto: TImages.banner2Image,
                       cardWidth: PHelperFunctions.screenWidth(),
                     ),
@@ -188,13 +213,13 @@ class PViewAllScreen extends StatelessWidget {
             if (initiativeType == 'Organizations')
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+                const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
                 child: Column(
                   children: [
                     POrganizationCard(
                       cardWidth: PHelperFunctions.screenWidth(),
                       orgPhoto:
-                          'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
+                      'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
                       ngoName: 'NGO for Women',
                       ngoLocation: 'Rajasthan, India',
                       id: '',
@@ -209,7 +234,7 @@ class PViewAllScreen extends StatelessWidget {
                     POrganizationCard(
                       cardWidth: PHelperFunctions.screenWidth(),
                       orgPhoto:
-                          'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
+                      'https://pbs.twimg.com/profile_images/1601849162730905601/IskNG8bF_400x400.jpg',
                       ngoName: 'NGO for Women',
                       ngoLocation: 'Rajasthan, India',
                       id: '',

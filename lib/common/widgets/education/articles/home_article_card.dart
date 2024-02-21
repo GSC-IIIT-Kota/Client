@@ -57,10 +57,10 @@ class PHomeArticleCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-             PRoundedContainer(
+             const PRoundedContainer(
               backgroundColor: TColors.accent,
               child: PRoundedImage(
-                imageUrl: articleImg,
+                imageUrl: TImages.banner4Image,
                 aspectRatio: 1 / 1,
               ),
             ),
