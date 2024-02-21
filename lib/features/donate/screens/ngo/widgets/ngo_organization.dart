@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/appbar/tabbar.dart';
 import 'package:solution_challenge/common/widgets/icons/circular_heart.dart';
@@ -9,23 +8,22 @@ import 'package:solution_challenge/common/widgets/ngo/event_card.dart';
 import 'package:solution_challenge/services/campaign_service.dart';
 import 'package:solution_challenge/services/event_service.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
-import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
-import '../../../../../models/event.dart';
 import '../../../../../models/campaign.dart';
+import '../../../../../models/event.dart';
 
 class POrganizationScreen extends StatelessWidget {
   const POrganizationScreen({
-    Key? key,
+    super.key,
     required this.orgPhoto,
     required this.ngoName,
     required this.ngoLocation,
     required this.events,
     required this.campaigns,
-  }) : super(key: key);
+  });
 
   final String orgPhoto;
   final String ngoName;
@@ -93,9 +91,11 @@ class POrganizationScreen extends StatelessWidget {
                 children: [
                   for (var campaignId in campaigns)
                     FutureBuilder<Campaign?>(
-                      future: CampaignService().getCampaignById(campaignId), // Assuming getCampaignById is a function to fetch campaign details by ID
+                      future: CampaignService().getCampaignById(campaignId),
+                      // Assuming getCampaignById is a function to fetch campaign details by ID
                       builder: (context, snapshot) {
-                        if (snapshot.connectionState == ConnectionState.waiting) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
                           return const CircularProgressIndicator();
                         } else if (snapshot.hasError) {
                           return Text('Error: ${snapshot.error}');
@@ -127,9 +127,11 @@ class POrganizationScreen extends StatelessWidget {
                 children: [
                   for (var eventId in events)
                     FutureBuilder<Event>(
-                      future: EventService().getEventById(eventId), // Assuming getEventById is a function to fetch event details by ID
+                      future: EventService().getEventById(eventId),
+                      // Assuming getEventById is a function to fetch event details by ID
                       builder: (context, snapshot) {
-                        if (snapshot.connectionState == ConnectionState.waiting) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
                           return const CircularProgressIndicator();
                         } else if (snapshot.hasError) {
                           return Text('Error: ${snapshot.error}');
@@ -140,7 +142,8 @@ class POrganizationScreen extends StatelessWidget {
                           return Padding(
                             padding: const EdgeInsets.all(TSizes.defaultSpace),
                             child: PEventCard(
-                              eventDate: "${event.uploadDate}", // Assuming 'date' is the correct key in your Event model
+                              eventDate: "${event.uploadDate}",
+                              // Assuming 'date' is the correct key in your Event model
                               eventTitle: event.title,
                               eventLocation: event.location,
                               eventDesc: event.description,
