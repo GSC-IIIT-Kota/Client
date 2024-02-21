@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:solution_challenge/features/blogs/blogs.dart';
 import 'package:solution_challenge/features/chatbot/screens/chat.dart';
 import 'package:solution_challenge/features/donate/screens/ngo/ngo.dart';
 import 'package:solution_challenge/features/education/screens/resources/resources.dart';
@@ -18,12 +19,12 @@ class NavigationMenu extends StatelessWidget {
 
     return Scaffold(
       bottomNavigationBar: Obx(
-            () => NavigationBar(
+        () => NavigationBar(
           height: 80,
           elevation: 0,
           selectedIndex: controller.selectedIndex.value,
           onDestinationSelected: (index) =>
-          controller.selectedIndex.value = index,
+              controller.selectedIndex.value = index,
           backgroundColor: dark ? TColors.myblack : Colors.white,
           indicatorColor: dark
               ? Colors.white.withOpacity(0.1)
@@ -32,6 +33,7 @@ class NavigationMenu extends StatelessWidget {
             NavigationDestination(icon: Icon(Iconsax.house), label: 'Home'),
             NavigationDestination(
                 icon: Icon(Iconsax.messages_2), label: 'Chat'),
+            NavigationDestination(icon: Icon(Iconsax.message_text), label: 'Blogs'),
             NavigationDestination(
                 icon: Icon(Iconsax.money_send), label: 'Donate'),
             NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
@@ -43,13 +45,13 @@ class NavigationMenu extends StatelessWidget {
   }
 }
 
-
 class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [
     const EducationScreen(),
     const ChatScreen(),
+    const BlogScreen(),
     const NgoScreen(),
     const SettingsScreen()
   ];
