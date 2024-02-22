@@ -65,7 +65,7 @@ class POrganizationScreen extends StatelessWidget {
                         imageUrl: orgPhoto,
                         title: ngoName,
                         subTitle: ngoLocation,
-                        textColor: Colors.black,
+                        textColor: Colors.black, showSubtitle: true,
                       )
                     ],
                   ),
