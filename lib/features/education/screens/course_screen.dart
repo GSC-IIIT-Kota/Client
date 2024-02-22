@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
-import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:solution_challenge/utils/constants/colors.dart';
+import 'package:solution_challenge/common/widgets/education/course/course_lesson_card.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
@@ -13,6 +11,7 @@ class CourseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = PHelperFunctions.isDarkMode(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -20,12 +19,13 @@ class CourseScreen extends StatelessWidget {
             ///Course Appbar
             PAppBar(
               showBackArrow: true,
+              backArrowColor: dark ? Colors.white : Colors.black,
               title: Text(
                 translatedStrings?[43] ?? 'Course Details',
                 style: Theme.of(context)
                     .textTheme
                     .headlineSmall!
-                    .apply(color: Colors.black),
+                    .apply(color: dark ? Colors.white : Colors.black),
               ),
             ),
 
@@ -35,6 +35,9 @@ class CourseScreen extends StatelessWidget {
                   const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
               child: Column(
                 children: [
+                  const SizedBox(
+                    height: TSizes.spaceBtwItems,
+                  ),
                   const Image(
                     image: AssetImage(TImages.courseThumbnail),
                   ),
@@ -46,131 +49,105 @@ class CourseScreen extends StatelessWidget {
                         'Beginners guide to menstrual health',
                     style: Theme.of(context)
                         .textTheme
-                        .headlineSmall!
-                        .apply(color: Colors.black),
+                        .headlineMedium!
+                        .apply(color: dark ? Colors.white : Colors.black),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
-                    height: TSizes.spaceBtwItems,
+                    height: TSizes.spaceBtwSections,
                   ),
-                  PLessonCard(
+                  const PLessonCard(
                     itemNumber: 1,
-                    title: translatedStrings?[44] ?? 'Introduction',
+                    title: 'Introduction: What are periods?',
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
-                  PLessonCard(
+                  const PLessonCard(
                     itemNumber: 2,
-                    title: translatedStrings?[68] ?? 'What are periods?',
+                    title: 'When will i get my first period?',
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
-                  PLessonCard(
+                  const PLessonCard(
                     itemNumber: 3,
-                    title: translatedStrings?[45] ?? 'What is menopause',
+                    title: 'What does the first period feel like?',
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
-                  PLessonCard(
+                  const PLessonCard(
                     itemNumber: 4,
-                    title: translatedStrings?[46] ??
-                        'What do women have discomfort?',
+                    title: "Period Hygiene 101: A Clean Queen's Manual?",
+                  ),
+                  const SizedBox(
+                    height: TSizes.spaceBtwItems,
+                  ),
+                  const PLessonCard(
+                    itemNumber: 6,
+                    title: "Cramp 101: Taming Period Pain",
+                  ),
+                  const SizedBox(
+                    height: TSizes.spaceBtwItems,
+                  ),
+                  const PLessonCard(
+                    itemNumber: 7,
+                    title: "Period Sidekick 101: A Pocket Guide",
+                  ),
+                  const SizedBox(
+                    height: TSizes.spaceBtwItems,
+                  ),
+                  const PLessonCard(
+                    itemNumber: 8,
+                    title: "Periods at School: A Quick Survival Guide",
+                  ),
+                  const SizedBox(
+                    height: TSizes.spaceBtwItems,
+                  ),
+                  const PLessonCard(
+                    itemNumber: 9,
+                    title: "Stain S.O.S.: Dress Edition",
+                  ),
+                  const SizedBox(
+                    height: TSizes.spaceBtwItems,
+                  ),
+                  const PLessonCard(
+                    itemNumber: 10,
+                    title: "First Period Party: Your Quick Guide",
+                  ),
+                  const SizedBox(
+                    height: TSizes.spaceBtwItems,
+                  ),
+                  const PLessonCard(
+                    itemNumber: 11,
+                    title: "Periods Unveiled: The Ultimate Guide for Girls",
+                  ),
+                  const SizedBox(
+                    height: TSizes.spaceBtwItems,
+                  ),
+                  const PLessonCard(
+                    itemNumber: 12,
+                    title: "Menopause Mystery Unveiled",
+                  ),
+                  const SizedBox(
+                    height: TSizes.spaceBtwItems,
+                  ),
+                  const PLessonCard(
+                    itemNumber: 13,
+                    title: "Period Products 101: Your Handy Guide",
+                  ),
+                  const SizedBox(
+                    height: TSizes.spaceBtwItems,
+                  ),
+                  const PLessonCard(
+                    itemNumber: 14,
+                    title: "Here's More",
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
                 ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class PLessonCard extends StatelessWidget {
-  const PLessonCard({
-    super.key,
-    required this.itemNumber,
-    required this.title,
-  });
-
-  final int itemNumber;
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    final dark = PHelperFunctions.isDarkMode(context);
-    return PRoundedContainer(
-      height: 80,
-      width: PHelperFunctions.screenWidth(),
-      backgroundColor: Colors.white,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: TSizes.lg),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: dark
-                        ? TColors.myblack.withOpacity(0.8)
-                        : TColors.accent
-                            .withOpacity(0.8), // You can change the color
-                  ),
-                  child: Center(
-                    child: Text(
-                      '$itemNumber',
-                      style: Theme.of(context).textTheme.labelLarge,
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 200,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: TSizes.spaceBtwItems),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          title,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
-                              .apply(color: Colors.black, fontWeightDelta: 2),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Container(
-              width: 35,
-              height: 35,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: dark
-                    ? TColors.myblack.withOpacity(0.8)
-                    : TColors.accent
-                        .withOpacity(0.8), // You can change the color
-              ),
-              child: const Center(
-                child: Icon(
-                  Iconsax.document,
-                  size: 20,
-                ),
               ),
             ),
           ],
