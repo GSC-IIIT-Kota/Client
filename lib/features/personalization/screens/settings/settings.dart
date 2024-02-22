@@ -42,9 +42,9 @@ class SettingsScreen extends StatelessWidget {
 
                   ///User Profile
                   PUserProfileTile(
-                    subTitle: userFirstName,
-                    imageUrl: user!.profile.profileImage,
-                    title: "",
+                    subTitle: user!.email,
+                    imageUrl: user.profile.profileImage,
+                    title: "$userFirstName ${user.profile.lastName}",
                     showEditIcon: true,
                   ),
                   const SizedBox(
