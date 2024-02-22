@@ -4,6 +4,7 @@ import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:solution_challenge/common/widgets/images/rounded_image.dart';
 import 'package:solution_challenge/common/widgets/texts/video_card_icontext.dart';
+import 'package:solution_challenge/models/education/articles.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
@@ -11,24 +12,10 @@ import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 class PArticleScreen extends StatelessWidget {
   const PArticleScreen({
     super.key,
-    required this.articleImg,
-    required this.articleCategory,
-    required this.readingTime,
-    required this.uploadTime,
-    required this.articleTitle,
-    required this.hasAuthor,
-    required this.articleAuthor,
-    required this.articleContent,
+    required this.article,
   });
 
-  final String articleImg;
-  final String articleCategory;
-  final String readingTime;
-  final String uploadTime;
-  final String articleTitle;
-  final bool hasAuthor;
-  final String articleAuthor;
-  final String articleContent;
+  final Article article;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +32,7 @@ class PArticleScreen extends StatelessWidget {
           child: Column(
             children: [
               ///Image of article
-              PRoundedImage(imageUrl: articleImg),
+              PRoundedImage(imageUrl: article.thumbnailUrl),
 
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: TSizes.md),
@@ -57,7 +44,7 @@ class PArticleScreen extends StatelessWidget {
                         iconData: Iconsax.category,
                         iconColor: TColors.rani,
                         iconSize: 14,
-                        title: articleCategory,
+                        title: article.title,
                         titleStyle: Theme.of(context)
                             .textTheme
                             .labelLarge!
@@ -74,7 +61,7 @@ class PArticleScreen extends StatelessWidget {
                           iconData: Iconsax.clock,
                           iconSize: 14,
                           iconColor: TColors.battleship,
-                          title: readingTime,
+                          title: "Est. 5 minutes.",
                           titleStyle: Theme.of(context)
                               .textTheme
                               .labelLarge!
@@ -84,7 +71,7 @@ class PArticleScreen extends StatelessWidget {
                         const SizedBox(
                           width: TSizes.spaceBtwItems,
                         ),
-                        Text('~ $uploadTime',
+                        Text(article.uploadDate.toIso8601String(),
                             style: Theme.of(context)
                                 .textTheme
                                 .labelLarge!
@@ -97,7 +84,7 @@ class PArticleScreen extends StatelessWidget {
 
                     ///Title
                     Text(
-                      articleTitle,
+                      article.title,
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     const SizedBox(
@@ -105,13 +92,13 @@ class PArticleScreen extends StatelessWidget {
                     ),
 
                     ///Author Name
-                    if (hasAuthor)
+                    if (true)
                       PRoundedContainer(
                         borderColor: TColors.rani,
                         backgroundColor: TColors.rani,
                         child: PCardIconText(
                           iconData: Iconsax.user,
-                          title: articleAuthor,
+                          title: article.authorName,
                           titleStyle: Theme.of(context)
                               .textTheme
                               .labelLarge!
@@ -121,7 +108,7 @@ class PArticleScreen extends StatelessWidget {
 
                     ///Content
                     Text(
-                      articleContent,
+                      article.content,
                       style: Theme.of(context).textTheme.bodyMedium!.apply(
                             color: dark
                                 ? Colors.white.withOpacity(0.8)

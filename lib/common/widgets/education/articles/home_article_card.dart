@@ -4,47 +4,26 @@ import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:solution_challenge/common/widgets/images/rounded_image.dart';
 import 'package:solution_challenge/common/widgets/texts/video_card_icontext.dart';
+import 'package:solution_challenge/models/education/articles.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
-import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
 import 'article_display.dart';
 
 class PHomeArticleCard extends StatelessWidget {
-  const PHomeArticleCard(
-      {super.key,
-      required this.articleImg,
-      required this.articleCategory,
-      required this.readingTime,
-      required this.uploadTime,
-      required this.articleTitle,
-      required this.hasAuthor,
-      required this.articleAuthor,
-      required this.articleContent});
+  const PHomeArticleCard({
+    super.key,
+    required this.article,
+  });
 
-  final String articleImg;
-  final String articleCategory;
-  final String readingTime;
-  final String uploadTime;
-  final String articleTitle;
-  final bool hasAuthor;
-  final String articleAuthor;
-  final String articleContent;
+  final Article article;
 
   @override
   Widget build(BuildContext context) {
     final dark = PHelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () => Get.to(() => PArticleScreen(
-          articleImg: articleImg,
-          articleCategory: articleCategory,
-          readingTime: readingTime,
-          uploadTime: uploadTime,
-          articleTitle: articleTitle,
-          hasAuthor: hasAuthor,
-          articleAuthor: articleAuthor,
-          articleContent: articleContent)),
+      onTap: () => Get.to(() => PArticleScreen(article: article)),
       child: Container(
         width: 300,
         height: 110,
@@ -56,10 +35,10 @@ class PHomeArticleCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            const PRoundedContainer(
+            PRoundedContainer(
               backgroundColor: TColors.accent,
               child: PRoundedImage(
-                imageUrl: TImages.banner4Image,
+                imageUrl: article.thumbnailUrl,
                 aspectRatio: 1 / 1,
               ),
             ),
@@ -73,7 +52,7 @@ class PHomeArticleCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      articleTitle,
+                      article.title,
                       style: Theme.of(context).textTheme.bodySmall!.apply(
                             color: dark ? Colors.white : TColors.dimgrey,
                             fontWeightDelta: 1,
@@ -91,7 +70,7 @@ class PHomeArticleCard extends StatelessWidget {
                         iconData: Iconsax.category,
                         iconColor: dark ? TColors.brightpink : TColors.rani,
                         iconSize: 14,
-                        title: articleCategory,
+                        title: article.category,
                         titleStyle: Theme.of(context)
                             .textTheme
                             .labelLarge!

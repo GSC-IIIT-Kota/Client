@@ -23,16 +23,7 @@ class PHomeArticleColumn extends StatelessWidget {
       ),
       child: Column(
         children: articles.map((article) {
-          return PHomeArticleCard(
-            articleImg: article.thumbnailUrl,
-            articleCategory: article.category,
-            readingTime: "article.readingTime",
-            uploadTime: "article.uploadDate",
-            articleTitle: article.title,
-            hasAuthor: true,
-            articleAuthor: article.authorName,
-            articleContent: article.content,
-          );
+          return PHomeArticleCard(article: article);
         }).toList(),
       ),
     );
