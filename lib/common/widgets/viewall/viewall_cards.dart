@@ -16,7 +16,10 @@ import 'package:solution_challenge/services/ngo_service.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
+import '../../../models/education/articles.dart';
 import '../../../models/education/video.dart';
+import '../../../services/education/article_service.dart';
+import '../education/articles/home_article_card.dart';
 
 class PViewAllScreen extends StatelessWidget {
   const PViewAllScreen({super.key, required this.initiativeType});
@@ -176,15 +179,38 @@ class PViewAllScreen extends StatelessWidget {
                                 ngoName: organization.profile?.ngoName ?? '',
                                 ngoLocation:
                                     organization.profile?.address ?? '',
-                                id: organization.id ?? '',
-                                email: organization.email ?? '',
-                                passwordHash: organization.passwordHash ?? '',
+                                id: organization.id,
+                                email: organization.email,
+                                passwordHash: organization.passwordHash,
                                 campaigns: organization.campaigns ?? [],
                                 events: organization.events ?? [],
                               ),
                               const SizedBox(height: TSizes.spaceBtwSections),
                               // Add space between cards
                             ],
+                          ),
+                        );
+                      }).toList(),
+                    );
+                  }
+                },
+              ),
+            if (initiativeType == 'Articles')
+              FutureBuilder<List<Article>>(
+                future: ArticleService.getAllArticles(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(child: CircularProgressIndicator());
+                  } else if (snapshot.hasError) {
+                    return Center(child: Text('Error: ${snapshot.error}'));
+                  } else {
+                    return Column(
+                      children: snapshot.data!.map((article) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: TSizes.defaultSpace),
+                          child: PHomeArticleCard(
+                            article: article,
                           ),
                         );
                       }).toList(),
