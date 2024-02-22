@@ -41,11 +41,14 @@ class SettingsScreen extends StatelessWidget {
                   ),
 
                   ///User Profile
-                  PUserProfileTile(
-                    subTitle: user!.email,
-                    imageUrl: user.profile.profileImage,
-                    title: "$userFirstName ${user.profile.lastName}",
-                    showEditIcon: true,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace, vertical: TSizes.spaceBtwItems),
+                    child: PUserProfileTile(
+                      subTitle: user!.email,
+                      imageUrl: user.profile.profileImage,
+                      title: "$userFirstName ${user.profile.lastName}",
+                      showEditIcon: true, showSubtitle: true,
+                    ),
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwSections,
