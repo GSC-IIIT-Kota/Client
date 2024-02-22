@@ -16,9 +16,7 @@ class _VideoBuilderState extends State<VideoBuilder> {
   @override
   void initState() {
     super.initState();
-    // Fetch videos from the video service and update the state
     videos = VideoService.getVideos();
-    // print(videos);
   }
 
   @override

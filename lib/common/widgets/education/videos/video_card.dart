@@ -26,6 +26,12 @@ class PVideoCard extends StatelessWidget {
             hasAuthor: true,
             videoUploader: video.uploader,
             videoDescription: video.description,
+            videoThumbnailUrl: video.thumbnailUrl,
+            videoComments: video.comments,
+            videoLikes: video.likes,
+            videoTranscripts: video.transcripts,
+            videoUrl: video.videoUrl,
+            videoTags: video.tags,
           )),
       child: Container(
         width: 250,
@@ -42,10 +48,9 @@ class PVideoCard extends StatelessWidget {
               child: Stack(
                 children: [
                   ///Thumbnail
-                  const PRoundedImage(
+                  PRoundedImage(
                     isNetworkImage: true,
-                    imageUrl:
-                        'https://m.media-amazon.com/images/I/61Nyx0mNNwL.jpg',
+                    imageUrl: video.thumbnailUrl,
                     applyImageRadius: true,
                     aspectRatio: 16 / 9,
                   ),
