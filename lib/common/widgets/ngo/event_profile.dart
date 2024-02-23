@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/common/widgets/images/rounded_image.dart';
 import 'package:solution_challenge/common/widgets/ngo/people_donating.dart';
+import 'package:solution_challenge/common/widgets/success_screen/success_screen.dart';
 import 'package:solution_challenge/common/widgets/texts/video_card_icontext.dart';
+import 'package:solution_challenge/features/donate/screens/ngo/ngo.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
+import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
@@ -139,7 +143,14 @@ class _PEventProfileState extends State<PEventProfile> {
         padding: const EdgeInsets.symmetric(
             horizontal: TSizes.defaultSpace, vertical: TSizes.md),
         child: ElevatedButton(
-         onPressed: (){},
+          onPressed: () => Get.to(() => SuccessScreen(
+              backgroundColor: TColors.rani,
+              textColor: Colors.white,
+              image: TImages.registrationSuccess,
+              title: "You're In!",
+              subTitle:
+                  "Thank you for joining the donation event. Your support makes a difference!",
+              onPressed: () => Get.to(() => const NgoScreen()))),
           child: const Text('Register'),
         ),
       ),

@@ -48,4 +48,8 @@ class TImages {
 
   //Course Thumbnail
   static const String courseThumbnail = "assets/images/education/coursess.png";
+
+  //Ngo success screens
+  static const String donationSuccess = "assets/images/ngo/thankyou.png";
+  static const String registrationSuccess = "assets/images/ngo/eventRegistrationSuccess.png";
 }
