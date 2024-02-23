@@ -57,7 +57,7 @@ class PEventSection extends StatelessWidget {
                       eventDesc: events[index].description,
                       eventPhoto: events[index].banner,
                       cardWidth: 300,
-                      eventDate: "${events[index].uploadDate.day}",
+                      eventDate: "${events[index].uploadDate.day}", eventDayTime: 'Wednesday, 9 AM',
                     );
                   },
                 );

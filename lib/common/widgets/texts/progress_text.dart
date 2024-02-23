@@ -18,7 +18,7 @@ class PCardProgressText extends StatelessWidget {
     final double progressValue = raisedMoney / totalGoal;
     return Padding(
       padding: const EdgeInsets.only(
-          right: TSizes.xs, left: TSizes.xs, bottom: TSizes.md),
+          right: TSizes.xs, left: TSizes.xs),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

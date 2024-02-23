@@ -144,7 +144,7 @@ class PViewAllScreen extends StatelessWidget {
                                 eventLocation: event.location,
                                 eventDesc: event.description,
                                 eventPhoto: event.banner,
-                                cardWidth: PHelperFunctions.screenWidth(),
+                                cardWidth: PHelperFunctions.screenWidth(), eventDayTime: 'Wednesday, 9 AM',
                               ),
                             ),
                             const SizedBox(height: 16),

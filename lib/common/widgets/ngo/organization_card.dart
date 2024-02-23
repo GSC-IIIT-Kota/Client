@@ -7,7 +7,7 @@ import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
 class POrganizationCard extends StatelessWidget {
   const POrganizationCard({
-    Key? key,
+    super.key,
     required this.cardWidth,
     required this.orgPhoto,
     required this.ngoName,
@@ -17,7 +17,7 @@ class POrganizationCard extends StatelessWidget {
     required this.passwordHash,
     required this.campaigns,
     required this.events,
-  }) : super(key: key);
+  });
 
   final double cardWidth;
   final String orgPhoto;
@@ -35,7 +35,7 @@ class POrganizationCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: () => Get.to(
-            () => POrganizationScreen(
+        () => POrganizationScreen(
           orgPhoto: orgPhoto,
           ngoName: ngoName,
           ngoLocation: ngoLocation,
@@ -57,7 +57,8 @@ class POrganizationCard extends StatelessWidget {
 
           /// Avatar, Org Name and location
           child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               ///Avatar
               CircleAvatar(
@@ -72,17 +73,19 @@ class POrganizationCard extends StatelessWidget {
                   children: [
                     Text(
                       ngoName,
-                      style: Theme.of(context).textTheme.subtitle1!.apply(
-                          color: dark ? TColors.accent : TColors.dimgrey,
-                          fontWeightDelta: 2),
+                      style: Theme.of(context).textTheme.headlineSmall!.apply(
+                            color: dark ? Colors.white : Colors.black,
+                          ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.left,
                     ),
                     Text(
                       ngoLocation,
-                      style: Theme.of(context).textTheme.bodyText2!.apply(
-                          color: dark ? TColors.accent : TColors.battleship),
+                      style: Theme.of(context).textTheme.bodySmall!.apply(
+                          color: dark
+                              ? Colors.white.withOpacity(0.8)
+                              : TColors.battleship),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.left,
