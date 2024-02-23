@@ -50,8 +50,9 @@ class _PVideoProfileState extends State<PVideoProfile> {
   @override
   void initState() {
     super.initState();
+    final videoID = YoutubePlayer.convertUrlToId(widget.videoUrl);
     _controller = YoutubePlayerController(
-      initialVideoId: widget.videoUrl, // You can add the initial video ID here
+      initialVideoId: videoID!, // You can add the initial video ID here
       flags: const YoutubePlayerFlags(
         autoPlay: false,
       ),

@@ -31,10 +31,14 @@ class PCardIconText extends StatelessWidget {
         const SizedBox(
           width: TSizes.spaceBtwItems / 2,
         ),
-        Text(
-          title,
-          style: titleStyle,
-          textAlign: TextAlign.left,
+        Expanded(
+          child: Text(
+            title,
+            style: titleStyle,
+            textAlign: TextAlign.left,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 1,
+          ),
         ),
       ],
     );

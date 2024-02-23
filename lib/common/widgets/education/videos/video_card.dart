@@ -80,8 +80,8 @@ class PVideoCard extends StatelessWidget {
 
             ///VideoBody
             Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: TSizes.md, vertical: TSizes.sm),
+              padding: const EdgeInsets.only(
+                  left: TSizes.md, right: TSizes.md, top: TSizes.sm, bottom: TSizes.md),
               child: Column(
                 children: [
                   ///Video Title
@@ -102,45 +102,49 @@ class PVideoCard extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          PCardIconText(
-                            iconData: Iconsax.category,
-                            iconSize: 14,
-                            iconColor: dark ? TColors.brightpink : TColors.rani,
-                            title: video.title,
-                            titleStyle: Theme.of(context)
-                                .textTheme
-                                .labelLarge!
-                                .apply(
-                                    color: dark
-                                        ? TColors.brightpink
-                                        : TColors.rani),
-                          ),
-                          const SizedBox(
-                            height: TSizes.spaceBtwItems / 2,
-                          ),
-                          PCardIconText(
-                            iconData: Iconsax.clock,
-                            iconSize: 14,
-                            iconColor: dark
-                                ? Colors.white.withOpacity(0.9)
-                                : TColors.dimgrey,
-                            title: video.uploadDate.timeZoneName,
-                            titleStyle: Theme.of(context)
-                                .textTheme
-                                .labelMedium!
-                                .apply(
-                                    color: dark
-                                        ? Colors.white.withOpacity(0.9)
-                                        : TColors.dimgrey),
-                          ),
-                        ],
+
+                      SizedBox(
+                        width: 180,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            PCardIconText(
+                              iconData: Iconsax.category,
+                              iconSize: 14,
+                              iconColor: dark ? TColors.brightpink : TColors.rani,
+                              title: video.title,
+                              titleStyle: Theme.of(context)
+                                  .textTheme
+                                  .labelLarge!
+                                  .apply(
+                                      color: dark
+                                          ? TColors.brightpink
+                                          : TColors.rani),
+                            ),
+                            const SizedBox(
+                              height: TSizes.spaceBtwItems / 2,
+                            ),
+                            PCardIconText(
+                              iconData: Iconsax.clock,
+                              iconSize: 14,
+                              iconColor: dark
+                                  ? Colors.white.withOpacity(0.9)
+                                  : TColors.dimgrey,
+                              title: video.uploadDate.timeZoneName,
+                              titleStyle: Theme.of(context)
+                                  .textTheme
+                                  .labelMedium!
+                                  .apply(
+                                      color: dark
+                                          ? Colors.white.withOpacity(0.9)
+                                          : TColors.dimgrey),
+                            ),
+                          ],
+                        ),
                       ),
                       Icon(
-                        Iconsax.star,
+                        Iconsax.like_1,
                         size: 25,
                         color: dark ? TColors.brightpink : TColors.rani,
                       ),
