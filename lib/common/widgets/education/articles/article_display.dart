@@ -28,11 +28,12 @@ class PArticleScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: TSizes.lg),
+          padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
           child: Column(
             children: [
               ///Image of article
-              PRoundedImage(imageUrl: article.thumbnailUrl),
+              PRoundedImage(
+                  isNetworkImage: true, imageUrl: article.thumbnailUrl),
 
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: TSizes.md),
@@ -54,33 +55,34 @@ class PArticleScreen extends StatelessWidget {
                     ),
 
                     ///Reading time and posted when
-                    Row(
-                      children: [
-                        ///Reading Time
-                        PCardIconText(
-                          iconData: Iconsax.clock,
-                          iconSize: 14,
-                          iconColor: TColors.battleship,
-                          title: "Est. 5 minutes.",
-                          titleStyle: Theme.of(context)
-                              .textTheme
-                              .labelLarge!
-                              .apply(color: TColors.battleship),
-                        ),
-
-                        const SizedBox(
-                          width: TSizes.spaceBtwItems,
-                        ),
-                        Text(article.uploadDate.toIso8601String(),
-                            style: Theme.of(context)
-                                .textTheme
-                                .labelLarge!
-                                .apply(color: TColors.battleship)),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: TSizes.spaceBtwItems,
-                    ),
+                    /// Saatvik: Fix this
+                    // Row(
+                    //   children: [
+                    //     ///Reading Time
+                    //     PCardIconText(
+                    //       iconData: Iconsax.clock,
+                    //       iconSize: 14,
+                    //       iconColor: TColors.battleship,
+                    //       title: "Est. 5 minutes.",
+                    //       titleStyle: Theme.of(context)
+                    //           .textTheme
+                    //           .labelLarge!
+                    //           .apply(color: TColors.battleship),
+                    //     ),
+                    //
+                    //     const SizedBox(
+                    //       width: TSizes.spaceBtwItems,
+                    //     ),
+                    //     Text(article.uploadDate.toIso8601String(),
+                    //         style: Theme.of(context)
+                    //             .textTheme
+                    //             .labelLarge!
+                    //             .apply(color: TColors.battleship)),
+                    //   ],
+                    // ),
+                    // const SizedBox(
+                    //   height: TSizes.spaceBtwItems,
+                    // ),
 
                     ///Title
                     Text(
@@ -92,19 +94,21 @@ class PArticleScreen extends StatelessWidget {
                     ),
 
                     ///Author Name
-                    if (true)
-                      PRoundedContainer(
-                        borderColor: TColors.rani,
-                        backgroundColor: TColors.rani,
-                        child: PCardIconText(
-                          iconData: Iconsax.user,
-                          title: article.authorName,
-                          titleStyle: Theme.of(context)
-                              .textTheme
-                              .labelLarge!
-                              .apply(color: Colors.white),
-                        ),
+                    PRoundedContainer(
+                      borderColor: TColors.rani,
+                      backgroundColor: TColors.rani,
+                      child: PCardIconText(
+                        iconData: Iconsax.user,
+                        title: article.authorName,
+                        titleStyle: Theme.of(context)
+                            .textTheme
+                            .labelLarge!
+                            .apply(color: Colors.white),
                       ),
+                    ),
+                    const SizedBox(
+                      height: TSizes.spaceBtwItems,
+                    ),
 
                     ///Content
                     Text(

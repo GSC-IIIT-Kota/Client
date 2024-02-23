@@ -83,20 +83,27 @@ class PVideoCard extends StatelessWidget {
               padding: const EdgeInsets.only(
                   left: TSizes.md, right: TSizes.md, top: TSizes.sm, bottom: TSizes.md),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ///Video Title
-                  Text(
-                    video.title,
-                    style: Theme.of(context).textTheme.bodySmall!.apply(
-                        color: dark ? Colors.white : TColors.dimgrey,
-                        fontWeightDelta: 1),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
-                    textAlign: TextAlign.left,
+                  Column(
+                    children: [
+                      Text(
+                        video.title,
+                        style: Theme.of(context).textTheme.bodySmall!.apply(
+                            color: dark ? Colors.white : TColors.dimgrey,
+                            fontWeightDelta: 1),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                        textAlign: TextAlign.left,
+                      ),
+                      const SizedBox(
+                        height: TSizes.spaceBtwItems / 2,
+                      ),
+                    ],
                   ),
-                  const SizedBox(
-                    height: TSizes.spaceBtwItems / 2,
-                  ),
+
 
                   ///Video Category, Upload time
                   Row(

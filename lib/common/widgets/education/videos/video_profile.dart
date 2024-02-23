@@ -69,7 +69,7 @@ class _PVideoProfileState extends State<PVideoProfile> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: TSizes.lg),
+          padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
           child: Column(
             children: [
               PRoundedContainer(
