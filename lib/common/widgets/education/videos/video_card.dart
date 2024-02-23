@@ -23,7 +23,6 @@ class PVideoCard extends StatelessWidget {
             videoCategory: video.category,
             uploadTime: video.uploadDate.timeZoneName,
             videoTitle: video.title,
-            hasAuthor: true,
             videoUploader: video.uploader,
             videoDescription: video.description,
             videoThumbnailUrl: video.thumbnailUrl,
