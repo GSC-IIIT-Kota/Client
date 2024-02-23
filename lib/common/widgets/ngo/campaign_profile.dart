@@ -127,7 +127,7 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
                             orgPhoto: widget.orgPhoto,
                             ngoName: widget.ngoName,
                             ngoLocation: widget.ngoLocation,
-                            events: [], campaigns: [],
+                            events: const [], campaigns: const [],
                           )),
                       child: ListTile(
                         leading: CircleAvatar(
@@ -168,7 +168,7 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(
-            horizontal: TSizes.lg, vertical: TSizes.md),
+            horizontal: TSizes.defaultSpace, vertical: TSizes.md),
         child: ElevatedButton(
           onPressed: () {Navigator.push(
             context,

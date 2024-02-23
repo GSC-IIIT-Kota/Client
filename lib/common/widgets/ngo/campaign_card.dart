@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:solution_challenge/common/widgets/icons/circular_heart.dart';
 import 'package:solution_challenge/common/widgets/images/rounded_image.dart';
 import 'package:solution_challenge/common/widgets/ngo/campaign_profile.dart';
 import 'package:solution_challenge/common/widgets/ngo/progress_bar.dart';
@@ -65,17 +64,10 @@ class PCampaignCard extends StatelessWidget {
             ///Thumbnail, save button
             PRoundedContainer(
               backgroundColor: dark ? Colors.black : Colors.white,
-              child: Stack(
-                children: [
-                  ///Thumbnail
-                  PRoundedImage(
-                    imageUrl: imageUrl,
-                    applyImageRadius: true,
-                  ),
-
-                  /// Favorite icon button
-                  const Positioned(top: 5, right: 5, child: PCircularHeart()),
-                ],
+              child: PRoundedImage(
+                isNetworkImage: true,
+                imageUrl: imageUrl,
+                applyImageRadius: true,
               ),
             ),
             const SizedBox(
@@ -84,7 +76,7 @@ class PCampaignCard extends StatelessWidget {
 
             /// Details
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: TSizes.md),
+              padding: const EdgeInsets.only(left: TSizes.md, right: TSizes.md, bottom: TSizes.md, top: TSizes.sm),
 
               /// Title, Description, Progress bar and raised amt details
               child: Column(
@@ -100,14 +92,14 @@ class PCampaignCard extends StatelessWidget {
 
                   ///Organization
                   PCardIconText(
-                    iconData: Iconsax.verify5,
+                    iconData: Iconsax.verify,
                     iconSize: 18,
-                    iconColor: TColors.rani,
+                    iconColor: dark ? TColors.brightpink : TColors.rani,
                     title: 'NGO for women',
                     titleStyle: Theme.of(context)
                         .textTheme
                         .labelLarge!
-                        .apply(color: TColors.battleship, fontWeightDelta: 2),
+                        .apply(color: dark ? Colors.white.withOpacity(0.8) : TColors.battleship, fontWeightDelta: 2),
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwItems / 2,
@@ -115,12 +107,12 @@ class PCampaignCard extends StatelessWidget {
                   PCardIconText(
                     iconData: Iconsax.clock,
                     iconSize: 18,
-                    iconColor: TColors.rani,
+                    iconColor: dark ? TColors.brightpink : TColors.rani,
                     title: '10 days left',
                     titleStyle: Theme.of(context)
                         .textTheme
                         .labelLarge!
-                        .apply(color: TColors.battleship, fontWeightDelta: 2),
+                        .apply(color: dark ? Colors.white.withOpacity(0.8) : TColors.battleship, fontWeightDelta: 2),
                   ),
 
                   const SizedBox(

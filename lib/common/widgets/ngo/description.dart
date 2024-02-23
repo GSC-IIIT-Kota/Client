@@ -42,7 +42,7 @@ class DescriptionWidget extends StatelessWidget {
         if (!showFullDescription)
           TextButton(
             onPressed: onReadMorePressed,
-            child: Text(
+            child: const Text(
               'Read more',
               style: TextStyle(color: Colors.blue),
             ),

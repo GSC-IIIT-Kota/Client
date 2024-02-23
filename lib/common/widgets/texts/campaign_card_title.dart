@@ -19,7 +19,7 @@ class PCampaignCardTitle extends StatelessWidget {
           .bodyLarge!
           .apply(color: dark ? Colors.white : Colors.black, fontWeightDelta: 1),
       overflow: TextOverflow.ellipsis,
-      maxLines: 2,
+      maxLines: 1,
       textAlign: TextAlign.left,
     );
   }

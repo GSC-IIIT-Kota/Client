@@ -135,6 +135,14 @@ class _PEventProfileState extends State<PEventProfile> {
           ),
         ),
       ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(
+            horizontal: TSizes.defaultSpace, vertical: TSizes.md),
+        child: ElevatedButton(
+         onPressed: (){},
+          child: const Text('Register'),
+        ),
+      ),
     );
   }
 }
