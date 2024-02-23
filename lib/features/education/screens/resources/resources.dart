@@ -143,8 +143,11 @@ class EducationScreen extends StatelessWidget {
                     )),
                   ),
                   const SizedBox(
-                    height: 365,
+                    height: 330,
                     child: ArticleColumnBuilder(),
+                  ),
+                  const SizedBox(
+                    height: TSizes.spaceBtwItems,
                   ),
                 ],
               ),

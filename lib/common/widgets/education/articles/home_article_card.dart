@@ -26,7 +26,7 @@ class PHomeArticleCard extends StatelessWidget {
       onTap: () => Get.to(() => PArticleScreen(article: article)),
       child: Container(
         width: 300,
-        height: 110,
+        height: 90,
         padding: const EdgeInsets.all(1),
         margin: const EdgeInsets.only(bottom: 20),
         decoration: BoxDecoration(
@@ -38,6 +38,7 @@ class PHomeArticleCard extends StatelessWidget {
             PRoundedContainer(
               backgroundColor: TColors.accent,
               child: PRoundedImage(
+                isNetworkImage: true,
                 imageUrl: article.thumbnailUrl,
                 aspectRatio: 1 / 1,
               ),
@@ -59,7 +60,7 @@ class PHomeArticleCard extends StatelessWidget {
                           ),
                       textAlign: TextAlign.left,
                       overflow: TextOverflow.ellipsis,
-                      maxLines: 3,
+                      maxLines: 2,
                     ),
                     const SizedBox(
                       height: TSizes.spaceBtwItems / 2,
