@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
-import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
 class PVerticalImageText extends StatelessWidget {
   const PVerticalImageText({
@@ -20,7 +19,6 @@ class PVerticalImageText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = PHelperFunctions.isDarkMode(context);
     return GestureDetector(
       onTap: onTap,
       child: Padding(
@@ -34,7 +32,7 @@ class PVerticalImageText extends StatelessWidget {
               padding: const EdgeInsets.all(TSizes.sm),
               decoration: BoxDecoration(
                 color:
-                    backgroundColor ?? (dark ? TColors.satin : TColors.satin),
+                    backgroundColor,
                 borderRadius: BorderRadius.circular(100),
               ),
               child: Center(

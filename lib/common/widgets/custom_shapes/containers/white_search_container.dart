@@ -28,6 +28,7 @@ class PWhiteSearchContainer extends StatelessWidget {
           errorMaxLines: 3,
           prefixIconColor: Colors.white,
           suffixIconColor: Colors.white,
+
           labelStyle:
               const TextStyle().copyWith(fontSize: 14, color: Colors.white),
           hintStyle:
