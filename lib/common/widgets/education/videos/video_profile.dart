@@ -18,7 +18,6 @@ class PVideoProfile extends StatefulWidget {
     required this.videoCategory,
     required this.uploadTime,
     required this.videoTitle,
-    required this.hasAuthor,
     required this.videoUploader,
     required this.videoDescription,
     required this.videoThumbnailUrl,
@@ -33,7 +32,6 @@ class PVideoProfile extends StatefulWidget {
   final String uploadTime;
   final String videoUrl;
   final String videoTitle;
-  final bool hasAuthor;
   final String videoUploader;
   final String videoDescription;
   final String videoThumbnailUrl;
@@ -53,7 +51,7 @@ class _PVideoProfileState extends State<PVideoProfile> {
   void initState() {
     super.initState();
     _controller = YoutubePlayerController(
-      initialVideoId: '', // You can add the initial video ID here
+      initialVideoId: widget.videoUrl, // You can add the initial video ID here
       flags: const YoutubePlayerFlags(
         autoPlay: false,
       ),
@@ -119,19 +117,18 @@ class _PVideoProfileState extends State<PVideoProfile> {
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
-                    if (widget.hasAuthor)
-                      PRoundedContainer(
-                        borderColor: TColors.rani,
-                        backgroundColor: TColors.rani,
-                        child: PCardIconText(
-                          iconData: Iconsax.user,
-                          title: widget.videoUploader,
-                          titleStyle:
-                              Theme.of(context).textTheme.labelLarge!.apply(
-                                    color: Colors.white,
-                                  ),
-                        ),
+                    PRoundedContainer(
+                      borderColor: TColors.rani,
+                      backgroundColor: TColors.rani,
+                      child: PCardIconText(
+                        iconData: Iconsax.user,
+                        title: widget.videoUploader,
+                        titleStyle:
+                            Theme.of(context).textTheme.labelLarge!.apply(
+                                  color: Colors.white,
+                                ),
                       ),
+                    ),
                     const SizedBox(height: TSizes.spaceBtwItems / 2),
                     Text(
                       'Description',
