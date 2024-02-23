@@ -10,12 +10,13 @@ class PLessonCard extends StatelessWidget {
     super.key,
     required this.itemNumber,
     required this.title,
-    required this.onPressed,
+    required this.onPressed, required this.isVideo,
   });
 
   final int itemNumber;
   final String title;
   final VoidCallback onPressed;
+  final bool isVideo;
 
   @override
   Widget build(BuildContext context) {
@@ -82,9 +83,9 @@ class PLessonCard extends StatelessWidget {
                   color: TColors.accent
                       .withOpacity(0.8), // You can change the color
                 ),
-                child: const Center(
+                child: Center(
                   child: Icon(
-                    Iconsax.video,
+                    isVideo ? Iconsax.video : Iconsax.document,
                     size: 20,
                     color: Colors.black,
                   ),
