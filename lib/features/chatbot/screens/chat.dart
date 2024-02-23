@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
-import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/primary_ngo_container.dart';
 import 'package:solution_challenge/features/chatbot/screens/widgets/chat_bubble.dart';
 import 'package:solution_challenge/features/chatbot/screens/widgets/chat_input.dart';
@@ -108,21 +107,44 @@ class _ChatScreenState extends State<ChatScreen> {
         children: [
           PPrimaryNgoContainer(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: TSizes.defaultSpace),
-              child: PAppBar(
-                title: ListTile(
-                  leading: const CircleAvatar(
-                    radius: 20,
-                    backgroundImage: AssetImage(TImages.paddyAvatar),
+              padding: const EdgeInsets.all(TSizes.defaultSpace),
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: TSizes.spaceBtwItems,
                   ),
-                  title: Text(
-                    'Chat with Paddy',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headlineSmall!
-                        .apply(color: Colors.white),
+
+                  Row(
+                    children: [
+                      /// User Avatar
+                      const CircleAvatar(
+                        radius: 20,
+                        backgroundImage: AssetImage(TImages.paddyAvatar),
+                      ),
+
+                      /// Title and subtitle
+                      Padding(
+                        padding: const EdgeInsets.only(left: TSizes.spaceBtwItems),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('Chat with Paddy',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineSmall!
+                                    .apply(color: Colors.white)),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                ),
+
+                  const SizedBox(
+                    height: TSizes.spaceBtwItems,
+                  ),
+
+                ],
               ),
             ),
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
+import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
@@ -29,7 +30,7 @@ class _PChatInputState extends State<PChatInput> {
     final dark = PHelperFunctions.isDarkMode(context);
 
     return Container(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace, vertical: TSizes.md),
       child: Row(
         children: [
           Expanded(
