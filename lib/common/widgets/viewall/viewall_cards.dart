@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/primary_ngo_container.dart';
-import 'package:solution_challenge/common/widgets/custom_shapes/containers/search_container.dart';
+import 'package:solution_challenge/common/widgets/custom_shapes/containers/white_search_container.dart';
 import 'package:solution_challenge/common/widgets/education/videos/video_card.dart';
 import 'package:solution_challenge/common/widgets/ngo/campaign_card.dart';
 import 'package:solution_challenge/common/widgets/ngo/event_card.dart';
@@ -51,12 +51,11 @@ class PViewAllScreen extends StatelessWidget {
                   const SizedBox(
                     height: TSizes.spaceBtwItems,
                   ),
-                  PSearchContainer(
+                  PWhiteSearchContainer(
                     text: 'Search $initiativeType',
                   ),
-                  const SizedBox(
-                    height: TSizes.spaceBtwSections * 2,
-                  ),
+                  const SizedBox(height: TSizes.spaceBtwSections),
+                  const SizedBox(height: TSizes.spaceBtwItems),
                 ],
               ),
             ),
@@ -69,29 +68,29 @@ class PViewAllScreen extends StatelessWidget {
                   } else if (snapshot.hasError) {
                     return Center(child: Text('Error: ${snapshot.error}'));
                   } else {
-                    return Column(
-                      children: snapshot.data!.map((campaign) {
-                        return Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: TSizes.defaultSpace),
-                              child: PCampaignCard(
-                                title: campaign.title,
-                                description: campaign.description,
-                                raisedMoney: campaign.raisedMoney,
-                                totalGoal: campaign.totalGoal,
-                                imageUrl: campaign.imageUrl,
-                                orgPhoto: campaign.imageUrl,
-                                cardWidth: PHelperFunctions.screenWidth(),
-                                rightMargin: EdgeInsets.zero,
-                              ),
-                            ),
-                            const SizedBox(height: 16),
-                            // Add space between items
-                          ],
-                        );
-                      }).toList(),
+                    return Padding(
+                      padding: const EdgeInsets.all(TSizes.defaultSpace),
+                      child: Column(
+                        children: snapshot.data!.map((campaign) {
+                          return Column(
+                            children: [
+                              PCampaignCard(
+                                  title: campaign.title,
+                                  description: campaign.description,
+                                  raisedMoney: campaign.raisedMoney,
+                                  totalGoal: campaign.totalGoal,
+                                  imageUrl: campaign.imageUrl,
+                                  orgPhoto: campaign.imageUrl,
+                                  cardWidth: PHelperFunctions.screenWidth(),
+                                  rightMargin: EdgeInsets.zero,
+                                ),
+
+                              const SizedBox(height: 16),
+                              // Add space between items
+                            ],
+                          );
+                        }).toList(),
+                      ),
                     );
                   }
                 },
