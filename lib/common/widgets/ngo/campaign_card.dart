@@ -15,7 +15,6 @@ import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
 import '../../../models/organisation.dart';
-import '../icons/circular_heart.dart';
 
 class PCampaignCard extends StatelessWidget {
   const PCampaignCard({
@@ -64,15 +63,10 @@ class PCampaignCard extends StatelessWidget {
               children: [
                 PRoundedContainer(
                   backgroundColor: dark ? Colors.black : Colors.white,
-                  child: Stack(
-                    children: [
-                      PRoundedImage(
-                        imageUrl: campaign.imageUrl,
-                        applyImageRadius: true,
-                      ),
-                      const Positioned(
-                          top: 5, right: 5, child: PCircularHeart()),
-                    ],
+                  child: PRoundedImage(
+                    isNetworkImage: true,
+                    imageUrl: campaign.imageUrl,
+                    applyImageRadius: true,
                   ),
                 ),
                 const SizedBox(height: TSizes.spaceBtwItems / 2),

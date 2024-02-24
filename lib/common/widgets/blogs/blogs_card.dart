@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/common/widgets/blogs/blogs_profile.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:solution_challenge/common/widgets/icons/circular_star.dart';
 import 'package:solution_challenge/common/widgets/images/rounded_image.dart';
 import 'package:solution_challenge/common/widgets/texts/campaign_card_title.dart';
 import 'package:solution_challenge/common/widgets/texts/video_card_icontext.dart';
@@ -20,7 +19,8 @@ class PBlogCard extends StatelessWidget {
       required this.blogTitle,
       required this.blogAuthor,
       required this.blogDate,
-      required this.blogCategory, required this.blogContent});
+      required this.blogCategory,
+      required this.blogContent});
 
   final double cardWidth;
   final EdgeInsets? bottomMargin;
@@ -66,7 +66,15 @@ class PBlogCard extends StatelessWidget {
                   ),
 
                   /// Favorite icon button
-                  const Positioned(top: 5, right: 5, child: PCircularStar()),
+                  Positioned(
+                    top: 5,
+                    right: 5,
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Iconsax.heart),
+                      color: TColors.brightpink,
+                    ),
+                  ),
                 ],
               ),
             ),
