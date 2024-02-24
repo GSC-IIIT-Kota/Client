@@ -36,7 +36,6 @@ class PCampaignCard extends StatelessWidget {
         campaign.totalGoal != 0 ? campaign.raisedMoney / campaign.totalGoal : 0;
     String id = "";
     id = campaign.ngoID;
-    // print(id);
     return FutureBuilder<NGO>(
       future: NGOService().getNGOById(id),
       builder: (context, snapshot) {
@@ -45,7 +44,6 @@ class PCampaignCard extends StatelessWidget {
         }
 
         if (snapshot.hasError) {
-          // print(snapshot.data);
           return Text('Error: ${snapshot.error}');
         }
 
@@ -124,8 +122,8 @@ class PCampaignCard extends StatelessWidget {
                       ),
                       const SizedBox(height: TSizes.spaceBtwItems / 2),
                       PCardProgressText(
-                        raisedMoney: campaign.raisedMoney,
-                        totalGoal: campaign.totalGoal,
+                        raisedMoney: campaign.raisedMoney.toInt(),
+                        totalGoal: campaign.totalGoal.toInt(),
                       ),
                     ],
                   ),

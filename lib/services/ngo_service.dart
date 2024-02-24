@@ -66,19 +66,19 @@ class NGOService {
   }
 
   Future<NGO> getNGOById(String id) async {
-    // Replace this with your actual implementation
-    final baseUrl = '$apiBaseUrl/ngos';
+    final baseUrl = '$apiBaseUrl/ngos/$id'; // Assuming this is the correct endpoint for fetching a single NGO by ID
     final url = Uri.parse(baseUrl);
     final response = await http.get(url);
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = json.decode(response.body);
       return NGO.fromJson(data);
+    } else if (response.statusCode == 404) {
+      throw Exception('NGO with ID $id not found');
     } else {
       throw Exception('Failed to load NGO');
     }
   }
-
 
   Future<List<NGO>> getAllNGOs() async {
     try {

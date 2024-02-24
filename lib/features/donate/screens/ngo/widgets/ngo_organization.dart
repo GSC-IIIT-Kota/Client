@@ -85,7 +85,7 @@ class POrganizationScreen extends StatelessWidget {
                 children: [
                   for (var campaignId in ngo.campaigns!)
                     FutureBuilder<Campaign?>(
-                      future: CampaignService().getCampaignById(campaignId),
+                      future: CampaignService.getCampaignById(campaignId),
                       // Assuming getCampaignById is a function to fetch campaign details by ID
                       builder: (context, snapshot) {
                         if (snapshot.connectionState ==
