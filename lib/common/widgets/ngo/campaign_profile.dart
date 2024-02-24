@@ -3,38 +3,27 @@ import 'package:get/get.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/icons/circular_heart.dart';
 import 'package:solution_challenge/common/widgets/images/rounded_image.dart';
+import 'package:solution_challenge/common/widgets/ngo/payment.dart';
 import 'package:solution_challenge/common/widgets/ngo/people_donating.dart';
 import 'package:solution_challenge/common/widgets/ngo/progress_bar.dart';
 import 'package:solution_challenge/common/widgets/texts/progress_text.dart';
 import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_organization.dart';
+import 'package:solution_challenge/models/campaign.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
-import 'package:solution_challenge/common/widgets/ngo/payment.dart';
+
+import '../../../models/organisation.dart';
 import 'description.dart';
 
 class PCampaignProfile extends StatefulWidget {
-  final String title;
-  final String description;
-  final double progressValue;
-  final int raisedMoney;
-  final int totalGoal;
-  final String imageUrl;
-  final String orgPhoto;
-  final String ngoName;
-  final String ngoLocation;
+  final NGO ngo;
+  final Campaign campaign;
 
   const PCampaignProfile({
     super.key,
-    required this.title,
-    required this.description,
-    required this.progressValue,
-    required this.raisedMoney,
-    required this.totalGoal,
-    required this.imageUrl,
-    required this.orgPhoto,
-    required this.ngoName,
-    required this.ngoLocation,
+    required this.campaign,
+    required this.ngo,
   });
 
   @override
@@ -47,6 +36,9 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
   @override
   Widget build(BuildContext context) {
     final dark = PHelperFunctions.isDarkMode(context);
+    final double progressValue = widget.campaign.totalGoal != 0
+        ? widget.campaign.raisedMoney / widget.campaign.totalGoal
+        : 0;
 
     return Scaffold(
       appBar: PAppBar(
@@ -62,7 +54,7 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
           child: Column(
             children: [
               // Image of the campaign
-              PRoundedImage(imageUrl: widget.imageUrl),
+              PRoundedImage(imageUrl: widget.campaign.imageUrl),
 
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: TSizes.md),
@@ -71,7 +63,7 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
                   children: [
                     // Title
                     Text(
-                      widget.title,
+                      widget.campaign.title,
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
@@ -90,7 +82,7 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
 
                     // Progress bar
                     PProgressBar(
-                      progressValue: widget.progressValue,
+                      progressValue: progressValue,
                       backgroundColor: TColors.accent,
                       progressColor: TColors.rani,
                     ),
@@ -98,8 +90,8 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
 
                     // Raised Money, Total Goal, and Percentage
                     PCardProgressText(
-                        raisedMoney: widget.raisedMoney,
-                        totalGoal: widget.totalGoal),
+                        raisedMoney: widget.campaign.raisedMoney,
+                        totalGoal: widget.campaign.totalGoal),
                     const SizedBox(height: TSizes.spaceBtwItems / 2),
 
                     // Divider
@@ -124,24 +116,22 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
 
                     GestureDetector(
                       onTap: () => Get.to(() => POrganizationScreen(
-                            orgPhoto: widget.orgPhoto,
-                            ngoName: widget.ngoName,
-                            ngoLocation: widget.ngoLocation,
-                            events: const [], campaigns: const [],
+                            ngo: widget.ngo,
                           )),
                       child: ListTile(
                         leading: CircleAvatar(
                           radius: 25,
-                          backgroundImage: NetworkImage(widget.orgPhoto),
+                          backgroundImage:
+                              NetworkImage(widget.ngo.profile!.logo),
                         ),
                         title: Text(
-                          widget.ngoName,
+                          widget.ngo.profile!.ngoName,
                           style: Theme.of(context).textTheme.titleSmall!.apply(
                               color: dark ? TColors.accent : TColors.dimgrey,
                               fontWeightDelta: 2),
                         ),
                         subtitle: Text(
-                          widget.ngoLocation,
+                          widget.ngo.profile!.address,
                           style: Theme.of(context).textTheme.bodyMedium!.apply(
                               color:
                                   dark ? TColors.accent : TColors.battleship),
@@ -151,7 +141,7 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
                     const SizedBox(height: TSizes.spaceBtwItems / 2),
                     // Description
                     DescriptionWidget(
-                      description: widget.description,
+                      description: widget.campaign.description,
                       showFullDescription: showFullDescription,
                       onReadMorePressed: () {
                         setState(() {
@@ -170,10 +160,12 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
         padding: const EdgeInsets.symmetric(
             horizontal: TSizes.defaultSpace, vertical: TSizes.md),
         child: ElevatedButton(
-          onPressed: () {Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const RazorPayPage()),
-          );},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const RazorPayPage()),
+            );
+          },
           child: const Text('Donate now'),
         ),
       ),

@@ -37,11 +37,9 @@ class Campaign {
   });
 
   factory Campaign.fromJson(Map<String, dynamic> json) {
-    var donorList = json['donors'] as List<dynamic>?;
-
     List<Donor> donors = [];
-    if (donorList != null) {
-      donors = donorList.map((e) => Donor.fromJson(e)).toList();
+    if (json['donors'] != null) {
+      donors = List<Donor>.from(json['donors'].map((x) => Donor.fromJson(x)));
     }
 
     return Campaign(
@@ -50,9 +48,10 @@ class Campaign {
       title: json['title'] ?? '',
       description: json['description'] ?? '',
       imageUrl: json['imageUrl'] ?? '',
-      raisedMoney: (json['raisedMoney'] ?? 0),
-      totalGoal: (json['totalGoal'] ?? 0),
+      raisedMoney: json['raisedMoney'] ?? 0,
+      totalGoal: json['totalGoal'] ?? 0,
       donors: donors,
     );
   }
+
 }

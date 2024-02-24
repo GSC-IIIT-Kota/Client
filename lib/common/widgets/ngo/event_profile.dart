@@ -6,6 +6,7 @@ import 'package:solution_challenge/common/widgets/ngo/people_donating.dart';
 import 'package:solution_challenge/common/widgets/success_screen/success_screen.dart';
 import 'package:solution_challenge/common/widgets/texts/video_card_icontext.dart';
 import 'package:solution_challenge/features/donate/screens/ngo/ngo.dart';
+import 'package:solution_challenge/models/event.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
@@ -17,19 +18,11 @@ import '../icons/circular_heart.dart';
 class PEventProfile extends StatefulWidget {
   const PEventProfile({
     super.key,
-    required this.eventDate,
-    required this.eventTitle,
-    required this.eventLocation,
-    required this.eventDesc,
-    required this.eventPhoto,
     required this.cardWidth,
+    required this.event,
   });
 
-  final String eventDate;
-  final String eventTitle;
-  final String eventLocation;
-  final String eventDesc;
-  final String eventPhoto;
+  final Event event;
   final double cardWidth;
 
   @override
@@ -54,14 +47,16 @@ class _PEventProfileState extends State<PEventProfile> {
           padding: const EdgeInsets.symmetric(horizontal: TSizes.lg),
           child: Column(
             children: [
-              PRoundedImage(imageUrl: widget.eventPhoto),
+              PRoundedImage(
+                imageUrl: widget.event.banner,
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: TSizes.md),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      widget.eventTitle,
+                      widget.event.title,
                       style: Theme.of(context).textTheme.headlineSmall,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
@@ -70,7 +65,7 @@ class _PEventProfileState extends State<PEventProfile> {
                     PCardIconText(
                       iconData: Iconsax.location,
                       iconColor: TColors.battleship,
-                      title: widget.eventLocation,
+                      title: widget.event.location,
                       titleStyle: Theme.of(context).textTheme.titleSmall!.apply(
                             color: dark ? Colors.white : TColors.battleship,
                           ),
@@ -88,7 +83,7 @@ class _PEventProfileState extends State<PEventProfile> {
                     const SizedBox(height: TSizes.spaceBtwItems),
                     PCardIconText(
                       iconData: Iconsax.calendar,
-                      title: widget.eventDate,
+                      title: widget.event.uploadDate.toIso8601String(),
                       titleStyle: Theme.of(context).textTheme.titleSmall!.apply(
                             color: dark ? Colors.white : Colors.black,
                             fontWeightDelta: 2,
@@ -98,7 +93,7 @@ class _PEventProfileState extends State<PEventProfile> {
                     PCardIconText(
                       iconData: Iconsax.clock,
                       iconColor: TColors.rani,
-                      title: widget.eventDate,
+                      title: widget.event.uploadDate.toIso8601String(),
                       titleStyle: Theme.of(context).textTheme.titleSmall!.apply(
                             color: dark ? Colors.white : TColors.rani,
                             fontWeightDelta: 2,
@@ -123,7 +118,7 @@ class _PEventProfileState extends State<PEventProfile> {
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems / 2),
                     Text(
-                      widget.eventDesc,
+                      widget.event.description,
                       maxLines: 6,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.bodyMedium!.apply(

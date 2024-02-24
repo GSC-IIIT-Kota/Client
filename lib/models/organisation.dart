@@ -61,19 +61,14 @@ class NGO {
 
   factory NGO.fromJson(Map<String, dynamic> json) {
     return NGO(
-      id: json['id'],
-      email: json['email'],
-      passwordHash: json['password'],
+      id: json['id'] ?? '',
+      email: json['email'] ?? '',
+      passwordHash: json['password'] ?? '',
       profile:
           json['profile'] != null ? NGOProfile.fromJson(json['profile']) : null,
-      // Handle null case
-      campaigns: json['campaigns'] != null
-          ? List<String>.from(json['campaigns'])
-          : null,
-      // Handle null case
-      events: json['events'] != null
-          ? List<String>.from(json['events'])
-          : null, // Handle null case
+      campaigns:
+          json['campaigns'] != null ? List<String>.from(json['campaigns']) : [],
+      events: json['events'] != null ? List<String>.from(json['events']) : [],
     );
   }
 }

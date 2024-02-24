@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:solution_challenge/features/donate/screens/ngo/widgets/ngo_organization.dart';
+import 'package:solution_challenge/models/organisation.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
@@ -9,25 +10,11 @@ class POrganizationCard extends StatelessWidget {
   const POrganizationCard({
     super.key,
     required this.cardWidth,
-    required this.orgPhoto,
-    required this.ngoName,
-    required this.ngoLocation,
-    required this.id,
-    required this.email,
-    required this.passwordHash,
-    required this.campaigns,
-    required this.events,
+    required this.ngo,
   });
 
   final double cardWidth;
-  final String orgPhoto;
-  final String ngoName;
-  final String ngoLocation;
-  final String id;
-  final String email;
-  final String passwordHash;
-  final List<String> campaigns;
-  final List<String> events;
+  final NGO ngo;
 
   @override
   Widget build(BuildContext context) {
@@ -35,13 +22,7 @@ class POrganizationCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: () => Get.to(
-        () => POrganizationScreen(
-          orgPhoto: orgPhoto,
-          ngoName: ngoName,
-          ngoLocation: ngoLocation,
-          events: events,
-          campaigns: campaigns,
-        ),
+        () => POrganizationScreen(ngo: ngo),
       ),
       child: Container(
         width: cardWidth,
@@ -63,7 +44,7 @@ class POrganizationCard extends StatelessWidget {
               ///Avatar
               CircleAvatar(
                 radius: 25,
-                backgroundImage: NetworkImage(orgPhoto),
+                backgroundImage: NetworkImage(ngo.profile!.logo),
               ),
 
               Padding(
@@ -72,7 +53,7 @@ class POrganizationCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      ngoName,
+                      ngo.profile!.ngoName,
                       style: Theme.of(context).textTheme.headlineSmall!.apply(
                             color: dark ? Colors.white : Colors.black,
                           ),
@@ -81,7 +62,7 @@ class POrganizationCard extends StatelessWidget {
                       textAlign: TextAlign.left,
                     ),
                     Text(
-                      ngoLocation,
+                      ngo.profile!.address,
                       style: Theme.of(context).textTheme.bodySmall!.apply(
                           color: dark
                               ? Colors.white.withOpacity(0.8)

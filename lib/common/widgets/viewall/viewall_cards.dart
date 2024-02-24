@@ -75,16 +75,10 @@ class PViewAllScreen extends StatelessWidget {
                           return Column(
                             children: [
                               PCampaignCard(
-                                  title: campaign.title,
-                                  description: campaign.description,
-                                  raisedMoney: campaign.raisedMoney,
-                                  totalGoal: campaign.totalGoal,
-                                  imageUrl: campaign.imageUrl,
-                                  orgPhoto: campaign.imageUrl,
-                                  cardWidth: PHelperFunctions.screenWidth(),
-                                  rightMargin: EdgeInsets.zero,
-                                ),
-
+                                cardWidth: PHelperFunctions.screenWidth(),
+                                rightMargin: EdgeInsets.zero,
+                                campaign: campaign,
+                              ),
                               const SizedBox(height: 16),
                               // Add space between items
                             ],
@@ -139,12 +133,8 @@ class PViewAllScreen extends StatelessWidget {
                               padding: const EdgeInsets.symmetric(
                                   horizontal: TSizes.defaultSpace),
                               child: PEventCard(
-                                eventDate: "${event.uploadDate}",
-                                eventTitle: event.title,
-                                eventLocation: event.location,
-                                eventDesc: event.description,
-                                eventPhoto: event.banner,
-                                cardWidth: PHelperFunctions.screenWidth(), eventDayTime: 'Wednesday, 9 AM',
+                                cardWidth: PHelperFunctions.screenWidth(),
+                                event: event,
                               ),
                             ),
                             const SizedBox(height: 16),
@@ -166,7 +156,7 @@ class PViewAllScreen extends StatelessWidget {
                     return Center(child: Text('Error: ${snapshot.error}'));
                   } else {
                     return Column(
-                      children: snapshot.data!.map((organization) {
+                      children: snapshot.data!.map((ngo) {
                         return Padding(
                           padding: const EdgeInsets.symmetric(
                               horizontal: TSizes.defaultSpace),
@@ -174,15 +164,7 @@ class PViewAllScreen extends StatelessWidget {
                             children: [
                               POrganizationCard(
                                 cardWidth: PHelperFunctions.screenWidth(),
-                                orgPhoto: organization.profile?.logo ?? '',
-                                ngoName: organization.profile?.ngoName ?? '',
-                                ngoLocation:
-                                    organization.profile?.address ?? '',
-                                id: organization.id,
-                                email: organization.email,
-                                passwordHash: organization.passwordHash,
-                                campaigns: organization.campaigns ?? [],
-                                events: organization.events ?? [],
+                                ngo: ngo,
                               ),
                               const SizedBox(height: TSizes.spaceBtwSections),
                               // Add space between cards

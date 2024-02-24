@@ -47,18 +47,11 @@ class POrganisationSection extends StatelessWidget {
                   itemCount: ngos.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (_, index) {
-                    final organization = ngos[index];
+                    final ngo = ngos[index];
                     return POrganizationCard(
                       cardWidth: 250,
-                      orgPhoto: organization.profile?.logo ?? '',
-                      ngoName: organization.profile?.ngoName ?? '',
-                      ngoLocation:
-                          '${organization.profile?.city ?? ''}, ${organization.profile?.country ?? ''}',
-                      id: organization.id,
-                      email: organization.email,
-                      passwordHash: organization.passwordHash,
-                      campaigns: organization.campaigns ?? [],
-                      events: organization.events ?? [],
+                      ngo: ngo
+
                     );
                   },
                 ),

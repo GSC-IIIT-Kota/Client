@@ -50,13 +50,7 @@ class PCampaignSection extends StatelessWidget {
                   itemBuilder: (_, index) {
                     return PCampaignCard(
                       cardWidth: 250,
-                      title: campaigns[index].title,
-                      description: campaigns[index].description,
-                      raisedMoney: campaigns[index].raisedMoney,
-                      totalGoal: campaigns[index].totalGoal,
-                      imageUrl: campaigns[index].imageUrl,
-                      orgPhoto: campaigns[index]
-                          .ngoID, // Assuming this is the organization's photo URL
+                      campaign:campaigns[index]
                     );
                   },
                 ),
