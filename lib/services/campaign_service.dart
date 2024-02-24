@@ -1,36 +1,81 @@
 import 'dart:convert';
-
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
-import 'package:solution_challenge/models/campaign.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+import '../models/campaign.dart';
 
 class CampaignService {
-  static final apiBaseUrl = dotenv.env['API_BASE_URL'];
+  static final baseUrl = dotenv.env['API_BASE_URL']; // Replace with your API base URL
+
+  static Future<void> createCampaign(Campaign campaign) async {
+    final url = Uri.parse('$baseUrl/campaigns/');
+    final response = await http.post(
+      url,
+      body: json.encode(campaign.toJson()),
+      headers: {'Content-Type': 'application/json'},
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception('Failed to create campaign');
+    }
+  }
+
+  static Future<Campaign> getCampaignById(String id) async {
+    final url = Uri.parse('$baseUrl/campaigns/$id');
+    final response = await http.get(url);
+
+    if (response.statusCode != 200) {
+      throw Exception('Failed to get campaign');
+    }
+
+    final Map<String, dynamic> data = json.decode(response.body);
+    return Campaign.fromJson(data);
+  }
+
   static Future<List<Campaign>> getAllCampaigns() async {
-    // Replace this URL with your actual API endpoint
-    String apiUrl = '$apiBaseUrl/campaigns';
+    final url = Uri.parse('$baseUrl/campaigns/');
+    final response = await http.get(url);
 
-    try {
-      final response = await http.get(Uri.parse(apiUrl));
-      if (response.statusCode == 200) {
-        final List<dynamic> data = jsonDecode(response.body);
-        return data.map((json) => Campaign.fromJson(json)).toList();
-      } else {
-        throw Exception('Failed to load campaigns');
-      }
-    } catch (e) {
-      throw Exception('Failed to load campaigns: $e');
+    if (response.statusCode != 200) {
+      throw Exception('Failed to get campaigns');
+    }
+
+    final List<dynamic> dataList = json.decode(response.body);
+    return dataList.map((data) => Campaign.fromJson(data)).toList();
+  }
+
+  static Future<void> updateCampaign(String id, Map<String, dynamic> updatedFields) async {
+    final url = Uri.parse('$baseUrl/campaigns/$id');
+    final response = await http.put(
+      url,
+      body: json.encode(updatedFields),
+      headers: {'Content-Type': 'application/json'},
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception('Failed to update campaign');
     }
   }
 
-  Future<Campaign> getCampaignById(String eventId) async {
-    final String baseUrl = '$apiBaseUrl/campaigns';
-    final response = await http.get(Uri.parse('$baseUrl/$eventId'));
-    if (response.statusCode == 200) {
-      return Campaign.fromJson(jsonDecode(response.body));
-    } else {
-      throw Exception('Failed to load event');
+  static Future<void> updateCampaignImage(String id, String imageUrl) async {
+    final url = Uri.parse('$baseUrl/campaigns/$id/update-image');
+    final response = await http.patch(
+      url,
+      body: json.encode({'ImageURL': imageUrl}),
+      headers: {'Content-Type': 'application/json'},
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception('Failed to update campaign image');
     }
   }
-// Add more functions as needed, e.g., for creating, updating, or deleting campaigns
+
+  static Future<void> deleteCampaign(String id) async {
+    final url = Uri.parse('$baseUrl/campaigns/$id');
+    final response = await http.delete(url);
+
+    if (response.statusCode != 200) {
+      throw Exception('Failed to delete campaign');
+    }
   }
+}

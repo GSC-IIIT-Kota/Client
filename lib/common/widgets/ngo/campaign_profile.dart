@@ -90,8 +90,8 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
 
                     // Raised Money, Total Goal, and Percentage
                     PCardProgressText(
-                        raisedMoney: widget.campaign.raisedMoney,
-                        totalGoal: widget.campaign.totalGoal),
+                        raisedMoney: widget.campaign.raisedMoney.toInt(),
+                        totalGoal: widget.campaign.totalGoal.toInt()),
                     const SizedBox(height: TSizes.spaceBtwItems / 2),
 
                     // Divider

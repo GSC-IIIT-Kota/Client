@@ -46,6 +46,7 @@ class PCampaignCard extends StatelessWidget {
 
         if (snapshot.hasError) {
           // print(snapshot.data);
+          // print(campaign.description);
           return Text('Error: ${snapshot.error}');
         }
 
@@ -124,8 +125,8 @@ class PCampaignCard extends StatelessWidget {
                       ),
                       const SizedBox(height: TSizes.spaceBtwItems / 2),
                       PCardProgressText(
-                        raisedMoney: campaign.raisedMoney,
-                        totalGoal: campaign.totalGoal,
+                        raisedMoney: campaign.raisedMoney.toInt(),
+                        totalGoal: campaign.totalGoal.toInt(),
                       ),
                     ],
                   ),

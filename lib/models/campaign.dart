@@ -13,6 +13,13 @@ class Donor {
       transactionID: json['transactionID'] ?? '',
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'donorID': donorID,
+      'transactionID': transactionID,
+    };
+  }
 }
 
 class Campaign {
@@ -20,9 +27,10 @@ class Campaign {
   final String ngoID;
   final String title;
   final String description;
+  final DateTime endDate;
   final String imageUrl;
-  final int raisedMoney;
-  final int totalGoal;
+  final double raisedMoney;
+  final double totalGoal;
   final List<Donor> donors;
 
   Campaign({
@@ -30,6 +38,7 @@ class Campaign {
     required this.ngoID,
     required this.title,
     required this.description,
+    required this.endDate,
     required this.imageUrl,
     required this.raisedMoney,
     required this.totalGoal,
@@ -39,7 +48,16 @@ class Campaign {
   factory Campaign.fromJson(Map<String, dynamic> json) {
     List<Donor> donors = [];
     if (json['donors'] != null) {
-      donors = List<Donor>.from(json['donors'].map((x) => Donor.fromJson(x)));
+      donors = List<Donor>.from((json['donors'] as List<dynamic>).map((x) => Donor.fromJson(x)));
+    }
+
+    DateTime? endDate;
+    if (json['endDate'] != null) {
+      try {
+        endDate = DateTime.parse(json['endDate']);
+      } catch (e) {
+        print('Invalid date format for EndDate: ${json['endDate']}');
+      }
     }
 
     return Campaign(
@@ -47,11 +65,25 @@ class Campaign {
       ngoID: json['ngoID'] ?? '',
       title: json['title'] ?? '',
       description: json['description'] ?? '',
+      endDate: endDate ?? DateTime.now(),
       imageUrl: json['imageUrl'] ?? '',
-      raisedMoney: json['raisedMoney'] ?? 0,
-      totalGoal: json['totalGoal'] ?? 0,
+      raisedMoney: (json['raisedMoney'] as num?)?.toDouble() ?? 0.0,
+      totalGoal: (json['totalGoal'] as num?)?.toDouble() ?? 0.0,
       donors: donors,
     );
   }
 
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'ngoID': ngoID,
+      'title': title,
+      'description': description,
+      'endDate': endDate.toIso8601String(),
+      'imageUrl': imageUrl,
+      'raisedMoney': raisedMoney,
+      'totalGoal': totalGoal,
+      'donors': donors.map((donor) => donor.toJson()).toList(),
+    };
+  }
 }

@@ -64,11 +64,9 @@ class NGO {
       id: json['id'] ?? '',
       email: json['email'] ?? '',
       passwordHash: json['password'] ?? '',
-      profile:
-          json['profile'] != null ? NGOProfile.fromJson(json['profile']) : null,
-      campaigns:
-          json['campaigns'] != null ? List<String>.from(json['campaigns']) : [],
-      events: json['events'] != null ? List<String>.from(json['events']) : [],
+      profile: json['profile'] != null ? NGOProfile.fromJson(json['profile']) : null,
+      campaigns: (json['campaigns'] as List<dynamic>?)?.map((e) => e.toString()).toList() ?? [],
+      events: (json['events'] as List<dynamic>?)?.map((e) => e.toString()).toList() ?? [],
     );
   }
 }
