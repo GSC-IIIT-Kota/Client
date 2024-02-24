@@ -1,9 +1,7 @@
 import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
-import 'package:provider/provider.dart';
 import 'package:solution_challenge/models/blog.dart';
-import 'package:solution_challenge/utils/provider/userProvider.dart';
 
 class BlogService {
   static final apiBaseUrl = dotenv.env['API_BASE_URL'];
@@ -22,7 +20,7 @@ class BlogService {
     }
   }
 
-  static Future<Blog> getBlog(String id) async {
+  static Future<Blog> getBlogsByUserId(String id) async {
     final response = await http.get(Uri.parse('$baseUrl/$id'));
     if (response.statusCode == 200) {
       return Blog.fromJson(jsonDecode(response.body));

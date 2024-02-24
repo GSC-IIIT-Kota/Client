@@ -1,5 +1,3 @@
-// user.dart
-
 class Donation {
   final String transactionID;
   final String campaignID;
@@ -50,6 +48,9 @@ class User {
   final UserProfile profile;
   final List<Donation> donations;
   final List<String> myEvents;
+  final List<String> favouriteArticles;
+  final List<String> favouriteBlogs;
+  final List<String> favouriteVideos;
 
   User({
     required this.id,
@@ -58,24 +59,41 @@ class User {
     required this.profile,
     required this.donations,
     required this.myEvents,
+    required this.favouriteArticles,
+    required this.favouriteBlogs,
+    required this.favouriteVideos,
   });
 
   factory User.fromJson(Map<String, dynamic> json) {
-    var userJson = json['user']
-        as Map<String, dynamic>?; // Get the 'user' object from the JSON
+    var userJson = json['user'] as Map<String, dynamic>?;
+
     if (userJson == null) {
       throw Exception('User data not found in JSON');
     }
 
-    var donationList =
-        userJson['donations'] as List<dynamic>?; // Add null check
+    var donationList = userJson['donations'] as List<dynamic>?;
     List<Donation> donations = donationList != null
         ? donationList.map((e) => Donation.fromJson(e)).toList()
         : [];
 
-    var eventList = userJson['myEvents'] as List<dynamic>?; // Add null check
+    var eventList = userJson['myEvents'] as List<dynamic>?;
     List<String> myEvents =
         eventList != null ? eventList.map((e) => e.toString()).toList() : [];
+
+    var favouriteArticlesList = userJson['favouriteArticles'] as List<dynamic>?;
+    List<String> favouriteArticles = favouriteArticlesList != null
+        ? favouriteArticlesList.map((e) => e.toString()).toList()
+        : [];
+
+    var favouriteBlogsList = userJson['favouriteBlogs'] as List<dynamic>?;
+    List<String> favouriteBlogs = favouriteBlogsList != null
+        ? favouriteBlogsList.map((e) => e.toString()).toList()
+        : [];
+
+    var favouriteVideosList = userJson['favouriteVideos'] as List<dynamic>?;
+    List<String> favouriteVideos = favouriteVideosList != null
+        ? favouriteVideosList.map((e) => e.toString()).toList()
+        : [];
 
     return User(
       id: userJson['id'] ?? '',
@@ -84,6 +102,9 @@ class User {
       profile: UserProfile.fromJson(userJson['profile'] ?? {}),
       donations: donations,
       myEvents: myEvents,
+      favouriteArticles: favouriteArticles,
+      favouriteBlogs: favouriteBlogs,
+      favouriteVideos: favouriteVideos,
     );
   }
 }

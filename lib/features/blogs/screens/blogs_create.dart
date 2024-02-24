@@ -26,7 +26,7 @@ class _UploadBlogScreenState extends State<UploadBlogScreen> {
 
   Future<void> _pickImage() async {
     final XFile? pickedImage =
-    await _picker.pickImage(source: ImageSource.gallery);
+        await _picker.pickImage(source: ImageSource.gallery);
     if (pickedImage != null) {
       setState(() {
         _imageFile = File(pickedImage.path);
@@ -113,7 +113,9 @@ class _UploadBlogScreenState extends State<UploadBlogScreen> {
               content: content,
               authorName: "${user.profile.firstName} ${user.profile.lastName}",
               image: _imageFile.path,
-              category: category, estimatedReadTime: 3, id: '', authorID: '', date: date!.toLocal(),
+              category: category,
+              authorID: user.id,
+              // date: date!.toLocal(),
               // date: DateTime.now().millisecondsSinceEpoch, // Convert DateTime to timestamp
             );
 
