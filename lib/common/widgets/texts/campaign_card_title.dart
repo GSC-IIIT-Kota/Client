@@ -16,8 +16,8 @@ class PCampaignCardTitle extends StatelessWidget {
       title,
       style: Theme.of(context)
           .textTheme
-          .bodyLarge!
-          .apply(color: dark ? Colors.white : Colors.black, fontWeightDelta: 1),
+          .titleLarge!
+          .apply(color: dark ? Colors.white : Colors.black),
       overflow: TextOverflow.ellipsis,
       maxLines: 1,
       textAlign: TextAlign.left,

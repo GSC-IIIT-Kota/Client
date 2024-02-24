@@ -59,8 +59,10 @@ class PEventCard extends StatelessWidget {
                         event.title ,
                         style: Theme.of(context)
                             .textTheme
-                            .bodySmall!
-                            .apply(color: dark ? Colors.white : Colors.black, fontWeightDelta: 1),
+                            .titleLarge!
+                            .apply(color: dark ? TColors.brightpink : TColors.rani),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       ),
                       const SizedBox(
                         height: TSizes.sm,
@@ -80,7 +82,7 @@ class PEventCard extends StatelessWidget {
                         style: Theme.of(context)
                             .textTheme
                             .bodySmall!
-                            .apply(color: dark ? TColors.brightpink : TColors.rani, fontWeightDelta: 2),
+                            .apply(color: dark ? Colors.white.withOpacity(0.8) : Colors.black.withOpacity(0.8)),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                         textAlign: TextAlign.left,
@@ -101,16 +103,16 @@ class PEventCard extends StatelessWidget {
                       const SizedBox(
                         height: TSizes.spaceBtwItems / 2,
                       ),
-                      // Text(
-                      //   event.description,
-                      //   style: Theme.of(context)
-                      //       .textTheme
-                      //       .bodyMedium!
-                      //       .apply(color: dark ? Colors.white.withOpacity(0.8) : TColors.battleship),
-                      //   overflow: TextOverflow.ellipsis,
-                      //   maxLines: 2,
-                      //   textAlign: TextAlign.left,
-                      // ),
+                      Text(
+                        event.description,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodySmall!
+                            .apply(color: dark ? Colors.white.withOpacity(0.8) : TColors.battleship),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                        textAlign: TextAlign.left,
+                      ),
                     ],
                   ),
                 ),

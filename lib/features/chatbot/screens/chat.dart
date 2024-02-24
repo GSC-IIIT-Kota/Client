@@ -132,7 +132,7 @@ class _ChatScreenState extends State<ChatScreen> {
                             Text('Chat with Paddy',
                                 style: Theme.of(context)
                                     .textTheme
-                                    .headlineSmall!
+                                    .headlineMedium!
                                     .apply(color: Colors.white)),
                           ],
                         ),
