@@ -3,6 +3,7 @@ import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/education/course/course_lesson_card.dart';
 import 'package:solution_challenge/common/widgets/education/course/course_lesson_profile.dart';
 import 'package:solution_challenge/common/widgets/texts/section_heading.dart';
+import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
@@ -53,7 +54,7 @@ class CourseScreen extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .headlineMedium!
-                        .apply(color: dark ? Colors.white : Colors.black),
+                        .apply(color: dark ? TColors.brightpink : TColors.rani),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
