@@ -19,9 +19,9 @@ class ProfileScreen extends StatelessWidget {
     final dark = PHelperFunctions.isDarkMode(context);
     return Scaffold(
       ///AppBar
-      appBar: const PAppBar(
+      appBar: PAppBar(
         showBackArrow: true,
-        title: Text('Profile'),
+        title: Text('Profile', style: Theme.of(context).textTheme.headlineMedium,),
       ),
 
       ///Body

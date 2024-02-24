@@ -57,7 +57,7 @@ class _PEventProfileState extends State<PEventProfile> {
                   children: [
                     Text(
                       widget.event.title,
-                      style: Theme.of(context).textTheme.headlineSmall,
+                      style: Theme.of(context).textTheme.headlineSmall!.apply(color: dark ? TColors.brightpink : TColors.rani),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -84,19 +84,17 @@ class _PEventProfileState extends State<PEventProfile> {
                     PCardIconText(
                       iconData: Iconsax.calendar,
                       title: widget.event.uploadDate.toIso8601String(),
-                      titleStyle: Theme.of(context).textTheme.titleSmall!.apply(
+                      titleStyle: Theme.of(context).textTheme.bodyLarge!.apply(
                             color: dark ? Colors.white : Colors.black,
-                            fontWeightDelta: 2,
                           ),
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems / 2),
                     PCardIconText(
                       iconData: Iconsax.clock,
-                      iconColor: TColors.rani,
+                      iconColor: Colors.black,
                       title: widget.event.uploadDate.toIso8601String(),
-                      titleStyle: Theme.of(context).textTheme.titleSmall!.apply(
-                            color: dark ? Colors.white : TColors.rani,
-                            fontWeightDelta: 2,
+                      titleStyle: Theme.of(context).textTheme.bodyLarge!.apply(
+                            color: dark ? Colors.white : Colors.black,
                           ),
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
