@@ -23,9 +23,10 @@ class PCircularStar extends StatelessWidget {
               : Colors.white.withOpacity(0.8), // You can change the color
         ),
         child: const Icon(
-          Iconsax.star,
-          color: TColors.brightpink,
-        ),
+            Iconsax.star,
+            color: TColors.brightpink,
+          ),
+
       ),
     );
   }

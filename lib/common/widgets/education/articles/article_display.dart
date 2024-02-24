@@ -24,7 +24,13 @@ class PArticleScreen extends StatelessWidget {
       appBar: PAppBar(
         showBackArrow: true,
         backArrowColor: dark ? Colors.white : TColors.dimgrey,
-        actions: const [],
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Iconsax.star),
+            color: TColors.brightpink,
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(

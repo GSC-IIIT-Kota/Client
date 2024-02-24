@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
-import 'package:solution_challenge/common/widgets/icons/circular_heart.dart';
 import 'package:solution_challenge/common/widgets/images/rounded_image.dart';
 import 'package:solution_challenge/common/widgets/ngo/payment.dart';
 import 'package:solution_challenge/common/widgets/ngo/people_donating.dart';
@@ -44,9 +43,6 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
       appBar: PAppBar(
         showBackArrow: true,
         backArrowColor: dark ? Colors.white : TColors.dimgrey,
-        actions: const [
-          PCircularHeart(),
-        ],
       ),
       body: SingleChildScrollView(
         child: Padding(

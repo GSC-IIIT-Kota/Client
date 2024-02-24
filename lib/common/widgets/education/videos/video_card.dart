@@ -150,11 +150,6 @@ class PVideoCard extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Icon(
-                        Iconsax.like_1,
-                        size: 25,
-                        color: dark ? TColors.brightpink : TColors.rani,
-                      ),
                     ],
                   ),
                 ],

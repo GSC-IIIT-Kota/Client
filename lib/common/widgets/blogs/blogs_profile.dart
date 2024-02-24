@@ -32,6 +32,13 @@ class PBlogProfile extends StatelessWidget {
       appBar: PAppBar(
         showBackArrow: true,
         backArrowColor: dark ? Colors.white : TColors.dimgrey,
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Iconsax.heart),
+            color: TColors.brightpink,
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -39,7 +46,7 @@ class PBlogProfile extends StatelessWidget {
           child: Column(
             children: [
               ///Image of article
-              PRoundedImage(isNetworkImage:true,imageUrl: blogImage),
+              PRoundedImage(isNetworkImage: true, imageUrl: blogImage),
 
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: TSizes.md),
