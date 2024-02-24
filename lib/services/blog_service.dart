@@ -5,7 +5,7 @@ import 'package:solution_challenge/models/blog.dart';
 
 class BlogService {
   static final apiBaseUrl = dotenv.env['API_BASE_URL'];
-  static final baseUrl = '$apiBaseUrl/blogs/';
+  static final baseUrl = '$apiBaseUrl/blogs';
 
   static Future<void> createBlog(Blog blog) async {
     final response = await http.post(
@@ -20,14 +20,22 @@ class BlogService {
     }
   }
 
-  static Future<Blog> getBlogsByUserId(String id) async {
+  static Future<Blog> getBlogById(String id) async {
     final response = await http.get(Uri.parse('$baseUrl/$id'));
     if (response.statusCode == 200) {
-      return Blog.fromJson(jsonDecode(response.body));
+      // Assuming the response body is a JSON array
+      final List<dynamic> responseData = jsonDecode(response.body);
+      if (responseData.isNotEmpty) {
+        // Assuming the first item in the array is the blog data
+        return Blog.fromJson(responseData[0]);
+      } else {
+        throw Exception('Blog not found');
+      }
     } else {
       throw Exception('Failed to get blog');
     }
   }
+
 
   static Future<List<Blog>> getAllBlogs() async {
     final response = await http.get(Uri.parse(baseUrl));

@@ -76,6 +76,7 @@ class BlogScreen extends StatelessWidget {
                               blogAuthor: blog.authorID,
                               blogDate: formatTimeString(blog.date.toString()),
                               blogContent: blog.content,
+                              blogId: blog.id,
                             );
                           },
                         );
@@ -105,7 +106,7 @@ class PBlogAppBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "How you doin'?",
+            "How you doing'?",
             style: Theme.of(context)
                 .textTheme
                 .labelMedium!

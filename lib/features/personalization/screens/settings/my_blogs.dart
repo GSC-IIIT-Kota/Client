@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
-import 'package:solution_challenge/common/widgets/blogs/blogs_card.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/primary_ngo_container.dart';
-import 'package:solution_challenge/models/blog.dart';
-import 'package:solution_challenge/services/user_favorites.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/provider/userProvider.dart';
 
+import '../../../../common/widgets/blogs/blogs_card.dart';
+import '../../../../models/blog.dart';
+import '../../../../services/user_favorites.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 
 class MyBlogsScreen extends StatelessWidget {
-  const MyBlogsScreen({Key? key}) : super(key: key);
+  const MyBlogsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,29 +29,29 @@ class MyBlogsScreen extends StatelessWidget {
                     showBackArrow: true,
                     title: Text(
                       'My Blogs',
-                      style: Theme.of(context).textTheme.headline6!.copyWith(
-                        color: Colors.white,
-                      ),
+                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                            color: Colors.white,
+                          ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: TSizes.spaceBtwSections,
                   ),
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: TSizes.defaultSpace,
             ),
             FutureBuilder<List<Blog>?>(
-              future: UserFavorites().getUserBlogs(userId),
+              future: UserAccount().getUserBlogs(userId),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasError) {
                   return Center(child: Text('Error: ${snapshot.error}'));
                 } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                  return Center(child: Text('No blogs found'));
+                  return const Center(child: Text('No blogs found'));
                 } else {
                   return ListView.builder(
                     scrollDirection: Axis.vertical,
@@ -62,8 +62,8 @@ class MyBlogsScreen extends StatelessWidget {
                       final blog = snapshot.data![index];
                       return PBlogCard(
                         cardWidth: PHelperFunctions.screenWidth(),
-                        bottomMargin: const EdgeInsets.only(
-                            bottom: TSizes.spaceBtwItems),
+                        bottomMargin:
+                            const EdgeInsets.only(bottom: TSizes.spaceBtwItems),
                         imageUrl: blog.image,
                         blogTitle: blog.title,
                         blogCategory: blog.category,
