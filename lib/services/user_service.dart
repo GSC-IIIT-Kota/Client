@@ -5,7 +5,6 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
-// import 'package:shared_preferences/shared_preferences.dart';
 import '../models/user.dart';
 import '../navigation_menu.dart';
 import '../utils/provider/userProvider.dart';
@@ -13,8 +12,7 @@ import '../utils/provider/userProvider.dart';
 class UserService {
   final apiBaseUrl = dotenv.env['API_BASE_URL'];
 
-  Future<void> signIn(
-      BuildContext context, String email, String password) async {
+  Future<void> signIn(BuildContext context, String email, String password) async {
     try {
       String baseUrl = '$apiBaseUrl/users';
       final url = Uri.parse('$baseUrl/login');
@@ -28,11 +26,7 @@ class UserService {
       if (response.statusCode == 200) {
         final userData = jsonDecode(response.body);
         final user = User.fromJson(userData);
-        // final prefs = await SharedPreferences.getInstance();
-        // await prefs.setBool('isLoggedIn', true);
-        print(Provider.of<UserProvider>(context, listen: false).hashCode);
         Provider.of<UserProvider>(context, listen: false).setUser(user);
-        print(userData);
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => NavigationMenu()),
@@ -54,8 +48,7 @@ class UserService {
     }
   }
 
-  Future<void> signUp(
-      BuildContext context, Map<String, dynamic> userData) async {
+  Future<void> signUp(BuildContext context, Map<String, dynamic> userData) async {
     try {
       String baseUrl = '$apiBaseUrl/users';
       final url = Uri.parse('$baseUrl/signup');
@@ -107,8 +100,7 @@ class UserService {
     }
   }
 
-  Future<dynamic> updateUser(
-      String userId, Map<String, dynamic> updatedFields) async {
+  Future<dynamic> updateUser(String userId, Map<String, dynamic> updatedFields) async {
     String baseUrl = '$apiBaseUrl/users';
     final response = await http.put(
       Uri.parse('$baseUrl/$userId'),
@@ -132,3 +124,4 @@ class UserService {
     }
   }
 }
+
