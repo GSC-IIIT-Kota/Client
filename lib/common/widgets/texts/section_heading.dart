@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
+import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 
 class PSectionHeading extends StatelessWidget {
   const PSectionHeading({
@@ -18,6 +19,7 @@ class PSectionHeading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = PHelperFunctions.isDarkMode(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -33,7 +35,7 @@ class PSectionHeading extends StatelessWidget {
         if (showActionButton)
           TextButton(
               onPressed: onPressed,
-              style: TextButton.styleFrom(foregroundColor: TColors.rani),
+              style: TextButton.styleFrom(foregroundColor: dark ? TColors.brightpink : TColors.rani),
               child: Text(buttonTitle))
       ],
     );

@@ -8,6 +8,7 @@ import 'package:solution_challenge/models/education/articles.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import '../../../../utils/datetime/date_time.dart';
 
 class PArticleScreen extends StatelessWidget {
   const PArticleScreen({
@@ -46,75 +47,59 @@ class PArticleScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ///Category
-                    PCardIconText(
-                        iconData: Iconsax.category,
-                        iconColor: TColors.rani,
-                        iconSize: 14,
-                        title: article.title,
-                        titleStyle: Theme.of(context)
-                            .textTheme
-                            .labelLarge!
-                            .apply(color: TColors.rani)),
-                    const SizedBox(
-                      height: TSizes.spaceBtwItems,
-                    ),
-
-                    ///Reading time and posted when
-                    /// Saatvik: Fix this
-                    // Row(
-                    //   children: [
-                    //     ///Reading Time
-                    //     PCardIconText(
-                    //       iconData: Iconsax.clock,
-                    //       iconSize: 14,
-                    //       iconColor: TColors.battleship,
-                    //       title: "Est. 5 minutes.",
-                    //       titleStyle: Theme.of(context)
-                    //           .textTheme
-                    //           .labelLarge!
-                    //           .apply(color: TColors.battleship),
-                    //     ),
-                    //
-                    //     const SizedBox(
-                    //       width: TSizes.spaceBtwItems,
-                    //     ),
-                    //     Text(article.uploadDate.toIso8601String(),
-                    //         style: Theme.of(context)
-                    //             .textTheme
-                    //             .labelLarge!
-                    //             .apply(color: TColors.battleship)),
-                    //   ],
-                    // ),
-                    // const SizedBox(
-                    //   height: TSizes.spaceBtwItems,
-                    // ),
-
                     ///Title
                     Text(
                       article.title,
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     const SizedBox(
-                      height: TSizes.spaceBtwItems,
+                      height: TSizes.spaceBtwItems / 2,
                     ),
 
                     ///Author Name
-                    PRoundedContainer(
-                      borderColor: TColors.rani,
-                      backgroundColor: TColors.rani,
-                      child: PCardIconText(
-                        iconData: Iconsax.user,
-                        title: article.authorName,
-                        titleStyle: Theme.of(context)
-                            .textTheme
-                            .labelLarge!
-                            .apply(color: Colors.white),
+                    IntrinsicWidth(
+                      child: PRoundedContainer(
+                        radius: 100,
+                        borderColor: TColors.rani,
+                        backgroundColor: TColors.rani,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: TSizes.sm / 2, horizontal: TSizes.md),
+                          child: PCardIconText(
+                            iconData: Iconsax.user,
+                            iconSize: 18,
+                            iconColor: Colors.white,
+                            title: article.authorName,
+                            titleStyle: Theme.of(context).textTheme.bodyLarge!.apply(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                     const SizedBox(
                       height: TSizes.spaceBtwItems,
                     ),
+
+                    ///Category
+                    PCardIconText(
+                        iconData: Iconsax.category,
+                        iconColor: dark ? TColors.brightpink : TColors.rani,
+                        iconSize: 14,
+                        title: article.title,
+                        titleStyle: Theme.of(context)
+                            .textTheme
+                            .labelLarge!
+                            .apply(color: dark ? TColors.brightpink : TColors.rani)),
+                    const SizedBox(
+                      height: TSizes.spaceBtwItems / 2,
+                    ),
+                    Text(
+                      '~ ${calculateTimeSince(article.uploadDate.toString())}',
+                      style: Theme.of(context).textTheme.labelLarge!.apply(
+                        color: TColors.battleship,
+                      ),
+                    ),
+                    const SizedBox(height: TSizes.spaceBtwItems),
 
                     ///Content
                     Text(

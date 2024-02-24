@@ -9,6 +9,7 @@ import 'package:solution_challenge/models/education/video.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import '../../../../utils/datetime/date_time.dart';
 
 class PVideoCard extends StatelessWidget {
   const PVideoCard({super.key, required this.video});
@@ -21,7 +22,7 @@ class PVideoCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => Get.to(() => PVideoProfile(
             videoCategory: video.category,
-            uploadTime: video.uploadDate.timeZoneName,
+            uploadTime: video.uploadDate.toString(),
             videoTitle: video.title,
             videoUploader: video.uploader,
             videoDescription: video.description,
@@ -137,7 +138,7 @@ class PVideoCard extends StatelessWidget {
                               iconColor: dark
                                   ? Colors.white.withOpacity(0.9)
                                   : TColors.dimgrey,
-                              title: video.uploadDate.timeZoneName,
+                              title: calculateTimeSince(video.uploadDate.toString()),
                               titleStyle: Theme.of(context)
                                   .textTheme
                                   .labelMedium!
