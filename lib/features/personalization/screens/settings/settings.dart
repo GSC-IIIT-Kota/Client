@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
@@ -6,6 +7,7 @@ import 'package:solution_challenge/common/widgets/custom_shapes/containers/prima
 import 'package:solution_challenge/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:solution_challenge/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:solution_challenge/common/widgets/texts/section_heading.dart';
+import 'package:solution_challenge/features/personalization/screens/settings/language.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:solution_challenge/utils/translator/translated_strings.dart';
@@ -112,7 +114,8 @@ class SettingsScreen extends StatelessWidget {
                     height: TSizes.spaceBtwItems,
                   ),
                   PSettingsMenuTile(
-                      icon: Iconsax.language_circle,
+                    onTap: () => Get.to(() => const LanguageScreen()),
+                      icon: Iconsax.translate,
                       title: translatedStrings?[65] ?? "Change language",
                       subTitle: translatedStrings?[66] ??
                           "Tailor your experience with a language switch")
