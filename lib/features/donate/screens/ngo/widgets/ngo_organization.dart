@@ -14,22 +14,15 @@ import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 import '../../../../../models/campaign.dart';
 import '../../../../../models/event.dart';
+import '../../../../../models/organisation.dart';
 
 class POrganizationScreen extends StatelessWidget {
+  final NGO ngo;
+
   const POrganizationScreen({
     super.key,
-    required this.orgPhoto,
-    required this.ngoName,
-    required this.ngoLocation,
-    required this.events,
-    required this.campaigns,
+    required this.ngo,
   });
-
-  final String orgPhoto;
-  final String ngoName;
-  final String ngoLocation;
-  final List<String> events;
-  final List<String> campaigns;
 
   @override
   Widget build(BuildContext context) {
@@ -62,10 +55,11 @@ class POrganizationScreen extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
                       PUserProfileTile(
-                        imageUrl: orgPhoto,
-                        title: ngoName,
-                        subTitle: ngoLocation,
-                        textColor: Colors.black, showSubtitle: true,
+                        imageUrl: ngo.profile!.logo,
+                        title: ngo.profile!.ngoName,
+                        subTitle: ngo.profile!.address,
+                        textColor: Colors.black,
+                        showSubtitle: true,
                       )
                     ],
                   ),
@@ -89,7 +83,7 @@ class POrganizationScreen extends StatelessWidget {
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
-                  for (var campaignId in campaigns)
+                  for (var campaignId in ngo.campaigns!)
                     FutureBuilder<Campaign?>(
                       future: CampaignService().getCampaignById(campaignId),
                       // Assuming getCampaignById is a function to fetch campaign details by ID
@@ -108,12 +102,7 @@ class POrganizationScreen extends StatelessWidget {
                             child: PCampaignCard(
                               cardWidth: PHelperFunctions.screenWidth(),
                               rightMargin: EdgeInsets.zero,
-                              title: campaign.title,
-                              description: campaign.description,
-                              raisedMoney: campaign.raisedMoney,
-                              totalGoal: campaign.totalGoal,
-                              imageUrl: campaign.imageUrl,
-                              orgPhoto: orgPhoto,
+                              campaign: campaign,
                             ),
                           );
                         }
@@ -125,7 +114,7 @@ class POrganizationScreen extends StatelessWidget {
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
-                  for (var eventId in events)
+                  for (var eventId in ngo.events!)
                     FutureBuilder<Event>(
                       future: EventService().getEventById(eventId),
                       // Assuming getEventById is a function to fetch event details by ID
@@ -142,13 +131,8 @@ class POrganizationScreen extends StatelessWidget {
                           return Padding(
                             padding: const EdgeInsets.all(TSizes.defaultSpace),
                             child: PEventCard(
-                              eventDate: "${event.uploadDate}",
-                              // Assuming 'date' is the correct key in your Event model
-                              eventTitle: event.title,
-                              eventLocation: event.location,
-                              eventDesc: event.description,
-                              eventPhoto: event.banner,
-                              cardWidth: PHelperFunctions.screenWidth(), eventDayTime: 'Wednesday, 9 AM',
+                              event: event,
+                              cardWidth: PHelperFunctions.screenWidth(),
                             ),
                           );
                         }

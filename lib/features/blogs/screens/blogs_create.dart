@@ -109,12 +109,11 @@ class _UploadBlogScreenState extends State<UploadBlogScreen> {
             }
 
             final blog = Blog(
-              id: '1',
               title: title,
               content: content,
-              author: "${user.profile.firstName} ${user.profile.lastName}",
+              authorName: "${user.profile.firstName} ${user.profile.lastName}",
               image: _imageFile.path,
-              category: category,
+              category: category, estimatedReadTime: 3, id: '', authorID: '', date: date!.toLocal(),
               // date: DateTime.now().millisecondsSinceEpoch, // Convert DateTime to timestamp
             );
 

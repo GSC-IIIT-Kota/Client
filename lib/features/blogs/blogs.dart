@@ -72,7 +72,7 @@ class BlogScreen extends StatelessWidget {
                               imageUrl: blog.image,
                               blogTitle: blog.title,
                               blogCategory: blog.category,
-                              blogAuthor: blog.author,
+                              blogAuthor: blog.authorID,
                               blogDate: blog.date.toString(),
                               blogContent: blog.content,
                             );

@@ -3,7 +3,7 @@ import 'package:solution_challenge/utils/constants/sizes.dart';
 
 class PRoundedImage extends StatelessWidget {
   const PRoundedImage({
-    Key? key,
+    super.key,
     this.width,
     this.height,
     required this.imageUrl,
@@ -14,7 +14,7 @@ class PRoundedImage extends StatelessWidget {
     this.onPressed,
     this.borderRadius = TSizes.md,
     this.aspectRatio = 12 / 5,
-  }) : super(key: key);
+  });
 
   final double? width, height;
   final String imageUrl;

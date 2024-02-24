@@ -66,21 +66,19 @@ class NGOService {
   }
 
   Future<NGO> getNGOById(String id) async {
-    try {
-      final baseUrl = '$apiBaseUrl/ngos';
-      final url = Uri.parse('$baseUrl/$id');
-      final response = await http.get(url);
+    // Replace this with your actual implementation
+    final baseUrl = '$apiBaseUrl/ngos';
+    final url = Uri.parse(baseUrl);
+    final response = await http.get(url);
 
-      if (response.statusCode == 200) {
-        return NGO.fromJson(jsonDecode(response.body));
-      } else {
-        throw Exception('Failed to get NGO by ID');
-      }
-    } catch (error) {
-      print('An error occurred: $error');
-      rethrow;
+    if (response.statusCode == 200) {
+      final Map<String, dynamic> data = json.decode(response.body);
+      return NGO.fromJson(data);
+    } else {
+      throw Exception('Failed to load NGO');
     }
   }
+
 
   Future<List<NGO>> getAllNGOs() async {
     try {
