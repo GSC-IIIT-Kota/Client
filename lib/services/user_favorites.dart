@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 import '../models/blog.dart';
 
-class UserFavorites {
+class UserAccount {
   final apiBaseUrl = dotenv.env['API_BASE_URL'];
 
   Future<void> addToFavouritesArticles(String userId, String articleId) async {
@@ -16,7 +16,9 @@ class UserFavorites {
       final response = await http.post(
         url,
         headers: {'Content-Type': 'application/json'},
-        body: jsonEncode({'articleId': articleId}),
+        body: jsonEncode({
+          'articleId': articleId.toString()
+        }), // Encode articleId as a string
       );
 
       if (response.statusCode == 200) {
@@ -55,8 +57,8 @@ class UserFavorites {
 
   Future<void> addToFavouriteBlogs(String userId, String blogId) async {
     try {
-      String baseUrl = '$apiBaseUrl/users';
-      final url = Uri.parse('$baseUrl/$userId/favourite-blog');
+      String baseUrl = '$apiBaseUrl';
+      final url = Uri.parse('$baseUrl/users/$userId/favourite-blog?blogId=$blogId');
 
       final response = await http.post(
         url,
@@ -66,6 +68,7 @@ class UserFavorites {
 
       if (response.statusCode == 200) {
         // Blog added successfully
+        print('Blog added to favourites successfully');
       } else {
         throw Exception('Failed to add blog to favourites');
       }
@@ -140,6 +143,7 @@ class UserFavorites {
       // Handle error
     }
   }
+
   Future<List<Blog>> getUserBlogs(String userId) async {
     try {
       String baseUrl = '$apiBaseUrl/users';
