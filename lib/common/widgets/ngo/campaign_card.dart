@@ -36,7 +36,6 @@ class PCampaignCard extends StatelessWidget {
         campaign.totalGoal != 0 ? campaign.raisedMoney / campaign.totalGoal : 0;
     String id = "";
     id = campaign.ngoID;
-    // print(id);
     return FutureBuilder<NGO>(
       future: NGOService().getNGOById(id),
       builder: (context, snapshot) {
@@ -45,8 +44,6 @@ class PCampaignCard extends StatelessWidget {
         }
 
         if (snapshot.hasError) {
-          // print(snapshot.data);
-          // print(campaign.description);
           return Text('Error: ${snapshot.error}');
         }
 
