@@ -11,6 +11,7 @@ import 'package:solution_challenge/models/blog.dart';
 import 'package:solution_challenge/services/blog_service.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:solution_challenge/utils/provider/userProvider.dart';
+import 'package:solution_challenge/utils/datetime/date_time.dart';
 
 import '../../utils/constants/colors.dart';
 import '../../utils/constants/sizes.dart';
@@ -73,7 +74,7 @@ class BlogScreen extends StatelessWidget {
                               blogTitle: blog.title,
                               blogCategory: blog.category,
                               blogAuthor: blog.authorID,
-                              blogDate: blog.date.toString(),
+                              blogDate: formatTimeString(blog.date.toString()),
                               blogContent: blog.content,
                             );
                           },

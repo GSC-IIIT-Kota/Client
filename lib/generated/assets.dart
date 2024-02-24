@@ -16,8 +16,6 @@ class Assets {
   static const String educationCourse = 'assets/images/education/course.png';
   static const String educationCourses = 'assets/images/education/courses.png';
   static const String educationCoursess = 'assets/images/education/coursess.png';
-  static const String educationDownload = 'assets/images/education/download.png';
-  static const String educationFreeRazorpay16497711399875 = 'assets/images/education/free-razorpay-1649771-1399875.webp';
   static const String fontsPoppinsBlack = 'assets/fonts/Poppins-Black.ttf';
   static const String fontsPoppinsBlackItalic = 'assets/fonts/Poppins-BlackItalic.ttf';
   static const String fontsPoppinsBold = 'assets/fonts/Poppins-Bold.ttf';
