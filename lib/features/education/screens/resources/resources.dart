@@ -127,7 +127,7 @@ class EducationScreen extends StatelessWidget {
                     )),
                   ),
                   const SizedBox(
-                    height: 261,
+                    height: 265,
                     child: VideoBuilder(),
                   ),
                   const SizedBox(

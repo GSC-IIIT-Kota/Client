@@ -91,9 +91,8 @@ class PVideoCard extends StatelessWidget {
                     children: [
                       Text(
                         video.title,
-                        style: Theme.of(context).textTheme.bodySmall!.apply(
-                            color: dark ? Colors.white : TColors.dimgrey,
-                            fontWeightDelta: 1),
+                        style: Theme.of(context).textTheme.titleLarge!.apply(
+                            color: dark ? Colors.white : TColors.dimgrey,),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                         textAlign: TextAlign.left,
@@ -149,11 +148,6 @@ class PVideoCard extends StatelessWidget {
                             ),
                           ],
                         ),
-                      ),
-                      Icon(
-                        Iconsax.like_1,
-                        size: 25,
-                        color: dark ? TColors.brightpink : TColors.rani,
                       ),
                     ],
                   ),

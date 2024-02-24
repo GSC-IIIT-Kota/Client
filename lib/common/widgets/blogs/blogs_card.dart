@@ -10,6 +10,17 @@
   import 'package:solution_challenge/utils/constants/sizes.dart';
   import 'package:solution_challenge/utils/helpers/helper_functions.dart';
   import 'package:get/get.dart';
+import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:solution_challenge/common/widgets/blogs/blogs_profile.dart';
+import 'package:solution_challenge/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:solution_challenge/common/widgets/images/rounded_image.dart';
+import 'package:solution_challenge/common/widgets/texts/campaign_card_title.dart';
+import 'package:solution_challenge/common/widgets/texts/video_card_icontext.dart';
+import 'package:solution_challenge/utils/constants/colors.dart';
+import 'package:solution_challenge/utils/constants/sizes.dart';
+import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:get/get.dart';
 
   class PBlogCard extends StatelessWidget {
     const PBlogCard(
@@ -65,14 +76,22 @@
                       applyImageRadius: true,
                     ),
 
-                    /// Favorite icon button
-                    const Positioned(top: 5, right: 5, child: PCircularStar()),
-                  ],
-                ),
+                  /// Favorite icon button
+                  Positioned(
+                    top: 5,
+                    right: 5,
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Iconsax.heart),
+                      color: TColors.brightpink,
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(
-                height: TSizes.spaceBtwItems / 2,
-              ),
+            ),
+            const SizedBox(
+              height: TSizes.spaceBtwItems / 2,
+            ),
 
               ///Details
               Padding(

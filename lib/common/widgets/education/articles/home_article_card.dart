@@ -54,9 +54,8 @@ class PHomeArticleCard extends StatelessWidget {
                   children: [
                     Text(
                       article.title,
-                      style: Theme.of(context).textTheme.bodySmall!.apply(
+                      style: Theme.of(context).textTheme.titleLarge!.apply(
                             color: dark ? Colors.white : TColors.dimgrey,
-                            fontWeightDelta: 1,
                           ),
                       textAlign: TextAlign.left,
                       overflow: TextOverflow.ellipsis,

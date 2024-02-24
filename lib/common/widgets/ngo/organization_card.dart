@@ -54,7 +54,7 @@ class POrganizationCard extends StatelessWidget {
                   children: [
                     Text(
                       ngo.profile!.ngoName,
-                      style: Theme.of(context).textTheme.headlineSmall!.apply(
+                      style: Theme.of(context).textTheme.titleLarge!.apply(
                             color: dark ? Colors.white : Colors.black,
                           ),
                       maxLines: 1,

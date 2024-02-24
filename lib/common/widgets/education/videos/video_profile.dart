@@ -64,8 +64,15 @@ class _PVideoProfileState extends State<PVideoProfile> {
     final dark = PHelperFunctions.isDarkMode(context);
     final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
-      appBar: const PAppBar(
+      appBar: PAppBar(
         showBackArrow: true,
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Iconsax.like_1),
+            color: TColors.brightpink,
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
