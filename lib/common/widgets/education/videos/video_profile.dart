@@ -151,7 +151,7 @@ class _PVideoProfileState extends State<PVideoProfile> {
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
                     Text(
-                      translatedStrings?[70] ?? 'Description',
+                      translatedStrings?[71] ?? 'Description',
                       style: Theme.of(context).textTheme.titleSmall!.apply(
                             color: dark ? TColors.brightpink : TColors.burgandy,
                             fontWeightDelta: 2,
@@ -176,15 +176,15 @@ class _PVideoProfileState extends State<PVideoProfile> {
                           ),
                     ),
                     const SizedBox(height: 10.0),
-                    Text(
-                      'Transcripts: ${widget.videoTranscripts}',
-                      style: Theme.of(context).textTheme.bodyMedium!.apply(
-                            color: dark
-                                ? Colors.white.withOpacity(0.9)
-                                : TColors.dimgrey,
-                          ),
-                    ),
-                    const SizedBox(height: 10.0),
+                    // Text(
+                    //   'Transcripts: ${widget.videoTranscripts}',
+                    //   style: Theme.of(context).textTheme.bodyMedium!.apply(
+                    //         color: dark
+                    //             ? Colors.white.withOpacity(0.9)
+                    //             : TColors.dimgrey,
+                    //       ),
+                    // ),
+                    // const SizedBox(height: 10.0),
                     Text(
                       'Tags: ${widget.videoTags.join(', ')}',
                       style: Theme.of(context).textTheme.bodyMedium!.apply(

@@ -59,8 +59,9 @@ class _PLessonProfileState extends State<PLessonProfile> {
   Widget build(BuildContext context) {
     final dark = PHelperFunctions.isDarkMode(context);
     return Scaffold(
-      appBar: const PAppBar(
+      appBar: PAppBar(
         showBackArrow: true,
+        backArrowColor: dark ? Colors.white : Colors.black,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -69,7 +70,7 @@ class _PLessonProfileState extends State<PLessonProfile> {
             children: [
               if (widget.isVideo)
                 PRoundedContainer(
-                  backgroundColor: Colors.white,
+                  backgroundColor: Colors.transparent,
                   child: YoutubePlayer(
                     controller: _controller,
                     showVideoProgressIndicator: true,
@@ -109,16 +110,23 @@ class _PLessonProfileState extends State<PLessonProfile> {
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
-                    PRoundedContainer(
-                      borderColor: TColors.rani,
-                      backgroundColor: TColors.rani,
-                      child: PCardIconText(
-                        iconData: Iconsax.user,
-                        title: widget.lessonAuthor,
-                        titleStyle:
-                            Theme.of(context).textTheme.labelLarge!.apply(
-                                  color: Colors.white,
-                                ),
+                    IntrinsicWidth(
+                      child: PRoundedContainer(
+                        radius: 100,
+                        borderColor: TColors.rani,
+                        backgroundColor: TColors.rani,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: TSizes.sm / 2, horizontal: TSizes.md),
+                          child: PCardIconText(
+                            iconData: Iconsax.user,
+                            iconSize: 18,
+                            iconColor: Colors.white,
+                            title: widget.lessonAuthor,
+                            titleStyle: Theme.of(context).textTheme.bodyLarge!.apply(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems / 2),
