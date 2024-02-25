@@ -142,7 +142,7 @@ class PBlogCard extends StatelessWidget {
                     iconData: Iconsax.user,
                     iconSize: 18,
                     iconColor: TColors.rani,
-                    title: blogAuthor,
+                    title: 'Ravina Tandon',
                     titleStyle: Theme.of(context).textTheme.labelLarge!.apply(
                         color: dark
                             ? Colors.white.withOpacity(0.8)
@@ -158,7 +158,7 @@ class PBlogCard extends StatelessWidget {
                     iconData: Iconsax.calendar,
                     iconSize: 18,
                     iconColor: TColors.rani,
-                    title: blogDate,
+                    title: '24th Februaury, 2024',
                     titleStyle: Theme.of(context).textTheme.labelLarge!.apply(
                         color: dark
                             ? Colors.white.withOpacity(0.8)
