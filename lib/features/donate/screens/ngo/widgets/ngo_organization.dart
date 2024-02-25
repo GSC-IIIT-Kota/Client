@@ -94,7 +94,7 @@ class POrganizationScreen extends StatelessWidget {
                         } else if (snapshot.hasError) {
                           return Text('Error: ${snapshot.error}');
                         } else if (snapshot.data == null) {
-                          return const Text('Campaign not found');
+                          return Text(translatedStrings?[90] ?? 'Campaign not found');
                         } else {
                           final campaign = snapshot.data!;
                           return Padding(
@@ -125,7 +125,7 @@ class POrganizationScreen extends StatelessWidget {
                         } else if (snapshot.hasError) {
                           return Text('Error: ${snapshot.error}');
                         } else if (snapshot.data == null) {
-                          return const Text('Event not found');
+                          return Text(translatedStrings?[91] ?? 'Event not found');
                         } else {
                           final event = snapshot.data!;
                           return Padding(

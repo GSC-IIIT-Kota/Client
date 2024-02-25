@@ -10,6 +10,7 @@ import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/tts_manager.dart';
 import 'package:solution_challenge/features/chatbot/screens/prompt.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import '../../authentication/screens/signup/widgets/typingIndicator.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -148,7 +149,7 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
           ),
           const SizedBox(height: TSizes.spaceBtwItems / 2),
-          const Text('Today'),
+          Text(translatedStrings?[88] ?? 'Today'),
           const SizedBox(height: TSizes.spaceBtwItems),
           Expanded(
             child: Stack(

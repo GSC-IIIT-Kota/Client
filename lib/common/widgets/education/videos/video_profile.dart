@@ -8,6 +8,7 @@ import 'package:solution_challenge/models/education/video.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 // import '../../../../utils/provider/userProvider.dart';
@@ -150,7 +151,7 @@ class _PVideoProfileState extends State<PVideoProfile> {
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
                     Text(
-                      'Description',
+                      translatedStrings?[70] ?? 'Description',
                       style: Theme.of(context).textTheme.titleSmall!.apply(
                             color: dark ? TColors.brightpink : TColors.burgandy,
                             fontWeightDelta: 2,

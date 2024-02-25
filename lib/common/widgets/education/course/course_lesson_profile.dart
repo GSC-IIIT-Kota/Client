@@ -8,6 +8,7 @@ import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 class PLessonProfile extends StatefulWidget {
   const PLessonProfile(
@@ -122,7 +123,7 @@ class _PLessonProfileState extends State<PLessonProfile> {
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems / 2),
                     Text(
-                      'Description',
+                      translatedStrings?[71] ?? 'Description',
                       style: Theme.of(context).textTheme.titleSmall!.apply(
                             color: dark ? TColors.brightpink : TColors.burgandy,
                             fontWeightDelta: 2,

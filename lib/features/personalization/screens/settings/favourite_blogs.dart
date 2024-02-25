@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/primary_ngo_container.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import '../../../../common/widgets/blogs/blogs_card.dart';
 import '../../../../models/blog.dart';
 import '../../../../services/blog_service.dart';
@@ -28,7 +29,7 @@ class FavouriteBlogsScreen extends StatelessWidget {
                   PAppBar(
                     showBackArrow: true,
                     title: Text(
-                      'Favorite Blogs',
+                      translatedStrings?[132] ?? 'Favorite Blogs',
                       style: Theme.of(context)
                           .textTheme
                           .headlineMedium!

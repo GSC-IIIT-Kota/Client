@@ -21,7 +21,7 @@ class ProfileScreen extends StatelessWidget {
       ///AppBar
       appBar: PAppBar(
         showBackArrow: true,
-        title: Text('Profile', style: Theme.of(context).textTheme.headlineMedium,),
+        title: Text(translatedStrings?[131] ?? 'Profile', style: Theme.of(context).textTheme.headlineMedium,),
       ),
 
       ///Body

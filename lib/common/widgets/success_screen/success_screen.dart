@@ -3,6 +3,7 @@ import 'package:solution_challenge/common/styles/spacing_styles.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 class SuccessScreen extends StatelessWidget {
   const SuccessScreen({super.key,
@@ -71,7 +72,7 @@ class SuccessScreen extends StatelessWidget {
                       backgroundColor: MaterialStateProperty.all<Color>(TColors.satin),
                       foregroundColor: MaterialStateProperty.all<Color>(TColors.rani),
                     ),
-                    child: const Text("Continue")),
+                    child: Text(translatedStrings?[32] ?? "Continue")),
               ),
             ],
           ),

@@ -4,6 +4,7 @@ import 'package:solution_challenge/common/widgets/custom_shapes/containers/round
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 class LanguageScreen extends StatefulWidget {
   const LanguageScreen({super.key});
@@ -39,14 +40,14 @@ class _LanguageScreenState extends State<LanguageScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Choose language',
+                translatedStrings?[133] ?? 'Choose language',
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               const SizedBox(
                 height: TSizes.sm,
               ),
               Text(
-                'Select the Language That Best Suits Your Preferences',
+                translatedStrings?[134] ?? 'Select the Language That Best Suits Your Preferences',
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(
@@ -54,15 +55,15 @@ class _LanguageScreenState extends State<LanguageScreen> {
               ),
               Column(
                 children: [
-                  _buildLanguageRow(['English', 'Hindi']),
+                  _buildLanguageRow(['English', 'हिंदी']),
                   const SizedBox(height: TSizes.gridViewSpacing),
-                  _buildLanguageRow(['Spanish', 'German']),
+                  _buildLanguageRow(['Español', 'Deutsch']),
                   const SizedBox(height: TSizes.gridViewSpacing),
-                  _buildLanguageRow(['French', 'Russian']),
+                  _buildLanguageRow(['Français', 'Русский']),
                   const SizedBox(height: TSizes.gridViewSpacing),
-                  _buildLanguageRow(['Portuguese', 'Arabic']),
+                  _buildLanguageRow(['Português', 'عربي']),
                   const SizedBox(height: TSizes.gridViewSpacing),
-                  _buildLanguageRow(['Korean', 'Japanese']),
+                  _buildLanguageRow(['한국인', '日本語']),
                 ],
               )
             ],
@@ -74,7 +75,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
             horizontal: TSizes.defaultSpace, vertical: TSizes.md),
         child: ElevatedButton(
           onPressed: () {},
-          child: const Text('Continue'),
+          child: Text(translatedStrings?[32] ?? 'Continue'),
         ),
       ),
     );

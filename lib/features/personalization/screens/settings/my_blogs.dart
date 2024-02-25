@@ -4,6 +4,7 @@ import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/primary_ngo_container.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/provider/userProvider.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 import '../../../../common/widgets/blogs/blogs_card.dart';
 import '../../../../models/blog.dart';
@@ -28,7 +29,7 @@ class MyBlogsScreen extends StatelessWidget {
                   PAppBar(
                     showBackArrow: true,
                     title: Text(
-                      'My Blogs',
+                      translatedStrings?[56] ?? 'My Blogs',
                       style: Theme.of(context).textTheme.titleLarge!.copyWith(
                             color: Colors.white,
                           ),
@@ -51,7 +52,7 @@ class MyBlogsScreen extends StatelessWidget {
                 } else if (snapshot.hasError) {
                   return Center(child: Text('Error: ${snapshot.error}'));
                 } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                  return const Center(child: Text('No blogs found'));
+                  return Center(child: Text(translatedStrings?[136] ?? 'No blogs found'));
                 } else {
                   return ListView.builder(
                     scrollDirection: Axis.vertical,

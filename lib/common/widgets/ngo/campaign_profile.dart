@@ -11,6 +11,7 @@ import 'package:solution_challenge/models/campaign.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 import '../../../models/organisation.dart';
 import 'description.dart';
@@ -103,7 +104,7 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
 
                     // Organiser details
                     Text(
-                      "Organiser",
+                      translatedStrings?[36] ?? "Organiser",
                       style: Theme.of(context).textTheme.titleSmall!.apply(
                           color: dark ? Colors.white : Colors.black,
                           fontWeightDelta: 2),
@@ -162,7 +163,7 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
               MaterialPageRoute(builder: (context) => const RazorPayPage()),
             );
           },
-          child: const Text('Donate now'),
+          child: Text(translatedStrings?[73] ?? 'Donate now'),
         ),
       ),
     );
