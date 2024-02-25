@@ -12,6 +12,7 @@ import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:solution_challenge/utils/translator/translated_strings.dart';
+import '../../../utils/datetime/date_time.dart';
 
 import '../appbar/appbar.dart';
 import '../icons/circular_heart.dart';
@@ -49,6 +50,7 @@ class _PEventProfileState extends State<PEventProfile> {
           child: Column(
             children: [
               PRoundedImage(
+                isNetworkImage: true,
                 imageUrl: widget.event.banner,
               ),
               Padding(
@@ -84,7 +86,7 @@ class _PEventProfileState extends State<PEventProfile> {
                     const SizedBox(height: TSizes.spaceBtwItems),
                     PCardIconText(
                       iconData: Iconsax.calendar,
-                      title: widget.event.uploadDate.toIso8601String(),
+                      title: formatDateFromString(widget.event.uploadDate.toString()),
                       titleStyle: Theme.of(context).textTheme.bodyLarge!.apply(
                             color: dark ? Colors.white : Colors.black,
                           ),
@@ -93,7 +95,7 @@ class _PEventProfileState extends State<PEventProfile> {
                     PCardIconText(
                       iconData: Iconsax.clock,
                       iconColor: Colors.black,
-                      title: widget.event.uploadDate.toIso8601String(),
+                      title: formatTimeString(widget.event.uploadDate.toString()),
                       titleStyle: Theme.of(context).textTheme.bodyLarge!.apply(
                             color: dark ? Colors.white : Colors.black,
                           ),
