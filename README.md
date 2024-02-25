@@ -37,7 +37,7 @@ API_BASE_URL=http://SERVER_IP_ADDRESS:SERVER_PORT/api
 .env.example
 ```
 API_BASE_URL=http://192.168.137.1:8000/api
-
+```
 4. **Generate Splash Screen:**
 - Run the following command to generate the splash screen for the app:
   ```
