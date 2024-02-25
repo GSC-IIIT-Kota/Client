@@ -194,6 +194,7 @@ class PLanguageTile extends StatelessWidget {
     return PRoundedContainer(
       height: 56,
       padding: const EdgeInsets.only(left: TSizes.md),
+      margin: const EdgeInsets.only(right: TSizes.sm),
       showBorder: true,
       borderColor: isSelected ? TColors.rani : TColors.dimgrey,
       backgroundColor: isSelected ? TColors.rani.withOpacity(0.2) : Colors.transparent,

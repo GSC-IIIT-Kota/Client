@@ -91,16 +91,23 @@ class PBlogProfile extends StatelessWidget {
                     ),
 
                     ///Author Name
-                    PRoundedContainer(
-                      borderColor: TColors.rani,
-                      backgroundColor: TColors.rani,
-                      child: PCardIconText(
-                        iconData: Iconsax.user,
-                        title: blogAuthor,
-                        titleStyle: Theme.of(context)
-                            .textTheme
-                            .labelLarge!
-                            .apply(color: Colors.white),
+                    IntrinsicWidth(
+                      child: PRoundedContainer(
+                        radius: 100,
+                        borderColor: TColors.rani,
+                        backgroundColor: TColors.rani,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: TSizes.sm / 2, horizontal: TSizes.md),
+                          child: PCardIconText(
+                            iconData: Iconsax.user,
+                            iconSize: 18,
+                            iconColor: Colors.white,
+                            title: 'Ravina Tandon',
+                            titleStyle: Theme.of(context).textTheme.bodyLarge!.apply(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                     const SizedBox(
