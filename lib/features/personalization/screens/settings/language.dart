@@ -69,6 +69,8 @@ class _LanguageScreenState extends State<LanguageScreen> {
         return en.originalStrings; // Default to English
     }
   }
+
+
   @override
   Widget build(BuildContext context) {
     translatedStrings = getTranslatedStrings();
@@ -105,7 +107,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                   const SizedBox(height: TSizes.gridViewSpacing),
                   _buildLanguageRow(['pt', 'ja']),
                   const SizedBox(height: TSizes.gridViewSpacing),
-                  _buildLanguageRow(['ko', 'ja']),
+                  _buildLanguageRow(['ko']),
                 ],
               )
             ],
@@ -156,6 +158,33 @@ class PLanguageTile extends StatelessWidget {
     required this.isSelected,
   });
 
+  String getLanguage(String language) {
+    switch (this.language) {
+      case 'en':
+        return 'English';
+      case 'hi':
+        return 'Hindi';
+      case 'es':
+        return 'Spanish';
+      case 'de':
+        return 'German';
+      case 'fr':
+        return 'French';
+      case 'ru':
+        return 'Russian';
+      case 'ko':
+        return 'Korean';
+      case 'ja':
+        return 'Japanese';
+      case 'pt':
+        return 'Portuguese';
+      case 'ar':
+        return 'Arabic';
+      default:
+        return 'English'; // Default to English
+    }
+  }
+
   final String language;
   final bool isSelected;
 
@@ -173,7 +202,7 @@ class PLanguageTile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
-            language,
+            getLanguage(language),
             style: Theme.of(context).textTheme.titleLarge!.apply(
               color: isSelected ? TColors.rani : (dark ? Colors.white : Colors.black),
             ),

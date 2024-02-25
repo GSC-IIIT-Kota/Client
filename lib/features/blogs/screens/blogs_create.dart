@@ -1,7 +1,7 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:provider/provider.dart';
 import 'package:solution_challenge/models/blog.dart';
 import 'package:solution_challenge/services/blog_service.dart';
@@ -10,7 +10,7 @@ import 'package:solution_challenge/utils/translator/translated_strings.dart';
 import '../../../utils/provider/userProvider.dart';
 
 class UploadBlogScreen extends StatefulWidget {
-  const UploadBlogScreen({Key? key}) : super(key: key);
+  const UploadBlogScreen({super.key});
 
   @override
   _UploadBlogScreenState createState() => _UploadBlogScreenState();
@@ -20,6 +20,8 @@ class _UploadBlogScreenState extends State<UploadBlogScreen> {
   final ImagePicker _picker = ImagePicker();
   late File _imageFile;
 
+  String imageUrl='';
+
   String title = '';
   String content = '';
   String category = ''; // New category field
@@ -27,11 +29,24 @@ class _UploadBlogScreenState extends State<UploadBlogScreen> {
 
   Future<void> _pickImage() async {
     final XFile? pickedImage =
-        await _picker.pickImage(source: ImageSource.gallery);
+    await _picker.pickImage(source: ImageSource.gallery);
     if (pickedImage != null) {
       setState(() {
         _imageFile = File(pickedImage.path);
       });
+      String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
+
+      Reference referenceRoot = FirebaseStorage.instance.ref();
+      Reference referenceDirImages = referenceRoot.child('blogs');
+
+      Reference referenceImageToUpload = referenceDirImages.child(uniqueFileName);
+
+      try{
+        await referenceImageToUpload.putFile(File(pickedImage.path));
+        imageUrl = await referenceImageToUpload.getDownloadURL();
+        print(imageUrl);
+      }catch(error){}
+
     }
   }
 
@@ -43,7 +58,7 @@ class _UploadBlogScreenState extends State<UploadBlogScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserProvider>(context).user;
+    // final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
       appBar: AppBar(
         title: Text(translatedStrings?[78] ?? 'Upload Blog'),
@@ -60,6 +75,11 @@ class _UploadBlogScreenState extends State<UploadBlogScreen> {
               label: Text(translatedStrings?[79] ?? 'Upload Image'),
             ),
             const SizedBox(height: 20.0),
+
+            // Display selected image
+            _imageFile.path.isNotEmpty
+                ? Image.file(_imageFile)
+                : const SizedBox.shrink(),
 
             // Title Input
             TextFormField(
@@ -91,11 +111,6 @@ class _UploadBlogScreenState extends State<UploadBlogScreen> {
               onChanged: (value) => category = value,
             ),
             const SizedBox(height: 20.0),
-
-            // Display selected image
-            _imageFile.path.isNotEmpty
-                ? Image.file(_imageFile)
-                : const SizedBox.shrink(),
           ],
         ),
       ),
@@ -113,7 +128,7 @@ class _UploadBlogScreenState extends State<UploadBlogScreen> {
               title: title,
               content: content,
               authorName: "${user.profile.firstName} ${user.profile.lastName}",
-              image: _imageFile.path,
+              image: imageUrl,
               category: category,
               authorID: user.id,
               // date: date!.toLocal(),

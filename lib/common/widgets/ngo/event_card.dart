@@ -8,6 +8,7 @@ import 'package:solution_challenge/utils/constants/sizes.dart';
 
 import '../../../utils/helpers/helper_functions.dart';
 import './event_profile.dart';
+import '../../../utils/datetime/date_time.dart';
 
 class PEventCard extends StatelessWidget {
   const PEventCard({
@@ -68,7 +69,7 @@ class PEventCard extends StatelessWidget {
                         height: TSizes.sm,
                       ),
                       Text(
-                        event.uploadDate.toString(),
+                        formatDateFromString(event.uploadDate.toString()),
                         style: Theme.of(context)
                             .textTheme
                             .bodySmall!
@@ -78,7 +79,7 @@ class PEventCard extends StatelessWidget {
                         height: TSizes.spaceBtwItems / 2,
                       ),
                       Text(
-                        event.uploadDate.toString(),
+                        formatTimeString(event.uploadDate.toString()),
                         style: Theme.of(context)
                             .textTheme
                             .bodySmall!

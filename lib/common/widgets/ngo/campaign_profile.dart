@@ -51,7 +51,7 @@ class _PCampaignProfileState extends State<PCampaignProfile> {
           child: Column(
             children: [
               // Image of the campaign
-              PRoundedImage(imageUrl: widget.campaign.imageUrl),
+              PRoundedImage(isNetworkImage: true, imageUrl: widget.campaign.imageUrl),
 
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: TSizes.md),
