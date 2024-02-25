@@ -5,6 +5,18 @@ import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:solution_challenge/utils/translator/translated_strings.dart';
+import 'package:solution_challenge/utils/translator/strings_ar.dart' as ar;
+import 'package:solution_challenge/utils/translator/strings_de.dart' as de;
+import 'package:solution_challenge/utils/translator/strings_en.dart' as en;
+import 'package:solution_challenge/utils/translator/strings_es.dart' as es;
+import 'package:solution_challenge/utils/translator/strings_fr.dart' as fr;
+import 'package:solution_challenge/utils/translator/strings_hi.dart' as hi;
+import 'package:solution_challenge/utils/translator/strings_ja.dart' as ja;
+import 'package:solution_challenge/utils/translator/strings_ko.dart' as ko;
+import 'package:solution_challenge/utils/translator/strings_pt.dart' as pt;
+import 'package:solution_challenge/utils/translator/strings_ru.dart' as ru;
+
+import '../../../authentication/screens/onboarding/onboarding.dart';
 
 class LanguageScreen extends StatefulWidget {
   const LanguageScreen({super.key});
@@ -15,21 +27,51 @@ class LanguageScreen extends StatefulWidget {
 
 class _LanguageScreenState extends State<LanguageScreen> {
   late String selectedLanguage;
+  late String language;
 
   @override
   void initState() {
     super.initState();
     selectedLanguage = '';
+    language = "en"; // Default language
   }
 
   void selectLanguage(String language) {
     setState(() {
       selectedLanguage = language;
+      this.language = language;
     });
   }
 
+  List<String> getTranslatedStrings() {
+    switch (language) {
+      case 'en':
+        return en.originalStrings;
+      case 'hi':
+        return hi.originalStrings;
+      case 'es':
+        return es.originalStrings;
+      case 'de':
+        return de.originalStrings;
+      case 'fr':
+        return fr.originalStrings;
+      case 'ru':
+        return ru.originalStrings;
+      case 'ko':
+        return ko.originalStrings;
+      case 'ja':
+        return ja.originalStrings;
+      case 'pt':
+        return pt.originalStrings;
+      case 'ar':
+        return ar.originalStrings;
+      default:
+        return en.originalStrings; // Default to English
+    }
+  }
   @override
   Widget build(BuildContext context) {
+    translatedStrings = getTranslatedStrings();
     final dark = PHelperFunctions.isDarkMode(context);
     return Scaffold(
       appBar: PAppBar(showBackArrow: true, backArrowColor: dark ? Colors.white : Colors.black,),
@@ -55,15 +97,15 @@ class _LanguageScreenState extends State<LanguageScreen> {
               ),
               Column(
                 children: [
-                  _buildLanguageRow(['English', 'हिंदी']),
+                  _buildLanguageRow(['en', 'hi']),
                   const SizedBox(height: TSizes.gridViewSpacing),
-                  _buildLanguageRow(['Español', 'Deutsch']),
+                  _buildLanguageRow(['es', 'de']),
                   const SizedBox(height: TSizes.gridViewSpacing),
-                  _buildLanguageRow(['Français', 'Русский']),
+                  _buildLanguageRow(['fr', 'ru']),
                   const SizedBox(height: TSizes.gridViewSpacing),
-                  _buildLanguageRow(['Português', 'عربي']),
+                  _buildLanguageRow(['pt', 'ja']),
                   const SizedBox(height: TSizes.gridViewSpacing),
-                  _buildLanguageRow(['한국인', '日本語']),
+                  _buildLanguageRow(['ko', 'ja']),
                 ],
               )
             ],
@@ -74,7 +116,12 @@ class _LanguageScreenState extends State<LanguageScreen> {
         padding: const EdgeInsets.symmetric(
             horizontal: TSizes.defaultSpace, vertical: TSizes.md),
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const OnBoardingScreen()),
+            );
+          },
           child: Text(translatedStrings?[32] ?? 'Continue'),
         ),
       ),
