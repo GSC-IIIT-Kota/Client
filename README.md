@@ -32,18 +32,29 @@ cd Client
 3. **Create .env file**:
 Make a file named `.env` in the root directory. This file will contain the following things:
 ```
-API_BASE_URL=http://192.168.137.1:8000/api
+API_BASE_URL=http://SERVER_IP_ADDRESS:SERVER_PORT/api
 ```
+.env.example
+```
+API_BASE_URL=http://192.168.137.1:8000/api
 
-4. **Install Dependencies**: 
+4. **Generate Splash Screen:**
+- Run the following command to generate the splash screen for the app:
+  ```
+  flutter pub run flutter_native_splash:create --path=splash.yaml
+  ```
+  
+5. **Install Dependencies**: 
 ```
 flutter pub get
 ```
 
-5. **Connect your Device**:
+6. **Connect your Device**:
 Connect your mobile device with the system or use the default Android emulator for using the app.
 
-6. **Run the App**: 
+7. **Run the App**: 
 ```
 flutter run
 ```
+
+flutter pub run flutter_native_splash:create --path=splash.yaml
