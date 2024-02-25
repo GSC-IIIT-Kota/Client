@@ -87,11 +87,11 @@ class SettingsScreen extends StatelessWidget {
                       onTap: () => Get.to(() => const MyBlogsScreen()),
                       icon: Iconsax.path,
                       title: translatedStrings?[56] ?? "My Blogs",
-                      subTitle: "Explore Your Written Insights"),
+                      subTitle: translatedStrings?[138] ?? "Explore Your Written Insights"),
                   PSettingsMenuTile(
                       onTap: () => Get.to(() => const FavouriteBlogsScreen()),
                       icon: Iconsax.heart,
-                      title: "Favorite Blogs",
+                      title: translatedStrings?[132] ?? "Favorite Blogs",
                       subTitle: "Curate Your Preferred Reads"),
                   PSettingsMenuTile(
                       onTap: () => Get.to(() => const MyDonationsScreen()),
@@ -102,20 +102,20 @@ class SettingsScreen extends StatelessWidget {
                   PSettingsMenuTile(
                       onTap: () => Get.to(() => const RegisteredEventsScreen()),
                       icon: Iconsax.bubble,
-                      title: "Registered Events",
-                      subTitle: "Stay Updated on Your Engagements"),
+                      title: translatedStrings?[137] ?? "Registered Events",
+                      subTitle: translatedStrings?[140] ?? "Stay Updated on Your Engagements"),
 
                   PSettingsMenuTile(
                     onTap: () => Get.to(() => const StarredArticlesScreen()),
                     icon: Iconsax.star,
-                    title: "Starred Articles",
-                    subTitle: "Access Your Starred Reads",
+                    title: translatedStrings?[141] ?? "Starred Articles",
+                    subTitle: translatedStrings?[142] ?? "Access Your Starred Reads",
                   ),
                   PSettingsMenuTile(
                       onTap: () => Get.to(() => const LikedVideosScreen()),
                       icon: Iconsax.like_1,
-                      title: "Liked Videos",
-                      subTitle: "Keep Your Preferred Videos Handy"),
+                      title: translatedStrings?[135] ?? "Liked Videos",
+                      subTitle: translatedStrings?[143] ?? "Keep Your Preferred Videos Handy"),
 
                   ///App Settings
                   const SizedBox(

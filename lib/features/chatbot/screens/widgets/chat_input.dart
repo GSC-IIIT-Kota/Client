@@ -3,6 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 class PChatInput extends StatefulWidget {
   final Future<dynamic> Function(String)? onSendMessage; // Callback function to send messages
@@ -34,7 +35,7 @@ class _PChatInputState extends State<PChatInput> {
           TextField(
             controller: messageController,
             decoration: InputDecoration(
-              hintText: "Type message",
+              hintText: translatedStrings?[34] ?? "Type message",
               hintStyle: Theme.of(context).textTheme.labelLarge!.apply(color: TColors.battleship),
               contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
             ),

@@ -12,6 +12,7 @@ import 'package:solution_challenge/services/blog_service.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:solution_challenge/utils/provider/userProvider.dart';
 import 'package:solution_challenge/utils/datetime/date_time.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 import '../../utils/constants/colors.dart';
 import '../../utils/constants/sizes.dart';
@@ -26,15 +27,15 @@ class BlogScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const PPrimaryNgoContainer(
+            PPrimaryNgoContainer(
               child: Column(
                 children: [
-                  SizedBox(height: TSizes.spaceBtwItems),
-                  PBlogAppBar(),
-                  SizedBox(height: TSizes.spaceBtwSections),
-                  PWhiteSearchContainer(text: "Search Blogs"),
-                  SizedBox(height: TSizes.spaceBtwSections),
-                  SizedBox(height: TSizes.spaceBtwItems),
+                  const SizedBox(height: TSizes.spaceBtwItems),
+                  const PBlogAppBar(),
+                  const SizedBox(height: TSizes.spaceBtwSections),
+                  PWhiteSearchContainer(text: translatedStrings?[85] ?? "Search Blogs"),
+                  const SizedBox(height: TSizes.spaceBtwSections),
+                  const SizedBox(height: TSizes.spaceBtwItems),
                 ],
               ),
             ),
@@ -46,7 +47,7 @@ class BlogScreen extends StatelessWidget {
                 children: [
                   const SizedBox(height: TSizes.spaceBtwItems),
                   PSectionHeading(
-                    title: 'Latest Blogs',
+                    title: translatedStrings?[86] ?? 'Latest Blogs',
                     textColor: dark ? Colors.white : Colors.black,
                     showActionButton: false,
                   ),
@@ -106,7 +107,7 @@ class PBlogAppBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "How you doing'?",
+            translatedStrings?[87] ?? "How you doing?",
             style: Theme.of(context)
                 .textTheme
                 .labelMedium!

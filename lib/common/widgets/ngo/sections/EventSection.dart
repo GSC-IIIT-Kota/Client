@@ -4,6 +4,7 @@ import 'package:solution_challenge/common/widgets/ngo/event_card.dart';
 import 'package:solution_challenge/models/event.dart';
 import 'package:solution_challenge/services/event_service.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 import '../../texts/section_heading.dart';
 import '../../viewall/viewall_cards.dart';
@@ -45,7 +46,7 @@ class PEventSection extends StatelessWidget {
               } else {
                 final events = snapshot.data ?? [];
                 if (events.isEmpty) {
-                  return const Center(child: Text('No events found'));
+                  return Center(child: Text(translatedStrings?[72] ?? 'No events found'));
                 }
                 return ListView.builder(
                   itemCount: events.length,

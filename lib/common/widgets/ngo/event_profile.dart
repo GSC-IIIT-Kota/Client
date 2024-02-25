@@ -11,6 +11,7 @@ import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/image_strings.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 import '../appbar/appbar.dart';
 import '../icons/circular_heart.dart';
@@ -108,7 +109,7 @@ class _PEventProfileState extends State<PEventProfile> {
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems / 2),
                     Text(
-                      "Description",
+                      translatedStrings?[71] ?? "Description",
                       style: Theme.of(context).textTheme.titleSmall!.apply(
                             color: dark ? TColors.brightpink : TColors.burgandy,
                             fontWeightDelta: 2,
@@ -140,11 +141,11 @@ class _PEventProfileState extends State<PEventProfile> {
               backgroundColor: TColors.rani,
               textColor: Colors.white,
               image: TImages.registrationSuccess,
-              title: "You're In!",
+              title: translatedStrings?[75] ?? "You're In!",
               subTitle:
-                  "Thank you for joining the donation event. Your support makes a difference!",
+                  translatedStrings?[76] ?? "Thank you for joining the donation event. Your support makes a difference!",
               onPressed: () => Get.to(() => const NgoScreen()))),
-          child: const Text('Register'),
+          child: Text(translatedStrings?[77] ?? 'Register'),
         ),
       ),
     );

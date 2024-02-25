@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
@@ -24,7 +25,7 @@ class DescriptionWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Description",
+          translatedStrings?[71] ?? "Description",
           style: Theme.of(context).textTheme.titleSmall!.apply(
                 color: dark ? TColors.brightpink : TColors.burgandy,
                 fontWeightDelta: 2,
@@ -42,9 +43,9 @@ class DescriptionWidget extends StatelessWidget {
         if (!showFullDescription)
           TextButton(
             onPressed: onReadMorePressed,
-            child: const Text(
-              'Read more',
-              style: TextStyle(color: Colors.blue),
+            child: Text(
+              translatedStrings?[74] ?? 'Read more',
+              style: const TextStyle(color: Colors.blue),
             ),
           ),
       ],

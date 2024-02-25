@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/custom_shapes/containers/primary_ngo_container.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 import '../../../../utils/constants/sizes.dart';
 
@@ -20,7 +21,7 @@ class MyDonationsScreen extends StatelessWidget {
                   PAppBar(
                     showBackArrow: true,
                     title: Text(
-                      'My Donations',
+                      translatedStrings?[55] ?? 'My Donations',
                       style: Theme.of(context)
                           .textTheme
                           .headlineMedium!

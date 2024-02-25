@@ -5,6 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:solution_challenge/models/blog.dart';
 import 'package:solution_challenge/services/blog_service.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 import '../../../utils/provider/userProvider.dart';
 
@@ -45,7 +46,7 @@ class _UploadBlogScreenState extends State<UploadBlogScreen> {
     final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Upload Blog'),
+        title: Text(translatedStrings?[78] ?? 'Upload Blog'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -56,15 +57,15 @@ class _UploadBlogScreenState extends State<UploadBlogScreen> {
             ElevatedButton.icon(
               onPressed: _pickImage,
               icon: const Icon(Icons.image),
-              label: const Text('Upload Image'),
+              label: Text(translatedStrings?[79] ?? 'Upload Image'),
             ),
             const SizedBox(height: 20.0),
 
             // Title Input
             TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Title',
-                prefixIcon: Icon(Icons.text_fields),
+              decoration: InputDecoration(
+                labelText: translatedStrings?[80] ?? 'Title',
+                prefixIcon: const Icon(Icons.text_fields),
               ),
               onChanged: (value) => title = value,
             ),
@@ -73,9 +74,9 @@ class _UploadBlogScreenState extends State<UploadBlogScreen> {
             // Content Input
             TextField(
               maxLines: null, // Allow multiline input
-              decoration: const InputDecoration(
-                labelText: 'Content',
-                prefixIcon: Icon(Icons.text_format),
+              decoration: InputDecoration(
+                labelText: translatedStrings?[81] ?? 'Content',
+                prefixIcon: const Icon(Icons.text_format),
               ),
               onChanged: (value) => content = value,
             ),
@@ -83,9 +84,9 @@ class _UploadBlogScreenState extends State<UploadBlogScreen> {
 
             // Category Input
             TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Category',
-                prefixIcon: Icon(Icons.category),
+              decoration: InputDecoration(
+                labelText: translatedStrings?[82] ?? 'Category',
+                prefixIcon: const Icon(Icons.category),
               ),
               onChanged: (value) => category = value,
             ),
@@ -124,13 +125,13 @@ class _UploadBlogScreenState extends State<UploadBlogScreen> {
               Navigator.pop(context, true); // Go back to the previous screen
             } catch (e) {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Failed to upload blog post'),
+                SnackBar(
+                  content: Text(translatedStrings?[83] ?? 'Failed to upload blog post'),
                 ),
               );
             }
           },
-          child: const Text('Upload Blog'),
+          child: Text(translatedStrings?[84] ?? 'Upload Blog'),
         ),
       ),
     );

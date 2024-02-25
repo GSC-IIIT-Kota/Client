@@ -12,6 +12,7 @@ import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:solution_challenge/utils/provider/userProvider.dart';
+import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
 class PBlogCard extends StatelessWidget {
   const PBlogCard(
@@ -39,14 +40,14 @@ class PBlogCard extends StatelessWidget {
   void onLikePressed(BuildContext context, String userId, String blogId) {
     UserAccount().addToFavouriteBlogs(userId, blogId).then((_) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Added to liked blogs'),
+        SnackBar(
+          content: Text(translatedStrings?[69] ?? 'Added to liked blogs'),
         ),
       );
     }).catchError((error) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Failed to add to liked blogs'),
+        SnackBar(
+          content: Text(translatedStrings?[70] ?? 'Failed to add to liked blogs'),
         ),
       );
     });

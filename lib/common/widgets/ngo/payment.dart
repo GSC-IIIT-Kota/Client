@@ -52,7 +52,7 @@ class RazorPayPageState extends State<RazorPayPage>{
       'method': {'netbanking': '1', 'card': '1', 'upi': '1', 'wallet': '1'},
       'description': 'To NGOs',
       'send_sms_hash': true,
-      'prefill': {'contact': '8488903211', 'email': 'test@gmail.com'},
+      'prefill': {'contact': '1234567890', 'email': 'test@gmail.com'},
       'external': {
         'wallets': ['paytm', 'phonepe']
       }
