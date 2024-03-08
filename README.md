@@ -57,4 +57,3 @@ Connect your mobile device with the system or use the default Android emulator f
 flutter run
 ```
 
-flutter pub run flutter_native_splash:create --path=splash.yaml
