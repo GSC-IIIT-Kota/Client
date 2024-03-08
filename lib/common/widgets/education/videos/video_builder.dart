@@ -34,7 +34,10 @@ class _VideoBuilderState extends State<VideoBuilder> {
             itemCount: videoList.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (_, index) {
-              return PVideoCard(video: videoList[index]);
+              return PVideoCard(
+                video: videoList[index],
+                cardWidth: 250,
+              );
             },
           );
         }
