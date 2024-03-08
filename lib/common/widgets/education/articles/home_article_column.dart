@@ -23,7 +23,10 @@ class PHomeArticleColumn extends StatelessWidget {
       ),
       child: Column(
         children: articles.map((article) {
-          return PHomeArticleCard(article: article);
+          return PHomeArticleCard(
+            article: article,
+            cardWidth: 300,
+          );
         }).toList(),
       ),
     );

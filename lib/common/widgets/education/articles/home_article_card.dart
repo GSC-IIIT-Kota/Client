@@ -15,8 +15,10 @@ class PHomeArticleCard extends StatelessWidget {
   const PHomeArticleCard({
     super.key,
     required this.article,
+    required this.cardWidth,
   });
 
+  final double cardWidth;
   final Article article;
 
   @override
@@ -25,7 +27,7 @@ class PHomeArticleCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => Get.to(() => PArticleScreen(article: article)),
       child: Container(
-        width: 300,
+        width: cardWidth,
         height: 90,
         padding: const EdgeInsets.all(1),
         margin: const EdgeInsets.only(bottom: 20),

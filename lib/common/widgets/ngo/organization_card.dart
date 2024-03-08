@@ -11,9 +11,11 @@ class POrganizationCard extends StatelessWidget {
     super.key,
     required this.cardWidth,
     required this.ngo,
+    this.rightMargin = const EdgeInsets.only(right: 20),
   });
 
   final double cardWidth;
+  final EdgeInsets? rightMargin;
   final NGO ngo;
 
   @override
@@ -27,7 +29,7 @@ class POrganizationCard extends StatelessWidget {
       child: Container(
         width: cardWidth,
         padding: const EdgeInsets.all(1),
-        margin: const EdgeInsets.only(right: 20),
+        margin: rightMargin,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(TSizes.productImageRadius),
           color: dark ? Colors.black : Colors.white,

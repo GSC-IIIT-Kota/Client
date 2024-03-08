@@ -13,9 +13,10 @@ import '../../../utils/datetime/date_time.dart';
 class PEventCard extends StatelessWidget {
   const PEventCard({
     super.key,
-    required this.cardWidth, required this.event,
+    required this.cardWidth, required this.event, this.rightMargin = const EdgeInsets.only(right: 20),
   });
   final double cardWidth;
+  final EdgeInsets? rightMargin;
   final Event event;
 
   @override
@@ -33,7 +34,7 @@ class PEventCard extends StatelessWidget {
       child: Container(
         width: cardWidth,
         padding: const EdgeInsets.all(1),
-        margin: const EdgeInsets.only(right: 20),
+        margin: rightMargin,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(TSizes.productImageRadius),
           color: dark ? Colors.black : Colors.white,

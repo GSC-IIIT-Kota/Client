@@ -105,7 +105,11 @@ class PViewAllScreen extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: TSizes.defaultSpace),
-                              child: PVideoCard(video: video),
+                              child: PVideoCard(
+                                video: video,
+                                cardWidth: PHelperFunctions.screenWidth(),
+                                rightMargin: EdgeInsets.zero,
+                              ),
                             ),
                             const SizedBox(height: 16),
                             // Add space between items
@@ -134,6 +138,7 @@ class PViewAllScreen extends StatelessWidget {
                                   horizontal: TSizes.defaultSpace),
                               child: PEventCard(
                                 cardWidth: PHelperFunctions.screenWidth(),
+                                rightMargin: EdgeInsets.zero,
                                 event: event,
                               ),
                             ),
@@ -164,6 +169,7 @@ class PViewAllScreen extends StatelessWidget {
                             children: [
                               POrganizationCard(
                                 cardWidth: PHelperFunctions.screenWidth(),
+                                rightMargin: EdgeInsets.zero,
                                 ngo: ngo,
                               ),
                               const SizedBox(height: TSizes.spaceBtwSections),
@@ -192,6 +198,7 @@ class PViewAllScreen extends StatelessWidget {
                               horizontal: TSizes.defaultSpace),
                           child: PHomeArticleCard(
                             article: article,
+                            cardWidth: PHelperFunctions.screenWidth(),
                           ),
                         );
                       }).toList(),

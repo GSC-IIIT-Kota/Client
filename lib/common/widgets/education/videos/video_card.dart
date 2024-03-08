@@ -12,8 +12,14 @@ import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import '../../../../utils/datetime/date_time.dart';
 
 class PVideoCard extends StatelessWidget {
-  const PVideoCard({super.key, required this.video});
+  const PVideoCard(
+      {super.key,
+      required this.video,
+      required this.cardWidth,
+      this.rightMargin = const EdgeInsets.only(right: 20)});
 
+  final double cardWidth;
+  final EdgeInsets? rightMargin;
   final Video video;
 
   @override
@@ -34,9 +40,9 @@ class PVideoCard extends StatelessWidget {
             videoTags: video.tags,
           )),
       child: Container(
-        width: 250,
+        width: cardWidth,
         padding: const EdgeInsets.all(1),
-        margin: const EdgeInsets.only(right: 20),
+        margin: rightMargin,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(TSizes.productImageRadius),
           color: dark ? Colors.black : Colors.white,
@@ -82,7 +88,10 @@ class PVideoCard extends StatelessWidget {
             ///VideoBody
             Padding(
               padding: const EdgeInsets.only(
-                  left: TSizes.md, right: TSizes.md, top: TSizes.sm, bottom: TSizes.md),
+                  left: TSizes.md,
+                  right: TSizes.md,
+                  top: TSizes.sm,
+                  bottom: TSizes.md),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,7 +102,8 @@ class PVideoCard extends StatelessWidget {
                       Text(
                         video.title,
                         style: Theme.of(context).textTheme.titleLarge!.apply(
-                            color: dark ? Colors.white : TColors.dimgrey,),
+                              color: dark ? Colors.white : TColors.dimgrey,
+                            ),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                         textAlign: TextAlign.left,
@@ -104,12 +114,10 @@ class PVideoCard extends StatelessWidget {
                     ],
                   ),
 
-
                   ///Video Category, Upload time
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-
                       SizedBox(
                         width: 180,
                         child: Column(
@@ -119,7 +127,8 @@ class PVideoCard extends StatelessWidget {
                             PCardIconText(
                               iconData: Iconsax.category,
                               iconSize: 14,
-                              iconColor: dark ? TColors.brightpink : TColors.rani,
+                              iconColor:
+                                  dark ? TColors.brightpink : TColors.rani,
                               title: video.title,
                               titleStyle: Theme.of(context)
                                   .textTheme
@@ -138,7 +147,8 @@ class PVideoCard extends StatelessWidget {
                               iconColor: dark
                                   ? Colors.white.withOpacity(0.9)
                                   : TColors.dimgrey,
-                              title: calculateTimeSince(video.uploadDate.toString()),
+                              title: calculateTimeSince(
+                                  video.uploadDate.toString()),
                               titleStyle: Theme.of(context)
                                   .textTheme
                                   .labelMedium!
