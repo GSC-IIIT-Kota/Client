@@ -33,7 +33,8 @@ class BlogScreen extends StatelessWidget {
                   const SizedBox(height: TSizes.spaceBtwItems),
                   const PBlogAppBar(),
                   const SizedBox(height: TSizes.spaceBtwSections),
-                  PWhiteSearchContainer(text: translatedStrings?[85] ?? "Search Blogs"),
+                  PWhiteSearchContainer(
+                      text: translatedStrings?[85] ?? "Search Blogs"),
                   const SizedBox(height: TSizes.spaceBtwSections),
                   const SizedBox(height: TSizes.spaceBtwItems),
                 ],
@@ -43,7 +44,6 @@ class BlogScreen extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: TSizes.spaceBtwItems),
                   PSectionHeading(
@@ -51,7 +51,6 @@ class BlogScreen extends StatelessWidget {
                     textColor: dark ? Colors.white : Colors.black,
                     showActionButton: false,
                   ),
-                  const SizedBox(height: TSizes.spaceBtwItems),
                   FutureBuilder<List<Blog>>(
                     future: BlogService.getAllBlogs(),
                     builder: (context, snapshot) {
