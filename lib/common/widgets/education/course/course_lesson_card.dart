@@ -24,6 +24,7 @@ class PLessonCard extends StatelessWidget {
       onTap: onPressed,
       child: PRoundedContainer(
         height: 80,
+        margin: const EdgeInsets.only(left: TSizes.defaultSpace, right: TSizes.defaultSpace, bottom: TSizes.spaceBtwItems),
         width: PHelperFunctions.screenWidth(),
         backgroundColor: Colors.white,
         child: Padding(
