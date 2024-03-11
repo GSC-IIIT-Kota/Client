@@ -7,21 +7,28 @@ import 'package:http/http.dart' as http;
 import 'package:solution_challenge/common/widgets/appbar/appbar.dart';
 import 'package:solution_challenge/common/widgets/login_signup/form_divider.dart';
 import 'package:solution_challenge/common/widgets/login_signup/social_buttons.dart';
+import 'package:solution_challenge/features/authentication/screens/login/login.dart';
 import 'package:solution_challenge/features/authentication/screens/signup/widgets/signup_form.dart';
+import 'package:solution_challenge/features/education/screens/resources/resources.dart';
 import 'package:solution_challenge/utils/constants/colors.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:solution_challenge/utils/translator/translated_strings.dart';
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget {
+  SignupScreen({Key? key}) : super(key: key);
+
+  @override
+  _SignupScreenState createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
-  SignupScreen({super.key});
 
   Future<void> _handleSignupPressed() async {
     final String firstName = _firstNameController.text;
@@ -53,7 +60,10 @@ class SignupScreen extends StatelessWidget {
 
     if (response.statusCode == 201) {
       // Signup successful, handle the response as needed
-      print('Signup successful');
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => LoginScreen()),
+      );
     } else {
       // Signup failed, handle the error
       print('Signup failed: ${response.body}');
