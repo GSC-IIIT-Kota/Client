@@ -11,17 +11,17 @@ environment:
 
 #---------------------------PACKAGES--------------------------
 dependencies:
-  youtube_player_flutter: ^8.1.2
-  flutter_tts: ^3.6.1
+  youtube_player_flutter: ^9.0.3
+  flutter_tts: ^4.0.2
   flutter:
     sdk: flutter
-  firebase_core: ^2.25.4
-  firebase_auth: ^4.17.4
-  cloud_firestore: ^4.15.4
-  firebase_storage: ^11.6.5
-  firebase_analytics: ^10.0.0
-  firebase_messaging: ^14.7.15
-  firebase_crashlytics: ^3.4.14
+  firebase_core: ^3.4.1
+  firebase_auth: ^5.2.1
+  cloud_firestore: ^5.4.1
+  firebase_storage: ^12.3.0
+  firebase_analytics: ^11.3.1
+  firebase_messaging: ^15.1.1
+  firebase_crashlytics: ^4.1.1
   flutter_dotenv: ^5.1.0
   translator: ^1.0.0
   provider: ^6.0.1
@@ -49,7 +49,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^3.0.1
+  flutter_lints: ^4.0.0
 
 flutter:
   uses-material-design: true
