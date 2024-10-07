@@ -32,7 +32,7 @@ class CourseScreen extends StatelessWidget {
               ),
             ),
 
-            ///Thumbnail
+            /// Main Content
             Column(
               children: [
                 const SizedBox(
@@ -41,14 +41,14 @@ class CourseScreen extends StatelessWidget {
                 const Padding(
                   padding:
                       EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
-                  child: Image(
+                  child: Image( /// Thumbnail
                     image: AssetImage(TImages.courseThumbnail),
                   ),
                 ),
                 const SizedBox(
                   height: TSizes.spaceBtwItems,
                 ),
-                Padding(
+                Padding( /// Page Heading
                   padding: const EdgeInsets.symmetric(
                       horizontal: TSizes.defaultSpace),
                   child: Text(
@@ -64,7 +64,7 @@ class CourseScreen extends StatelessWidget {
                 const SizedBox(
                   height: TSizes.spaceBtwSections,
                 ),
-                PSectionExpansionPanel(
+                PSectionExpansionPanel( /// ExpansionPanelList
                   title: translatedStrings?[93] ??
                       'Introduction to Menstrual Health',
                   textColor: dark ? Colors.white : Colors.black,
@@ -376,6 +376,9 @@ class _PSectionExpansionPanelState extends State<PSectionExpansionPanel> {
 
   @override
   Widget build(BuildContext context) {
+
+    final dark = PHelperFunctions.isDarkMode(context);
+
     return ExpansionPanelList(
       expansionCallback: (panelIndex, isExpanded) {
         setState(() {
@@ -384,7 +387,7 @@ class _PSectionExpansionPanelState extends State<PSectionExpansionPanel> {
       },
       children: [
         ExpansionPanel(
-          backgroundColor: TColors.satin,
+          backgroundColor: dark ? TColors.myblack : TColors.satin,
           headerBuilder: (context, isExpanded) {
             return ListTile(
               contentPadding:
