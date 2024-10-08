@@ -15,6 +15,7 @@ import 'package:solution_challenge/services/event_service.dart';
 import 'package:solution_challenge/services/ngo_service.dart';
 import 'package:solution_challenge/utils/constants/sizes.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:solution_challenge/utils/constants/colors.dart';
 
 import '../../../models/education/articles.dart';
 import '../../../models/education/video.dart';
@@ -64,7 +65,7 @@ class PViewAllScreen extends StatelessWidget {
                 future: CampaignService.getAllCampaigns(),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(child: CircularProgressIndicator());
+                    return const Center(child: CircularProgressIndicator(color: TColors.rani,));
                   } else if (snapshot.hasError) {
                     return Center(child: Text('Error: ${snapshot.error}'));
                   } else {
@@ -94,7 +95,7 @@ class PViewAllScreen extends StatelessWidget {
                 future: VideoService.getVideos(),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(child: CircularProgressIndicator());
+                    return const Center(child: CircularProgressIndicator(color: TColors.rani,));
                   } else if (snapshot.hasError) {
                     return Center(child: Text('Error: ${snapshot.error}'));
                   } else {
@@ -125,7 +126,7 @@ class PViewAllScreen extends StatelessWidget {
                 future: EventService().getEvents(),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(child: CircularProgressIndicator());
+                    return const Center(child: CircularProgressIndicator(color: TColors.rani,));
                   } else if (snapshot.hasError) {
                     return Center(child: Text('Error: ${snapshot.error}'));
                   } else {
@@ -156,7 +157,7 @@ class PViewAllScreen extends StatelessWidget {
                 future: NGOService().getAllNGOs(),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(child: CircularProgressIndicator());
+                    return const Center(child: CircularProgressIndicator(color: TColors.rani,));
                   } else if (snapshot.hasError) {
                     return Center(child: Text('Error: ${snapshot.error}'));
                   } else {
@@ -187,7 +188,7 @@ class PViewAllScreen extends StatelessWidget {
                 future: ArticleService.getAllArticles(),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(child: CircularProgressIndicator());
+                    return const Center(child: CircularProgressIndicator(color: TColors.rani,));
                   } else if (snapshot.hasError) {
                     return Center(child: Text('Error: ${snapshot.error}'));
                   } else {

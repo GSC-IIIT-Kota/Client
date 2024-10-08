@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:solution_challenge/common/widgets/education/videos/video_card.dart';
 import 'package:solution_challenge/models/education/video.dart';
 import 'package:solution_challenge/services/education/video_service.dart';
+import 'package:solution_challenge/utils/constants/colors.dart';
 
 class VideoBuilder extends StatefulWidget {
   const VideoBuilder({super.key});
@@ -25,7 +26,7 @@ class _VideoBuilderState extends State<VideoBuilder> {
       future: videos,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator(color: TColors.rani,));
         } else if (snapshot.hasError) {
           return Center(child: Text('Error: ${snapshot.error}'));
         } else {

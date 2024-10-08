@@ -13,6 +13,7 @@ import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:solution_challenge/utils/provider/userProvider.dart';
 import 'package:solution_challenge/utils/datetime/date_time.dart';
 import 'package:solution_challenge/utils/translator/translated_strings.dart';
+import 'package:solution_challenge/utils/constants/colors.dart';
 
 import '../../utils/constants/colors.dart';
 import '../../utils/constants/sizes.dart';
@@ -55,7 +56,7 @@ class BlogScreen extends StatelessWidget {
                     future: BlogService.getAllBlogs(),
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.waiting) {
-                        return const Center(child: CircularProgressIndicator());
+                        return const Center(child: CircularProgressIndicator(color: TColors.rani,));
                       } else if (snapshot.hasError) {
                         return Center(child: Text('Error: ${snapshot.error}'));
                       } else if (snapshot.hasData) {

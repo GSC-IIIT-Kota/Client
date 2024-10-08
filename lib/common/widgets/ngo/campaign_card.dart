@@ -35,13 +35,19 @@ class PCampaignCard extends StatelessWidget {
         campaign.totalGoal != 0 ? campaign.raisedMoney / campaign.totalGoal : 0;
     String id = "";
     id = campaign.ngoID;
+
     return FutureBuilder<NGO>(
       future: NGOService().getNGOById(id),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const CircularProgressIndicator(); // Show loading indicator while fetching data
+          return Container(
+            width: cardWidth,
+            margin: rightMargin,
+            child: const Center(
+              child: CircularProgressIndicator(color: TColors.rani,),
+            ),
+          ); // Show loading indicator while fetching data
         }
-
         if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
         }

@@ -6,6 +6,7 @@ import 'package:solution_challenge/common/widgets/viewall/viewall_cards.dart';
 import 'package:solution_challenge/models/organisation.dart';
 import 'package:solution_challenge/services/ngo_service.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:solution_challenge/utils/constants/colors.dart';
 
 class POrganisationSection extends StatelessWidget {
   const POrganisationSection({
@@ -36,7 +37,7 @@ class POrganisationSection extends StatelessWidget {
           future: NGOService().getAllNGOs(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator(color: TColors.rani,));
             } else if (snapshot.hasError) {
               return Center(child: Text('Error: ${snapshot.error}'));
             } else {
@@ -51,7 +52,6 @@ class POrganisationSection extends StatelessWidget {
                     return POrganizationCard(
                       cardWidth: 250,
                       ngo: ngo
-
                     );
                   },
                 ),

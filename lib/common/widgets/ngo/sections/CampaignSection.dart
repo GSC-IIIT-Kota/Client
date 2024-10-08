@@ -4,6 +4,7 @@ import 'package:solution_challenge/common/widgets/ngo/campaign_card.dart';
 import 'package:solution_challenge/common/widgets/texts/section_heading.dart';
 import 'package:solution_challenge/common/widgets/viewall/viewall_cards.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
+import 'package:solution_challenge/utils/constants/colors.dart';
 
 import '../../../../models/campaign.dart';
 import '../../../../services/campaign_service.dart';
@@ -35,9 +36,9 @@ class PCampaignSection extends StatelessWidget {
         ),
         FutureBuilder<List<Campaign>>(
           future: CampaignService.getAllCampaigns(),
-          builder: (context, AsyncSnapshot<List<Campaign>> snapshot) {
+          builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator(color: TColors.rani,));
             } else if (snapshot.hasError) {
               return Center(child: Text('Error: ${snapshot.error}'));
             } else {
@@ -48,9 +49,10 @@ class PCampaignSection extends StatelessWidget {
                   itemCount: campaigns.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (_, index) {
+                    final campaign = campaigns[index];
                     return PCampaignCard(
                       cardWidth: 250,
-                      campaign:campaigns[index]
+                      campaign: campaign
                     );
                   },
                 ),

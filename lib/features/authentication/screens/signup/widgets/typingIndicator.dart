@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:solution_challenge/utils/constants/colors.dart';
 
 class TypingIndicator extends StatelessWidget {
   const TypingIndicator({super.key});
@@ -14,6 +15,7 @@ class TypingIndicator extends StatelessWidget {
           height: 24,
           child: CircularProgressIndicator(
             strokeWidth: 2,
+            color: TColors.rani,
           ),
         ),
         SizedBox(width: 8),

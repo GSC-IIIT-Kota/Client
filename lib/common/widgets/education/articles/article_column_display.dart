@@ -4,6 +4,7 @@ import '../../../../models/education/articles.dart';
 import '../../../../services/education/article_service.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 import 'home_article_column.dart';
+import 'package:solution_challenge/utils/constants/colors.dart';
 
 class ArticleColumnBuilder extends StatefulWidget {
   const ArticleColumnBuilder({super.key});
@@ -30,7 +31,7 @@ class _ArticleColumnBuilderState extends State<ArticleColumnBuilder> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(color: TColors.rani,),
           );
         } else if (snapshot.hasError) {
           return Center(
