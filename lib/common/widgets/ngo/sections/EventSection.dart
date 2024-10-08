@@ -5,6 +5,7 @@ import 'package:solution_challenge/models/event.dart';
 import 'package:solution_challenge/services/event_service.dart';
 import 'package:solution_challenge/utils/helpers/helper_functions.dart';
 import 'package:solution_challenge/utils/translator/translated_strings.dart';
+import 'package:solution_challenge/utils/constants/colors.dart';
 
 import '../../texts/section_heading.dart';
 import '../../viewall/viewall_cards.dart';
@@ -40,7 +41,7 @@ class PEventSection extends StatelessWidget {
             future: EventService().getEvents(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator(color: TColors.rani,));
               } else if (snapshot.hasError) {
                 return Center(child: Text('Error: ${snapshot.error}'));
               } else {
